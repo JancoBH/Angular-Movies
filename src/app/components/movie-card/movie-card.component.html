@@ -1,0 +1,12 @@
+<md-card class="movie-card">
+  <img md-card-image src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" *ngIf="movie.poster_path" class="movie-header-card">
+  <md-card-content>
+    <md-card-title title="{{movie.title}}">
+      {{movie.title}}
+    </md-card-title>
+    <p>
+      <strong style="color: #F44336;">Release Date: </strong>{{movie.release_date}} <br>
+      <strong style="color: #F44336;">Rate: </strong> <small>{{movie.vote_average}} <md-icon style="font-size: medium !important;">star</md-icon></small>
+    </p>
+  </md-card-content>
+</md-card>

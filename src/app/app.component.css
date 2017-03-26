@@ -1,0 +1,11 @@
+md-sidenav {
+  width: 250px;
+}
+
+.mat-nav-list{
+  padding-top: 0!important;
+}
+
+md-nav-list a{
+  border-bottom: 1px solid;
+}

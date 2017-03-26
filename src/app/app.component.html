@@ -1,3 +1,24 @@
-<h1>
-  {{title}}
-</h1>
+<md-sidenav-container fullscreen align="center">
+  <md-sidenav #start>
+    <md-toolbar color="primary">
+      <span>Movies Category</span>
+      <span style="flex: 1 1 auto;"></span>
+      <button md-icon-button (click)="start.close()"><md-icon>arrow_forward</md-icon></button>
+    </md-toolbar>
+    <md-nav-list>
+      <a md-list-item routerLink="/genres/{{genre.id}}/{{genre.name}}" routerLinkActive="active" *ngFor="let genre of genres"> {{genre.name}}</a>
+    </md-nav-list>
+  </md-sidenav>
+
+  <md-toolbar color="primary">
+    <button md-icon-button (click)="start.open()">
+      <md-icon>menu</md-icon>
+    </button>
+    Angular - Movies by JancoBH
+  </md-toolbar>
+
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+
+</md-sidenav-container>

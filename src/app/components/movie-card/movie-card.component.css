@@ -1,0 +1,23 @@
+.movie-card{
+  display: inline-block;
+  width: 15%;
+  margin: 7px 5px;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+.movie-header-card{
+  min-height: 100px;
+  max-height: 350px;
+}
+
+md-card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+md-card-content {
+  padding: 0 !important;
+  text-align: left;
+}
