@@ -1,6 +1,26 @@
-<h1>Películas Populares</h1>
-<div style="text-align:center;">
-  <span *ngFor="let movie of popularList">
-    <movie-card [movie]="movie"></movie-card>
-  </span>
-</div>
+<md-tab-group fxLayout="row"
+              fxLayoutAlign="center center">
+  <md-tab label="Popular Movies">
+    <div class="center">
+      <h1>Popular Movies</h1>
+      <span *ngFor="let movie of popularList">
+        <movie-card [movie]="movie"></movie-card>
+      </span>
+    </div>
+  </md-tab>
+  <md-tab label="Upcomming Movies">
+    <div class="center">
+      <h1>Upcomming Movies</h1>
+    </div>
+  </md-tab>
+  <md-tab label="Top Rated Movies">
+    <div class="center">
+      <h1>Top Rated Movies</h1>
+    </div>
+  </md-tab>
+  <md-tab label="Popular Series">
+    <div class="center">
+      <h1>Popular Series</h1>
+    </div>
+  </md-tab>
+</md-tab-group>

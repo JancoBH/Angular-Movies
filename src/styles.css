@@ -7,6 +7,15 @@ body{
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
+a{
+  text-decoration: none;
+  color: white;
+}
+
+.red{
+  color: #F44336;
+}
+
 ::-webkit-scrollbar {
   width: 5px;
   background-color: #F5F5F5;
@@ -21,4 +30,8 @@ body{
 }
 ::-webkit-scrollbar-thumb:hover {
   background:#7d7d7d;
+}
+
+.center{
+  text-align: center;
 }

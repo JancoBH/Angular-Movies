@@ -23,11 +23,59 @@ export class MoviesService {
   }
 
   getGenres() {
-    search.set('language', 'es-ES');
+    search.set('language', 'en_US');
     search.set('api_key', this.apiKey);
     return this._jsonp.get('https://api.themoviedb.org/3/genre/movie/list?callback=JSONP_CALLBACK', {search})
                         .map(res => {
-                          return res.json()
+                          return res.json();
+                        });
+  }
+
+  getMoviesByGenre(id: string){
+    search.set('api_key', this.apiKey);
+    return this._jsonp.get('https://api.themoviedb.org/3/genre/'+ id +'/movies?callback=JSONP_CALLBACK', {search})
+                        .map(res => {
+                          return res.json();
+                        });
+  }
+
+  getMovie(id: string){
+    search.set('api_key', this.apiKey);
+    return this._jsonp.get('https://api.themoviedb.org/3/movie/' + id + '?callback=JSONP_CALLBACK', {search})
+      .map(res => {
+        return res.json();
+      });
+  }
+
+  getMovieReviews(id: string){
+    search.set('api_key', this.apiKey);
+    return this._jsonp.get('https://api.themoviedb.org/3/movie/'+ id +'/reviews?callback=JSONP_CALLBACK', {search})
+                        .map( res => {
+                          return res.json();
+                        });
+  }
+
+  getMovieCredits(id: string){
+    search.set('api_key', this.apiKey);
+    return this._jsonp.get('https://api.themoviedb.org/3/movie/'+ id +'/credits?callback=JSONP_CALLBACK', {search})
+                        .map( res => {
+                          return res.json();
+                        });
+  }
+
+  getMovieVideos(id: string){
+    search.set('api_key', this.apiKey);
+    return this._jsonp.get('https://api.themoviedb.org/3/movie/'+ id +'/videos?callback=JSONP_CALLBACK', {search})
+                        .map( res => {
+                          return res.json();
+                        });
+  }
+
+  getSimilarMovies(id: string){
+    search.set('api_key', this.apiKey);
+    return this._jsonp.get('https://api.themoviedb.org/3/movie/'+ id +'/similar?callback=JSONP_CALLBACK', {search})
+                        .map ( res => {
+                          return res.json();
                         });
   }
 

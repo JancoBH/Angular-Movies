@@ -1,0 +1,36 @@
+.img-movie-card{
+  display: inline-block;
+  width: 20%;
+  vertical-align: top;
+  margin: 15px 5px;
+}
+
+.movie-content-card{
+  display: inline-block;
+  width: 65%;
+  vertical-align: top;
+  margin: 15px 5px;
+  text-align: left;
+}
+
+.movie-content-card a{
+  text-decoration: none;
+}
+
+.movie-content-card hr{
+  border-color: transparent;
+}
+
+.mat-card-actions{
+  padding: 0 !important;
+}
+
+.cast-actor-card{
+  display: inline-block;
+  width: 16%;
+  vertical-align: top;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  background-color: #F44336;
+}

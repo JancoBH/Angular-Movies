@@ -9,10 +9,12 @@ import { MoviesService } from './movies.service'
 })
 export class AppComponent {
   genres: Array<Object>;
+  public loading: boolean;
 
   constructor(private _moviesServices: MoviesService){
     this._moviesServices.getGenres().subscribe( res => {
         this.genres = res.genres;
+        this.loading = true;
       }
     );
   }

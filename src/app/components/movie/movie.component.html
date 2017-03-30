@@ -1,0 +1,44 @@
+<div *ngIf="movie">
+
+  <!-- Img + Website Button Card -->
+  <md-card class="img-movie-card">
+    <img md-card-image src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="">
+    <md-card-actions>
+      <a  href="{{movie.homepage}}" target="_blank"><button md-raised-button color="primary">Visit the Movie Website</button></a>
+      <div *ngIf="video">
+        <h2>{{video.name}}</h2>
+        <iframe [src]="video.url" allowfullscreen></iframe>
+      </div>
+    </md-card-actions>
+  </md-card>
+
+  <!-- Title + Content + overview + genre Card -->
+  <md-card class="movie-content-card">
+    <md-card-content>
+      <h1>{{movie.title}} - <span class="red">{{movie.vote_average}} <md-icon>star</md-icon></span></h1>
+      <h2>Overview</h2>
+      <p>
+        {{movie.overview}}
+      </p>
+      <h1>Gender</h1>
+      <a routerLink="/genres/{{genre.id}}/{{genre.name}}" *ngFor="let genre of movie.genres">
+        <button md-raised-button color="primary">{{genre.name}}</button>
+      </a>
+      <hr>
+      <!--Cast Card-->
+      <md-card *ngIf="cast && cast.length > 0">
+        <h1 class="center">Cast</h1>
+        <md-card-content class="center" >
+          <md-card class="cast-actor-card" *ngFor="let actor of cast">
+            <img md-card-image src="https://image.tmdb.org/t/p/w500/{{actor.profile_path}}" alt="">
+            <md-card-content>
+              {{actor.name}}
+            </md-card-content>
+          </md-card>
+        </md-card-content>
+      </md-card>
+
+    </md-card-content>
+  </md-card>
+
+</div>

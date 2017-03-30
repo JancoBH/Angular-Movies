@@ -1,0 +1,10 @@
+<div *ngIf="movies">
+
+  <h1>{{title}}</h1>
+  <div style="text-align:center;">
+  <span *ngFor="let movie of movies;">
+    <movie-card [movie]="movie"></movie-card>
+  </span>
+  </div>
+
+</div>

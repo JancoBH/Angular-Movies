@@ -13,12 +13,16 @@ import { MoviesService } from './movies.service';
 
 import 'hammerjs';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { MovieComponent } from './components/movie/movie.component';
+import { GenresComponent } from './components/genres/genres.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    MovieComponent,
+    GenresComponent
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,6 @@ export class MoviesComponent implements OnInit {
   constructor(private _moviesService: MoviesService) {
     this._moviesService.getPopular().subscribe(res => {
       this.popularList = res.results;
-      console.log(this.popularList);
     });
   }
 

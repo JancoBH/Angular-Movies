@@ -6,7 +6,8 @@
       <button md-icon-button (click)="start.close()"><md-icon>arrow_forward</md-icon></button>
     </md-toolbar>
     <md-nav-list>
-      <a md-list-item routerLink="/genres/{{genre.id}}/{{genre.name}}" routerLinkActive="active" *ngFor="let genre of genres"> {{genre.name}}</a>
+      <a md-list-item routerLink="/" routerLinkActive="active" (click)="start.close()">Home</a>
+      <a md-list-item routerLink="/genres/{{genre.id}}/{{genre.name}}" routerLinkActive="active" *ngFor="let genre of genres" (click)="start.close()"> {{genre.name}}</a>
     </md-nav-list>
   </md-sidenav>
 
@@ -14,7 +15,7 @@
     <button md-icon-button (click)="start.open()">
       <md-icon>menu</md-icon>
     </button>
-    Angular - Movies by JancoBH
+    <a routerLink="/" style="margin-left: 15px">Angular - Movies by JancoBH</a>
   </md-toolbar>
 
   <div>
