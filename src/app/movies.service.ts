@@ -13,6 +13,16 @@ export class MoviesService {
     this.apiKey = 'fed69657ba4cc6e1078d2a6a95f51c8c';
   }
 
+  searchMovies(searchStr: string){
+    search.set('sort_by', 'popularity.desc');
+    search.set('query', searchStr);
+    search.set('api_key', this.apiKey);
+    return this._jsonp.get('https://api.themoviedb.org/3/search/movie?callback=JSONP_CALLBACK', {search})
+      .map(res => {
+        return res.json();
+      });
+  }
+
   getPopular(){
     search.set('sort_by','popularity.desc');
     search.set('api_key', this.apiKey);
@@ -20,6 +30,23 @@ export class MoviesService {
                         .map(res => {
                           return res.json();
                         });
+  }
+
+  getUpComingMovies() {
+    search.set('api_key', this.apiKey);
+    return this._jsonp.get('https://api.themoviedb.org/3/movie/upcoming?callback=JSONP_CALLBACK', {search})
+      .map(res => {
+        return res.json();
+      })
+  }
+
+  getTopRatedMovies() {
+    var search = new URLSearchParams();
+    search.set('api_key', this.apiKey);
+    return this._jsonp.get('https://api.themoviedb.org/3/movie/top_rated?callback=JSONP_CALLBACK', {search})
+      .map(res => {
+        return res.json();
+      })
   }
 
   getGenres() {
@@ -77,6 +104,22 @@ export class MoviesService {
                         .map ( res => {
                           return res.json();
                         });
+  }
+
+  getPersonDetail(id:string) {
+    search.set('api_key', this.apiKey);
+    return this._jsonp.get('https://api.themoviedb.org/3/person/'+ id +'?callback=JSONP_CALLBACK', {search})
+      .map(res => {
+        return res.json();
+      })
+  }
+
+  getPersonCast(id:string) {
+    search.set('api_key', this.apiKey);
+    return this._jsonp.get('https://api.themoviedb.org/3/person/'+ id +'/movie_credits?callback=JSONP_CALLBACK', {search})
+      .map(res => {
+        return res.json();
+      })
   }
 
 }

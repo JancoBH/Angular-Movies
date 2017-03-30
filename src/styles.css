@@ -12,6 +12,8 @@ a{
   color: white;
 }
 
+hr {  border-color: transparent;  }
+
 .red{
   color: #F44336;
 }

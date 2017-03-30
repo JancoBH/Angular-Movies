@@ -1,36 +1,111 @@
+.mat-card-actions{
+  padding: 0 !important;
+}
+
 .img-movie-card{
   display: inline-block;
-  width: 20%;
   vertical-align: top;
   margin: 15px 5px;
 }
 
 .movie-content-card{
   display: inline-block;
-  width: 65%;
   vertical-align: top;
-  margin: 15px 5px;
+  margin: 5px 5px;
   text-align: left;
-}
-
-.movie-content-card a{
-  text-decoration: none;
-}
-
-.movie-content-card hr{
-  border-color: transparent;
-}
-
-.mat-card-actions{
-  padding: 0 !important;
 }
 
 .cast-actor-card{
   display: inline-block;
-  width: 16%;
   vertical-align: top;
   margin-right: 5px;
   margin-left: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   background-color: #F44336;
+}
+
+.video-movie-main iframe{
+  width: 100%;
+  height: 300px;
+}
+
+.web-btn{  width: 90%;  }
+
+/* =============
+    Responsive
+ =============== */
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+  .img-movie-card{  width: 20%;  }
+
+  .movie-content-card{  width: 65%;  }
+
+  .cast-actor-card{  width: 17%;  }
+
+  .video-movie-main iframe{
+    width: 100%;
+    height: 400px;
+  }
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .img-movie-card{  width: 30%;  }
+
+  .movie-content-card{  width: 55%;  }
+
+  .cast-actor-card{  width: 35%;  }
+
+  .web-btn{
+    height: 50px;
+    font-size: 25px;
+  }
+
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+  .img-movie-card{  width: 25%;  }
+
+  .movie-content-card{  width: 55%;  }
+
+  .cast-actor-card{  width: 33%;  }
+
+  .web-btn{
+    height: 50px;
+    font-size: 16px;
+  }
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  .img-movie-card{  width: 85%;  }
+
+  .movie-content-card{  width: 85%;  }
+
+  .cast-actor-card{  width: 38%;  }
+
+  .web-btn{
+    height: 50px;
+    font-size: 20px;
+  }
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+  .img-movie-card{  width: 85%;  }
+
+  .movie-content-card{  width: 85%;  }
+
+  .cast-actor-card{  width: 80%;  }
+
+  .web-btn{
+    height: 45px;
+    font-size: 16px;
+  }
+
+  .genders-cat button{
+    margin-bottom: 5px;
+  }
 }

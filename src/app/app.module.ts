@@ -15,6 +15,7 @@ import 'hammerjs';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { GenresComponent } from './components/genres/genres.component';
+import { ActorComponent } from './components/actor/actor.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { GenresComponent } from './components/genres/genres.component';
     MoviesComponent,
     MovieCardComponent,
     MovieComponent,
-    GenresComponent
+    GenresComponent,
+    ActorComponent
   ],
   imports: [
     BrowserModule,

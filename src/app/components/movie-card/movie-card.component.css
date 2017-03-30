@@ -1,11 +1,3 @@
-.movie-card{
-  display: inline-block;
-  width: 15%;
-  margin: 7px 5px;
-  vertical-align: top;
-  cursor: pointer;
-}
-
 .movie-header-card{
   min-height: 100px;
   max-height: 350px;
@@ -20,4 +12,64 @@ md-card-title {
 md-card-content {
   padding: 0 !important;
   text-align: left;
+}
+
+
+/* =============
+    Responsive
+ =============== */
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+  .movie-card{
+    display: inline-block;
+    width: 15%;
+    margin: 7px 5px;
+    vertical-align: top;
+    cursor: pointer;
+  }
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .movie-card{
+    display: inline-block;
+    width: 25%;
+    margin: 7px 5px;
+    vertical-align: top;
+    cursor: pointer;
+  }
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+  .movie-card{
+    display: inline-block;
+    width: 40%;
+    margin: 7px 5px;
+    vertical-align: top;
+    cursor: pointer;
+  }
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  .movie-card{
+    display: inline-block;
+    width: 50%;
+    margin: 7px 5px;
+    vertical-align: top;
+    cursor: pointer;
+  }
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+  .movie-card{
+    display: inline-block;
+    width: 80%;
+    margin: 7px 5px;
+    vertical-align: top;
+    cursor: pointer;
+  }
 }
