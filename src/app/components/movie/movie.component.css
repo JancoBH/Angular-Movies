@@ -11,7 +11,7 @@
 .movie-content-card{
   display: inline-block;
   vertical-align: top;
-  margin: 5px 5px;
+  margin: 15px 5px;
   text-align: left;
 }
 
@@ -82,7 +82,7 @@
 @media (max-width: 767px) {
   .img-movie-card{  width: 85%;  }
 
-  .movie-content-card{  width: 85%;  }
+  .movie-content-card{  width: 85%; margin: 10px 5px;  }
 
   .cast-actor-card{  width: 38%;  }
 
@@ -96,7 +96,7 @@
 @media (max-width: 480px) {
   .img-movie-card{  width: 85%;  }
 
-  .movie-content-card{  width: 85%;  }
+  .movie-content-card{  width: 85%; margin: 10px 5px;  }
 
   .cast-actor-card{  width: 80%;  }
 

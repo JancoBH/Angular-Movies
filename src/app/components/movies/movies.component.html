@@ -1,6 +1,6 @@
 <md-tab-group>
   <!--Popular Movies Tab-->
-  <md-tab label="Popular Movies">
+  <md-tab label="Popular Movies" position="1">
     <div class="center">
       <h1>Popular Movies</h1>
       <span *ngFor="let movie of popularList">
@@ -29,27 +29,23 @@
     </div>
   </md-tab>
 
-  <!--Popular Series Tab
-  <md-tab label="Popular Series">
-    <div class="center">
-      <h1>Popular Series</h1>
-    </div>
-  </md-tab>-->
-
   <!--Search Movies Tab-->
   <md-tab label="Search Movies">
     <div class="center">
-      <md-card>
+      <md-card class="search-card">
         <md-input-container style="width: 70%">
           <input mdInput type="search" placeholder="Search for a Movie" [(ngModel)]="searchStr" (keyup.enter)="searchMovies()">
         </md-input-container>
         <button color="primary" md-raised-button (click)="searchMovies()">Search</button>
       </md-card>
       <div *ngIf="searchRes">
-        <h1>{{searchStr}} Results</h1>
+        <h1>{{searchStr | capitalize}} Results</h1>
         <span *ngFor="let movie of searchRes;">
         <movie-card [movie]="movie"></movie-card>
       </span>
+      </div>
+      <div *ngIf="!searchRes">
+        <h1>Search Your Favorite Movie</h1>
       </div>
     </div>
   </md-tab>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 
 import { MoviesService } from '../../movies.service'
 
@@ -7,7 +7,8 @@ import { MoviesService } from '../../movies.service'
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.css']
 })
-export class MoviesComponent implements OnInit {
+
+export class MoviesComponent {
   popularList: Array<Object>;
   upcomingList: Array<Object>;
   topRatedList: Array<Object>;
@@ -24,9 +25,6 @@ export class MoviesComponent implements OnInit {
     this._moviesService.getTopRatedMovies().subscribe(res => {
       this.topRatedList = res.results;
     });
-  }
-
-  ngOnInit() {
   }
 
   searchMovies(){

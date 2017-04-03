@@ -9,3 +9,13 @@ md-sidenav {
 md-nav-list a{
   border-bottom: 1px solid;
 }
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  .janco-ocult{  display: none;  }
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+  .janco-ocult{  display: none;  }
+}

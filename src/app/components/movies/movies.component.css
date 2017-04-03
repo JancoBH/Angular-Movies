@@ -1,0 +1,24 @@
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+  .search-card{  margin: 15px 40px;  }
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .search-card{  margin: 15px 40px;  }
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+  .search-card{  margin: 15px 30px;  }
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  .search-card{  margin: 15px 25px;  }
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+  .search-card{  margin: 15px 20px;  }
+}

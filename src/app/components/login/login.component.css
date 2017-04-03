@@ -1,0 +1,15 @@
+.Card-Aligner{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.card-items button{
+  width: 250px;
+  margin-bottom: 10px;
+}
+
+.input-full{
+  width: 95%;
+}
