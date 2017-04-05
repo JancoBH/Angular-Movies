@@ -1,7 +1,7 @@
 <md-sidenav-container fullscreen align="center">
   <md-sidenav #start>
     <md-toolbar color="primary">
-      <span>Movies Category</span>
+      <span>Welcome</span>
       <span style="flex: 1 1 auto;"></span>
       <button md-icon-button (click)="start.close()"><md-icon>arrow_forward</md-icon></button>
     </md-toolbar>
@@ -9,7 +9,7 @@
       <a md-list-item routerLink="/" routerLinkActive="active" (click)="start.close()">Home</a>
       <a md-list-item *ngIf="!isLoggedIn" routerLink="/login" routerLinkActive="active" (click)="start.close()">Login</a>
       <a md-list-item *ngIf="isLoggedIn" routerLink="/" routerLinkActive="active" (click)="start.close(); logout()">Logout</a>
-      <a md-list-item routerLink="/genres/{{genre.id}}/{{genre.name}}" routerLinkActive="active" *ngFor="let genre of genres" (click)="start.close()"> {{genre.name}}</a>
+      <a md-list-item routerLink="/genres" routerLinkActive="active" (click)="start.close()">Genres</a>
     </md-nav-list>
   </md-sidenav>
 
@@ -17,13 +17,12 @@
     <button md-icon-button (click)="start.open()">
       <md-icon>menu</md-icon>
     </button>
+    <span class="center-flex"></span>
     <span>
-      <a routerLink="/" style="margin-left: 15px">Angular - Movies <span class="janco-ocult">by JancoBH</span></a>
+      <a routerLink="/"><span class="janco-ocult">Angular - Movies by JancoBH - <span *ngIf="isLoggedIn">Welcome {{afService.displayName}}</span></span></a>
     </span>
+    <span class="center-flex"></span>
   </md-toolbar>
 
-  <div>
-    <router-outlet></router-outlet>
-  </div>
-
+  <router-outlet></router-outlet>
 </md-sidenav-container>

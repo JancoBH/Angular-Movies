@@ -1,0 +1,30 @@
+.genre-card{
+  display: inline-block;
+  margin: 10px 5px;
+  vertical-align: top;
+}
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+  .genre-card{  width: 20%;  }
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .genre-card{  width: 25%;  }
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+  .genre-card{  width: 40%;  }
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  .genre-card{  width: 50%;  }
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+  .genre-card{  width: 80%;  }
+}

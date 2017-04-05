@@ -22,6 +22,8 @@ import { ActorComponent } from './components/actor/actor.component';
 import { LoginComponent } from './components/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
+import { GenresListComponent } from './components/genres-list/genres-list.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
     ActorComponent,
     LoginComponent,
     PageNotFoundComponent,
-    CapitalizePipe
+    CapitalizePipe,
+    GenresListComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

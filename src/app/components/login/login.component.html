@@ -1,14 +1,22 @@
 <div class="Card-Aligner">
   <md-card class="card-items">
     <h1>Login to Your Account</h1>
-    <md-input-container class="input-full">
-      <input mdInput type="email" placeholder="Email address">
-    </md-input-container>
-    <md-input-container class="input-full">
-      <input mdInput type="password" placeholder="Password">
-    </md-input-container>
-    <button md-raised-button color="primary" (click)="login()">Sign With Google</button>
+    <form (submit)="loginWithEmail($event, email.value, password.value)">
+      <md-input-container class="input-full">
+        <input mdInput #email type="email" placeholder="Email address" required>
+      </md-input-container>
+      <md-input-container class="input-full">
+        <input mdInput #password type="password" placeholder="Password" required>
+      </md-input-container>
+      <button md-raised-button color="accent" type="submit">Sign In</button>
+    </form>
     <br>
-    <button md-raised-button (click)="login()">Sign With Facebook</button>
+    <button md-raised-button color="primary" (click)="loginWithGoogle()">Sign With Google</button>
+    <md-card-actions>
+      No Account? - <a routerLink="/register">Register Here Now</a>
+    </md-card-actions>
   </md-card>
 </div>
+<md-chip-list role="alert" *ngIf="error">
+  <md-chip color="warn" selected="true">Error: {{error}}</md-chip>
+</md-chip-list>

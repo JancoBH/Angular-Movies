@@ -1,0 +1,24 @@
+<div class="Card-Aligner">
+  <md-card class="card-items">
+    <h1>Register</h1>
+    <form (submit)="registerUser($event, name.value, email.value, password.value)">
+      <md-input-container class="input-full">
+        <input mdInput #name type="text" id="name" placeholder="Name" required>
+      </md-input-container>
+      <md-input-container class="input-full">
+        <input mdInput #email type="email" id="email" placeholder="Email address" required>
+      </md-input-container>
+      <md-input-container class="input-full">
+        <input mdInput #password type="password" id="inputPassword" placeholder="Password" required>
+      </md-input-container>
+      <button md-raised-button type="submit" color="primary">Register</button>
+    </form>
+    <md-card-actions>
+      <a routerLink="/login">I Already Have an Account</a>
+    </md-card-actions>
+  </md-card>
+</div>
+<br>
+<md-chip-list role="alert" *ngIf="error">
+  <md-chip color="warn" selected="true">Error: {{error}}</md-chip>
+</md-chip-list>

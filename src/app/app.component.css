@@ -10,6 +10,10 @@ md-nav-list a{
   border-bottom: 1px solid;
 }
 
+.center-flex{
+  flex: 1 1 auto;
+}
+
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
   .janco-ocult{  display: none;  }

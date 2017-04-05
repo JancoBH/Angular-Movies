@@ -10,26 +10,27 @@ import { Router } from "@angular/router";
   providers: [MoviesService, AF]
 })
 export class AppComponent {
-  genres: Array<Object>;
   isLoggedIn: boolean;
 
-  constructor(private _moviesServices: MoviesService, public afService: AF, private router: Router){
-    this._moviesServices.getGenres().subscribe( res => {
-        this.genres = res.genres;
-      }
-    );
+  constructor(public afService: AF, private router: Router){
 
     this.afService.af.auth.subscribe(
       (auth) => {
         if(auth == null) {
-          console.log("Not Logged in.");
           this.isLoggedIn = false;
         }
         else {
-          console.log("Successfully Logged in.");
+
+          if(auth.google){
+            this.afService.displayName = auth.google.displayName;
+            this.afService.email = auth.google.email;
+          }
+          else {
+            this.afService.displayName = auth.auth.email;
+            this.afService.email = auth.auth.email;
+          }
+
           this.isLoggedIn = true;
-          // UPDATE: I forgot this at first. Without it when a user is logged in and goes directly to /login
-          // the user did not get redirected to the home page.
           this.router.navigate(['']);
         }
       }
@@ -39,6 +40,7 @@ export class AppComponent {
 
   logout() {
     this.afService.logout();
+    this.router.navigate(['/login']);
   }
 
 }
