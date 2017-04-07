@@ -1,7 +1,7 @@
 <div *ngIf="movie">
-
   <!-- Img + Website Button Card -->
   <md-card class="img-movie-card">
+    <md-spinner style="margin: auto;" *ngIf="loading"></md-spinner>
     <img md-card-image src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="">
     <md-card-actions>
       <a  href="{{movie.homepage}}" target="_blank"><button md-raised-button color="primary" class="web-btn">Visit the Movie Website</button></a>
@@ -12,35 +12,59 @@
   <md-card class="movie-content-card">
     <md-card-content>
       <h1>{{movie.title}} - <span class="red">{{movie.vote_average}} <md-icon>star</md-icon></span></h1>
+      <a routerLink="/genres/{{genre.id}}/{{genre.name}}" *ngFor="let genre of movie.genres" class="genders-cat">
+        <button md-raised-button color="primary">{{genre.name}}</button>
+      </a>
       <h2>Overview</h2>
       <p>
         {{movie.overview}}
       </p>
-      <div class="video-movie-main" *ngIf="video">
-        <h1>{{video.name}}</h1>
-        <iframe [src]="video.url" allowfullscreen></iframe>
-      </div>
-      <h1>Gender</h1>
-      <a routerLink="/genres/{{genre.id}}/{{genre.name}}" *ngFor="let genre of movie.genres" class="genders-cat">
-        <button md-raised-button color="primary">{{genre.name}}</button>
-      </a>
-      <hr>
-      <!--Cast Card-->
-        <md-card *ngIf="cast && cast.length > 0">
-          <h1 class="center">Cast</h1>
-          <md-card-content class="center" >
-            <md-card class="cast-actor-card" *ngFor="let actor of cast">
-              <a routerLink="/actor/{{actor.id}}">
-                <img md-card-image src="https://image.tmdb.org/t/p/w500/{{actor.profile_path}}" alt="">
-                <md-card-content>
-                  {{actor.name}}
-                </md-card-content>
-              </a>
-            </md-card>
-          </md-card-content>
-        </md-card>
+      <md-tab-group> <!-- Tabs -->
 
+        <!--Cast Card-->
+        <md-tab label="Cast">
+          <div *ngIf="cast && cast.length > 0">
+            <h1 class="center">Cast</h1>
+            <md-card-content class="center" >
+              <md-card class="cast-actor-card" *ngFor="let actor of cast">
+                <a routerLink="/actor/{{actor.id}}">
+                  <img md-card-image src="https://image.tmdb.org/t/p/w500/{{actor.profile_path}}" alt="">
+                  <md-card-content>
+                    {{actor.name}}
+                  </md-card-content>
+                </a>
+              </md-card>
+            </md-card-content>
+          </div>
+        </md-tab>
+        <md-tab label="Trailer">
+          <div *ngIf="video" class="video-movie-main">
+            <h1>{{video.name}}</h1>
+            <iframe [src]="video.url" allowfullscreen></iframe>
+          </div>
+        </md-tab>
+        <md-tab label="Reviews">
+          <div *ngIf="reviews && reviews.length > 0">
+            <h1>Review</h1>
+            <div *ngFor="let review of reviews">
+              <blockquote>
+                <p class="text-justify">{{review.content}}</p>
+                <footer><cite title="{{review.author}}"><a href="{{review.url}}" target="_blank" class="red">{{review.author}}</a></cite></footer>
+              </blockquote>
+            </div>
+          </div>
+        </md-tab>
+      </md-tab-group> <!-- Tabs End-->
     </md-card-content>
   </md-card>
+
+  <div *ngIf="similarMovies && similarMovies.length > 0">
+    <h1>Similar Movies</h1>
+    <div style="text-align:center;">
+      <span *ngFor="let movie of similarMovies;">
+        <movie-card [movie]="movie"></movie-card>
+      </span>
+    </div>
+  </div>
 
 </div>

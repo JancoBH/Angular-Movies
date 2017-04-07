@@ -15,13 +15,15 @@ export class MovieComponent implements OnInit {
   similarMovies: Array<Object>;
   cast: Array<Object>;
   video: Object;
+  loading: boolean;
 
   constructor(
     private _moviesService: MoviesService,
     private router: ActivatedRoute,
     private sanitizer: DomSanitizer
-
-  ) { }
+  ) {
+      this.loading = true;
+    }
 
   ngOnInit() {
     this.router.params.subscribe( (params) => {
@@ -29,6 +31,12 @@ export class MovieComponent implements OnInit {
 
       this._moviesService.getMovie(id).subscribe( movie =>{
         this.movie = movie;
+
+        if (!this.movie){
+          alert("Server Error")
+        } else {
+          this.loading = false;
+        }
       });
 
       this._moviesService.getMovieReviews(id).subscribe( res => {
@@ -48,7 +56,7 @@ export class MovieComponent implements OnInit {
       });
 
       this._moviesService.getSimilarMovies(id).subscribe( res => {
-        this.similarMovies = res.results.slice(0,12);
+        this.similarMovies = res.results.slice(0,10);
       });
 
     });
