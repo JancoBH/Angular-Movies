@@ -1,55 +1,45 @@
-import {Injectable} from "@angular/core";
-import {AngularFire, AuthProviders, AuthMethods, FirebaseListObservable} from 'angularfire2';
+import {Injectable} from '@angular/core';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
 
 @Injectable()
 export class AF {
 
-  users: FirebaseListObservable<any>;
+  users: FirebaseListObservable<firebase.User>;
   displayName: string;
   email: string;
 
-  constructor(public af: AngularFire) {}
+  constructor(public db: AngularFireDatabase, public afAuth: AngularFireAuth) {
+  }
 
   loginWithGoogle() {
-    return this.af.auth.login({
-      provider: AuthProviders.Google,
-      method: AuthMethods.Popup,
-    });
+    return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
   logout() {
-    return this.af.auth.logout();
+    return this.afAuth.auth.signOut();
   }
 
-  addUserInfo(){
+  addUserInfo() {
     this.users.push({
       email: this.email,
       displayName: this.displayName
     });
   }
 
-  registerUser(email, password) {
-    return this.af.auth.createUser({
-      email,
-      password
-    });
+  registerUser(email: string, password: string) {
+    return this.afAuth.auth.createUserWithEmailAndPassword(email, password);
   }
 
-  saveUserInfoFromForm(uid, name, email){
-    return this.af.database.object('registeredUsers/' + uid).set({
+  saveUserInfoFromForm(uid, name, email) {
+    return this.db.object('registeredUsers/' + uid).set({
       name,
       email
     });
   }
 
-  loginWithEmail(email, password){
-    return this.af.auth.login({
-      email,
-      password
-    },
-    {
-      provider: AuthProviders.Password,
-      method: AuthMethods.Password
-    });
+  loginWithEmail(email: string, password: string) {
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
 }

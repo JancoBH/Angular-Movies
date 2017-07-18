@@ -29,11 +29,11 @@ export class MovieComponent implements OnInit {
     this.router.params.subscribe( (params) => {
       const id = params['id'];
 
-      this._moviesService.getMovie(id).subscribe( movie =>{
+      this._moviesService.getMovie(id).subscribe( movie => {
         this.movie = movie;
 
-        if (!this.movie){
-          alert("Server Error")
+        if (!this.movie) {
+          alert('Server Error')
         } else {
           this.loading = false;
         }
@@ -45,18 +45,18 @@ export class MovieComponent implements OnInit {
 
       this._moviesService.getMovieCredits(id).subscribe( res => {
         res.cast = res.cast.filter( item => { return item.profile_path });
-        this.cast = res.cast.slice(0,4);
+        this.cast = res.cast.slice(0, 4);
       });
 
       this._moviesService.getMovieVideos(id).subscribe( res => {
-        if (res.results && res.results.length){
+        if (res.results && res.results.length) {
           this.video = res.results[0];
           this.video['url'] = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + this.video['key']);
         }
       });
 
       this._moviesService.getSimilarMovies(id).subscribe( res => {
-        this.similarMovies = res.results.slice(0,10);
+        this.similarMovies = res.results.slice(0, 10);
       });
 
     });

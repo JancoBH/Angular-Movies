@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MoviesService } from './movies.service';
 import { AF } from './providers/af';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,22 +12,20 @@ import { Router } from "@angular/router";
 export class AppComponent {
   isLoggedIn: boolean;
 
-  constructor(public afService: AF, private router: Router){
+  constructor(public afService: AF, private router: Router) {
 
-    this.afService.af.auth.subscribe(
+    this.afService.afAuth.authState.subscribe(
       (auth) => {
-        if(auth == null) {
+        if (auth == null) {
           this.isLoggedIn = false;
-        }
-        else {
+        } else {
 
-          if(auth.google){
-            this.afService.displayName = auth.google.displayName;
-            this.afService.email = auth.google.email;
-          }
-          else {
-            this.afService.displayName = auth.auth.email;
-            this.afService.email = auth.auth.email;
+          if (auth) {
+            this.afService.displayName = auth.displayName;
+            this.afService.email = auth.email;
+          } else {
+            this.afService.displayName = auth.email;
+            this.afService.email = auth.email;
           }
 
           this.isLoggedIn = true;

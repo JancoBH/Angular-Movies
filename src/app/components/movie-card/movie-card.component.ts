@@ -5,9 +5,8 @@ import { Component, Input } from '@angular/core';
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.css']
 })
-export class MovieCardComponent implements Input {
+export class MovieCardComponent {
 
-  @Input()
-  movie: Object;
+  @Input() public movie: Object;
 
 }

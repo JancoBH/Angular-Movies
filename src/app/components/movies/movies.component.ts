@@ -27,7 +27,7 @@ export class MoviesComponent {
     });
   }
 
-  searchMovies(){
+  searchMovies() {
     this._moviesService.searchMovies(this.searchStr).subscribe( res => {
       this.searchRes = res.results;
     });
