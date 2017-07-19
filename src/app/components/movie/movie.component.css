@@ -44,7 +44,7 @@
  =============== */
 
 /* Large desktops and laptops */
-@media (min-width: 1200px) {
+@media (min-width: 1201px) {
   .img-movie-card{  width: 20%;  }
 
   .movie-content-card{  width: 70%;  }
@@ -58,7 +58,7 @@
 }
 
 /* Landscape tablets and medium desktops */
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 992px) and (max-width: 1200px) {
   .img-movie-card{  width: 30%;  }
 
   .movie-content-card{  width: 55%;  }

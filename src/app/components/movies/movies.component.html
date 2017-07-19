@@ -3,9 +3,14 @@
   <md-tab label="Popular Movies">
     <div class="center">
       <h1>Popular Movies</h1>
-      <span *ngFor="let movie of popularList">
+      <span *ngFor="let movie of popularList?.results">
         <movie-card [movie]="movie"></movie-card>
       </span>
+      <div *ngIf="isLoading" style="margin-top: 30%">
+        <div class="loading">
+          <h4>Loading</h4>
+        </div>
+      </div>
     </div>
   </md-tab>
 
@@ -13,7 +18,7 @@
   <md-tab label="Upcomming Movies">
     <div class="center">
       <h1>Upcomming Movies</h1>
-      <span *ngFor="let movie of upcomingList">
+      <span *ngFor="let movie of upcomingList?.results">
         <movie-card [movie]="movie"></movie-card>
       </span>
     </div>
@@ -23,7 +28,7 @@
   <md-tab label="Top Rated Movies">
     <div class="center">
       <h1>Top Rated Movies</h1>
-      <span *ngFor="let movie of topRatedList">
+      <span *ngFor="let movie of topRatedList?.results">
         <movie-card [movie]="movie"></movie-card>
       </span>
     </div>
@@ -40,7 +45,7 @@
       </md-card>
       <div *ngIf="searchRes">
         <h1>{{searchStr | capitalize}} Results</h1>
-        <span *ngFor="let movie of searchRes;">
+        <span *ngFor="let movie of searchRes?.results;">
         <movie-card [movie]="movie"></movie-card>
       </span>
       </div>

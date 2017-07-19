@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import {MoviesService} from '../../movies.service';
+import {Movie} from "../../models/movie";
+import {Actors} from "../../models/actors";
 
 @Component({
   selector: 'app-actor',
@@ -10,8 +12,8 @@ import {MoviesService} from '../../movies.service';
 })
 export class ActorComponent implements OnInit {
 
-  person: Object;
-  movies: Array<Object>;
+  person: Actors;
+  movies: Movie;
 
   constructor(
     private _moviesSerice: MoviesService,

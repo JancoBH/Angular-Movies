@@ -1,6 +1,7 @@
 <a routerLink="/movie/{{movie.id}}">
   <md-card class="movie-card">
-      <img md-card-image src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" *ngIf="movie.poster_path" class="movie-header-card">
+      <img *ngIf="movie.poster_path" md-card-image src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" class="movie-header-card">
+      <img *ngIf="!movie.poster_path" md-card-image src="http://www.catedrauamfujitsu.es/wp-content/themes/invicta/styles/images/defaults/no_photo.jpg" class="movie-header-card">
     <md-card-content>
       <md-card-title>
         {{movie.title}}

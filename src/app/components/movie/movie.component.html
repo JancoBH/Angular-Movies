@@ -1,34 +1,31 @@
 <div *ngIf="movie">
-  <!-- Img + Website Button Card -->
-  <md-card class="img-movie-card">
-    <md-spinner style="margin: auto;" *ngIf="loading"></md-spinner>
-    <img md-card-image src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="">
-    <md-card-actions>
-      <a  href="{{movie.homepage}}" target="_blank"><button md-raised-button color="primary" class="web-btn">Visit the Movie Website</button></a>
-    </md-card-actions>
-  </md-card>
 
-  <!-- Title + Content + overview + genre Card -->
-  <md-card class="movie-content-card">
+  <md-card class="img-movie-card"> <!--First Card-->
+    <img md-card-image src="https://image.tmdb.org/t/p/w500/{{movie?.poster_path}}" alt="">
+    <md-card-actions>
+      <a  href="{{movie?.homepage}}" target="_blank"><button md-raised-button color="primary" class="web-btn">Visit the Movie Website</button></a>
+    </md-card-actions>
+  </md-card> <!--First Card End-->
+
+  <md-card class="movie-content-card"> <!--Second Card-->
     <md-card-content>
-      <h1>{{movie.title}} - <span class="red">{{movie.vote_average}} <md-icon>star</md-icon></span></h1>
-      <a routerLink="/genres/{{genre.id}}/{{genre.name}}" *ngFor="let genre of movie.genres" class="genders-cat">
+      <h1>{{movie?.title}} - <span class="red">{{movie?.vote_average}} <md-icon>star</md-icon></span></h1>
+      <a routerLink="/genres/{{genre.id}}/{{genre.name}}" *ngFor="let genre of movie?.genres" class="genders-cat">
         <button md-raised-button color="primary">{{genre.name}}</button>
       </a>
       <h2>Overview</h2>
       <p>
-        {{movie.overview}}
+        {{movie?.overview}}
       </p>
       <md-tab-group> <!-- Tabs -->
 
-        <!--Cast Card-->
-        <md-tab label="Cast">
-          <div *ngIf="cast && cast.length > 0">
+        <md-tab label="Cast"> <!--Cast Tab-->
+          <div *ngIf="cast">
             <h1 class="center">Cast</h1>
             <md-card-content class="center" >
               <md-card class="cast-actor-card" *ngFor="let actor of cast">
-                <a routerLink="/actor/{{actor.id}}">
-                  <img md-card-image src="https://image.tmdb.org/t/p/w500/{{actor.profile_path}}" alt="">
+                <a routerLink="/actor/{{actor?.id}}">
+                  <img md-card-image src="https://image.tmdb.org/t/p/w500/{{actor?.profile_path}}" alt="">
                   <md-card-content>
                     {{actor.name}}
                   </md-card-content>
@@ -36,35 +33,46 @@
               </md-card>
             </md-card-content>
           </div>
-        </md-tab>
-        <md-tab label="Trailer">
+        </md-tab> <!--Cast Tab End-->
+
+        <md-tab label="Trailer"> <!--Trailer Tab-->
           <div *ngIf="video" class="video-movie-main">
-            <h1>{{video.name}}</h1>
+            <h1 class="center">{{video.name}}</h1>
             <iframe [src]="video.url" allowfullscreen></iframe>
           </div>
-        </md-tab>
-        <md-tab label="Reviews">
-          <div *ngIf="reviews && reviews.length > 0">
-            <h1>Review</h1>
-            <div *ngFor="let review of reviews">
+        </md-tab> <!--Trailer Tab End-->
+
+        <md-tab label="Reviews"> <!--Reviews Tab-->
+          <div *ngIf="reviews?.results; else noReview">
+            <h1 class="center">Review</h1>
+            <div *ngFor="let review of reviews.results">
               <blockquote>
-                <p class="text-justify">{{review.content}}</p>
-                <footer><cite title="{{review.author}}"><a href="{{review.url}}" target="_blank" class="red">{{review.author}}</a></cite></footer>
+                <p class="text-justify">{{review?.content}}</p>
+                <footer><cite title="{{review?.author}}"><a href="{{review?.url}}" target="_blank" class="red">{{review?.author}}</a></cite></footer>
               </blockquote>
             </div>
           </div>
-        </md-tab>
+          <ng-template #noReview>
+            <h1 class="center">There is not Review Available</h1>
+          </ng-template>
+        </md-tab> <!--Reviews Tab End-->
+
       </md-tab-group> <!-- Tabs End-->
     </md-card-content>
-  </md-card>
+  </md-card> <!--Second Card End-->
 
-  <div *ngIf="similarMovies && similarMovies.length > 0">
+  <div *ngIf="similarMovies && similarMovies.length > 0"> <!--Similar Movies-->
     <h1>Similar Movies</h1>
     <div style="text-align:center;">
       <span *ngFor="let movie of similarMovies;">
         <movie-card [movie]="movie"></movie-card>
       </span>
     </div>
-  </div>
+  </div> <!--End Similar Movies-->
 
+</div>
+<div *ngIf="isLoading" style="margin-top: 30%">
+  <div class="loading">
+    <h4>Loading</h4>
+  </div>
 </div>

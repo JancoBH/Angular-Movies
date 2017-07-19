@@ -1,6 +1,10 @@
 import { Component} from '@angular/core';
 
 import { MoviesService } from '../../movies.service'
+import {PopularMovies} from "../../models/popular-movies";
+import {UpcommingMovies} from "../../models/upcomming-movies";
+import {TopRatedMovies} from "../../models/top-rated-movies";
+import {SearchMovies} from "../../models/search-movies";
 
 @Component({
   selector: 'app-movies',
@@ -9,27 +13,29 @@ import { MoviesService } from '../../movies.service'
 })
 
 export class MoviesComponent {
-  popularList: Array<Object>;
-  upcomingList: Array<Object>;
-  topRatedList: Array<Object>;
-  searchRes: Array<Object>;
+  popularList: PopularMovies;
+  upcomingList: UpcommingMovies;
+  topRatedList: TopRatedMovies;
+  searchRes: SearchMovies;
   searchStr: string;
+  isLoading: boolean = true;
 
   constructor(private _moviesService: MoviesService) {
     this._moviesService.getPopular().subscribe(res => {
-      this.popularList = res.results;
+      this.popularList = res;
+      this.isLoading = false;
     });
     this._moviesService.getUpComingMovies().subscribe(res => {
-      this.upcomingList = res.results;
+      this.upcomingList = res;
     });
     this._moviesService.getTopRatedMovies().subscribe(res => {
-      this.topRatedList = res.results;
+      this.topRatedList = res;
     });
   }
 
   searchMovies() {
     this._moviesService.searchMovies(this.searchStr).subscribe( res => {
-      this.searchRes = res.results;
+      this.searchRes = res;
     });
   }
 

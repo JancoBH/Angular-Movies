@@ -10,14 +10,14 @@ html, body{
   background: #333333;
 }
 
-a{
+app-movies a{
   text-decoration: none;
   color: white;
 }
 
-hr {  border-color: transparent;  }
+app-movies hr {  border-color: transparent;  }
 
-.red{
+app-movies .red{
   color: #F44336;
 }
 
@@ -31,6 +31,11 @@ hr {  border-color: transparent;  }
   top: 50%;
   margin-top: -20px;
   border-radius: 50%;
+}
+
+.loading h4 {
+  color: white;
+  margin-left: 40px;
 }
 
 

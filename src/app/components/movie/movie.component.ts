@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from '../../movies.service';
+import {Movie} from "../../models/movie";
+import {MovieReviews} from "../../models/movie-reviews";
+import {MovieCast} from "../../models/movie-cast";
+import {MovieVideo} from "../../models/movie-video";
+import {SimilarMovies} from "../../models/similar-movies";
 
 @Component({
   selector: 'app-movie',
@@ -10,19 +15,18 @@ import { MoviesService } from '../../movies.service';
 })
 export class MovieComponent implements OnInit {
 
-  movie: Object;
-  reviews: Array<Object>;
-  similarMovies: Array<Object>;
-  cast: Array<Object>;
-  video: Object;
-  loading: boolean;
+  movie: Movie;
+  reviews: MovieReviews;
+  similarMovies: SimilarMovies;
+  cast: MovieCast;
+  video: MovieVideo;
+  isLoading: boolean = true;
 
   constructor(
     private _moviesService: MoviesService,
     private router: ActivatedRoute,
     private sanitizer: DomSanitizer
   ) {
-      this.loading = true;
     }
 
   ngOnInit() {
@@ -35,12 +39,12 @@ export class MovieComponent implements OnInit {
         if (!this.movie) {
           alert('Server Error')
         } else {
-          this.loading = false;
+          this.isLoading = false;
         }
       });
 
       this._moviesService.getMovieReviews(id).subscribe( res => {
-        this.reviews = res.results;
+        this.reviews = res;
       });
 
       this._moviesService.getMovieCredits(id).subscribe( res => {

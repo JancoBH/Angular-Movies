@@ -4,7 +4,7 @@ import { AF } from './providers/af';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-movies',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   providers: [MoviesService, AF]
