@@ -24,11 +24,11 @@ import { MovieCardComponent } from './components/movie-card/movie-card.component
 import { MovieComponent } from './components/movie/movie.component';
 import { GenresComponent } from './components/genres/genres.component';
 import { ActorComponent } from './components/actor/actor.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './components/auth/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { GenresListComponent } from './components/genres-list/genres-list.component';
-import { RegisterComponent } from './components/register/register.component';
+import { RegisterComponent } from './components/auth/register/register.component';
 import { environment } from '../environments/environment';
 
 @NgModule({

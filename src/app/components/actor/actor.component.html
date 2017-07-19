@@ -1,8 +1,14 @@
 <div *ngIf="person">
-  <md-card class="">
+  <md-card class="actor-card">
     <img src="https://image.tmdb.org/t/p/w300/{{person.profile_path}}" *ngIf="person.profile_path">
     <md-card-content>
+      <h2>Personal Info</h2>
       <h4> {{person.name}} </h4>
+      <p>
+        <strong>Gender: </strong>
+        <span *ngIf="person.gender == 2">Male</span>
+        <span *ngIf="person.gender == 1">Female</span>
+      </p>
       <p><strong>Birthday: </strong>{{person.birthday}}</p>
       <p><strong>Place of Birth: </strong>{{person.place_of_birth}}</p>
       <p>
@@ -11,6 +17,12 @@
           {{person.popularity}}<md-icon>star</md-icon>
         </small>
       </p>
+    </md-card-content>
+  </md-card>
+
+  <md-card class="actor-card-similar">
+    <md-card-content>
+      <h2>Soon more Info</h2>
     </md-card-content>
   </md-card>
 </div>

@@ -1,10 +1,10 @@
 import { Component} from '@angular/core';
 
 import { MoviesService } from '../../movies.service'
-import {PopularMovies} from "../../models/popular-movies";
-import {UpcommingMovies} from "../../models/upcomming-movies";
-import {TopRatedMovies} from "../../models/top-rated-movies";
-import {SearchMovies} from "../../models/search-movies";
+import {PopularMovies} from '../../models/popular-movies';
+import {UpcommingMovies} from '../../models/upcomming-movies';
+import {TopRatedMovies} from '../../models/top-rated-movies';
+import {SearchMovies} from '../../models/search-movies';
 
 @Component({
   selector: 'app-movies',
@@ -18,7 +18,7 @@ export class MoviesComponent {
   topRatedList: TopRatedMovies;
   searchRes: SearchMovies;
   searchStr: string;
-  isLoading: boolean = true;
+  isLoading = true;
 
   constructor(private _moviesService: MoviesService) {
     this._moviesService.getPopular().subscribe(res => {

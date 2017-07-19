@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from '../../movies.service';
-import {Movie} from "../../models/movie";
-import {MovieReviews} from "../../models/movie-reviews";
-import {MovieCast} from "../../models/movie-cast";
-import {MovieVideo} from "../../models/movie-video";
-import {SimilarMovies} from "../../models/similar-movies";
+import {Movie} from '../../models/movie';
+import {MovieReviews} from '../../models/movie-reviews';
+import {MovieCast} from '../../models/movie-cast';
+import {MovieVideo} from '../../models/movie-video';
+import {SimilarMovies} from '../../models/similar-movies';
 
 @Component({
   selector: 'app-movie',
@@ -20,7 +20,7 @@ export class MovieComponent implements OnInit {
   similarMovies: SimilarMovies;
   cast: MovieCast;
   video: MovieVideo;
-  isLoading: boolean = true;
+  isLoading = true;
 
   constructor(
     private _moviesService: MoviesService,

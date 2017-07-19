@@ -3,7 +3,7 @@
     <h1>Register</h1>
     <form (submit)="registerUser($event, name.value, email.value, password.value)">
       <md-input-container class="input-full">
-        <input mdInput #name type="text" id="name" placeholder="Name" required>
+        <input mdInput #name id="name" placeholder="Name" required>
       </md-input-container>
       <md-input-container class="input-full">
         <input mdInput #email type="email" id="email" placeholder="Email address" required>
@@ -11,7 +11,7 @@
       <md-input-container class="input-full">
         <input mdInput #password type="password" id="inputPassword" placeholder="Password" required>
       </md-input-container>
-      <button md-raised-button type="submit" color="primary">Register</button>
+      <button md-raised-button color="primary">Register</button>
     </form>
     <md-card-actions>
       <a routerLink="/login">I Already Have an Account</a>

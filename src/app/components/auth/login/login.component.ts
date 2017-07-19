@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AF } from '../../providers/af'
+import { AF } from '../../../providers/af'
 import { Router } from '@angular/router'
 
 @Component({

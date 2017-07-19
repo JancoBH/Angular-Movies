@@ -1,0 +1,53 @@
+.actor-card {
+  display: inline-block;
+  vertical-align: top;
+  margin: 15px 5px;
+  padding: 0;
+  text-align: left;
+}
+
+.actor-card-similar{
+  display: inline-block;
+  vertical-align: top;
+  margin: 15px 5px;
+}
+
+.actor-card img{
+  width: 100%;
+}
+
+.actor-card md-card-content {
+  padding: 10px;
+}
+
+/* =============
+    Responsive
+ =============== */
+
+/* Large desktops and laptops */
+@media (min-width: 1201px) {
+ .actor-card {  width: 20%; }
+
+  .actor-card-similar { width: 74%; }
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1200px) {
+
+
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+
+}

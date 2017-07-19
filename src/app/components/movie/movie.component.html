@@ -25,7 +25,7 @@
             <md-card-content class="center" >
               <md-card class="cast-actor-card" *ngFor="let actor of cast">
                 <a routerLink="/actor/{{actor?.id}}">
-                  <img md-card-image src="https://image.tmdb.org/t/p/w500/{{actor?.profile_path}}" alt="">
+                  <img md-card-image src="https://image.tmdb.org/t/p/w500/{{actor?.profile_path}}" alt="" height="350px;">
                   <md-card-content>
                     {{actor.name}}
                   </md-card-content>
@@ -61,7 +61,7 @@
     </md-card-content>
   </md-card> <!--Second Card End-->
 
-  <div *ngIf="similarMovies && similarMovies.length > 0"> <!--Similar Movies-->
+  <div *ngIf="similarMovies"> <!--Similar Movies-->
     <h1>Similar Movies</h1>
     <div style="text-align:center;">
       <span *ngFor="let movie of similarMovies;">

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import {MoviesService} from '../../movies.service';
-import {Movie} from "../../models/movie";
-import {Actors} from "../../models/actors";
+import {Movie} from '../../models/movie';
+import {Actors} from '../../models/actors';
 
 @Component({
   selector: 'app-actor',
@@ -25,6 +25,7 @@ export class ActorComponent implements OnInit {
       const id = params['id'];
       this._moviesSerice.getPersonDetail(id).subscribe(person => {
         this.person = person;
+        console.log(person);
       });
       this._moviesSerice.getPersonCast(id).subscribe(res => {
         this.movies = res.cast;

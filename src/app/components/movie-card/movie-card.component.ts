@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import {Movie} from '../../models/movie';
 
 @Component({
   selector: 'movie-card',
@@ -9,6 +10,6 @@ export class MovieCardComponent {
 
   constructor (){}
 
-  @Input() public movie: Object;
+  @Input() public movie: Movie;
 
 }
