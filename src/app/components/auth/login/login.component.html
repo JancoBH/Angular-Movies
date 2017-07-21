@@ -1,17 +1,17 @@
 <div class="Card-Aligner">
   <md-card class="card-items">
     <h1>Login to Your Account</h1>
-    <form [formGroup]="loginForm" (ngSubmit)="loginWithEmail(loginForm.value)">
+    <form (submit)="loginWithEmail($event, email.value, password.value)">
       <md-input-container class="input-full">
-        <input mdInput type="email" placeholder="Email address" formControlName="email" email>
+        <input mdInput #email type="email" placeholder="Email address" required>
       </md-input-container>
       <md-input-container class="input-full">
-        <input mdInput type="password" placeholder="Password" formControlName="password">
+        <input mdInput #password type="password" placeholder="Password" required>
       </md-input-container>
-      <button md-raised-button color="accent" [disabled]="!loginForm.valid">Sign In</button>
+      <button md-raised-button color="accent">Sign In</button>
     </form>
     <br>
-    <button md-raised-button color="primary" (click)="signInWithGoogle()">Sign With Google</button>
+    <button md-raised-button color="primary" (click)="loginWithGoogle()">Sign With Google</button>
     <md-card-actions>
       No Account? - <a routerLink="/register">Register Here Now</a>
     </md-card-actions>

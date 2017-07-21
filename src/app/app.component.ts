@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {AuthService} from './providers/auth-service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-movies',
@@ -9,7 +10,7 @@ import {AuthService} from './providers/auth-service';
 export class AppComponent {
   isLoggedIn: boolean;
 
-  constructor(public authService: AuthService) {
+  constructor(public authService: AuthService, private router: Router) {
 
     this.authService.afAuth.authState.subscribe(
       (auth) => {
@@ -18,7 +19,7 @@ export class AppComponent {
         } else {
 
           if (auth) {
-            this.authService.authState = auth.displayName;
+            this.authService.displayName = auth.displayName;
             this.authService.email = auth.email;
           } else {
             this.authService.displayName = auth.email;
@@ -33,7 +34,8 @@ export class AppComponent {
   }
 
   logout() {
-    this.authService.signOut();
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
 }

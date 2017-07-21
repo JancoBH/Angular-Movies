@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../../providers/auth-service'
 import { Router } from '@angular/router'
-import {FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-login',
@@ -11,38 +10,29 @@ import {FormBuilder, FormGroup, Validators } from "@angular/forms";
 export class LoginComponent {
 
   public error: any;
-  loginForm: FormGroup;
 
   constructor(
     public authService: AuthService,
-    private router: Router,
-    private fb: FormBuilder
-  ) {
-    this.loginForm = fb.group({
-      'email': [null, Validators.required],
-      'password': [null, Validators.required]
+    private router: Router
+  ) { }
+
+  loginWithGoogle() {
+    this.authService.loginWithGoogle().then( res => {
+      this.authService.addUserInfo();
+      this.router.navigate(['']);
     });
   }
 
-  private afterSignIn(): void {
-    this.router.navigate(['/']);
-  }
-
-  signInWithGoogle(): void  {
-    this.authService.googleLogin().then( () => {
-      this.afterSignIn();
-    });
-  }
-
-  loginWithEmail(post) {
-
-    this.authService.emailLogin(post.email, post.password).then(() => {
-      if (this.loginForm.valid) {
-        this.afterSignIn();
-      } else {
-        this.error = this.authService.error;
-      }
+  loginWithEmail(event, email, password) {
+    event.preventDefault();
+    this.authService.loginWithEmail(email, password).then(() => {
+      this.router.navigate(['']);
     })
+      .catch((error: any) => {
+        if (error) {
+          this.error = error;
+        }
+      });
   }
 
 }

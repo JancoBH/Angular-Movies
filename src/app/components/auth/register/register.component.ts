@@ -1,48 +1,32 @@
-import {Component, OnInit} from '@angular/core';
+import { Component} from '@angular/core';
 
 import { AuthService } from '../../../providers/auth-service'
 import { Router } from '@angular/router'
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
   public error: any;
-  registerForm: FormGroup;
 
-  constructor(public authService: AuthService, private router: Router, private fb: FormBuilder) {}
+  constructor(private authService: AuthService, private router: Router) { }
 
-  ngOnInit(): void {
-    this.buildForm();
-  }
-
-  registerUser(post): void {
-    if (this.registerForm.valid) {
-      this.authService.emailSignUp(post.email, post.password).then( (res) => {
-        console.log(res);
+  registerUser(event, name, email, password) {
+    event.preventDefault();
+    this.authService.registerUser(email, password).then((user) => {
+      this.authService.saveUserInfoFromForm(user.uid, name, email).then(() => {
+        this.router.navigate(['']);
       })
-    }
-  }
-
-  buildForm(): void {
-    this.registerForm = this.fb.group({
-      'email': ['', [
-        Validators.required,
-        Validators.email
-      ]
-      ],
-      'password': ['', [
-        // Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
-        Validators.minLength(6),
-        Validators.maxLength(25),
-        Validators.required
-      ]
-      ],
-    });
+        .catch((error) => {
+          this.error = error;
+        });
+    })
+      .catch((error) => {
+        this.error = error;
+      });
   }
 
 }
