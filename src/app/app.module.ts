@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule  } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
@@ -17,7 +17,7 @@ import {
 import { AppComponent } from './app.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { MoviesService } from './movies.service';
-import { AF } from './providers/af'
+import { AuthService } from './providers/auth-service'
 
 import 'hammerjs';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
@@ -49,6 +49,7 @@ import { environment } from '../environments/environment';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     JsonpModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -65,7 +66,7 @@ import { environment } from '../environments/environment';
     MdListModule,
     MdCardModule
   ],
-  providers: [MoviesService, AF],
+  providers: [MoviesService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,17 +1,14 @@
 <div class="Card-Aligner">
   <md-card class="card-items">
     <h1>Register</h1>
-    <form (submit)="registerUser($event, name.value, email.value, password.value)">
+    <form [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm.value)">
       <md-input-container class="input-full">
-        <input mdInput #name id="name" placeholder="Name" required>
+        <input mdInput type="email" id="email" placeholder="Email address" formControlName="email" email>
       </md-input-container>
       <md-input-container class="input-full">
-        <input mdInput #email type="email" id="email" placeholder="Email address" required>
+        <input mdInput type="password" id="inputPassword" placeholder="Password" formControlName="password">
       </md-input-container>
-      <md-input-container class="input-full">
-        <input mdInput #password type="password" id="inputPassword" placeholder="Password" required>
-      </md-input-container>
-      <button md-raised-button color="primary">Register</button>
+      <button md-raised-button color="primary" [disabled]="!registerForm.valid">Register</button>
     </form>
     <md-card-actions>
       <a routerLink="/login">I Already Have an Account</a>
@@ -19,6 +16,6 @@
   </md-card>
 </div>
 <br>
-<md-chip-list role="alert" *ngIf="error">
-  <md-chip color="warn" selected="true">Error: {{error}}</md-chip>
+<md-chip-list role="alert" *ngIf="authService.error">
+  <md-chip color="warn" selected="true" class="error">{{authService.error}}</md-chip>
 </md-chip-list>

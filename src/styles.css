@@ -75,3 +75,7 @@ app-movies .red{
 .center{
   text-align: center;
 }
+
+.error {
+  margin: 10px auto auto;
+}
