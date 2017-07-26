@@ -22,12 +22,7 @@ export class MovieComponent implements OnInit {
   video: MovieVideo;
   isLoading = true;
 
-  constructor(
-    private _moviesService: MoviesService,
-    private router: ActivatedRoute,
-    private sanitizer: DomSanitizer
-  ) {
-    }
+  constructor(private _moviesService: MoviesService, private router: ActivatedRoute, private sanitizer: DomSanitizer) {}
 
   ngOnInit() {
     this.router.params.subscribe( (params) => {
@@ -35,8 +30,6 @@ export class MovieComponent implements OnInit {
 
       this._moviesService.getMovie(id).subscribe( movie => {
         this.movie = movie;
-
-        console.log(movie);
 
         if (!this.movie) {
           alert('Server Error')

@@ -4,36 +4,22 @@
     <div class="parrallax">
     </div>
 
-    <div class="parallax-content">
+    <div class="parallax-left-content">
         <section class="parallax-position">
-          <div class="parallax-img-content">
-            <img src="https://image.tmdb.org/t/p/w500/{{movie?.poster_path}}" alt="">
-          </div>
-          <div>
-            <section class="parallax-right-content">
-              <div class="parallax-right-position"> <!--Title-->
-                <span>
-                  <h2 class="parallax-title">{{movie.title}}</h2>
-                </span>
-                <div class="parallax-btn-container">
-                  <button md-mini-fab><md-icon>favorite</md-icon></button>
-                  <button md-mini-fab><md-icon>star</md-icon></button>
-                  <button md-mini-fab><md-icon>bookmark</md-icon></button>
-                </div>
-
-                <h3 class="parallax-subtitle">Overview</h3>
-
-                <p>{{movie.overview}}</p>
-
-                <h3 class="parallax-subtitle">Categories</h3>
-
-                <a routerLink="/genres/{{genre.id}}/{{genre.name}}" *ngFor="let genre of movie?.genres" class="genders-cat">
-                  <button md-raised-button color="primary">{{genre.name}}</button>
-                </a>
-
-              </div>
-
-            </section>
+          <img src="https://image.tmdb.org/t/p/w500/{{movie?.poster_path}}" alt="">
+          <div class="parallax-right-content"> <!--Title-->
+            <h2>{{movie.title}}</h2>
+            <div class="parallax-btn-container">
+              <button md-mini-fab mdTooltip="Soon"><md-icon>favorite</md-icon></button>
+              <button md-mini-fab mdTooltip="Soon"><md-icon>star</md-icon></button>
+              <button md-mini-fab mdTooltip="Soon"><md-icon>bookmark</md-icon></button>
+            </div>
+            <h3 class="parallax-subtitle">Overview</h3>
+            <p>{{movie.overview}}</p>
+            <h3 class="parallax-subtitle">Categories</h3>
+            <a *ngFor="let genre of movie.genres" routerLink="/genres/{{genre.id}}/{{genre.name}}" class="genders-cat">
+              <button md-raised-button color="primary">{{genre.name}}</button>
+            </a>
           </div>
         </section>
     </div>

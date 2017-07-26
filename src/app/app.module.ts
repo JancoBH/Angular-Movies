@@ -11,7 +11,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MdButtonModule, MdSidenavModule, MdTabsModule,
   MdChipsModule, MdInputModule, MdIconModule,
-  MdToolbarModule, MdListModule, MdCardModule
+  MdToolbarModule, MdListModule, MdCardModule,
+  MdTooltipModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -64,7 +65,8 @@ import { environment } from '../environments/environment';
     MdIconModule,
     MdToolbarModule,
     MdListModule,
-    MdCardModule
+    MdCardModule,
+    MdTooltipModule
   ],
   providers: [MoviesService, AuthService],
   bootstrap: [AppComponent]
