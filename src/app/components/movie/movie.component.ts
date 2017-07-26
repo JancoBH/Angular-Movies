@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { MoviesService } from '../../movies.service';
+import { MoviesService } from '../../services/movies.service';
 import {Movie} from '../../models/movie';
 import {MovieReviews} from '../../models/movie-reviews';
 import {MovieCast} from '../../models/movie-cast';
@@ -36,6 +36,8 @@ export class MovieComponent implements OnInit {
       this._moviesService.getMovie(id).subscribe( movie => {
         this.movie = movie;
 
+        console.log(movie);
+
         if (!this.movie) {
           alert('Server Error')
         } else {
@@ -49,7 +51,7 @@ export class MovieComponent implements OnInit {
 
       this._moviesService.getMovieCredits(id).subscribe( res => {
         res.cast = res.cast.filter( item => { return item.profile_path });
-        this.cast = res.cast.slice(0, 4);
+        this.cast = res.cast.slice(0, 5);
       });
 
       this._moviesService.getMovieVideos(id).subscribe( res => {

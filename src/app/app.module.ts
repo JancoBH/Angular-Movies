@@ -16,8 +16,8 @@ import {
 
 import { AppComponent } from './app.component';
 import { MoviesComponent } from './components/movies/movies.component';
-import { MoviesService } from './movies.service';
-import { AuthService } from './providers/auth-service'
+import { MoviesService } from './services/movies.service';
+import { AuthService } from './services/auth-service'
 
 import 'hammerjs';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';

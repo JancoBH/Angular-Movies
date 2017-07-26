@@ -1,33 +1,59 @@
 <div *ngIf="movie">
 
-  <md-card class="img-movie-card"> <!--First Card-->
-    <img md-card-image src="https://image.tmdb.org/t/p/w500/{{movie?.poster_path}}" alt="">
-    <md-card-actions>
-      <a  href="{{movie?.homepage}}" target="_blank"><button md-raised-button color="primary" class="web-btn">Visit the Movie Website</button></a>
-    </md-card-actions>
-  </md-card> <!--First Card End-->
+  <div class="parrallax-content" [ngStyle]="{'background-image': 'linear-gradient(rgba(52,41,49,0.4), rgba(68,34,102,0.4)), url('+'https://image.tmdb.org/t/p/w500'+movie.backdrop_path+')'}">
+    <div class="parrallax">
+    </div>
+
+    <div class="parallax-content">
+        <section class="parallax-position">
+          <div class="parallax-img-content">
+            <img src="https://image.tmdb.org/t/p/w500/{{movie?.poster_path}}" alt="">
+          </div>
+          <div>
+            <section class="parallax-right-content">
+              <div class="parallax-right-position"> <!--Title-->
+                <span>
+                  <h2 class="parallax-title">{{movie.title}}</h2>
+                </span>
+                <div class="parallax-btn-container">
+                  <button md-mini-fab><md-icon>favorite</md-icon></button>
+                  <button md-mini-fab><md-icon>star</md-icon></button>
+                  <button md-mini-fab><md-icon>bookmark</md-icon></button>
+                </div>
+
+                <h3 class="parallax-subtitle">Overview</h3>
+
+                <p>{{movie.overview}}</p>
+
+                <h3 class="parallax-subtitle">Categories</h3>
+
+                <a routerLink="/genres/{{genre.id}}/{{genre.name}}" *ngFor="let genre of movie?.genres" class="genders-cat">
+                  <button md-raised-button color="primary">{{genre.name}}</button>
+                </a>
+
+              </div>
+
+            </section>
+          </div>
+        </section>
+    </div>
+
+  </div>
 
   <md-card class="movie-content-card"> <!--Second Card-->
     <md-card-content>
-      <h1>{{movie?.title}} - <span class="red">{{movie?.vote_average}} <md-icon>star</md-icon></span></h1>
-      <a routerLink="/genres/{{genre.id}}/{{genre.name}}" *ngFor="let genre of movie?.genres" class="genders-cat">
-        <button md-raised-button color="primary">{{genre.name}}</button>
-      </a>
-      <h2>Overview</h2>
-      <p>
-        {{movie?.overview}}
-      </p>
       <md-tab-group> <!-- Tabs -->
 
         <md-tab label="Cast"> <!--Cast Tab-->
           <div *ngIf="cast">
-            <h1 class="center">Cast</h1>
-            <md-card-content class="center" >
+            <h1 class="center">Top Billed Cast</h1>
+            <md-card-content class="card-content">
               <md-card class="cast-actor-card" *ngFor="let actor of cast">
                 <a routerLink="/actor/{{actor?.id}}">
-                  <img md-card-image src="https://image.tmdb.org/t/p/w500/{{actor?.profile_path}}" alt="" height="350px;">
+                  <img md-card-image src="https://image.tmdb.org/t/p/w500/{{actor?.profile_path}}">
                   <md-card-content>
-                    {{actor.name}}
+                    <strong>{{actor.name}}</strong><br>
+                    <span>{{actor.character}}</span>
                   </md-card-content>
                 </a>
               </md-card>

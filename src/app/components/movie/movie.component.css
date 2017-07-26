@@ -1,5 +1,102 @@
+.parallax-content{
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  z-index: 0;
+}
+
+.parallax-content .parallax-position {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+.parallax-img-content {
+  display: block;
+  width: 300px;
+  height: 450px;
+  position: relative;
+  z-index: 2;
+}
+
+.parallax-img-content img {
+  display: block; width: 300px; height: 450px; box-shadow: 0 0 4px rgba(0, 0, 0, 0.2); border-radius: 4px;
+}
+
+.parallax-right-content {
+  display: flex; flex-wrap: wrap; align-items: flex-start; align-content: center; box-sizing: border-box; padding-left: 40px;
+}
+
+.parallax-right-position {
+  width: 100%; margin-bottom: 30px; text-align: left
+}
+
+.parallax-title {
+  font-size: 2.2em; font-weight: 700;
+}
+
+.parallax-btn-container {  margin-bottom: 20px  }
+
+.parallax-btn-container button {
+  background: rgba(0, 0, 0, 0.5); border: 2px solid white; margin-right: 10px
+}
+
+.parallax-btn-container button md-icon {
+  color: white; font-size: medium !important;
+}
+
+.parallax-subtitle {
+  width: 100%; margin: 0 0 10px 0; font-weight: 600; line-height: 1.3em; font-size: 1.3em;
+}
+
+.mat-mini-fab .mat-icon, .mat-mini-fab i {
+  padding: 8px 0;
+  line-height: 20px;
+}
+
+.parrallax-content{
+  position: relative;
+  overflow: hidden;
+  height: 75vh;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+}
+
+.parrallax {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.parrallax:before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  z-index: -1;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 120% auto;
+}
+
 .mat-card-actions{
   padding: 0 !important;
+}
+
+.card-content{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
 }
 
 .img-movie-card{
@@ -16,20 +113,9 @@
 }
 
 .cast-actor-card{
-  display: inline-block;
   vertical-align: top;
-  margin-right: 5px;
-  margin-left: 5px;
-  margin-bottom: 10px;
+  margin: 0 5px 0;
   background-color: #F44336;
-}
-
-.cast-actor-card md-card-content{
-  font-size: 18px;
-  margin-bottom: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .video-movie-main iframe{
@@ -47,9 +133,9 @@
 @media (min-width: 1201px) {
   .img-movie-card{  width: 20%;  }
 
-  .movie-content-card{  width: 70%;  }
+  .movie-content-card{  width: 95%;  }
 
-  .cast-actor-card{  width: 17%;  }
+  .cast-actor-card{  width: 13%;  }
 
   .video-movie-main iframe{
     width: 100%;
@@ -61,9 +147,9 @@
 @media (min-width: 992px) and (max-width: 1200px) {
   .img-movie-card{  width: 30%;  }
 
-  .movie-content-card{  width: 55%;  }
+  .movie-content-card{  width: 95%;  }
 
-  .cast-actor-card{  width: 35%;  }
+  .cast-actor-card{  width: 22%;  }
 
   .web-btn{
     height: 50px;
@@ -73,12 +159,12 @@
 }
 
 /* Portrait tablets and small desktops */
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 768px) and (max-width: 992px) {
   .img-movie-card{  width: 25%;  }
 
-  .movie-content-card{  width: 55%;  }
+  .movie-content-card{  width: 95%;  }
 
-  .cast-actor-card{  width: 33%;  }
+  .cast-actor-card{  width: 23%;  }
 
   .web-btn{
     height: 50px;
@@ -87,10 +173,10 @@
 }
 
 /* Landscape phones and portrait tablets */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .img-movie-card{  width: 85%;  }
 
-  .movie-content-card{  width: 85%; margin: 10px 5px;  }
+  .movie-content-card{  width: 95%; margin: 10px 5px;  }
 
   .cast-actor-card{  width: 38%;  }
 
@@ -104,7 +190,7 @@
 @media (max-width: 480px) {
   .img-movie-card{  width: 85%;  }
 
-  .movie-content-card{  width: 85%; margin: 10px 5px;  }
+  .movie-content-card{  width: 95%; margin: 10px 5px;  }
 
   .cast-actor-card{  width: 80%;  }
 

@@ -1,4 +1,20 @@
 <md-tab-group>
+
+  <!--Now Playing Movies-->
+  <md-tab label="Now Playing Movies">
+    <div class="center">
+      <h1>Now Playing Movies</h1>
+      <span *ngFor="let movie of nowPlaying?.results">
+        <movie-card [movie]="movie"></movie-card>
+      </span>
+      <div *ngIf="isLoading" style="margin-top: 30%">
+        <div class="loading">
+          <h4>Loading</h4>
+        </div>
+      </div>
+    </div>
+  </md-tab>
+
   <!--Popular Movies Tab-->
   <md-tab label="Popular Movies">
     <div class="center">
