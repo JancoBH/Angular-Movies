@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Http, Jsonp, URLSearchParams} from '@angular/http';
+import {Jsonp, URLSearchParams} from '@angular/http';
 import 'rxjs/Rx';
 import {Observable} from "rxjs/Observable";
 
@@ -11,7 +11,7 @@ export class MoviesService {
   apiKey: string;
 
   constructor(private _jsonp: Jsonp) {
-    this.apiKey = 'fed69657ba4cc6e1078d2a6a95f51c8c';
+    this.apiKey = '73b2fc9fab947354d61cb3faa1a40405';
   }
 
   getNowPlaying(): Observable<any> {

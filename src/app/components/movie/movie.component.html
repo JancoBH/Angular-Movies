@@ -6,7 +6,9 @@
 
     <div class="parallax-left-content">
         <section class="parallax-position">
-          <img src="https://image.tmdb.org/t/p/w500/{{movie?.poster_path}}" alt="">
+          <div class="parallax-img-container">
+            <img src="https://image.tmdb.org/t/p/w500/{{movie?.poster_path}}" alt="" width="300px">
+          </div>
           <div class="parallax-right-content"> <!--Title-->
             <h2>{{movie.title}}</h2>
             <div class="parallax-btn-container">
@@ -47,7 +49,7 @@
           </div>
         </md-tab> <!--Cast Tab End-->
 
-        <md-tab label="Trailer"> <!--Trailer Tab-->
+        <md-tab label="Media"> <!--Trailer Tab-->
           <div *ngIf="video" class="video-movie-main">
             <h1 class="center">{{video.name}}</h1>
             <iframe [src]="video.url" allowfullscreen></iframe>
@@ -55,7 +57,7 @@
         </md-tab> <!--Trailer Tab End-->
 
         <md-tab label="Reviews"> <!--Reviews Tab-->
-          <div *ngIf="reviews?.results; else noReview">
+          <div *ngIf="reviews?.results.length >= 1; else noReview">
             <h1 class="center">Review</h1>
             <div *ngFor="let review of reviews.results">
               <blockquote>
