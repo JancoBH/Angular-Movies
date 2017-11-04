@@ -1,4 +1,4 @@
-md-sidenav {
+mat-sidenav {
   width: 250px;
 }
 
@@ -6,7 +6,7 @@ md-sidenav {
   padding-top: 0!important;
 }
 
-md-nav-list a{
+mat-nav-list a{
   border-bottom: 1px solid;
 }
 

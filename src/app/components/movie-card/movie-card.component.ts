@@ -8,8 +8,8 @@ import {Movie} from '../../models/movie';
 })
 export class MovieCardComponent {
 
-  constructor (){}
-
   @Input() public movie: Movie;
+
+  constructor () {}
 
 }

@@ -12,15 +12,15 @@
           <div class="parallax-right-content"> <!--Title-->
             <h2>{{movie.title}}</h2>
             <div class="parallax-btn-container">
-              <button md-mini-fab mdTooltip="Soon"><md-icon>favorite</md-icon></button>
-              <button md-mini-fab mdTooltip="Soon"><md-icon>star</md-icon></button>
-              <button md-mini-fab mdTooltip="Soon"><md-icon>bookmark</md-icon></button>
+              <button mat-mini-fab matTooltip="Soon"><mat-icon>favorite</mat-icon></button>
+              <button mat-mini-fab matTooltip="Soon"><mat-icon>star</mat-icon></button>
+              <button mat-mini-fab matTooltip="Soon"><mat-icon>bookmark</mat-icon></button>
             </div>
             <h3 class="parallax-subtitle">Overview</h3>
             <p>{{movie.overview}}</p>
             <h3 class="parallax-subtitle">Categories</h3>
             <a *ngFor="let genre of movie.genres" routerLink="/genres/{{genre.id}}/{{genre.name}}" class="genders-cat">
-              <button md-raised-button color="primary">{{genre.name}}</button>
+              <button mat-raised-button color="primary">{{genre.name}}</button>
             </a>
           </div>
         </section>
@@ -28,35 +28,35 @@
 
   </div>
 
-  <md-card class="movie-content-card"> <!--Second Card-->
-    <md-card-content>
-      <md-tab-group> <!-- Tabs -->
+  <mat-card class="movie-content-card"> <!--Second Card-->
+    <mat-card-content>
+      <mat-tab-group> <!-- Tabs -->
 
-        <md-tab label="Cast"> <!--Cast Tab-->
+        <mat-tab label="Cast"> <!--Cast Tab-->
           <div *ngIf="cast">
             <h1 class="center">Top Billed Cast</h1>
-            <md-card-content class="card-content">
-              <md-card class="cast-actor-card" *ngFor="let actor of cast">
+            <mat-card-content class="card-content">
+              <mat-card class="cast-actor-card" *ngFor="let actor of cast">
                 <a routerLink="/actor/{{actor?.id}}">
-                  <img md-card-image src="https://image.tmdb.org/t/p/w500/{{actor?.profile_path}}">
-                  <md-card-content>
+                  <img mat-card-image src="https://image.tmdb.org/t/p/w500/{{actor?.profile_path}}">
+                  <mat-card-content>
                     <strong>{{actor.name}}</strong><br>
                     <span>{{actor.character}}</span>
-                  </md-card-content>
+                  </mat-card-content>
                 </a>
-              </md-card>
-            </md-card-content>
+              </mat-card>
+            </mat-card-content>
           </div>
-        </md-tab> <!--Cast Tab End-->
+        </mat-tab> <!--Cast Tab End-->
 
-        <md-tab label="Media"> <!--Trailer Tab-->
+        <mat-tab label="Media"> <!--Trailer Tab-->
           <div *ngIf="video" class="video-movie-main">
             <h1 class="center">{{video.name}}</h1>
             <iframe [src]="video.url" allowfullscreen></iframe>
           </div>
-        </md-tab> <!--Trailer Tab End-->
+        </mat-tab> <!--Trailer Tab End-->
 
-        <md-tab label="Reviews"> <!--Reviews Tab-->
+        <mat-tab label="Reviews"> <!--Reviews Tab-->
           <div *ngIf="reviews?.results.length >= 1; else noReview">
             <h1 class="center">Review</h1>
             <div *ngFor="let review of reviews.results">
@@ -69,11 +69,11 @@
           <ng-template #noReview>
             <h1 class="center">There is not Review Available</h1>
           </ng-template>
-        </md-tab> <!--Reviews Tab End-->
+        </mat-tab> <!--Reviews Tab End-->
 
-      </md-tab-group> <!-- Tabs End-->
-    </md-card-content>
-  </md-card> <!--Second Card End-->
+      </mat-tab-group> <!-- Tabs End-->
+    </mat-card-content>
+  </mat-card> <!--Second Card End-->
 
   <div *ngIf="similarMovies"> <!--Similar Movies-->
     <h1>Similar Movies</h1>

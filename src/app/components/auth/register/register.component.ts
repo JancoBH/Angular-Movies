@@ -18,7 +18,7 @@ export class RegisterComponent {
     event.preventDefault();
     this.authService.registerUser(email, password).then((user) => {
       this.authService.saveUserInfoFromForm(user.uid, name, email).then(() => {
-        this.router.navigate(['']);
+        this.router.navigate(['']).then();
       })
         .catch((error) => {
           this.error = error;

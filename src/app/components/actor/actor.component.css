@@ -16,7 +16,7 @@
   width: 100%;
 }
 
-.actor-card md-card-content {
+.actor-card mat-card-content {
   padding: 10px;
 }
 

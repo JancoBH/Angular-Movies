@@ -17,16 +17,16 @@ export class LoginComponent {
   ) { }
 
   loginWithGoogle() {
-    this.authService.loginWithGoogle().then( res => {
+    this.authService.loginWithGoogle().then( () => {
       this.authService.addUserInfo();
-      this.router.navigate(['']);
+      this.router.navigate(['']).then();
     });
   }
 
   loginWithEmail(event, email, password) {
     event.preventDefault();
     this.authService.loginWithEmail(email, password).then(() => {
-      this.router.navigate(['']);
+      this.router.navigate(['']).then();
     })
       .catch((error: any) => {
         if (error) {

@@ -29,7 +29,7 @@
   background: rgba(0, 0, 0, 0.5); border: 2px solid white; margin-right: 10px
 }
 
-.parallax-btn-container button md-icon {
+.parallax-btn-container button mat-icon {
   color: white; font-size: medium;
 }
 
@@ -38,7 +38,6 @@
 }
 
 .mat-mini-fab .mat-icon, .mat-mini-fab i {
-  padding: 8px 0;
   line-height: 20px;
 }
 

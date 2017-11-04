@@ -1,7 +1,7 @@
-<md-tab-group>
+<mat-tab-group>
 
   <!--Now Playing Movies-->
-  <md-tab label="Now Playing Movies">
+  <mat-tab label="Now Playing Movies">
     <div class="center">
       <h1>Now Playing Movies</h1>
       <span *ngFor="let movie of nowPlaying?.results">
@@ -13,10 +13,10 @@
         </div>
       </div>
     </div>
-  </md-tab>
+  </mat-tab>
 
   <!--Popular Movies Tab-->
-  <md-tab label="Popular Movies">
+  <mat-tab label="Popular Movies">
     <div class="center">
       <h1>Popular Movies</h1>
       <span *ngFor="let movie of popularList?.results">
@@ -28,37 +28,37 @@
         </div>
       </div>
     </div>
-  </md-tab>
+  </mat-tab>
 
   <!--Upcoming Movies Tab-->
-  <md-tab label="Upcomming Movies">
+  <mat-tab label="Upcomming Movies">
     <div class="center">
       <h1>Upcomming Movies</h1>
       <span *ngFor="let movie of upcomingList?.results">
         <movie-card [movie]="movie"></movie-card>
       </span>
     </div>
-  </md-tab>
+  </mat-tab>
 
   <!--Top Rated Movies Tab-->
-  <md-tab label="Top Rated Movies">
+  <mat-tab label="Top Rated Movies">
     <div class="center">
       <h1>Top Rated Movies</h1>
       <span *ngFor="let movie of topRatedList?.results">
         <movie-card [movie]="movie"></movie-card>
       </span>
     </div>
-  </md-tab>
+  </mat-tab>
 
   <!--Search Movies Tab-->
-  <md-tab label="Search Movies">
+  <mat-tab label="Search Movies">
     <div class="center">
-      <md-card class="search-card">
-        <md-input-container style="width: 70%">
-          <input mdInput type="search" placeholder="Search for a Movie" [(ngModel)]="searchStr" (keyup.enter)="searchMovies()">
-        </md-input-container>
-        <button color="primary" md-raised-button (click)="searchMovies()">Search</button>
-      </md-card>
+      <mat-card class="search-card">
+        <mat-input-container style="width: 70%">
+          <input matInput type="search" placeholder="Search for a Movie" [(ngModel)]="searchStr" (keyup.enter)="searchMovies()">
+        </mat-input-container>
+        <button color="primary" mat-raised-button (click)="searchMovies()">Search</button>
+      </mat-card>
       <div *ngIf="searchRes">
         <h1>{{searchStr | capitalize}} Results</h1>
         <span *ngFor="let movie of searchRes?.results;">
@@ -69,5 +69,5 @@
         <h1>Search Your Favorite Movie</h1>
       </div>
     </div>
-  </md-tab>
-</md-tab-group>
+  </mat-tab>
+</mat-tab-group>

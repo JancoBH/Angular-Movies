@@ -1,24 +1,24 @@
 <div class="Card-Aligner">
-  <md-card class="card-items">
+  <mat-card class="card-items">
     <h1>Register</h1>
     <form (submit)="registerUser($event, name.value, email.value, password.value)">
-      <md-input-container class="input-full">
-        <input mdInput #name id="name" placeholder="Name" required>
-      </md-input-container>
-      <md-input-container class="input-full">
-        <input mdInput #email type="email" id="email" placeholder="Email address" required>
-      </md-input-container>
-      <md-input-container class="input-full">
-        <input mdInput #password type="password" id="inputPassword" placeholder="Password" required>
-      </md-input-container>
-      <button md-raised-button color="primary">Register</button>
+      <mat-input-container class="input-full">
+        <input matInput #name id="name" placeholder="Name" required>
+      </mat-input-container>
+      <mat-input-container class="input-full">
+        <input matInput #email type="email" id="email" placeholder="Email address" required>
+      </mat-input-container>
+      <mat-input-container class="input-full">
+        <input matInput #password type="password" id="inputPassword" placeholder="Password" required>
+      </mat-input-container>
+      <button mat-raised-button color="primary">Register</button>
     </form>
-    <md-card-actions>
+    <mat-card-actions>
       <a routerLink="/login">I Already Have an Account</a>
-    </md-card-actions>
-  </md-card>
+    </mat-card-actions>
+  </mat-card>
 </div>
 <br>
-<md-chip-list role="alert" *ngIf="error">
-  <md-chip color="warn" selected="true" class="error">{{error}}</md-chip>
-</md-chip-list>
+<mat-chip-list role="alert" *ngIf="error">
+  <mat-chip color="warn" selected="true" class="error">{{error}}</mat-chip>
+</mat-chip-list>
