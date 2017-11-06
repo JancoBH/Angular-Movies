@@ -11,24 +11,34 @@ $app-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
 
 @include angular-material-theme($app-theme);
 
+.cast-actor-card{ background-color:  #F44336}
+
 .blue-theme {
   // Dark theme
-  $app-dark-primary: mat-palette($mat-blue);
-  $app-dark-accent: mat-palette($mat-amber, A200, A100, A400);
+  $app-primary: mat-palette($mat-blue);
+  $app-accent: mat-palette($mat-amber, A200, A100, A400);
   $app-warn: mat-palette($mat-red);
-  $app-dark-theme: mat-dark-theme($app-dark-primary, $app-dark-accent, $app-warn);
+  $app-dark-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
 
   @include angular-material-theme($app-dark-theme);
+
+  p strong {  color: #2196f3 !important;  }
+  .cast-actor-card{ background-color:  #2196f3}
+  .mat-raised-button.mat-primary {  color: white;  }
 }
 
 .green-theme {
   // Dark theme
-  $app-dark-primary: mat-palette($mat-green);
-  $app-dark-accent: mat-palette($mat-amber, A200, A100, A400);
+  $app-primary: mat-palette($mat-green);
+  $app-accent: mat-palette($mat-amber, A200, A100, A400);
   $app-warn: mat-palette($mat-red);
-  $app-dark-theme: mat-dark-theme($app-dark-primary, $app-dark-accent, $app-warn);
+  $app-dark-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
 
   @include angular-material-theme($app-dark-theme);
+
+  p strong {  color: #4caf50 !important;  }
+  .cast-actor-card{ background-color:  #4caf50}
+  .mat-raised-button.mat-primary {  color: white !important;  }
 }
 
 .mat-tab-body.mat-tab-body-active{
@@ -41,4 +51,8 @@ $app-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
 
 .mat-dialog-container{
   padding: 0!important;
+}
+
+.mat-icon {
+  color: white;
 }

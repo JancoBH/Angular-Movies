@@ -1,5 +1,7 @@
-<a routerLink="/genres/{{genre.id}}/{{genre.name}}" *ngFor="let genre of genres">
-  <mat-card class="genre-card">
-    {{genre.name}}
-  </mat-card>
-</a>
+<div style="margin-top: 20px">
+  <a routerLink="/genres/{{genre.id}}/{{genre.name}}" *ngFor="let genre of genres">
+    <button mat-raised-button color="primary" class="genre-card">
+      {{genre.name}}
+    </button>
+  </a>
+</div>

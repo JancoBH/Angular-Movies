@@ -31,6 +31,10 @@
     </button>
 
     <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="changeToRed()" [class.hidden]="isRedColor">
+        <mat-icon style="color: #F44336">lens</mat-icon>
+        <span>Red</span>
+      </button>
       <button mat-menu-item (click)="changeToBlue()" [class.hidden]="isBlueColor">
         <mat-icon style="color: #2196f3">lens</mat-icon>
         <span>Blue</span>
@@ -38,10 +42,6 @@
       <button mat-menu-item (click)="changeToGreen()" [class.hidden]="isGreenColor">
         <mat-icon style="color: #4caf50">lens</mat-icon>
         <span>Green</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>notifications_off</mat-icon>
-        <span>Disable alerts</span>
       </button>
     </mat-menu>
   </mat-toolbar>

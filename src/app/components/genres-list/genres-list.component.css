@@ -1,7 +1,10 @@
 .genre-card{
   display: inline-block;
   margin: 10px 5px;
+  padding: 10px 0;
   vertical-align: top;
+  color: white !important;
+  font-size: 1rem;
 }
 
 /* Large desktops and laptops */

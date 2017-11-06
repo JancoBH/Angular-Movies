@@ -9,6 +9,7 @@ import {Router} from '@angular/router';
 })
 export class AppComponent {
   isLoggedIn: boolean;
+  isRedColor = true;
   isBlueColor = false;
   isGreenColor = false;
 
@@ -40,12 +41,22 @@ export class AppComponent {
     this.router.navigate(['/login']);
   }
 
+  changeToRed(): void {
+    this.isRedColor = true;
+    this.isBlueColor = false;
+    this.isGreenColor = false;
+  }
+
   changeToBlue(): void {
-    this.isBlueColor = !this.isBlueColor;
+    this.isRedColor = false;
+    this.isBlueColor = true;
+    this.isGreenColor = false;
   }
 
   changeToGreen(): void {
-    this.isGreenColor = !this.isGreenColor;
+    this.isRedColor = false;
+    this.isBlueColor = false;
+    this.isGreenColor = true;
   }
 
 }
