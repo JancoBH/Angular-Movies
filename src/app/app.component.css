@@ -14,6 +14,10 @@ mat-nav-list a{
   flex: 1 1 auto;
 }
 
+.hidden {
+  display: none;
+}
+
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
   .janco-ocult{  display: none;  }

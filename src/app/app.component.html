@@ -1,4 +1,7 @@
-<mat-sidenav-container fullscreen align="center">
+<mat-sidenav-container fullscreen align="center"
+                       [class.blue-theme]="isBlueColor"
+                       [class.green-theme]="isGreenColor"
+>
   <mat-sidenav #start>
     <mat-toolbar color="primary">
       <span>Welcome</span>
@@ -22,6 +25,25 @@
       <a routerLink="/">Angular - Movies <span class="janco-ocult">by JancoBH<span *ngIf="isLoggedIn"> - Welcome</span></span></a>
     </span>
     <span class="center-flex"></span>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Change Color" style="padding-right: 10px">
+      <mat-icon>format_color_fill</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="changeToBlue()" [class.hidden]="isBlueColor">
+        <mat-icon style="color: #2196f3">lens</mat-icon>
+        <span>Blue</span>
+      </button>
+      <button mat-menu-item (click)="changeToGreen()" [class.hidden]="isGreenColor">
+        <mat-icon style="color: #4caf50">lens</mat-icon>
+        <span>Green</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button>
+    </mat-menu>
   </mat-toolbar>
 
   <router-outlet></router-outlet>

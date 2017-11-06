@@ -1,6 +1,6 @@
 <div *ngIf="movie">
 
-  <div class="parrallax-content" [ngStyle]="{'background-image': 'linear-gradient(rgba(52,41,49,0.4), rgba(68,34,102,0.4)), url('+'https://image.tmdb.org/t/p/w500'+movie.backdrop_path+')'}">
+  <div class="parrallax-content" [ngStyle]="{'background-image': 'linear-gradient(rgba(52,41,49,0.8), rgba(68,34,102,0.8)), url('+'https://image.tmdb.org/t/p/w500'+movie.backdrop_path+')'}">
     <div class="parrallax">
     </div>
 
@@ -15,6 +15,7 @@
               <button mat-mini-fab matTooltip="Soon"><mat-icon>favorite</mat-icon></button>
               <button mat-mini-fab matTooltip="Soon"><mat-icon>star</mat-icon></button>
               <button mat-mini-fab matTooltip="Soon"><mat-icon>bookmark</mat-icon></button>
+              <a href="javascript:void(0)" matTooltip="Soon"><mat-icon>play_arrow</mat-icon> Play Trailer</a>
             </div>
             <h3 class="parallax-subtitle">Overview</h3>
             <p>{{movie.overview}}</p>
@@ -28,8 +29,6 @@
 
   </div>
 
-  <mat-card class="movie-content-card"> <!--Second Card-->
-    <mat-card-content>
       <mat-tab-group> <!-- Tabs -->
 
         <mat-tab label="Cast"> <!--Cast Tab-->
@@ -56,6 +55,17 @@
           </div>
         </mat-tab> <!--Trailer Tab End-->
 
+        <mat-tab label="Similar Movies"> <!--Similar Movies-->
+          <div *ngIf="similarMovies">
+            <h1>Similar Movies</h1>
+            <div style="text-align:center;">
+              <span *ngFor="let movie of similarMovies;">
+                <movie-card [movie]="movie"></movie-card>
+              </span>
+            </div>
+          </div> <!--End Similar Movies-->
+        </mat-tab> <!--Reviews Tab End-->
+
         <mat-tab label="Reviews"> <!--Reviews Tab-->
           <div *ngIf="reviews?.results.length >= 1; else noReview">
             <h1 class="center">Review</h1>
@@ -72,17 +82,6 @@
         </mat-tab> <!--Reviews Tab End-->
 
       </mat-tab-group> <!-- Tabs End-->
-    </mat-card-content>
-  </mat-card> <!--Second Card End-->
-
-  <div *ngIf="similarMovies"> <!--Similar Movies-->
-    <h1>Similar Movies</h1>
-    <div style="text-align:center;">
-      <span *ngFor="let movie of similarMovies;">
-        <movie-card [movie]="movie"></movie-card>
-      </span>
-    </div>
-  </div> <!--End Similar Movies-->
 
 </div>
 <div *ngIf="isLoading" style="margin-top: 30%">

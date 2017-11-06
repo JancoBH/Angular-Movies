@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {AuthService} from './services/auth-service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-movies',
@@ -9,6 +9,8 @@ import {Router} from "@angular/router";
 })
 export class AppComponent {
   isLoggedIn: boolean;
+  isBlueColor = false;
+  isGreenColor = false;
 
   constructor(public authService: AuthService, private router: Router) {
 
@@ -36,6 +38,14 @@ export class AppComponent {
   logout() {
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+
+  changeToBlue(): void {
+    this.isBlueColor = !this.isBlueColor;
+  }
+
+  changeToGreen(): void {
+    this.isGreenColor = !this.isGreenColor;
   }
 
 }

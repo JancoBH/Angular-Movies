@@ -12,6 +12,11 @@
           <h4>Loading</h4>
         </div>
       </div>
+      <mat-paginator [length]="nowPlaying?.total_pages"
+                     [pageSize]="nowPlaying?.results.length"
+                     (page)="changePageNowPlaying($event)">
+      </mat-paginator>
+
     </div>
   </mat-tab>
 
@@ -27,6 +32,11 @@
           <h4>Loading</h4>
         </div>
       </div>
+
+      <mat-paginator [length]="popularList?.total_pages"
+                     [pageSize]="popularList?.results.length"
+                     (page)="changePagePopular($event)">
+      </mat-paginator>
     </div>
   </mat-tab>
 
@@ -55,7 +65,7 @@
     <div class="center">
       <mat-card class="search-card">
         <mat-input-container style="width: 70%">
-          <input matInput type="search" placeholder="Search for a Movie" [(ngModel)]="searchStr" (keyup.enter)="searchMovies()">
+          <input matInput type="search" placeholder="Search for a Movie" [(ngModel)]="searchStr" (keyup.enter)="searchMovies(1)">
         </mat-input-container>
         <button color="primary" mat-raised-button (click)="searchMovies()">Search</button>
       </mat-card>
@@ -68,6 +78,11 @@
       <div *ngIf="!searchRes">
         <h1>Search Your Favorite Movie</h1>
       </div>
+
+      <!--<mat-paginator *ngIf="searchRes?.total_results > 20" [length]="nowPlaying?.total_pages"-->
+                     <!--[pageSize]="searchRes?.results.length"-->
+                     <!--(page)="changePageSearch($event)">-->
+      <!--</mat-paginator>-->
     </div>
   </mat-tab>
 </mat-tab-group>

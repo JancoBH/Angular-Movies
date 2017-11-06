@@ -11,6 +11,26 @@ $app-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
 
 @include angular-material-theme($app-theme);
 
+.blue-theme {
+  // Dark theme
+  $app-dark-primary: mat-palette($mat-blue);
+  $app-dark-accent: mat-palette($mat-amber, A200, A100, A400);
+  $app-warn: mat-palette($mat-red);
+  $app-dark-theme: mat-dark-theme($app-dark-primary, $app-dark-accent, $app-warn);
+
+  @include angular-material-theme($app-dark-theme);
+}
+
+.green-theme {
+  // Dark theme
+  $app-dark-primary: mat-palette($mat-green);
+  $app-dark-accent: mat-palette($mat-amber, A200, A100, A400);
+  $app-warn: mat-palette($mat-red);
+  $app-dark-theme: mat-dark-theme($app-dark-primary, $app-dark-accent, $app-warn);
+
+  @include angular-material-theme($app-dark-theme);
+}
+
 .mat-tab-body.mat-tab-body-active{
   overflow-y: hidden !important;
 }

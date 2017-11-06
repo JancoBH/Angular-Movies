@@ -1,134 +1,80 @@
 import { Injectable } from '@angular/core';
-import {Jsonp, URLSearchParams} from '@angular/http';
 import 'rxjs/Rx';
-import {Observable} from "rxjs/Observable";
+import {Observable} from 'rxjs/Observable';
+import {HttpClient, HttpParams} from '@angular/common/http';
 
-const search = new URLSearchParams();
+const params = new HttpParams();
 
 @Injectable()
 export class MoviesService {
 
   apiKey: string;
+  language: string;
 
-  constructor(private _jsonp: Jsonp) {
+  constructor(private http: HttpClient) {
     this.apiKey = '73b2fc9fab947354d61cb3faa1a40405';
+    this.language = 'en-US';
   }
 
-  getNowPlaying(): Observable<any> {
-    search.set('region', 'US');
-    search.set('api_key', this.apiKey);
-    return this._jsonp.get('https://api.themoviedb.org/3/movie/now_playing?callback=JSONP_CALLBACK', {search})
-      .map(res => {
-        return res.json();
-      });
+  getNowPlaying(page: number): Observable<any> {
+    params.set('language', this.language);
+    return this.http.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${this.apiKey}&page=${page}`, {params})
   }
 
-  searchMovies(searchStr: string) {
-    search.set('sort_by', 'popularity.desc');
-    search.set('query', searchStr);
-    search.set('api_key', this.apiKey);
-    return this._jsonp.get('https://api.themoviedb.org/3/search/movie?callback=JSONP_CALLBACK', {search})
-      .map(res => {
-        return res.json();
-      });
+  searchMovies(searchStr: string, page: number): Observable<any> {
+    params.set('language', this.language);
+    return this.http.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${searchStr}&page=${page}`, {params})
   }
 
-  getPopular(): Observable<any> {
-    search.set('sort_by', 'popularity.desc');
-    search.set('api_key', this.apiKey);
-    return this._jsonp.get('https://api.themoviedb.org/3/discover/movie?callback=JSONP_CALLBACK', {search})
-      .map(res => {
-        return res.json();
-      });
+    getPopular(page: number): Observable<any> {
+    params.set('language', this.language);
+    return this.http.get(`https://api.themoviedb.org/3/movie/popular?api_key=${this.apiKey}&page=${page}`, {params})
   }
 
-  getUpComingMovies() {
-    search.set('api_key', this.apiKey);
-    return this._jsonp.get('https://api.themoviedb.org/3/movie/upcoming?callback=JSONP_CALLBACK', {search})
-      .map(res => {
-        return res.json();
-      })
+  getUpComingMovies(page: number): Observable<any> {
+    params.set('language', this.language);
+    return this.http.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${this.apiKey}&page=${page}`, {params})
   }
 
-  getTopRatedMovies() {
-    search.set('api_key', this.apiKey);
-    return this._jsonp.get('https://api.themoviedb.org/3/movie/top_rated?callback=JSONP_CALLBACK', {search})
-      .map(res => {
-        return res.json();
-      })
+  getTopRatedMovies(): Observable<any> {
+    return this.http.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${this.apiKey}`)
   }
 
-  getGenres() {
-    search.set('language', 'en_US');
-    search.set('api_key', this.apiKey);
-    return this._jsonp.get('https://api.themoviedb.org/3/genre/movie/list?callback=JSONP_CALLBACK', {search})
-                        .map(res => {
-                          return res.json();
-                        });
+  getGenres(): Observable<any> {
+    params.set('language', 'en_US');
+    return this.http.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.apiKey}`, {params})
   }
 
-  getMoviesByGenre(id: string) {
-    search.set('api_key', this.apiKey);
-    return this._jsonp.get('https://api.themoviedb.org/3/genre/' + id + '/movies?callback=JSONP_CALLBACK', {search})
-      .map(res => {
-        return res.json();
-      });
+  getMoviesByGenre(id: string): Observable<any> {
+    return this.http.get(`https://api.themoviedb.org/3/genre/${id}/movies?api_key=${this.apiKey}`)
   }
 
-  getMovie(id: string) {
-    search.set('api_key', this.apiKey);
-    return this._jsonp.get('https://api.themoviedb.org/3/movie/' + id + '?callback=JSONP_CALLBACK', {search})
-      .map(res => {
-        return res.json();
-      });
+  getMovie(id: string): Observable<any> {
+    return this.http.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${this.apiKey}`)
   }
 
-  getMovieReviews(id: string) {
-    search.set('api_key', this.apiKey);
-    return this._jsonp.get('https://api.themoviedb.org/3/movie/' + id + '/reviews?callback=JSONP_CALLBACK', {search})
-      .map( res => {
-        return res.json();
-      });
+  getMovieReviews(id: string): Observable<any> {
+    return this.http.get(`https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${this.apiKey}`)
   }
 
-  getMovieCredits(id: string) {
-    search.set('api_key', this.apiKey);
-    return this._jsonp.get('https://api.themoviedb.org/3/movie/' + id + '/credits?callback=JSONP_CALLBACK', {search})
-      .map( res => {
-        return res.json();
-      });
+  getMovieCredits(id: string): Observable<any> {
+    return this.http.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${this.apiKey}`)
   }
 
-  getMovieVideos(id: string) {
-    search.set('api_key', this.apiKey);
-    return this._jsonp.get('https://api.themoviedb.org/3/movie/' + id + '/videos?callback=JSONP_CALLBACK', {search})
-      .map( res => {
-        return res.json();
-      });
+  getMovieVideos(id: string): Observable<any> {
+    return this.http.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${this.apiKey}`)
   }
 
-  getSimilarMovies(id: string) {
-    search.set('api_key', this.apiKey);
-    return this._jsonp.get('https://api.themoviedb.org/3/movie/' + id + '/similar?callback=JSONP_CALLBACK', {search})
-      .map ( res => {
-        return res.json();
-      });
+  getSimilarMovies(id: string): Observable<any> {
+    return this.http.get(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${this.apiKey}`)
   }
 
-  getPersonDetail(id: string) {
-    search.set('api_key', this.apiKey);
-    return this._jsonp.get('https://api.themoviedb.org/3/person/' + id + '?callback=JSONP_CALLBACK', {search})
-      .map(res => {
-        return res.json();
-      })
+  getPersonDetail(id: string): Observable<any> {
+    return this.http.get(`https://api.themoviedb.org/3/person/${id}?api_key=${this.apiKey}`)
   }
 
-  getPersonCast(id: string) {
-    search.set('api_key', this.apiKey);
-    return this._jsonp.get('https://api.themoviedb.org/3/person/' + id + '/movie_credits?callback=JSONP_CALLBACK', {search})
-      .map(res => {
-        return res.json();
-      })
+  getPersonCast(id: string): Observable<any> {
+    return this.http.get(`https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${this.apiKey}`)
   }
 
 }

@@ -1,8 +1,7 @@
-///<reference path="../../node_modules/@angular/material/tabs/typings/tabs-module.d.ts"/>
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule, JsonpModule  } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { AngularFireModule } from 'angularfire2';
@@ -28,7 +27,7 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { environment } from '../environments/environment';
 import {
   MatButtonModule, MatCardModule, MatChipsModule, MatIconModule, MatInputModule, MatListModule, MatSidenavModule, MatTabsModule,
-  MatToolbarModule, MatTooltipModule
+  MatToolbarModule, MatTooltipModule, MatPaginatorModule, MatMenuModule
 } from '@angular/material';
 
 @NgModule({
@@ -50,8 +49,7 @@ import {
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule,
-    JsonpModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
@@ -65,7 +63,9 @@ import {
     MatToolbarModule,
     MatListModule,
     MatCardModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatPaginatorModule,
+    MatMenuModule
   ],
   providers: [MoviesService, AuthService],
   bootstrap: [AppComponent]
