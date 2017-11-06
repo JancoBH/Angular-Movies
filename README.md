@@ -1,4 +1,6 @@
-# AngularMovies
+# AngularMovies | Movies
+
+[![License][licence-badge]](/LICENSE)
 
 Live Demo https://angular-movies-c91ba.firebaseapp.com/
 
