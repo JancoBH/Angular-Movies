@@ -1,0 +1,7 @@
+<div>
+  <a href="javascipt:void(0)" style="color: white; float: right"><mat-icon (click)="closeDialog()">close</mat-icon></a>
+  <h5 style="margin: 5px">{{data.video.name}}</h5>
+</div>
+<div *ngIf="data.video" class="video-movie-main">
+  <iframe [src]="data.video.url" allowfullscreen width="99.4%" height="459px"></iframe>
+</div>

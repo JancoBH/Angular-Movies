@@ -15,7 +15,7 @@
               <button mat-mini-fab matTooltip="Soon"><mat-icon>favorite</mat-icon></button>
               <button mat-mini-fab matTooltip="Soon"><mat-icon>star</mat-icon></button>
               <button mat-mini-fab matTooltip="Soon"><mat-icon>bookmark</mat-icon></button>
-              <a href="javascript:void(0)" matTooltip="Soon"><mat-icon>play_arrow</mat-icon> Play Trailer</a>
+              <a href="javascript:void(0)" (click)="openDialog()" *ngIf="video"><mat-icon>play_arrow</mat-icon> Play Trailer</a>
             </div>
             <h3 class="parallax-subtitle">Overview</h3>
             <p>{{movie.overview}}</p>
@@ -47,13 +47,6 @@
             </mat-card-content>
           </div>
         </mat-tab> <!--Cast Tab End-->
-
-        <mat-tab label="Media"> <!--Trailer Tab-->
-          <div *ngIf="video" class="video-movie-main">
-            <h1 class="center">{{video.name}}</h1>
-            <iframe [src]="video.url" allowfullscreen></iframe>
-          </div>
-        </mat-tab> <!--Trailer Tab End-->
 
         <mat-tab label="Similar Movies"> <!--Similar Movies-->
           <div *ngIf="similarMovies">
@@ -88,18 +81,4 @@
   <div class="loading">
     <h4>Loading</h4>
   </div>
-</div>
-
-<!-- Trigger/Open The Modal -->
-<button id="myBtn" #openModal>Open Modal</button>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close" #closeModal>&times;</span>
-    <p>Some text in the Modal..</p>
-  </div>
-
 </div>

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from '../../services/movies.service';
@@ -7,13 +7,14 @@ import {MovieReviews} from '../../models/movie-reviews';
 import {MovieCast} from '../../models/movie-cast';
 import {MovieVideo} from '../../models/movie-video';
 import {SimilarMovies} from '../../models/similar-movies';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
   styleUrls: ['./movie.component.css']
 })
-export class MovieComponent implements OnInit, AfterViewInit {
+export class MovieComponent implements OnInit {
 
   movie: Movie;
   reviews: MovieReviews;
@@ -28,26 +29,11 @@ export class MovieComponent implements OnInit, AfterViewInit {
   constructor(
     private _moviesService: MoviesService,
     private router: ActivatedRoute,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit() {
-
-    const modal = document.getElementById('myModal');
-    this.openModal.nativeElement.onclick = () => {
-      modal.style.display = 'block';
-    };
-
-    this.closeModal.nativeElement.onclick = () => {
-      modal.style.display = 'none';
-    };
-
-// When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = 'none';
-      }
-    };
 
     this.router.params.subscribe( (params) => {
       const id = params['id'];
@@ -85,8 +71,29 @@ export class MovieComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngAfterViewInit() {
+  openDialog(): void {
+    this.dialog.open(AppMovieDialogComponent, {
+      height: '500px',
+      width: '800px',
+      data: { video: this.video}
+    });
+  }
 
+}
+
+@Component({
+  selector: 'app-movie-dialog',
+  templateUrl: 'app-movie-dialog.html'
+})
+export class AppMovieDialogComponent {
+
+  constructor(
+    public dialogRef: MatDialogRef<AppMovieDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
+
+  closeDialog() {
+    this.dialogRef.close('Pizza!');
   }
 
 }

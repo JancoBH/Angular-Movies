@@ -38,3 +38,7 @@ $app-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
 .mat-tab-labels{
   justify-content: center !important;
 }
+
+.mat-dialog-container{
+  padding: 0!important;
+}

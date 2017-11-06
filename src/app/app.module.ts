@@ -16,7 +16,7 @@ import { AuthService } from './services/auth-service'
 
 import 'hammerjs';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
-import { MovieComponent } from './components/movie/movie.component';
+import { MovieComponent, AppMovieDialogComponent } from './components/movie/movie.component';
 import { GenresComponent } from './components/genres/genres.component';
 import { ActorComponent } from './components/actor/actor.component';
 import { LoginComponent } from './components/auth/login/login.component';
@@ -27,7 +27,7 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { environment } from '../environments/environment';
 import {
   MatButtonModule, MatCardModule, MatChipsModule, MatIconModule, MatInputModule, MatListModule, MatSidenavModule, MatTabsModule,
-  MatToolbarModule, MatTooltipModule, MatPaginatorModule, MatMenuModule
+  MatToolbarModule, MatTooltipModule, MatPaginatorModule, MatMenuModule, MatDialogModule
 } from '@angular/material';
 import { ModalComponent } from './components/ui/modal/modal.component';
 
@@ -44,7 +44,8 @@ import { ModalComponent } from './components/ui/modal/modal.component';
     CapitalizePipe,
     GenresListComponent,
     RegisterComponent,
-    ModalComponent
+    ModalComponent,
+    AppMovieDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -67,9 +68,13 @@ import { ModalComponent } from './components/ui/modal/modal.component';
     MatCardModule,
     MatTooltipModule,
     MatPaginatorModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule
   ],
   providers: [MoviesService, AuthService],
+  entryComponents: [
+    AppMovieDialogComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
