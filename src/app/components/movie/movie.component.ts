@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from '../../services/movies.service';
@@ -13,7 +13,7 @@ import {SimilarMovies} from '../../models/similar-movies';
   templateUrl: './movie.component.html',
   styleUrls: ['./movie.component.css']
 })
-export class MovieComponent implements OnInit {
+export class MovieComponent implements OnInit, AfterViewInit {
 
   movie: Movie;
   reviews: MovieReviews;
@@ -22,9 +22,33 @@ export class MovieComponent implements OnInit {
   video: MovieVideo;
   isLoading = true;
 
-  constructor(private _moviesService: MoviesService, private router: ActivatedRoute, private sanitizer: DomSanitizer) {}
+  @ViewChild('closeModal') public  closeModal: ElementRef;
+  @ViewChild('openModal') public  openModal: ElementRef;
+
+  constructor(
+    private _moviesService: MoviesService,
+    private router: ActivatedRoute,
+    private sanitizer: DomSanitizer
+  ) {}
 
   ngOnInit() {
+
+    const modal = document.getElementById('myModal');
+    this.openModal.nativeElement.onclick = () => {
+      modal.style.display = 'block';
+    };
+
+    this.closeModal.nativeElement.onclick = () => {
+      modal.style.display = 'none';
+    };
+
+// When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    };
+
     this.router.params.subscribe( (params) => {
       const id = params['id'];
 
@@ -59,6 +83,10 @@ export class MovieComponent implements OnInit {
       });
 
     });
+  }
+
+  ngAfterViewInit() {
+
   }
 
 }

@@ -29,6 +29,7 @@ import {
   MatButtonModule, MatCardModule, MatChipsModule, MatIconModule, MatInputModule, MatListModule, MatSidenavModule, MatTabsModule,
   MatToolbarModule, MatTooltipModule, MatPaginatorModule, MatMenuModule
 } from '@angular/material';
+import { ModalComponent } from './components/ui/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {
     PageNotFoundComponent,
     CapitalizePipe,
     GenresListComponent,
-    RegisterComponent
+    RegisterComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

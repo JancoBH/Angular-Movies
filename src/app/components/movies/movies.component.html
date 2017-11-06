@@ -67,7 +67,7 @@
         <mat-input-container style="width: 70%">
           <input matInput type="search" placeholder="Search for a Movie" [(ngModel)]="searchStr" (keyup.enter)="searchMovies(1)">
         </mat-input-container>
-        <button color="primary" mat-raised-button (click)="searchMovies()">Search</button>
+        <button color="primary" mat-raised-button (click)="searchMovies(1)">Search</button>
       </mat-card>
       <div *ngIf="searchRes">
         <h1>{{searchStr | capitalize}} Results</h1>
