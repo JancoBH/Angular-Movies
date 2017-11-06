@@ -4,7 +4,7 @@
 >
   <mat-sidenav #start>
     <mat-toolbar color="primary">
-      <span>Welcome</span>
+      <span style="color: white">Welcome</span>
       <span style="flex: 1 1 auto;"></span>
       <button mat-icon-button (click)="start.close()"><mat-icon>arrow_forward</mat-icon></button>
     </mat-toolbar>
@@ -13,6 +13,7 @@
       <a mat-list-item *ngIf="!isLoggedIn" routerLink="/login" routerLinkActive="active" (click)="start.close()">Login</a>
       <a mat-list-item *ngIf="isLoggedIn" routerLink="/" routerLinkActive="active" (click)="start.close(); logout()">Logout</a>
       <a mat-list-item routerLink="/genres" routerLinkActive="active" (click)="start.close()">Genres</a>
+      <a mat-list-item routerLink="/settings" routerLinkActive="active" (click)="start.close()">Settings</a>
     </mat-nav-list>
   </mat-sidenav>
 

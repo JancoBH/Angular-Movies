@@ -30,6 +30,7 @@ import {
   MatToolbarModule, MatTooltipModule, MatPaginatorModule, MatMenuModule, MatDialogModule
 } from '@angular/material';
 import { ModalComponent } from './components/ui/modal/modal.component';
+import { SettingsComponent } from './components/ui/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ModalComponent } from './components/ui/modal/modal.component';
     GenresListComponent,
     RegisterComponent,
     ModalComponent,
-    AppMovieDialogComponent
+    AppMovieDialogComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

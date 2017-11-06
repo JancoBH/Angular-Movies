@@ -37,8 +37,8 @@ export class AppComponent {
   }
 
   logout() {
-    this.authService.logout();
-    this.router.navigate(['/login']);
+    this.authService.logout().then();
+    this.router.navigate(['/login']).then();
   }
 
   changeToRed(): void {

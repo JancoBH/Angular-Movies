@@ -1,4 +1,4 @@
-import {Reviewer} from "./reviewer";
+import {Reviewer} from './reviewer';
 
 export class MovieReviews {
 
