@@ -12,7 +12,7 @@ export class MoviesService {
   language: string;
 
   constructor(private http: HttpClient) {
-    this.apiKey = '73b2fc9fab947354d61cb3faa1a40405';
+    this.apiKey = 'Your-TMDB-ApiKey';
     this.language = 'en-US';
   }
 
