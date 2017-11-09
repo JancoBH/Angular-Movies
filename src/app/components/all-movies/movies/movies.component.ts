@@ -1,10 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
-import { MoviesService } from '../../services/movies.service'
-import {PopularMovies} from '../../models/popular-movies';
-import {UpcommingMovies} from '../../models/upcomming-movies';
-import {TopRatedMovies} from '../../models/top-rated-movies';
-import {SearchMovies} from '../../models/search-movies';
+import { MoviesService } from '../../../services/movies.service'
+import {MoviePaginatorModel} from '../../../models/movie-paginator.model';
 
 @Component({
   selector: 'app-movies',
@@ -14,10 +11,10 @@ import {SearchMovies} from '../../models/search-movies';
 
 export class MoviesComponent implements OnInit {
   nowPlaying: any;
-  popularList: PopularMovies;
-  upcomingList: UpcommingMovies;
-  topRatedList: TopRatedMovies;
-  searchRes: SearchMovies;
+  popularList: MoviePaginatorModel;
+  upcomingList: MoviePaginatorModel;
+  topRatedList: MoviePaginatorModel;
+  searchRes: MoviePaginatorModel;
   searchStr: string;
   isLoading = true;
 
@@ -59,9 +56,9 @@ export class MoviesComponent implements OnInit {
     this.getPopularMovies(event.pageIndex + 1);
   }
 
-  changePageSearch(event) {
-    this.searchMovies((event.pageIndex + 1).toString())
-  }
+  // changePageSearch(event) {
+  //   this.searchMovies((event.pageIndex + 1).toString())
+  // }
 
   searchMovies(page: number) {
     this.moviesService.searchMovies(this.searchStr, page).subscribe( res => {

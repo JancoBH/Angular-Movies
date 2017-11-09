@@ -1,4 +1,4 @@
-export class Movie {
+export class MovieModel {
 
   public adult: boolean;
   public backdrop_path: string;

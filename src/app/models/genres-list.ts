@@ -1,6 +1,6 @@
 import {Genre} from './genre';
 
-export class GenresList {
+export class GenresListModel {
 
   public genres: Array<Genre>;
 

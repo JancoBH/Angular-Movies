@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import {MoviesService} from '../../services/movies.service';
-import {Movie} from '../../models/movie';
+import {MovieModel} from '../../models/movie.model';
 import {Actors} from '../../models/actors';
 
 @Component({
@@ -12,8 +12,8 @@ import {Actors} from '../../models/actors';
 })
 export class ActorComponent implements OnInit {
 
-  person: Actors;
-  movies: Movie;
+  person: Actors = new Actors();
+  movies: MovieModel = new MovieModel();
 
   constructor(
     private _moviesSerice: MoviesService,

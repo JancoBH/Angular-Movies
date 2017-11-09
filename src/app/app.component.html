@@ -10,10 +10,10 @@
     </mat-toolbar>
     <mat-nav-list>
       <a mat-list-item routerLink="/" routerLinkActive="active" (click)="start.close()">Home</a>
+      <a mat-list-item *ngIf="isLoggedIn" routerLink="/account" routerLinkActive="active" (click)="start.close()">Account</a>
       <a mat-list-item *ngIf="!isLoggedIn" routerLink="/login" routerLinkActive="active" (click)="start.close()">Login</a>
       <a mat-list-item *ngIf="isLoggedIn" routerLink="/" routerLinkActive="active" (click)="start.close(); logout()">Logout</a>
       <a mat-list-item routerLink="/genres" routerLinkActive="active" (click)="start.close()">Genres</a>
-      <a mat-list-item routerLink="/settings" routerLinkActive="active" (click)="start.close()">Settings</a>
     </mat-nav-list>
   </mat-sidenav>
 

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { MoviesService } from '../../services/movies.service'
-import {Movie} from '../../models/movie';
+import { MoviesService } from '../../../services/movies.service'
+import {MovieModel} from '../../../models/movie.model';
 
 @Component({
   selector: 'app-genres',
@@ -12,7 +12,7 @@ import {Movie} from '../../models/movie';
 export class GenresComponent implements OnInit {
 
   title: string;
-  movies: Movie;
+  movies: MovieModel;
 
   constructor(
     private _moviesService: MoviesService,

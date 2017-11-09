@@ -1,13 +1,12 @@
 import {Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { MoviesService } from '../../services/movies.service';
-import {Movie} from '../../models/movie';
-import {MovieReviews} from '../../models/movie-reviews';
-import {MovieCast} from '../../models/movie-cast';
-import {MovieVideo} from '../../models/movie-video';
-import {SimilarMovies} from '../../models/similar-movies';
+import { MoviesService } from '../../../services/movies.service';
+import {MovieModel} from '../../../models/movie.model';
+import {MovieCast} from '../../../models/movie-cast';
+import {MovieVideo} from '../../../models/movie-video';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
+import {MoviePaginatorModel} from '../../../models/movie-paginator.model';
 
 @Component({
   selector: 'app-movie',
@@ -16,9 +15,9 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 })
 export class MovieComponent implements OnInit {
 
-  movie: Movie;
-  reviews: MovieReviews;
-  similarMovies: SimilarMovies;
+  movie: MovieModel;
+  reviews: MoviePaginatorModel;
+  similarMovies: MoviePaginatorModel;
   cast: MovieCast;
   video: MovieVideo;
   isLoading = true;

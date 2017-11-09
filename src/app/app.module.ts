@@ -10,19 +10,19 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import { MoviesComponent } from './components/movies/movies.component';
+import { MoviesComponent } from './components/all-movies/movies/movies.component';
 import { MoviesService } from './services/movies.service';
 import { AuthService } from './services/auth-service'
 
 import 'hammerjs';
-import { MovieCardComponent } from './components/movie-card/movie-card.component';
-import { MovieComponent, AppMovieDialogComponent } from './components/movie/movie.component';
-import { GenresComponent } from './components/genres/genres.component';
+import { MovieCardComponent } from './components/ui/movie-card-view/movie-card.component';
+import { MovieComponent, AppMovieDialogComponent } from './components/all-movies/movie/movie.component';
+import { GenresComponent } from './components/all-movies/genres/genres.component';
 import { ActorComponent } from './components/actor/actor.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
-import { GenresListComponent } from './components/genres-list/genres-list.component';
+import { GenresListComponent } from './components/all-movies/genres-list/genres-list.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { environment } from '../environments/environment';
 import {
@@ -30,7 +30,8 @@ import {
   MatToolbarModule, MatTooltipModule, MatPaginatorModule, MatMenuModule, MatDialogModule
 } from '@angular/material';
 import { ModalComponent } from './components/ui/modal/modal.component';
-import { SettingsComponent } from './components/ui/settings/settings.component';
+import { SettingsComponent } from './components/user/settings/settings.component';
+import { AccountComponent } from './components/user/account/account.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { SettingsComponent } from './components/ui/settings/settings.component';
     RegisterComponent,
     ModalComponent,
     AppMovieDialogComponent,
-    SettingsComponent
+    SettingsComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
