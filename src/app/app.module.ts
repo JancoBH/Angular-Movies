@@ -26,8 +26,10 @@ import { GenresListComponent } from './components/all-movies/genres-list/genres-
 import { RegisterComponent } from './components/auth/register/register.component';
 import { environment } from '../environments/environment';
 import {
-  MatButtonModule, MatCardModule, MatChipsModule, MatIconModule, MatInputModule, MatListModule, MatSidenavModule, MatTabsModule,
-  MatToolbarModule, MatTooltipModule, MatPaginatorModule, MatMenuModule, MatDialogModule
+  MatButtonModule, MatCardModule, MatChipsModule, MatIconModule, MatInputModule, MatListModule, MatSidenavModule,
+  MatTabsModule,
+  MatToolbarModule, MatTooltipModule, MatPaginatorModule, MatMenuModule, MatDialogModule, MatSliderModule,
+  MatExpansionModule
 } from '@angular/material';
 import { ModalComponent } from './components/ui/modal/modal.component';
 import { SettingsComponent } from './components/user/settings/settings.component';
@@ -80,7 +82,9 @@ import { AllTvShowsComponent } from './components/OnTV/all-tv-shows/all-tv-shows
     MatTooltipModule,
     MatPaginatorModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSliderModule,
+    MatExpansionModule
   ],
   providers: [MoviesService, AuthService, OnTVService],
   entryComponents: [

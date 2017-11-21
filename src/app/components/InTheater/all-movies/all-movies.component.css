@@ -17,10 +17,14 @@
   width: 72%;
 }
 
+.mat-slider-horizontal {
+  width: 100%;
+}
+
 /deep/ app-poster-card .movie-card {
   width: 17% !important;
 }
 
-/depp/ app-poster-card .movie-card .mat-card-title {
+/depp/ app-poster-card .mat-card-title {
   font-size: 17px !important;
 }

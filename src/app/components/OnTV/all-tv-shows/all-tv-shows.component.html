@@ -1,3 +1,44 @@
-<p>
-  all-tv-shows works!
-</p>
+<div class="container">
+
+  <h2 style="text-align: left; padding-left: 20px;">All TV Shows #CurrentlyAiring</h2>
+
+  <mat-card class="filter-movies-card">
+    <div style="margin-bottom: 24px">Filter by</div>
+    <button mat-raised-button color="primary">Currently Airing</button>
+    <button mat-raised-button color="primary" disabled>Airing Today</button>
+    <button mat-raised-button color="primary" disabled>Popular</button>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Genres
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div *ngFor="let genre of genres">
+        <button mat-raised-button color="primary" disabled>
+          {{genre.name}}
+        </button>
+      </div>
+
+    </mat-expansion-panel>
+    <div style="margin-top: 10px">Avg. User Review</div>
+    <mat-slider
+      [max]="max"
+      [min]="min"
+      [step]="step"
+      [thumb-label]="thumbLabel"
+      [tick-interval]="tickInterval"
+      [value]="value"
+      disabled
+    ></mat-slider>
+  </mat-card>
+
+  <div class="list-movies">
+    <div style="text-align: center">
+      <span *ngFor="let tvshow of onTheAir">
+        <app-poster-card class="all-poster" [model]="tvshow"></app-poster-card>
+      </span>
+    </div>
+  </div>
+
+</div>

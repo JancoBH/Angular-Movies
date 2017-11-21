@@ -5,8 +5,32 @@
   <mat-card class="filter-movies-card">
     <div style="margin-bottom: 24px">Filter by</div>
     <button mat-raised-button color="primary">Now Playing</button>
-    <button mat-raised-button color="primary">Upcoming</button>
-    <button mat-raised-button color="primary">Popular</button>
+    <button mat-raised-button color="primary" disabled>Upcoming</button>
+    <button mat-raised-button color="primary" disabled>Popular</button>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Genres
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div *ngFor="let genre of genres">
+        <button mat-raised-button color="primary" disabled>
+          {{genre.name}}
+        </button>
+      </div>
+
+    </mat-expansion-panel>
+    <div style="margin-top: 10px">Avg. User Review</div>
+    <mat-slider
+      [max]="max"
+      [min]="min"
+      [step]="step"
+      [thumb-label]="thumbLabel"
+      [tick-interval]="tickInterval"
+      [value]="value"
+      disabled
+    ></mat-slider>
   </mat-card>
 
   <div class="list-movies">
