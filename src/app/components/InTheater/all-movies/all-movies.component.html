@@ -1,0 +1,20 @@
+<div class="container">
+
+  <h2 style="text-align: left; padding-left: 20px;">All Movies #NowPlaying</h2>
+
+  <mat-card class="filter-movies-card">
+    <div style="margin-bottom: 24px">Filter by</div>
+    <button mat-raised-button color="primary">Now Playing</button>
+    <button mat-raised-button color="primary">Upcoming</button>
+    <button mat-raised-button color="primary">Popular</button>
+  </mat-card>
+
+  <div class="list-movies">
+    <div style="text-align: center">
+      <span *ngFor="let movie of nowPlaying">
+        <app-poster-card class="all-poster" [model]="movie"></app-poster-card>
+      </span>
+    </div>
+  </div>
+
+</div>

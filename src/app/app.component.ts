@@ -3,7 +3,7 @@ import {AuthService} from './services/auth-service';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-movies',
+  selector: 'app-home',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })

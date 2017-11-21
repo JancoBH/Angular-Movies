@@ -1,8 +1,8 @@
 # Angular Movies | Movies
 
-Angular Movies was generated with:
-- Angular CLI version 1.5.0.
-- Angular 5.0.1
+Angular Movies & TV Shows was generated with:
+- Angular CLI version 1.5.1.
+- Angular 5.0.2
 - Angular Material 5.0.0-rc0
 - AngularFire2 5.0.0-rc.3
 - The Movie DB get Your own api key -> https://www.themoviedb.org

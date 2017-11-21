@@ -13,6 +13,7 @@ $app-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
 
 .cast-actor-card{ background-color:  #F44336}
 ::-webkit-scrollbar-thumb {  background-color: #F44336;  }
+.moviesHome-header a { color: #F44336; }
 
 .blue-theme {
   // Dark theme
@@ -27,6 +28,7 @@ $app-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
   .cast-actor-card{ background-color:  #2196f3}
   .mat-raised-button.mat-primary {  color: white;  }
   ::-webkit-scrollbar-thumb {  background-color: #2196f3;  }
+  .moviesHome-header a { color: #2196f3; }
 }
 
 .green-theme {
@@ -42,17 +44,14 @@ $app-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
   .cast-actor-card{ background-color:  #4caf50}
   .mat-raised-button.mat-primary {  color: white !important;  }
   ::-webkit-scrollbar-thumb {  background-color: #4caf50;  }
+  .moviesHome-header a { color: #4caf50 }
 }
 
-.mat-tab-body.mat-tab-body-active{
+.mat-tab-body.mat-tab-body-active {
   overflow-y: hidden !important;
 }
 
-.mat-tab-labels{
-  justify-content: center !important;
-}
-
-.mat-dialog-container{
+.mat-dialog-container {
   padding: 0!important;
 }
 

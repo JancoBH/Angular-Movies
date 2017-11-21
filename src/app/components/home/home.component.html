@@ -1,0 +1,69 @@
+<div class="container">
+
+  <section>
+    <header class="moviesHome-header">
+      <div class="moviesHome-title">In Theater</div>
+      <a routerLink="/all-movies">See all Movies</a>
+    </header>
+
+    <mat-tab-group>
+
+      <!--Now Playing Movies-->
+      <mat-tab label="Now Playing Movies">
+        <span *ngFor="let movie of nowPlaying | slice:0:4">
+          <app-poster-card [model]="movie"></app-poster-card>
+        </span>
+      </mat-tab>
+
+      <!--Upcoming Movies Tab-->
+      <mat-tab label="Upcomming Movies">
+        <span *ngFor="let movie of upcomingList | slice:0:4">
+          <app-poster-card [model]="movie"></app-poster-card>
+        </span>
+      </mat-tab>
+
+      <!--Popular Movies Tab-->
+      <mat-tab label="Popular Movies">
+        <span *ngFor="let movie of popularList | slice:0:4">
+          <app-poster-card [model]="movie"></app-poster-card>
+       </span>
+      </mat-tab>
+
+    </mat-tab-group>
+  </section>
+
+  <!--TV-->
+
+  <section>
+    <header class="moviesHome-header">
+      <div class="moviesHome-title">On TV</div>
+      <a routerLink="/all-tv-shows">See all TV Shows</a>
+    </header>
+
+    <mat-tab-group>
+
+      <!--Currently Airing TV Shows Tab-->
+      <mat-tab label="Currently Airing TV Shows">
+        <span *ngFor="let tvShow of onTheAir | slice:0:4">
+          <app-poster-card [model]="tvShow"></app-poster-card>
+        </span>
+      </mat-tab>
+
+      <!--Airing Today TV Shows Tab-->
+      <mat-tab label="Airing Today TV Shows">
+        <span *ngFor="let tvShow of airingToday | slice:0:4">
+          <app-poster-card [model]="tvShow"></app-poster-card>
+        </span>
+      </mat-tab>
+
+      <!--Popular TV Shows Tab-->
+      <mat-tab label="Popular TV Shows">
+        <span *ngFor="let tvShow of popularTvShows | slice:0:4">
+          <app-poster-card [model]="tvShow"></app-poster-card>
+       </span>
+      </mat-tab>
+
+    </mat-tab-group>
+  </section>
+
+</div>

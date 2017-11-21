@@ -8,12 +8,53 @@ html, body{
   background: #333333;
 }
 
-app-movies a{
-  text-decoration: none;
+app-home a{
   color: white;
+  text-decoration: none;
 }
 
-app-movies hr {  border-color: transparent;  }
+app-home hr {  border-color: transparent;  }
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  /*background: lightcoral;*/
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+.container-fluid {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
 
 .loading {
   width: 30px;

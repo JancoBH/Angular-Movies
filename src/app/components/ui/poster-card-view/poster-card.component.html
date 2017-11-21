@@ -1,0 +1,16 @@
+<a [routerLink]="model.isMovie ? '/movie/' + model.id : '/tv-show/' + model.id">
+  <mat-card class="movie-card">
+      <img *ngIf="model.poster_path" mat-card-image src="https://image.tmdb.org/t/p/w300/{{model.poster_path}}" class="movie-header-card">
+      <img *ngIf="!model.poster_path" mat-card-image src="http://www.catedrauamfujitsu.es/wp-content/themes/invicta/styles/images/defaults/no_photo.jpg" class="movie-header-card">
+    <mat-card-content>
+      <mat-card-title *ngIf="model.title">{{model.title}}</mat-card-title>
+      <mat-card-title *ngIf="model.name">{{model.name}}</mat-card-title>
+      <p *ngIf="model.release_date">
+        <strong style="color: #F44336;">Release Date: </strong>{{model.release_date | date}}
+      </p>
+      <p *ngIf="model.first_air_date">
+        <strong style="color: #F44336;">First Air Date: </strong>{{model.first_air_date | date}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</a>

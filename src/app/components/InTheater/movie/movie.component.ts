@@ -6,7 +6,7 @@ import {MovieModel} from '../../../models/movie.model';
 import {MovieCast} from '../../../models/movie-cast';
 import {MovieVideo} from '../../../models/movie-video';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
-import {MoviePaginatorModel} from '../../../models/movie-paginator.model';
+import {PaginatorModel} from '../../../models/paginator.model';
 
 @Component({
   selector: 'app-movie',
@@ -16,8 +16,7 @@ import {MoviePaginatorModel} from '../../../models/movie-paginator.model';
 export class MovieComponent implements OnInit {
 
   movie: MovieModel;
-  reviews: MoviePaginatorModel;
-  similarMovies: MoviePaginatorModel;
+  similarMovies: PaginatorModel;
   cast: MovieCast;
   video: MovieVideo;
   isLoading = true;
@@ -45,10 +44,6 @@ export class MovieComponent implements OnInit {
         } else {
           this.isLoading = false;
         }
-      });
-
-      this._moviesService.getMovieReviews(id).subscribe( res => {
-        this.reviews = res;
       });
 
       this._moviesService.getMovieCredits(id).subscribe( res => {

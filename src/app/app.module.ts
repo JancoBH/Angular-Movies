@@ -10,14 +10,14 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import { MoviesComponent } from './components/all-movies/movies/movies.component';
+import { HomeComponent } from './components/home/home.component';
 import { MoviesService } from './services/movies.service';
 import { AuthService } from './services/auth-service'
 
 import 'hammerjs';
-import { MovieCardComponent } from './components/ui/movie-card-view/movie-card.component';
-import { MovieComponent, AppMovieDialogComponent } from './components/all-movies/movie/movie.component';
-import { GenresComponent } from './components/all-movies/genres/genres.component';
+import { MovieCardComponent } from './components/ui/poster-card-view/poster-card.component';
+import { MovieComponent, AppMovieDialogComponent } from './components/InTheater/movie/movie.component';
+import { GenresComponent } from './components/InTheater/genres/genres.component';
 import { ActorComponent } from './components/actor/actor.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -32,11 +32,15 @@ import {
 import { ModalComponent } from './components/ui/modal/modal.component';
 import { SettingsComponent } from './components/user/settings/settings.component';
 import { AccountComponent } from './components/user/account/account.component';
+import {OnTVService} from './services/onTV/onTV.service';
+import { TvShowComponent } from './components/OnTV/tv-show/tv-show.component';
+import { AllMoviesComponent } from './components/InTheater/all-movies/all-movies.component';
+import { AllTvShowsComponent } from './components/OnTV/all-tv-shows/all-tv-shows.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MoviesComponent,
+    HomeComponent,
     MovieCardComponent,
     MovieComponent,
     GenresComponent,
@@ -49,7 +53,10 @@ import { AccountComponent } from './components/user/account/account.component';
     ModalComponent,
     AppMovieDialogComponent,
     SettingsComponent,
-    AccountComponent
+    AccountComponent,
+    TvShowComponent,
+    AllMoviesComponent,
+    AllTvShowsComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +82,7 @@ import { AccountComponent } from './components/user/account/account.component';
     MatMenuModule,
     MatDialogModule
   ],
-  providers: [MoviesService, AuthService],
+  providers: [MoviesService, AuthService, OnTVService],
   entryComponents: [
     AppMovieDialogComponent
   ],

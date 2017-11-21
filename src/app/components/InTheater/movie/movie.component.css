@@ -68,11 +68,11 @@
 }
 
 .card-content{
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
-   align-items: stretch;
- }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+}
 
 .card-content strong{  font-size: 1.2em;  }
 .card-content span{  font-size: 1em;  }

@@ -2,6 +2,10 @@ mat-sidenav {
   width: 250px;
 }
 
+.movie-header-card{
+  height: 350px;
+}
+
 .mat-nav-list{
   padding-top: 0!important;
 }

@@ -1,6 +1,17 @@
-mat-tab {
-  background-color: blue;
+.moviesHome-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  margin-top: 45px;
+  margin-bottom: 0;
 }
+
+.moviesHome-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
 /* Large desktops and laptops */
 @media (min-width: 1200px) {
   .search-card{  margin: 15px 40px;  }

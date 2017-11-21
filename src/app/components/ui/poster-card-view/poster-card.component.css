@@ -1,12 +1,8 @@
 .movie-card{
   display: inline-block;
-  margin: 7px 5px;
+  margin: 7px 7px;
   vertical-align: top;
   cursor: pointer;
-}
-
-.movie-header-card{
-  height: 350px;
 }
 
 mat-card-title {
@@ -26,7 +22,7 @@ mat-card-content {
 
 /* Large desktops and laptops */
 @media (min-width: 1200px) {
-  .movie-card{  width: 15%;  }
+  .movie-card{  width: 19%;  }
 }
 
 /* Landscape tablets and medium desktops */
