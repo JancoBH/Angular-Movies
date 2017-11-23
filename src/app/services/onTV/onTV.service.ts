@@ -12,7 +12,7 @@ export class OnTVService {
 
   constructor(private http: HttpClient) {
     this.baseUrl = 'https://api.themoviedb.org/3/';
-    this.apiKey = 'Your-TMDB-API-key';
+    this.apiKey = 'Your-TMDB-API-KEY';
     this.language = 'en-US';
     this.region = 'US'
   }

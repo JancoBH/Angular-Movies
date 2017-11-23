@@ -14,7 +14,7 @@
 }
 
 .parallax-img-container img {
-  width: 300px; height: 450px; box-shadow: 0 0 4px rgba(0, 0, 0, 0.2); border-radius: 4px;
+  width: 250px; height: 400px; box-shadow: 0 0 4px rgba(0, 0, 0, 0.2); border-radius: 4px;
 }
 
 .parallax-right-content {
@@ -41,22 +41,11 @@
   line-height: 20px;
 }
 
-.parrallax-content{
+.parrallax-content {
   position: relative;
   overflow: hidden;
-  height: 75vh;
   background-size: cover;
-  background-attachment: fixed;
-  background-position: center center;
-}
-
-.parrallax {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
+  background-position: center top;
 }
 
 .mat-card-actions{
@@ -105,35 +94,41 @@
 
 /* Large desktops and laptops */
 @media (min-width: 1201px) {
+  .parrallax-content{ height: 550px }
   .cast-actor-card{  width: 13%;  }
-
   .video-movie-main{  width: 50%;  }
 }
 
 /* Landscape tablets and medium desktops */
 @media (min-width: 992px) and (max-width: 1200px) {
+  .parrallax-content{ height: 480px }
   .cast-actor-card{  width: 22%;  }
-
   .video-movie-main{  width: 60%;  }
 }
 
 /* Portrait tablets and small desktops */
 @media (min-width: 768px) and (max-width: 992px) {
+  .parrallax-content{ height: 480px }
+  .genders-cat button{  margin-bottom: 5px;  }
   .cast-actor-card{  width: 23%;  }
-
   .video-movie-main{  width: 70%;  }
 }
 
 /* Landscape phones and portrait tablets */
 @media (max-width: 768px) {
-  .cast-actor-card{  width: 38%;  }
+  .parrallax-content{ height: 520px }
+  .parallax-subtitle, p{ display: none}
+  .cast-actor-card{  width: 25%;  }
   .genders-cat button{  margin-bottom: 5px;  }
   .video-movie-main{  width: 80%;  }
 }
 
 /* Portrait phones and smaller */
 @media (max-width: 480px) {
-  .cast-actor-card{  width: 80%;  }
+  .cast-actor-card{  width: 39%;  }
   .genders-cat button{  margin-bottom: 5px;  }
   .video-movie-main{  width: 90%;  }
+  .parallax-img-container img {width: 150px; height: 250px}
+  .parallax-subtitle, p{ display: none}
+  .similar-movies { display: none}
 }

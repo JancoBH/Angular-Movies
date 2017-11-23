@@ -15,32 +15,3 @@ mat-card-content {
   padding: 0 !important;
   text-align: left;
 }
-
-/* =============
-    Responsive
- =============== */
-
-/* Large desktops and laptops */
-@media (min-width: 1200px) {
-  .movie-card{  width: 19%;  }
-}
-
-/* Landscape tablets and medium desktops */
-@media (min-width: 992px) and (max-width: 1199px) {
-  .movie-card{  width: 25%;  }
-}
-
-/* Portrait tablets and small desktops */
-@media (min-width: 768px) and (max-width: 991px) {
-  .movie-card{  width: 40%;  }
-}
-
-/* Landscape phones and portrait tablets */
-@media (max-width: 767px) {
-  .movie-card{  width: 50%;  }
-}
-
-/* Portrait phones and smaller */
-@media (max-width: 480px) {
-  .movie-card{  width: 80%;  }
-}

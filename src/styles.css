@@ -17,44 +17,42 @@ app-home hr {  border-color: transparent;  }
 
 .container {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  /*background: lightcoral;*/
 }
 
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
+    padding-right: 0;
+    padding-left: 0;
   }
 }
 
 @media (min-width: 768px) {
   .container {
     max-width: 720px;
+    padding-right: 15px;
+    padding-left: 15px;
   }
 }
 
 @media (min-width: 992px) {
   .container {
     max-width: 960px;
+    padding-right: 15px;
+    padding-left: 15px;
   }
 }
 
 @media (min-width: 1200px) {
   .container {
     max-width: 1140px;
+    padding-right: 15px;
+    padding-left: 15px;
   }
 }
 
-.container-fluid {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
 
 .loading {
   width: 30px;

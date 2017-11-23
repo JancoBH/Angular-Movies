@@ -22,7 +22,6 @@ mat-nav-list a{
   display: none;
 }
 
-/* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
   .janco-ocult{  display: none;  }
 }
