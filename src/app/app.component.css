@@ -1,9 +1,20 @@
-mat-sidenav {
-  width: 250px;
+.transparent-bar {
+  position: absolute;
+  z-index: 999;
+  background: transparent;
 }
 
-.movie-header-card{
-  height: 350px;
+.img-header {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background-size: cover;
+  margin-left: 10px;
+}
+
+mat-sidenav {
+  width: 250px;
 }
 
 .mat-nav-list{

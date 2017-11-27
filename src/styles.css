@@ -21,6 +21,10 @@ app-home hr {  border-color: transparent;  }
   margin-left: auto;
 }
 
+.padding-top-60 {
+  padding-top: 60px;
+}
+
 @media (min-width: 576px) {
   .container {
     max-width: 540px;

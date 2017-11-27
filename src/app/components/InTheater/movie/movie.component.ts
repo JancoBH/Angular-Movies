@@ -1,7 +1,7 @@
 import {Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { MoviesService } from '../../../services/movies.service';
+import { MoviesService } from '../../../services/inTheater/movies.service';
 import {MovieModel} from '../../../models/movie.model';
 import {MovieCast} from '../../../models/movie-cast';
 import {MovieVideo} from '../../../models/movie-video';
@@ -16,7 +16,7 @@ import {PaginatorModel} from '../../../models/paginator.model';
 export class MovieComponent implements OnInit {
 
   movie: MovieModel;
-  similarMovies: PaginatorModel;
+  similarMovies: Array<PaginatorModel> = [];
   cast: MovieCast;
   video: MovieVideo;
   isLoading = true;
@@ -59,7 +59,8 @@ export class MovieComponent implements OnInit {
       });
 
       this._moviesService.getSimilarMovies(id).subscribe( res => {
-        this.similarMovies = res.results.slice(0, 10);
+        this.similarMovies = res.results.slice(0, 9);
+        this.similarMovies.forEach(np => np['isMovie'] = true);
       });
 
     });

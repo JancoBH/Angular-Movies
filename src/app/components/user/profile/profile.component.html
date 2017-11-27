@@ -1,0 +1,15 @@
+<div class="padding-top-60">
+  <div *ngIf="auth.user | async; then authenticated" >
+    <!-- template will replace this div -->
+  </div>
+
+  <!-- User logged in -->
+  <ng-template #authenticated>
+    <div *ngIf="auth.user | async as user">
+      <h3>{{ user.displayName }}</h3>
+      <p>Member Since: {{menberSince | date}}</p>
+      <img [src]="user.photoURL" width="50px">
+      <p *ngIf="user.favoriteColor">Favorite Color: {{ user?.favoriteColor }} </p>
+    </div>
+  </ng-template>
+</div>

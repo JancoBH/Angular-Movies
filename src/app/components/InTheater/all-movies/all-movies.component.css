@@ -41,7 +41,7 @@
 @media (max-width: 767px) {
   .list-movies { width: 66% }
   .all-poster::ng-deep .movie-card{  width: 31%;  }
-  .all-poster::ng-deep .movie-card .mat-card-title{  font-size: px  }
+  .all-poster::ng-deep .movie-card .mat-card-title{  font-size: 17px  }
   .filter-movies-card{ width: 24%; margin-bottom: 20px; }
 }
 

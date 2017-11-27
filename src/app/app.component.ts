@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import {AuthService} from './services/auth-service';
-import {Router} from '@angular/router';
+import {AuthService} from './core/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -13,32 +12,14 @@ export class AppComponent {
   isBlueColor = false;
   isGreenColor = false;
 
-  constructor(public authService: AuthService, private router: Router) {
+  constructor(public auth: AuthService) {
 
-    this.authService.afAuth.authState.subscribe(
-      (auth) => {
-        if (auth == null) {
-          this.isLoggedIn = false;
-        } else {
-
-          if (auth) {
-            this.authService.displayName = auth.displayName;
-            this.authService.email = auth.email;
-          } else {
-            this.authService.displayName = auth.email;
-            this.authService.email = auth.email;
-          }
-
-          this.isLoggedIn = true;
-        }
+    this.auth.afAuth.authState.subscribe(
+      a => {
+        this.isLoggedIn = a !== null;
       }
     );
 
-  }
-
-  logout() {
-    this.authService.logout().then();
-    this.router.navigate(['/login']).then();
   }
 
   changeToRed(): void {

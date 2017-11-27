@@ -2,8 +2,7 @@
 .parallax-left-content{
   width: 80%;
   margin: 0 auto;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 80px;
   z-index: 0;
 }
 
@@ -14,7 +13,7 @@
 }
 
 .parallax-img-container img {
-  width: 250px; height: 400px; box-shadow: 0 0 4px rgba(0, 0, 0, 0.2); border-radius: 4px;
+  width: 250px; height: 350px; box-shadow: 0 0 4px rgba(0, 0, 0, 0.2); border-radius: 4px;
 }
 
 .parallax-right-content {
@@ -101,14 +100,14 @@
 
 /* Landscape tablets and medium desktops */
 @media (min-width: 992px) and (max-width: 1200px) {
-  .parrallax-content{ height: 480px }
+  .parrallax-content{ height: 520px }
   .cast-actor-card{  width: 22%;  }
   .video-movie-main{  width: 60%;  }
 }
 
 /* Portrait tablets and small desktops */
 @media (min-width: 768px) and (max-width: 992px) {
-  .parrallax-content{ height: 480px }
+  .parrallax-content{ height: 530px }
   .genders-cat button{  margin-bottom: 5px;  }
   .cast-actor-card{  width: 23%;  }
   .video-movie-main{  width: 70%;  }

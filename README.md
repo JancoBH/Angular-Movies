@@ -19,4 +19,4 @@ npm install
 ng serve and go to http://localhost:4200/
 ```
 Go to Angular-Movies\src\environments and change ```enviroment.ts``` and ```enviroment.prod.ts``` with your own firebase data.
-Go to Angular-Movies\src\services and change ```movies.service.ts``` apiKey with your own The Movie DB ApiKey (line 17)
+Go to Angular-Movies\src\services\inTheater and \onTv and change ```movies.service.ts``` and ```onTV.service.ts``` apiKey with your own The Movie DB ApiKey

@@ -1,3 +1,9 @@
+#home-header{
+  height: 550px;
+  background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('../../../assets/img/background-main.jpg') no-repeat bottom;
+  background-size: cover;
+}
+
 .moviesHome-header {
   display: flex;
   align-items: center;

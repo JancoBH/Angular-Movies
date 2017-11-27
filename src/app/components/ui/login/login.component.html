@@ -1,0 +1,38 @@
+<div class="padding-top-60">
+  <div *ngIf="!(auth.user | async); else alreadyLoggedIn">
+    <div class="Card-Aligner">
+      <mat-card class="card-items">
+        <h1>Login to Your Account</h1>
+        <form [formGroup]="userForm" (ngSubmit)="login()">
+
+          <mat-input-container class="input-full">
+            <input matInput #email type="email" placeholder="Email address" formControlName="email" required>
+            <mat-error *ngIf="formErrors.email">{{ formErrors.email }}</mat-error>
+          </mat-input-container>
+          <mat-input-container class="input-full">
+            <input matInput #password type="password" placeholder="Password" formControlName="password" required>
+            <mat-error *ngIf="formErrors.password">{{ formErrors.password }}</mat-error>
+          </mat-input-container>
+
+          <button type="submit" mat-raised-button color="accent" [disabled]="!userForm.valid">Sign In</button>
+
+        </form>
+        <br>
+        <button mat-raised-button color="primary" (click)="loginWithGoogle()">Sign With Google</button>
+        <mat-card-actions>
+          No Account? - <a routerLink="/register">Register Here Now</a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <mat-chip-list role="alert" *ngIf="auth.error">
+      <mat-chip color="warn" selected="true" class="error">{{auth.error}}</mat-chip>
+    </mat-chip-list>
+  </div>
+
+  <ng-template #alreadyLoggedIn>
+    <p class="text-success">
+      Already logged in!
+    </p>
+  </ng-template>
+
+</div>

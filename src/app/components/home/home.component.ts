@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 
-import { MoviesService } from '../../services/movies.service'
+import { MoviesService } from '../../services/inTheater/movies.service'
 import {PaginatorModel} from '../../models/paginator.model';
 import {OnTVService} from '../../services/onTV/onTV.service';
 
