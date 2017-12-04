@@ -29,15 +29,21 @@ mat-nav-list a{
   flex: 1 1 auto;
 }
 
+.home-name-padding {
+  padding-left: 70px;
+}
+
 .hidden {
   display: none;
 }
 
 @media (max-width: 767px) {
   .janco-ocult{  display: none;  }
+  .home-name-padding {padding-left: 0;}
 }
 
 /* Portrait phones and smaller */
 @media (max-width: 480px) {
   .janco-ocult{  display: none;  }
+  .home-name-padding {padding-left: 0;}
 }

@@ -13,7 +13,7 @@ export class MoviesService {
 
   constructor(private http: HttpClient) {
     this.baseUrl = 'https://api.themoviedb.org/3/';
-    this.apiKey = 'Your-TMDB-API-KEY';
+    this.apiKey = 'YourApiKey';
     this.language = 'en-US';
     this.region = 'US'
   }
@@ -62,12 +62,16 @@ export class MoviesService {
     return this.http.get(`${this.baseUrl}movie/${id}/videos?api_key=${this.apiKey}`)
   }
 
-  getSimilarMovies(id: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}movie/${id}/similar?api_key=${this.apiKey}`)
+  getRecomendMovies(id: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}movie/${id}/recommendations?api_key=${this.apiKey}`)
   }
 
   getPersonDetail(id: string): Observable<any> {
     return this.http.get(`${this.baseUrl}person/${id}?api_key=${this.apiKey}`)
+  }
+
+  getPersonExternalData(id: string) {
+    return this.http.get(`${this.baseUrl}person/${id}/external_ids?api_key=${this.apiKey}`)
   }
 
   getPersonCast(id: string): Observable<any> {

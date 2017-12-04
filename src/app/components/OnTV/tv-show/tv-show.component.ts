@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {TvShowModel} from '../../../models/onTV/tvShow.model';
 import {OnTVService} from '../../../services/onTV/onTV.service';
 import {ActivatedRoute} from '@angular/router';
-import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-tv-show',

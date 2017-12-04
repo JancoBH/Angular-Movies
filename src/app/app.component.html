@@ -22,17 +22,15 @@
       <mat-icon>menu</mat-icon>
     </button>
     <span class="center-flex"></span>
-    <span *ngIf="!isLoggedIn">
-      <a routerLink="/">Movies + TV Shows <span class="janco-ocult">by JancoBH</span></a>
+    <span>
+      <a routerLink="/" [class.home-name-padding]="isLoggedIn">Movies + TV Shows <span class="janco-ocult">by JancoBH</span></a>
     </span>
-
-    <span *ngIf="auth.user | async as user">{{ user.displayName }}</span>
-    <span *ngIf="auth.user | async as user" class="img-header" [ngStyle]="{'background-image': 'url('+user?.photoURL+')'}"></span>
 
     <span class="center-flex"></span>
 
-
-    <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Change Color" style="padding-right: 10px">
+    <span *ngIf="auth.user | async as user" class="janco-ocult">{{ user.displayName }}</span>
+    <span *ngIf="auth.user | async as user" class="img-header" mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Options" [ngStyle]="{'background-image': 'url('+user?.photoURL+')'}"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Change Color" style="padding-right: 10px" *ngIf="!isLoggedIn">
       <mat-icon>format_color_fill</mat-icon>
     </button>
 
@@ -48,6 +46,10 @@
       <button mat-menu-item (click)="changeToGreen()" [class.hidden]="isGreenColor">
         <mat-icon style="color: #4caf50">lens</mat-icon>
         <span>Green</span>
+      </button>
+      <button mat-menu-item (click)="auth.signOut()" *ngIf="isLoggedIn">
+        <mat-icon>power_settings_new</mat-icon>
+        <span>Sign Out</span>
       </button>
     </mat-menu>
   </mat-toolbar>

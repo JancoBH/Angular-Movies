@@ -1,29 +1,59 @@
-<div class="padding-top-60">
-  <mat-card class="actor-card">
-    <img src="https://image.tmdb.org/t/p/w300/{{person.profile_path}}" *ngIf="person.profile_path">
-    <mat-card-content>
-      <h2>Personal Info</h2>
-      <h4> {{person.name}} </h4>
-      <p>
-        <strong>Gender: </strong>
-        <span *ngIf="person.gender == 2">Male</span>
-        <span *ngIf="person.gender == 1">Female</span>
-      </p>
-      <p><strong>Birthday: </strong>
-        {{person.birthday}}</p>
-      <p><strong>Place of Birth: </strong>{{person.place_of_birth}}</p>
-      <p>
-        <strong>Popularity</strong>
-        <small class="red">
-          {{person.popularity}}<mat-icon>star</mat-icon>
-        </small>
-      </p>
-    </mat-card-content>
-  </mat-card>
+<div class="padding-top-60 container" style=" display: flex;">
+  <div  style="width: 25%">
+    <mat-card class="actor-card">
+      <img src="https://image.tmdb.org/t/p/w300/{{person.profile_path}}" *ngIf="person.profile_path">
+      <mat-card-content>
+        <h2>Personal Info</h2>
+        <p>
+          <strong>Gender: </strong>
+          <span *ngIf="person.gender == 2">Male</span>
+          <span *ngIf="person.gender == 1">Female</span>
+        </p>
+        <p><strong>Birthday: </strong>
+          {{person.birthday}}</p>
+        <p><strong>Place of Birth: </strong>{{person.place_of_birth}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
 
-  <mat-card class="actor-card-similar">
-    <mat-card-content>
-      <h2>Soon more Info</h2>
-    </mat-card-content>
-  </mat-card>
+  <div style="width: 70%">
+
+    <mat-card class="actor-card-bio" style="width: 100%; margin-bottom: 0;">
+      <mat-card-content>
+        <div class="actor-title" dir="auto">
+          <h2>{{person.name}}</h2>
+          <span class="actor-social-links">
+          <a target="_blank" href="https://www.facebook.com/{{externalIds['facebook_id']}}"><mat-icon class="fa fa-facebook-official" aria-hidden="true"></mat-icon></a>
+          <a target="_blank" href="https://twitter.com/{{externalIds['twitter_id']}}"><mat-icon class="fa fa-twitter-square" aria-hidden="true"></mat-icon></a>
+          <a target="_blank" href="https://www.instagram.com/{{externalIds['instagram_id']}}"><mat-icon class="fa fa-instagram" aria-hidden="true"></mat-icon></a>
+        </span>
+        </div>
+        <div>
+          <h3 style="text-align: left">Biography</h3>
+          <div class="biography">
+            <p style="text-align: justify;">{{person.biography}}</p>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="actor-card-bio" style="width: 100%; margin-bottom: 0;">
+      <mat-card-content>
+        <mat-tab-group>
+          <mat-tab [label]="'Movies'">
+            Soon
+          </mat-tab>
+          <mat-tab [label]="'Images'">
+            Soon
+            <!--<mat-card>-->
+              <!--<img mat-card-image src="http://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+            <!--</mat-card>-->
+          </mat-tab>
+          <mat-tab [label]="'Extra Info'">
+            Soon
+          </mat-tab>
+        </mat-tab-group>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>

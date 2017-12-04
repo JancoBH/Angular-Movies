@@ -6,10 +6,35 @@
   text-align: left;
 }
 
-.actor-card-similar{
+.actor-card-bio {
   display: inline-block;
   vertical-align: top;
   margin: 15px 5px;
+}
+
+.actor-card-bio h2 {
+  display: inline-block;
+  font-size: 2.4em;
+  line-height: 1.1em;
+  font-weight: 700;
+}
+
+.actor-card-bio h3 {
+  font-weight: 600;
+  line-height: 1.3em;
+  font-size: 1.3em;
+}
+
+.actor-card-bio .actor-social-links {
+  font-size: 1.5em;
+}
+
+.biography {
+
+}
+
+.actor-card-bio .actor-title {
+  width: 100%;
 }
 
 .actor-card img{
@@ -26,9 +51,6 @@
 
 /* Large desktops and laptops */
 @media (min-width: 1201px) {
- .actor-card {  width: 20%; }
-
-  .actor-card-similar { width: 74%; }
 }
 
 /* Landscape tablets and medium desktops */

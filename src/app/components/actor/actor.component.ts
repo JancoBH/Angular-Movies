@@ -14,6 +14,7 @@ export class ActorComponent implements OnInit {
 
   person: Actors = new Actors();
   movies: MovieModel = new MovieModel();
+  externalIds: Object = {};
 
   constructor(
     private _moviesSerice: MoviesService,
@@ -26,10 +27,15 @@ export class ActorComponent implements OnInit {
       this._moviesSerice.getPersonDetail(id).subscribe(person => {
         this.person = person;
         console.log(person);
-      });
+      }, error => console.log(error));
       this._moviesSerice.getPersonCast(id).subscribe(res => {
         this.movies = res.cast;
-      });
+        console.log(this.movies);
+      }, error => console.log(error));
+
+      this._moviesSerice.getPersonExternalData(id).subscribe(res => {
+        this.externalIds = res;
+      }, error => console.log(error));
     });
   }
 

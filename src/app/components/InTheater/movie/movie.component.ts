@@ -7,6 +7,7 @@ import {MovieCast} from '../../../models/movie-cast';
 import {MovieVideo} from '../../../models/movie-video';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {PaginatorModel} from '../../../models/paginator.model';
+import {SeoService} from '../../../services/seo.service';
 
 @Component({
   selector: 'app-movie',
@@ -28,10 +29,18 @@ export class MovieComponent implements OnInit {
     private _moviesService: MoviesService,
     private router: ActivatedRoute,
     private sanitizer: DomSanitizer,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private seo: SeoService
   ) {}
 
   ngOnInit() {
+
+    this.seo.generateTags({
+      title: 'Movie Page',
+      description: 'Movie Page for Angular Movies',
+      image: 'https://image.tmdb.org/t/p/w1920/5wNUJs23rT5rTBacNyf5h83AynM.jpg',
+      slug: 'movie'
+    });
 
     this.router.params.subscribe( (params) => {
       const id = params['id'];
@@ -58,8 +67,8 @@ export class MovieComponent implements OnInit {
         }
       });
 
-      this._moviesService.getSimilarMovies(id).subscribe( res => {
-        this.similarMovies = res.results.slice(0, 9);
+      this._moviesService.getRecomendMovies(id).subscribe(res => {
+        this.similarMovies = res.results.slice(0, 8);
         this.similarMovies.forEach(np => np['isMovie'] = true);
       });
 

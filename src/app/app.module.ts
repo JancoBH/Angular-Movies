@@ -37,6 +37,7 @@ import { AllMoviesComponent } from './components/InTheater/all-movies/all-movies
 import { AllTvShowsComponent } from './components/OnTV/all-tv-shows/all-tv-shows.component';
 import {CoreModule} from './core/core.module';
 import {AuthGuard} from './core/auth.guard';
+import {SeoService} from './services/seo.service';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,7 @@ import {AuthGuard} from './core/auth.guard';
     MatSliderModule,
     MatExpansionModule
   ],
-  providers: [MoviesService, OnTVService, AuthGuard],
+  providers: [MoviesService, OnTVService, AuthGuard, SeoService],
   entryComponents: [
     AppMovieDialogComponent
   ],

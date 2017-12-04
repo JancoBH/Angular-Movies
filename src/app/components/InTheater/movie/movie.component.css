@@ -96,6 +96,8 @@
   .parrallax-content{ height: 550px }
   .cast-actor-card{  width: 13%;  }
   .video-movie-main{  width: 50%;  }
+  .recommended-poster::ng-deep .movie-card{  width: 17% !important;  }
+  .recommended-poster::ng-deep .movie-card .mat-card-title{  font-size: 20px !important  }
 }
 
 /* Landscape tablets and medium desktops */
@@ -103,6 +105,7 @@
   .parrallax-content{ height: 520px }
   .cast-actor-card{  width: 22%;  }
   .video-movie-main{  width: 60%;  }
+  .recommended-poster::ng-deep .movie-card{  width: 23%;  }
 }
 
 /* Portrait tablets and small desktops */
@@ -111,6 +114,7 @@
   .genders-cat button{  margin-bottom: 5px;  }
   .cast-actor-card{  width: 23%;  }
   .video-movie-main{  width: 70%;  }
+  .recommended-poster::ng-deep .movie-card{  width: 37%;  }
 }
 
 /* Landscape phones and portrait tablets */
@@ -120,6 +124,8 @@
   .cast-actor-card{  width: 25%;  }
   .genders-cat button{  margin-bottom: 5px;  }
   .video-movie-main{  width: 80%;  }
+  .recommended-poster::ng-deep .movie-card{  width: 31%;  }
+  .recommended-poster::ng-deep .movie-card .mat-card-title{  font-size: 17px  }
 }
 
 /* Portrait phones and smaller */
@@ -130,4 +136,5 @@
   .parallax-img-container img {width: 150px; height: 250px}
   .parallax-subtitle, p{ display: none}
   .similar-movies { display: none}
+  .recommended-poster::ng-deep .movie-card{  width: 88%;  }
 }

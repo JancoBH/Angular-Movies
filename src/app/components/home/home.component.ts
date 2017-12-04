@@ -3,6 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import { MoviesService } from '../../services/inTheater/movies.service'
 import {PaginatorModel} from '../../models/paginator.model';
 import {OnTVService} from '../../services/onTV/onTV.service';
+import {SeoService} from '../../services/seo.service';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +23,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private moviesService: MoviesService,
-    private onTvService: OnTVService
+    private onTvService: OnTVService,
+    private seo: SeoService
   ) {
 
     this.moviesService.getUpComingMovies(1).subscribe(res => {
@@ -36,6 +38,13 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.seo.generateTags({
+      title: 'Angular Movies and Series',
+      description: 'Movie and Series Home Page',
+      image: 'https://angular-movies-c91ba.firebaseapp.com/assets/background-main.jpg'
+    });
+
     this.getNowPlayinMovies(1);
     this.getPopularMovies(1);
 

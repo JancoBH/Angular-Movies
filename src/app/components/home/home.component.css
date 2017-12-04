@@ -1,6 +1,6 @@
 #home-header{
   height: 550px;
-  background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('../../../assets/img/background-main.jpg') no-repeat bottom;
+  background: linear-gradient(rgba(52,41,49,0.8), rgba(26, 33, 74, 0.8)), url('../../../assets/img/background-main.jpg') no-repeat bottom;
   background-size: cover;
 }
 
