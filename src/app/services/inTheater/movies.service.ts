@@ -13,7 +13,7 @@ export class MoviesService {
 
   constructor(private http: HttpClient) {
     this.baseUrl = 'https://api.themoviedb.org/3/';
-    this.apiKey = 'YourApiKey';
+    this.apiKey = '';
     this.language = 'en-US';
     this.region = 'US'
   }

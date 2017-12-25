@@ -1,9 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 
 import { MoviesService } from '../../services/inTheater/movies.service'
 import {PaginatorModel} from '../../models/paginator.model';
 import {OnTVService} from '../../services/onTV/onTV.service';
 import {SeoService} from '../../services/seo.service';
+import {
+  SwiperComponent, SwiperConfigInterface, SwiperDirective, SwiperPaginationInterface,
+  SwiperScrollbarInterface
+} from 'ngx-swiper-wrapper';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +15,7 @@ import {SeoService} from '../../services/seo.service';
   styleUrls: ['./home.component.css']
 })
 
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
   nowPlaying: Array<PaginatorModel> = [];
   popularList: Array<PaginatorModel> = [];
   upcomingList: Array<PaginatorModel> = [];
@@ -20,6 +24,26 @@ export class HomeComponent implements OnInit {
   onTheAir: Array<PaginatorModel> = [];
   airingToday: Array<PaginatorModel> = [];
   popularTvShows: Array<PaginatorModel> = [];
+
+  public slides = [
+    'First slide',
+    'Second slide',
+    'Third slide',
+    'Fourth slide',
+    'Fifth slide',
+    'Sixth slide'
+  ];
+
+  public config: SwiperConfigInterface = {};
+
+  private pagination: SwiperPaginationInterface = {
+    el: '.swiper-pagination',
+    clickable: true,
+    hideOnClick: false
+  };
+
+  @ViewChild(SwiperComponent) componentRef: SwiperComponent;
+  @ViewChild(SwiperDirective) directiveRef: SwiperDirective;
 
   constructor(
     private moviesService: MoviesService,
@@ -52,6 +76,24 @@ export class HomeComponent implements OnInit {
     this.getTvOnTheAir(1);
     this.getAiringToday(1);
     this.getPopularTvShow(1);
+  }
+
+  ngAfterViewInit() {
+    this.config = {
+      direction: 'horizontal',
+      slidesPerView: 4,
+      keyboard: true,
+      mousewheel: true,
+      scrollbar: true,
+      navigation: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        hideOnClick: true
+      },
+      spaceBetween: 30,
+      grabCursor: true,
+    };
   }
 
   getNowPlayinMovies(page: number) {
@@ -98,5 +140,9 @@ export class HomeComponent implements OnInit {
       },
       error => console.log(error)
     );
+  }
+
+  public onIndexChange(index: number) {
+    console.log('Swiper index: ', index);
   }
 }

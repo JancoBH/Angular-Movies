@@ -72,4 +72,22 @@
     </mat-tab-group>
   </section>
 
+  <div class="swiper-container" [swiper]="config" (indexChange)="onIndexChange($event)">
+    <div class="swiper-wrapper">
+      <div *ngFor="let movie of nowPlaying | slice:0:8" class="swiper-slide">
+        <app-poster-card [model]="movie"></app-poster-card>
+      </div>
+      <!--<div *ngFor="let slide of slides" class="swiper-slide">-->
+        <!--<div fxLayout="column" fxLayoutAlign="center center" fxFlexFill>-->
+          <!--&lt;!&ndash;{{slide}}&ndash;&gt;-->
+        <!--</div>-->
+      <!--</div>-->
+    </div>
+
+    <div class="swiper-pagination"></div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
 </div>

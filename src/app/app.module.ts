@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { AngularFireModule } from 'angularfire2';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -21,7 +22,7 @@ import { PageNotFoundComponent } from './components/ui/page-not-found/page-not-f
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { GenresListComponent } from './components/InTheater/genres-list/genres-list.component';
 import { RegisterComponent } from './components/ui/register/register.component';
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment.prod';
 import {
   MatButtonModule, MatCardModule, MatChipsModule, MatIconModule, MatInputModule, MatListModule, MatSidenavModule,
   MatTabsModule,
@@ -38,6 +39,16 @@ import { AllTvShowsComponent } from './components/OnTV/all-tv-shows/all-tv-shows
 import {CoreModule} from './core/core.module';
 import {AuthGuard} from './core/auth.guard';
 import {SeoService} from './services/seo.service';
+
+import { SwiperModule } from 'ngx-swiper-wrapper';
+import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+
+const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
+  direction: 'horizontal',
+  slidesPerView: 'auto',
+  keyboard: true
+};
 
 @NgModule({
   declarations: [
@@ -61,7 +72,7 @@ import {SeoService} from './services/seo.service';
     AllTvShowsComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
@@ -83,9 +94,17 @@ import {SeoService} from './services/seo.service';
     MatMenuModule,
     MatDialogModule,
     MatSliderModule,
-    MatExpansionModule
+    MatExpansionModule,
+    SwiperModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
   ],
-  providers: [MoviesService, OnTVService, AuthGuard, SeoService],
+  providers: [
+    MoviesService,
+    OnTVService,
+    AuthGuard,
+    SeoService,
+    {provide: SWIPER_CONFIG, useValue: DEFAULT_SWIPER_CONFIG}
+  ],
   entryComponents: [
     AppMovieDialogComponent
   ],

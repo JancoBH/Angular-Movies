@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { MoviesService } from '../../../services/inTheater/movies.service'
-import {MovieModel} from '../../../models/movie.model';
+import {PaginatorModel} from '../../../models/paginator.model';
 
 @Component({
   selector: 'app-genres',
@@ -12,7 +12,7 @@ import {MovieModel} from '../../../models/movie.model';
 export class GenresComponent implements OnInit {
 
   title: string;
-  movies: MovieModel;
+  movies: Array<PaginatorModel> = [];
 
   constructor(
     private _moviesService: MoviesService,
@@ -25,7 +25,8 @@ export class GenresComponent implements OnInit {
       this.title = params['name'];
       this._moviesService.getMoviesByGenre(id).subscribe( res => {
         this.movies = res.results;
-      });
+        this.movies.forEach(np => np['isMovie'] = true);
+      }, error => console.log(error));
     });
   }
 

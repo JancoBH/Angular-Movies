@@ -48,3 +48,14 @@
   ::ng-deep .movie-card{  width: 80%;  }
   .janco-ocult{  display: none;  }
 }
+
+/**/
+
+.swiper-container {
+  margin: 20px 0;
+}
+
+.swiper-slide {
+  color: #aaa;
+  background-color: #eee;
+}
