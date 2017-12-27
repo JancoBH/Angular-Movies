@@ -22,7 +22,7 @@ import { PageNotFoundComponent } from './components/ui/page-not-found/page-not-f
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { GenresListComponent } from './components/InTheater/genres-list/genres-list.component';
 import { RegisterComponent } from './components/ui/register/register.component';
-import { environment } from '../environments/environment.prod';
+import { environment } from '../environments/environment';
 import {
   MatButtonModule, MatCardModule, MatChipsModule, MatIconModule, MatInputModule, MatListModule, MatSidenavModule,
   MatTabsModule,
@@ -72,7 +72,10 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     AllTvShowsComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', {
+      enabled: environment.production
+    }),
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
@@ -95,9 +98,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     MatDialogModule,
     MatSliderModule,
     MatExpansionModule,
-    SwiperModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
-  ],
+    SwiperModule
+],
   providers: [
     MoviesService,
     OnTVService,

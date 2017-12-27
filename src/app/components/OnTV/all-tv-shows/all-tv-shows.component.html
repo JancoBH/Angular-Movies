@@ -4,9 +4,9 @@
 
   <mat-card class="filter-movies-card">
     <div style="margin-bottom: 24px">Filter by</div>
-    <button mat-raised-button color="primary">Currently Airing</button>
-    <button mat-raised-button color="primary" disabled>Airing Today</button>
-    <button mat-raised-button color="primary" disabled>Popular</button>
+    <button mat-raised-button color="primary" aria-label="Set Airing filter">Currently Airing</button>
+    <button mat-raised-button color="primary" aria-label="Set Airing Today filter" disabled>Airing Today</button>
+    <button mat-raised-button color="primary" aria-label="Set Popular filter" disabled>Popular</button>
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
@@ -15,7 +15,7 @@
       </mat-expansion-panel-header>
 
       <div *ngFor="let genre of genres">
-        <button mat-raised-button color="primary" disabled>
+        <button mat-raised-button color="primary" aria-label="Set Genres filter" disabled>
           {{genre.name}}
         </button>
       </div>

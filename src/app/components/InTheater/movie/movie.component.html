@@ -10,16 +10,16 @@
           <div class="parallax-right-content"> <!--Title-->
             <h2>{{movie.title}}</h2>
             <div class="parallax-btn-container">
-              <button mat-mini-fab matTooltip="Soon"><mat-icon>favorite</mat-icon></button>
-              <button mat-mini-fab matTooltip="Soon"><mat-icon>star</mat-icon></button>
-              <button mat-mini-fab matTooltip="Soon"><mat-icon>bookmark</mat-icon></button>
+              <button mat-mini-fab matTooltip="Soon" aria-label="Add Favorite Movie"><mat-icon>favorite</mat-icon></button>
+              <button mat-mini-fab matTooltip="Soon" aria-label="Add Star Movie"><mat-icon>star</mat-icon></button>
+              <button mat-mini-fab matTooltip="Soon" aria-label="Add Bookmark Movie"><mat-icon>bookmark</mat-icon></button>
               <a href="javascript:void(0)" (click)="openDialog()" *ngIf="video"><mat-icon>play_arrow</mat-icon> Play Trailer</a>
             </div>
             <h3 class="parallax-subtitle">Overview</h3>
             <p>{{movie.overview}}</p>
             <h3 class="parallax-subtitle">Categories</h3>
             <a *ngFor="let genre of movie.genres" routerLink="/genres/{{genre.id}}/{{genre.name}}" class="genders-cat">
-              <button mat-raised-button color="primary">{{genre.name}}</button>
+              <button mat-raised-button color="primary" aria-label="Genres">{{genre.name}}</button>
             </a>
           </div>
         </section>

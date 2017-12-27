@@ -1,6 +1,6 @@
 <div class="padding-top-60">
   <a *ngFor="let genre of genres" routerLink="/genres/{{genre.id}}/{{genre.name}}">
-    <button mat-raised-button color="primary" class="genre-card">
+    <button mat-raised-button color="primary" class="genre-card" aria-label="Genres">
       {{genre.name}}
     </button>
   </a>

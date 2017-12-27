@@ -9,7 +9,7 @@
   <section>
     <header class="moviesHome-header">
       <div class="moviesHome-title">In Theater</div>
-      <a routerLink="/all-movies">See all Movies</a>
+      <a routerLink="/all-movies" style="color: white">See all Movies</a>
     </header>
 
     <mat-tab-group>
@@ -43,7 +43,7 @@
   <section>
     <header class="moviesHome-header">
       <div class="moviesHome-title">On TV</div>
-      <a routerLink="/all-tv-shows">See all TV Shows</a>
+      <a routerLink="/all-tv-shows" style="color: white">See all TV Shows</a>
     </header>
 
     <mat-tab-group>
@@ -72,22 +72,22 @@
     </mat-tab-group>
   </section>
 
-  <div class="swiper-container" [swiper]="config" (indexChange)="onIndexChange($event)">
-    <div class="swiper-wrapper">
-      <div *ngFor="let movie of nowPlaying | slice:0:8" class="swiper-slide">
-        <app-poster-card [model]="movie"></app-poster-card>
-      </div>
-      <!--<div *ngFor="let slide of slides" class="swiper-slide">-->
-        <!--<div fxLayout="column" fxLayoutAlign="center center" fxFlexFill>-->
-          <!--&lt;!&ndash;{{slide}}&ndash;&gt;-->
-        <!--</div>-->
+  <!--<div class="swiper-container" [swiper]="config" (indexChange)="onIndexChange($event)">-->
+    <!--<div class="swiper-wrapper">-->
+      <!--<div *ngFor="let movie of nowPlaying | slice:0:8" class="swiper-slide">-->
+        <!--<app-poster-card [model]="movie"></app-poster-card>-->
       <!--</div>-->
-    </div>
+      <!--&lt;!&ndash;<div *ngFor="let slide of slides" class="swiper-slide">&ndash;&gt;-->
+        <!--&lt;!&ndash;<div fxLayout="column" fxLayoutAlign="center center" fxFlexFill>&ndash;&gt;-->
+          <!--&lt;!&ndash;&lt;!&ndash;{{slide}}&ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--</div>-->
 
-    <div class="swiper-pagination"></div>
+    <!--<div class="swiper-pagination"></div>-->
 
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-  </div>
+    <!--<div class="swiper-button-prev"></div>-->
+    <!--<div class="swiper-button-next"></div>-->
+  <!--</div>-->
 
 </div>
