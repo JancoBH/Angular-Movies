@@ -4,7 +4,7 @@
   </div>
 </section>
 
-<div class="container">
+<div class="container" id="home">
 
   <section>
     <header class="moviesHome-header">
@@ -12,27 +12,42 @@
       <a routerLink="/all-movies" style="color: white">See all Movies</a>
     </header>
 
-    <mat-tab-group>
+    <mat-tab-group (selectChange)="changeTab()">
 
       <!--Now Playing Movies-->
       <mat-tab label="Now Playing Movies">
-        <span *ngFor="let movie of nowPlaying | slice:0:4">
-          <app-poster-card [model]="movie"></app-poster-card>
-        </span>
+        <div class="swiper-container" [swiper]="config">
+          <div class="swiper-wrapper">
+            <div *ngFor="let movie of nowPlaying | slice:0:10" class="swiper-slide">
+              <app-poster-card [model]="movie"></app-poster-card>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
       </mat-tab>
 
       <!--Upcoming Movies Tab-->
       <mat-tab label="Upcomming Movies">
-        <span *ngFor="let movie of upcomingList | slice:0:4">
-          <app-poster-card [model]="movie"></app-poster-card>
-        </span>
+        <div class="swiper-container" [swiper]="config">
+          <div class="swiper-wrapper">
+            <div *ngFor="let movie of upcomingList | slice:0:10" class="swiper-slide">
+              <app-poster-card [model]="movie"></app-poster-card>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
       </mat-tab>
 
       <!--Popular Movies Tab-->
       <mat-tab label="Popular Movies">
-        <span *ngFor="let movie of popularList | slice:0:4">
-          <app-poster-card [model]="movie"></app-poster-card>
-       </span>
+        <div class="swiper-container" [swiper]="config">
+          <div class="swiper-wrapper">
+            <div *ngFor="let movie of popularList | slice:0:10" class="swiper-slide">
+              <app-poster-card [model]="movie"></app-poster-card>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
       </mat-tab>
 
     </mat-tab-group>
@@ -46,48 +61,45 @@
       <a routerLink="/all-tv-shows" style="color: white">See all TV Shows</a>
     </header>
 
-    <mat-tab-group>
+    <mat-tab-group (selectChange)="changeTab()">
 
       <!--Currently Airing TV Shows Tab-->
       <mat-tab label="Currently Airing TV Shows">
-        <span *ngFor="let tvShow of onTheAir | slice:0:4">
-          <app-poster-card [model]="tvShow"></app-poster-card>
-        </span>
+        <div class="swiper-container" [swiper]="config">
+          <div class="swiper-wrapper">
+            <div *ngFor="let tvShow of onTheAir | slice:0:10" class="swiper-slide">
+              <app-poster-card [model]="tvShow"></app-poster-card>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
       </mat-tab>
 
       <!--Airing Today TV Shows Tab-->
       <mat-tab label="Airing Today TV Shows">
-        <span *ngFor="let tvShow of airingToday | slice:0:4">
-          <app-poster-card [model]="tvShow"></app-poster-card>
-        </span>
+        <div class="swiper-container" [swiper]="config">
+          <div class="swiper-wrapper">
+            <div *ngFor="let tvShow of airingToday | slice:0:10" class="swiper-slide">
+              <app-poster-card [model]="tvShow"></app-poster-card>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
       </mat-tab>
 
       <!--Popular TV Shows Tab-->
       <mat-tab label="Popular TV Shows">
-        <span *ngFor="let tvShow of popularTvShows | slice:0:4">
-          <app-poster-card [model]="tvShow"></app-poster-card>
-       </span>
+        <div class="swiper-container" [swiper]="config">
+          <div class="swiper-wrapper">
+            <div *ngFor="let tvShow of popularTvShows | slice:0:10" class="swiper-slide">
+              <app-poster-card [model]="tvShow"></app-poster-card>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
       </mat-tab>
 
     </mat-tab-group>
   </section>
-
-  <!--<div class="swiper-container" [swiper]="config" (indexChange)="onIndexChange($event)">-->
-    <!--<div class="swiper-wrapper">-->
-      <!--<div *ngFor="let movie of nowPlaying | slice:0:8" class="swiper-slide">-->
-        <!--<app-poster-card [model]="movie"></app-poster-card>-->
-      <!--</div>-->
-      <!--&lt;!&ndash;<div *ngFor="let slide of slides" class="swiper-slide">&ndash;&gt;-->
-        <!--&lt;!&ndash;<div fxLayout="column" fxLayoutAlign="center center" fxFlexFill>&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;{{slide}}&ndash;&gt;&ndash;&gt;-->
-        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-      <!--&lt;!&ndash;</div>&ndash;&gt;-->
-    <!--</div>-->
-
-    <!--<div class="swiper-pagination"></div>-->
-
-    <!--<div class="swiper-button-prev"></div>-->
-    <!--<div class="swiper-button-next"></div>-->
-  <!--</div>-->
 
 </div>
