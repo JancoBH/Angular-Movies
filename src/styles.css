@@ -99,3 +99,15 @@ app-home hr {  border-color: transparent;  }
 .error {
   margin: 10px auto auto;
 }
+
+.docs-footer {
+  background: #212121;
+  color: white;
+  margin-top: 40px;
+  padding: 12px;
+  font-size: 12px;
+}
+
+.docs-footer-list {
+  padding: 8px;
+}

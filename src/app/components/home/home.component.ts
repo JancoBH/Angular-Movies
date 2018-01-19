@@ -5,8 +5,7 @@ import {PaginatorModel} from '../../models/paginator.model';
 import {OnTVService} from '../../services/onTV/onTV.service';
 import {SeoService} from '../../services/seo.service';
 import {
-  SwiperComponent, SwiperConfigInterface, SwiperDirective, SwiperPaginationInterface,
-  SwiperScrollbarInterface
+  SwiperComponent, SwiperConfigInterface, SwiperDirective
 } from 'ngx-swiper-wrapper';
 
 @Component({
@@ -25,22 +24,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   airingToday: Array<PaginatorModel> = [];
   popularTvShows: Array<PaginatorModel> = [];
 
-  public slides = [
-    'First slide',
-    'Second slide',
-    'Third slide',
-    'Fourth slide',
-    'Fifth slide',
-    'Sixth slide'
-  ];
-
   public config: SwiperConfigInterface = {};
-
-  private pagination: SwiperPaginationInterface = {
-    el: '.swiper-pagination',
-    clickable: true,
-    hideOnClick: false
-  };
 
   @ViewChild(SwiperComponent) componentRef: SwiperComponent;
   @ViewChild(SwiperDirective) directiveRef: SwiperDirective;
@@ -79,11 +63,48 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    setTimeout(() => {
+      this.config = {
+        direction: 'horizontal',
+        slidesPerView: 4,
+        keyboard: true,
+        mousewheel: false,
+        scrollbar: true,
+        navigation: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+          hideOnClick: true
+        },
+        breakpoints: {
+          1199: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+          },
+          991: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          767: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          480: {
+            slidesPerView: 1,
+            spaceBetween: 0,
+          }
+        },
+        spaceBetween: 20
+      };
+    }, 100)
+  }
+
+  changeTab() {
     this.config = {
       direction: 'horizontal',
       slidesPerView: 4,
       keyboard: true,
-      mousewheel: true,
+      mousewheel: false,
       scrollbar: true,
       navigation: true,
       pagination: {
@@ -91,8 +112,25 @@ export class HomeComponent implements OnInit, AfterViewInit {
         clickable: true,
         hideOnClick: true
       },
-      spaceBetween: 30,
-      grabCursor: true,
+      breakpoints: {
+        1199: {
+          slidesPerView: 4,
+          spaceBetween: 20,
+        },
+        991: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        767: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        480: {
+          slidesPerView: 1,
+          spaceBetween: 0,
+        }
+      },
+      spaceBetween: 20
     };
   }
 
@@ -117,6 +155,40 @@ export class HomeComponent implements OnInit, AfterViewInit {
       res => {
         this.onTheAir = res.results;
         this.onTheAir.forEach(np => np['isMovie'] = false);
+        setTimeout(() => {
+          this.config = {
+            direction: 'horizontal',
+            slidesPerView: 4,
+            keyboard: true,
+            mousewheel: false,
+            scrollbar: true,
+            navigation: true,
+            pagination: {
+              el: '.swiper-pagination',
+              clickable: true,
+              hideOnClick: true
+            },
+            breakpoints: {
+              1199: {
+                slidesPerView: 4,
+                spaceBetween: 20,
+              },
+              991: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              767: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              480: {
+                slidesPerView: 1,
+                spaceBetween: 0,
+              }
+            },
+            spaceBetween: 20
+          };
+        }, 100)
       },
       error => console.log(error)
     );
@@ -142,7 +214,4 @@ export class HomeComponent implements OnInit, AfterViewInit {
     );
   }
 
-  public onIndexChange(index: number) {
-    console.log('Swiper index: ', index);
-  }
 }

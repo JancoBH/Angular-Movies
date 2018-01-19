@@ -18,6 +18,10 @@
   font-weight: bold;
 }
 
+::ng-deep #home img {
+  height: 400px;
+}
+
 /* =============
     Responsive
  =============== */
@@ -52,10 +56,26 @@
 /**/
 
 .swiper-container {
-  margin: 20px 0;
+  margin: 20px 0 0 0;
+}
+
+::ng-deep .swiper-pagination-bullet-active {
+  background: #F44336;
+}
+
+::ng-deep .swiper-pagination {
+  margin-top: 10px;
+  position: relative;
+  bottom: 0 !important;
 }
 
 .swiper-slide {
   color: #aaa;
-  background-color: #eee;
+  background-color: transparent;
+}
+
+::ng-deep .swiper-wrapper app-poster-card .movie-card {
+  margin: 0;
+  width: 82%;
+  vertical-align: top;
 }
