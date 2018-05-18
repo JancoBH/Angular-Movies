@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class OnTVService {
@@ -12,7 +12,7 @@ export class OnTVService {
 
   constructor(private http: HttpClient) {
     this.baseUrl = 'https://api.themoviedb.org/3/';
-    this.apiKey = '';
+    this.apiKey = '73b2fc9fab947354d61cb3faa1a40405';
     this.language = 'en-US';
     this.region = 'US'
   }

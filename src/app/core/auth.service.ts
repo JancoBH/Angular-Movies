@@ -5,8 +5,8 @@ import * as firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/switchMap'
+import { Observable } from 'rxjs';
+
 import {NotifyService} from './notify.service';
 
 interface User {
