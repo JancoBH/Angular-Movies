@@ -5,14 +5,14 @@
         <h1>Login to Your Account</h1>
         <form [formGroup]="userForm" (ngSubmit)="login()">
 
-          <mat-input-container class="input-full">
+          <mat-form-field class="input-full">
             <input matInput #email type="email" placeholder="Email address" formControlName="email" required>
             <mat-error *ngIf="formErrors.email">{{ formErrors.email }}</mat-error>
-          </mat-input-container>
-          <mat-input-container class="input-full">
+          </mat-form-field>
+          <mat-form-field class="input-full">
             <input matInput #password type="password" placeholder="Password" formControlName="password" required>
             <mat-error *ngIf="formErrors.password">{{ formErrors.password }}</mat-error>
-          </mat-input-container>
+          </mat-form-field>
 
           <button type="submit" mat-raised-button color="accent" [disabled]="!userForm.valid">Sign In</button>
 

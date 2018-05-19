@@ -3,17 +3,17 @@
     <mat-card class="card-items">
       <h1>Register</h1>
       <form [formGroup]="userForm" (ngSubmit)="signup()">
-        <!--<mat-input-container class="input-full">-->
+        <!--<mat-form-field class="input-full">-->
         <!--<input matInput #name id="name" placeholder="Name" required>-->
-        <!--</mat-input-container>-->
-        <mat-input-container class="input-full">
+        <!--</mat-form-field>-->
+        <mat-form-field class="input-full">
           <input matInput type="email" id="email" placeholder="Email" formControlName="email" required>
           <mat-error *ngIf="formErrors.email">{{ formErrors.email }}</mat-error>
-        </mat-input-container>
-        <mat-input-container class="input-full">
+        </mat-form-field>
+        <mat-form-field class="input-full">
           <input matInput type="password" id="inputPassword" placeholder="Password" formControlName="password" required>
           <mat-error *ngIf="formErrors.password">{{ formErrors.password }}</mat-error>
-        </mat-input-container>
+        </mat-form-field>
         <button type="submit" mat-raised-button  color="primary" [disabled]="!userForm.valid">Submit</button>
       </form>
       <mat-card-actions>
