@@ -1,10 +1,12 @@
 # Angular Movies | Movies
 
 Angular Movies & TV Shows was generated with:
-- Angular CLI version 1.7.4
-- Angular 5.2.10
-- Angular Material 5.2.5
-- AngularFire2 5.0.0-rc.6
+- Angular CLI version 6.0.3
+- Angular 6.0.2
+- Angular Material 6.0.2
+- AngularFire2 5.0.0-rc.9
+- Firebase js SDK 5.0.3
+- Rxjs 6.1.0
 - The Movie DB get Your own api key -> https://www.themoviedb.org
 - Firebase get your own firebase data -> https://firebase.google.com
 
