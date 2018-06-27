@@ -12,7 +12,7 @@
       <a routerLink="/all-movies" style="color: white">See all Movies</a>
     </header>
 
-    <mat-tab-group (selectChange)="changeTab()">
+    <mat-tab-group (selectedTabChange)="changeTab()">
 
       <!--Now Playing Movies-->
       <mat-tab label="Now Playing Movies">
@@ -61,7 +61,7 @@
       <a routerLink="/all-tv-shows" style="color: white">See all TV Shows</a>
     </header>
 
-    <mat-tab-group (selectChange)="changeTab()">
+    <mat-tab-group (selectedTabChange)="changeTab()">
 
       <!--Currently Airing TV Shows Tab-->
       <mat-tab label="Currently Airing TV Shows">

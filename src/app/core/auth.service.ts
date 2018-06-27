@@ -72,20 +72,20 @@ export class AuthService {
   //// Email/Password Auth ////
   emailSignUp(email: string, password: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-      .then((user) => {
+      .then((credential) => {
         this.notify.update('Welcome to Firestarter!!!', 'success');
         this.router.navigate(['/profile']).then();
-        return this.updateUserData(user); // if using firestore
+        return this.updateUserData(credential.user); // if using firestore
       })
       .catch((error) => this.handleError(error) );
   }
 
   emailLogin(email: string, password: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-      .then((user) => {
+      .then((credential) => {
         this.notify.update('Welcome to Firestarter!!!', 'success');
         this.router.navigate(['/profile']).then();
-        return this.updateUserData(user); // if using firestore
+        return this.updateUserData(credential.user); // if using firestore
       })
       .catch((error) => this.handleError(error) );
   }

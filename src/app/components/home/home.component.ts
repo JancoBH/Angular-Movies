@@ -96,10 +96,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
         },
         spaceBetween: 20
       };
-    }, 100)
+    }, 50)
   }
 
   changeTab() {
+
     this.config = {
       direction: 'horizontal',
       slidesPerView: 4,
