@@ -37,4 +37,8 @@ export class OnTVService {
     return this.http.get(`${this.baseUrl}genre/tv/list?api_key=${this.apiKey}&language=${this.language}`)
   }
 
+  getTVShowByGenre(id: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}genre/${id}/tv?api_key=${this.apiKey}`)
+  }
+
 }

@@ -13,6 +13,7 @@ import {TvShowComponent} from './components/OnTV/tv-show/tv-show.component';
 import {AllMoviesComponent} from './components/InTheater/all-movies/all-movies.component';
 import {AllTvShowsComponent} from './components/OnTV/all-tv-shows/all-tv-shows.component';
 import {AuthGuard} from './core/auth.guard';
+import {GenresTvComponent} from './components/OnTV/genres-tv/genres-tv.component';
 
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent},
@@ -25,6 +26,7 @@ export const appRoutes: Routes = [
   { path: 'tv-show/:id', component: TvShowComponent },
   { path: 'genres', component: GenresListComponent },
   { path: 'genres/:id/:name', component: GenresComponent },
+  { path: 'genres-tv/:id/:name', component: GenresTvComponent },
   { path: 'actor/:id', component: ActorComponent },
   { path: 'settings', component: SettingsComponent },
   { path: '**', component: PageNotFoundComponent}

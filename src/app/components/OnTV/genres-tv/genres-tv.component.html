@@ -1,0 +1,10 @@
+<div *ngIf="tvShow" class="padding-top-60">
+
+  <h1>{{title}}</h1>
+  <div class="center">
+  <span *ngFor="let tv of tvShow;">
+    <app-poster-card [model]="tv"></app-poster-card>
+  </span>
+  </div>
+
+</div>

@@ -52,6 +52,16 @@
       "sizes": "192x192",
       "type": "image/png",
       "density": "4.0"
+    },
+    {
+      "src": "/assets/icon192.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icon192.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ]
 }
