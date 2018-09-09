@@ -1,5 +1,5 @@
 <div *ngIf="tvShow">
-  <div class="parrallax-content" [ngStyle]="{'background-image': 'linear-gradient(rgba(52,41,49,0.8), rgba(68,34,102,0.8)), url('+'https://image.tmdb.org/t/p/w1920'+tvShow.backdrop_path+')'}">
+  <div class="parrallax-content" [ngStyle]="{'background-image': 'linear-gradient(rgba(52,41,49,0.8), rgba(68,34,102,0.8)), url('+'https://image.tmdb.org/t/p/w1280'+tvShow.backdrop_path+')'}">
     <div class="parrallax">
     </div>
 
@@ -18,10 +18,10 @@
           </div>
           <h3 class="parallax-subtitle">Overview</h3>
           <p>{{tvShow.overview}}</p>
-          <!--<h3 class="parallax-subtitle">Categories</h3>-->
-          <!--<a *ngFor="let genre of tvShow.genres" routerLink="/genres/{{genre.id}}/{{genre.name}}" class="genders-cat">-->
-            <!--<button mat-raised-button color="primary">{{genre.name}}</button>-->
-          <!--</a>-->
+          <h3 class="parallax-subtitle">Categories</h3>
+          <a *ngFor="let genre of tvShow.genres" routerLink="/genres-tv/{{genre.id}}/{{genre.name}}">
+            <button mat-raised-button color="primary">{{genre.name}}</button>
+          </a>
         </div>
       </section>
     </div>

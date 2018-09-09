@@ -18,7 +18,7 @@
             <h3 class="parallax-subtitle">Overview</h3>
             <p>{{movie.overview}}</p>
             <h3 class="parallax-subtitle">Categories</h3>
-            <a *ngFor="let genre of movie.genres" routerLink="/genres/{{genre.id}}/{{genre.name}}" class="genders-cat">
+            <a *ngFor="let genre of movie.genres" routerLink="/genres/{{genre.id}}/{{genre.name}}">
               <button mat-raised-button color="primary" aria-label="Genres">{{genre.name}}</button>
             </a>
           </div>
