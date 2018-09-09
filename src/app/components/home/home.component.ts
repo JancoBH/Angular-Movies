@@ -67,9 +67,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.config = {
         direction: 'horizontal',
         slidesPerView: 4,
-        keyboard: true,
-        mousewheel: false,
-        scrollbar: true,
         navigation: true,
         pagination: {
           el: '.swiper-pagination',
@@ -104,9 +101,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.config = {
       direction: 'horizontal',
       slidesPerView: 4,
-      keyboard: true,
-      mousewheel: false,
-      scrollbar: true,
       navigation: true,
       pagination: {
         el: '.swiper-pagination',
@@ -160,9 +154,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
           this.config = {
             direction: 'horizontal',
             slidesPerView: 4,
-            keyboard: true,
-            mousewheel: false,
-            scrollbar: true,
             navigation: true,
             pagination: {
               el: '.swiper-pagination',
