@@ -19,10 +19,10 @@
         <div class="swiper-container" [swiper]="config">
           <div class="swiper-wrapper">
             <div *ngFor="let movie of nowPlaying | slice:0:10" class="swiper-slide">
-              <app-poster-card [model]="movie"></app-poster-card>
+              <app-poster-card [model]="movie" style="width: 100%"></app-poster-card>
             </div>
           </div>
-          <div class="swiper-pagination"></div>
+          <div class="swiper-pagination" style=""></div>
         </div>
       </mat-tab>
 

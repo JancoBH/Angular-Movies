@@ -1,8 +1,9 @@
-.movie-card{
+.movie-card {
   display: inline-block;
-  margin: 7px 7px;
   vertical-align: top;
   cursor: pointer;
+  width: 100%;
+  padding: 0;
 }
 
 mat-card-title {
@@ -11,7 +12,12 @@ mat-card-title {
   text-overflow: ellipsis;
 }
 
+.mat-card-image {
+  width: calc(100% + 0px);
+  margin: 0 -30px 16px -30px;
+}
+
 mat-card-content {
-  padding: 0 !important;
+  padding: 10px;
   text-align: left;
 }
