@@ -23,24 +23,24 @@
 
 /* Large desktops and laptops */
 @media (min-width: 1200px) {
-  .all-poster::ng-deep .movie-card{  width: 17%;  }
+  .all-poster::ng-deep .movie-card{  width: 17%; margin: 5px 5px 5px 5px; }
   .all-poster::ng-deep .movie-card .mat-card-title{  font-size: 20px  }
 }
 
 /* Landscape tablets and medium desktops */
 @media (min-width: 992px) and (max-width: 1199px) {
-  .all-poster::ng-deep .movie-card{  width: 23%;  }
+  .all-poster::ng-deep .movie-card{  width: 23%; margin: 5px 5px 5px 5px; }
 }
 
 /* Portrait tablets and small desktops */
 @media (min-width: 768px) and (max-width: 991px) {
-  .all-poster::ng-deep .movie-card{  width: 37%;  }
+  .all-poster::ng-deep .movie-card{  width: 37%; margin: 5px 5px 5px 5px; }
 }
 
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
   .list-movies { width: 66% }
-  .all-poster::ng-deep .movie-card{  width: 31%;  }
+  .all-poster::ng-deep .movie-card{  width: 31%; margin: 5px 5px 5px 5px; }
   .all-poster::ng-deep .movie-card .mat-card-title{  font-size: 17px  }
   .filter-movies-card{ width: 24%; margin-bottom: 20px; }
 }
@@ -48,6 +48,6 @@
 /* Portrait phones and smaller */
 @media (max-width: 480px) {
   .list-movies { width: 90% }
-  .all-poster::ng-deep .movie-card{  width: 88%;  }
+  .all-poster::ng-deep .movie-card{  width: 88%; margin: 5px 0 5px 0; }
   .filter-movies-card{ width: 80%; margin-bottom: 20px; }
 }

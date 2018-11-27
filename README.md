@@ -1,8 +1,8 @@
 # Angular Movies | Movies
 
 Angular Movies & TV Shows was generated with:
-- Angular CLI version 7.0.6
-- Angular 7.0.4
+- Angular CLI version 7.1.0
+- Angular 7.1.0
 - Angular Material 7.1.0
 - AngularFire 5.1.0
 - Firebase js SDK 5.5.9
