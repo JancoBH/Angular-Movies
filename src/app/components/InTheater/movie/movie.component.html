@@ -21,7 +21,7 @@
         </div>
 
         <div class="parallax-img-container">
-          <img src="https://image.tmdb.org/t/p/w500/{{movie?.poster_path}}" alt="" width="300px">
+          <img src="https://image.tmdb.org/t/p/w500/{{movie?.poster_path}}" alt="">
         </div>
       </section>
 
@@ -49,21 +49,6 @@
   </div>
 
   <div class="container">
-
-    <!--<div *ngIf="cast">-->
-      <!--<h1 class="center">Top Billed Cast</h1>-->
-      <!--<mat-card-content class="card-content">-->
-        <!--<mat-card class="cast-actor-card" *ngFor="let actor of cast">-->
-          <!--<a routerLink="/actor/{{actor?.id}}">-->
-            <!--<img mat-card-image src="https://image.tmdb.org/t/p/w500/{{actor?.profile_path}}" height="294px">-->
-            <!--<mat-card-content>-->
-              <!--<strong>{{actor.name}}</strong><br>-->
-              <!--<span>{{actor.character}}</span>-->
-            <!--</mat-card-content>-->
-          <!--</a>-->
-        <!--</mat-card>-->
-      <!--</mat-card-content>-->
-    <!--</div>-->
 
     <div *ngIf="similarMovies" class="similar-movies">
       <h1>Recommended Movies</h1>

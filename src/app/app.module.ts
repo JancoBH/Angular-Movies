@@ -44,6 +44,7 @@ import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import {GenresTvComponent} from './components/OnTV/genres-tv/genres-tv.component';
+import {FirestoreSettingsToken} from '@angular/fire/firestore';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -107,7 +108,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     OnTVService,
     AuthGuard,
     SeoService,
-    {provide: SWIPER_CONFIG, useValue: DEFAULT_SWIPER_CONFIG}
+    {provide: SWIPER_CONFIG, useValue: DEFAULT_SWIPER_CONFIG},
+    { provide: FirestoreSettingsToken, useValue: {} }
   ],
   entryComponents: [
     AppMovieDialogComponent
