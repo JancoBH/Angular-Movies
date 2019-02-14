@@ -1,12 +1,8 @@
-.filter-movies-card {
-  display: inline-block;
-  text-align: left;
-  vertical-align: top;
-  width: 20%;
-  margin-top: 5px;
+.filter-tv-card {
+  height: 100%;
 }
 
-.filter-movies-card button {
+.filter-tv-card button {
   width: 100%;
   margin-bottom: 8px;
 }
@@ -42,12 +38,10 @@
   .list-movies { width: 66% }
   .all-poster::ng-deep .movie-card{  width: 31%; margin: 5px 5px 5px 5px; }
   .all-poster::ng-deep .movie-card .mat-card-title{  font-size: 17px  }
-  .filter-movies-card{ width: 24%; margin-bottom: 20px; }
 }
 
 /* Portrait phones and smaller */
 @media (max-width: 480px) {
   .list-movies { width: 90% }
   .all-poster::ng-deep .movie-card{  width: 88%; margin: 5px 0 5px 0; }
-  .filter-movies-card{ width: 80%; margin-bottom: 20px; }
 }

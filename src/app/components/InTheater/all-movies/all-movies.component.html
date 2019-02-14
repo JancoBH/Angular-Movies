@@ -39,6 +39,13 @@
         <app-poster-card class="all-poster" [model]="movie"></app-poster-card>
       </span>
     </div>
+
+    <mat-paginator [length]="totalResults"
+                   [pageSize]="20"
+                   (page)="changePage($event)">
+    </mat-paginator>
   </div>
+
+
 
 </div>

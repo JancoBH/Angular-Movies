@@ -19,6 +19,8 @@ export class AllMoviesComponent implements OnInit {
   thumbLabel = true;
   tickInterval = 10;
 
+  totalResults: any;
+
   constructor(private moviesService: MoviesService) { }
 
   ngOnInit() {
@@ -30,10 +32,18 @@ export class AllMoviesComponent implements OnInit {
   }
 
   getNowPlayinMovies(page: number) {
-    this.moviesService.getNowPlaying(page).subscribe( res => {
-      this.nowPlaying = res.results;
-      this.nowPlaying.forEach(np => np['isMovie'] = true);
-    });
+    const nowPlayingSubs = this.moviesService.getNowPlaying(page).subscribe(
+      res => {
+        this.totalResults = res.total_results;
+        this.nowPlaying = res.results;
+        this.nowPlaying.forEach(np => np['isMovie'] = true);
+      }, () => {},
+      () => { if (nowPlayingSubs) { nowPlayingSubs.unsubscribe() }}
+    );
+  }
+
+  changePage(event) {
+    this.getNowPlayinMovies(event.pageIndex + 1);
   }
 
 }

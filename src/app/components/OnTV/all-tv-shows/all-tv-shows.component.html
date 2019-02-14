@@ -1,43 +1,50 @@
-<div class="container padding-top-60">
+<div class="container padding-top-60" fxLayout='column'>
 
-  <h2 style="text-align: left; padding-left: 20px;">All TV Shows #CurrentlyAiring</h2>
+  <h2 fxFlex="100%" style="text-align: left; padding-left: 20px;">All TV Shows #CurrentlyAiring</h2>
 
-  <mat-card class="filter-movies-card">
-    <div style="margin-bottom: 24px">Filter by</div>
-    <button mat-raised-button color="primary" aria-label="Set Airing filter">Currently Airing</button>
-    <button mat-raised-button color="primary" aria-label="Set Airing Today filter" disabled>Airing Today</button>
-    <button mat-raised-button color="primary" aria-label="Set Popular filter" disabled>Popular</button>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Genres
-        </mat-panel-title>
-      </mat-expansion-panel-header>
+  <div fxLayout='row'>
+    <mat-card fxFlex="25%" class="filter-tv-card">
+      <div style="margin-bottom: 24px">Filter by</div>
+      <button mat-raised-button color="primary" aria-label="Set Airing filter">Currently Airing</button>
+      <button mat-raised-button color="primary" aria-label="Set Airing Today filter" disabled>Airing Today</button>
+      <button mat-raised-button color="primary" aria-label="Set Popular filter" disabled>Popular</button>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Genres
+          </mat-panel-title>
+        </mat-expansion-panel-header>
 
-      <div *ngFor="let genre of genres">
-        <button mat-raised-button color="primary" aria-label="Set Genres filter" disabled>
-          {{genre.name}}
-        </button>
+        <div *ngFor="let genre of genres">
+          <button mat-raised-button color="primary" aria-label="Set Genres filter" disabled>
+            {{genre.name}}
+          </button>
+        </div>
+
+      </mat-expansion-panel>
+      <div style="margin-top: 10px">Avg. User Review</div>
+      <mat-slider
+        [max]="max"
+        [min]="min"
+        [step]="step"
+        [thumbLabel]="thumbLabel"
+        [tickInterval]="tickInterval"
+        [value]="value"
+        disabled
+      ></mat-slider>
+    </mat-card>
+
+    <div fxFlex="75%">
+      <div style="text-align: center" fxLayout='row wrap'>
+      <span  fxFlex="25%" fxFlex.md="25%" fxFlex.xs="50%" style="padding: 5px 5px;" *ngFor="let tvshow of onTheAir">
+        <app-poster-card [model]="tvshow"></app-poster-card>
+      </span>
       </div>
 
-    </mat-expansion-panel>
-    <div style="margin-top: 10px">Avg. User Review</div>
-    <mat-slider
-      [max]="max"
-      [min]="min"
-      [step]="step"
-      [thumbLabel]="thumbLabel"
-      [tickInterval]="tickInterval"
-      [value]="value"
-      disabled
-    ></mat-slider>
-  </mat-card>
-
-  <div class="list-movies">
-    <div style="text-align: center">
-      <span *ngFor="let tvshow of onTheAir">
-        <app-poster-card class="all-poster" [model]="tvshow"></app-poster-card>
-      </span>
+      <mat-paginator [length]="totalResults"
+                     [pageSize]="20"
+                     (page)="changePage($event)">
+      </mat-paginator>
     </div>
   </div>
 

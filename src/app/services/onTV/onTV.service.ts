@@ -39,7 +39,6 @@ export class OnTVService {
 
   getTVShowByGenre(id: string): Observable<any> {
     return this.http.get(`${this.baseUrl}discover/tv?api_key=${this.apiKey}&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&with_genres=${id}&include_null_first_air_dates=false`);
-    // return this.http.get(`${this.baseUrl}genre/${id}/tv?api_key=${this.apiKey}`)
   }
 
 }

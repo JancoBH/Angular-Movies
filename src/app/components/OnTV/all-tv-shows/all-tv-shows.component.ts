@@ -18,6 +18,7 @@ export class AllTvShowsComponent implements OnInit {
   value = 0;
   thumbLabel = true;
   tickInterval = 10;
+  totalResults: any;
 
   constructor(private onTvService: OnTVService) { }
 
@@ -27,12 +28,18 @@ export class AllTvShowsComponent implements OnInit {
   }
 
   getTvOnTheAir(page: number) {
-    this.onTvService.getTvOnTheAir(page).subscribe(
+    const getTVonTheAirSubs = this.onTvService.getTvOnTheAir(page).subscribe(
       res => {
+        this.totalResults = res.total_results;
         this.onTheAir = res.results;
         this.onTheAir.forEach(np => np['isMovie'] = false);
-      }, error => console.log(error)
+      }, error => console.log(error),
+      () => { if (getTVonTheAirSubs) { getTVonTheAirSubs.unsubscribe(); }}
     );
+  }
+
+  changePage(event) {
+    this.getTvOnTheAir(event.pageIndex + 1);
   }
 
 }

@@ -23,11 +23,18 @@ export class GenresComponent implements OnInit {
     this.router.params.subscribe( (params) => {
       const id = params['id'];
       this.title = params['name'];
-      this._moviesService.getMoviesByGenre(id).subscribe( res => {
+      this.getMoviesByGenre(id);
+    });
+  }
+
+  getMoviesByGenre(id) {
+    const moviesByGenreSubs = this._moviesService.getMoviesByGenre(id).subscribe(
+      res => {
         this.movies = res.results;
         this.movies.forEach(np => np['isMovie'] = true);
-      }, error => console.log(error));
-    });
+      }, error => console.log(error),
+      () => { if (moviesByGenreSubs) { moviesByGenreSubs.unsubscribe(); } }
+    );
   }
 
 }
