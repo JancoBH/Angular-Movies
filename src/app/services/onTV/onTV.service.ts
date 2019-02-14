@@ -12,7 +12,7 @@ export class OnTVService {
 
   constructor(private http: HttpClient) {
     this.baseUrl = 'https://api.themoviedb.org/3/';
-    this.apiKey = '';
+    this.apiKey = '73b2fc9fab947354d61cb3faa1a40405';
     this.language = 'en-US';
     this.region = 'US'
   }
@@ -38,7 +38,8 @@ export class OnTVService {
   }
 
   getTVShowByGenre(id: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}genre/${id}/tv?api_key=${this.apiKey}`)
+    return this.http.get(`${this.baseUrl}discover/tv?api_key=${this.apiKey}&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&with_genres=${id}&include_null_first_air_dates=false`);
+    // return this.http.get(`${this.baseUrl}genre/${id}/tv?api_key=${this.apiKey}`)
   }
 
 }

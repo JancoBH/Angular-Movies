@@ -1,0 +1,4 @@
+::ng-deep .genre-movie .mat-card-image:first-child {
+  height: 440px;
+  object-fit: cover;
+}

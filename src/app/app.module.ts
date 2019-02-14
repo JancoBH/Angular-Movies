@@ -7,6 +7,7 @@ import { appRoutes } from './app.routes';
 import { AngularFireModule } from '@angular/fire';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -101,8 +102,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     MatDialogModule,
     MatSliderModule,
     MatExpansionModule,
-    SwiperModule
-],
+    SwiperModule,
+    FlexLayoutModule
+  ],
   providers: [
     MoviesService,
     OnTVService,

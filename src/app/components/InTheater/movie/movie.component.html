@@ -10,7 +10,7 @@
           <p>Overview</p>
           <p style="padding-right: 8px">{{movie.overview}}</p>
           <div>
-            <button mat-raised-button color="primary" aria-label="Trailer" (click)="openDialog()"><mat-icon style="color: #F44336; background: white; border-radius: 50%;">play_arrow</mat-icon> Watch Trailer</button>
+            <button mat-raised-button color="primary" aria-label="Trailer" (click)="openDialog()"><mat-icon class="icon-colored" style="background: white; border-radius: 50%;">play_arrow</mat-icon> Watch Trailer</button>
           </div>
           <p>Categories</p>
           <div>
@@ -54,7 +54,7 @@
       <h1>Recommended Movies</h1>
       <div style="text-align:center;">
         <span *ngFor="let movie of similarMovies;">
-          <app-poster-card [model]="movie" class="recommended-poster"></app-poster-card>
+          <app-poster-card [model]="movie" class="recommended-poster" (click)="upOnRouting()"></app-poster-card>
         </span>
       </div>
     </div> <!--End Similar Movies-->

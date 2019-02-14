@@ -3,7 +3,7 @@
 Angular Movies & TV Shows was generated with:
 - Angular CLI version 7.3.1
 - Angular 7.2.4
-- Angular Material 7.3.1
+- Angular Material 7.3.2
 - AngularFire 5.1.1
 - Firebase js SDK 5.8.2
 - Rxjs 6.4.0

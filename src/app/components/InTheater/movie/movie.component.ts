@@ -1,6 +1,6 @@
 import {Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import { MoviesService } from '../../../services/inTheater/movies.service';
 import {MovieModel} from '../../../models/movie.model';
 import {MovieCast} from '../../../models/movie-cast';
@@ -27,52 +27,81 @@ export class MovieComponent implements OnInit {
 
   constructor(
     private _moviesService: MoviesService,
-    private router: ActivatedRoute,
+    private route: ActivatedRoute,
     private sanitizer: DomSanitizer,
     public dialog: MatDialog,
     private seo: SeoService
   ) {}
 
   ngOnInit() {
+    this.route.params.subscribe(
+      params => {
+        const id = params['id'];
+        this.getMovie(id);
+        this.getMovieCredits(id);
+        this.getMovieVideo(id);
+        this.getRecomendedMovie(id);
+      }
+    );
+  }
 
-    this.seo.generateTags({
-      title: 'Movie Page',
-      description: 'Movie Page for Angular Movies',
-      image: 'https://image.tmdb.org/t/p/w1920/5wNUJs23rT5rTBacNyf5h83AynM.jpg',
-      slug: 'movie'
-    });
-
-    this.router.params.subscribe( (params) => {
-      const id = params['id'];
-
-      this._moviesService.getMovie(id).subscribe( movie => {
+  getMovie(id) {
+    const movieSubs = this._moviesService.getMovie(id).subscribe(
+      movie => {
         this.movie = movie;
+        this.generateSeo();
 
         if (!this.movie) {
           alert('Server Error')
         } else {
           this.isLoading = false;
         }
-      });
+      }, () => {},
+      () => { if (movieSubs) { movieSubs.unsubscribe() } }
+    );
+  }
 
-      this._moviesService.getMovieCredits(id).subscribe( res => {
+  getMovieCredits(id) {
+    const movieCreditsSubs = this._moviesService.getMovieCredits(id).subscribe(
+      res => {
         // console.log(res);
         res.cast = res.cast.filter( item => { return item.profile_path });
         this.cast = res.cast.slice(0, 5);
-      });
+      }, () => {},
+      () => { if (movieCreditsSubs) { movieCreditsSubs.unsubscribe() } }
+    );
+  }
 
-      this._moviesService.getMovieVideos(id).subscribe( res => {
+  getMovieVideo(id) {
+    const movieVideosSubs = this._moviesService.getMovieVideos(id).subscribe(
+      res => {
         if (res.results && res.results.length) {
           this.video = res.results[0];
           this.video['url'] = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + this.video['key']);
         }
-      });
+      }, () => {},
+      () => { if (movieVideosSubs) { movieVideosSubs.unsubscribe() } }
+    );
+  }
 
-      this._moviesService.getRecomendMovies(id).subscribe(res => {
+  getRecomendedMovie(id) {
+    const recomendedMoviesSubs = this._moviesService.getRecomendMovies(id).subscribe(
+      res => {
         this.similarMovies = res.results.slice(0, 8);
         this.similarMovies.forEach(np => np['isMovie'] = true);
-      });
+      }, () => {},
+      () => { if (recomendedMoviesSubs) { recomendedMoviesSubs.unsubscribe() } }
+    );
+  }
 
+  // Seo tags
+
+  generateSeo() {
+    this.seo.generateTags({
+      title: `${this.movie.title}`,
+      description: `${this.movie.overview}`,
+      image: `https://image.tmdb.org/t/p/w780/${this.movie.backdrop_path}`,
+      slug: 'movie'
     });
   }
 

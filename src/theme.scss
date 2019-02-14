@@ -16,6 +16,7 @@ $app-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
 ::-webkit-scrollbar-thumb {  background-color: #F44336;  }
 .moviesHome-header a { color: #F44336; }
 .swiper-pagination-bullet {background: #F44336;}
+.icon-colored { color: #F44336; }
 
 .blue-theme {
   // Dark theme
@@ -32,6 +33,7 @@ $app-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
   ::-webkit-scrollbar-thumb {  background-color: #2196f3;  }
   .moviesHome-header a { color: #2196f3; }
   .swiper-pagination-bullet {background: #2196f3;}
+  .icon-colored { color: #2196f3; }
 }
 
 .green-theme {
@@ -49,7 +51,7 @@ $app-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
   ::-webkit-scrollbar-thumb {  background-color: #4caf50;  }
   .moviesHome-header a { color: #4caf50 }
   .swiper-pagination-bullet {background: #4caf50;}
-
+  .icon-colored { color: #4caf50; }
 }
 
 .mat-tab-body.mat-tab-body-active {
@@ -58,8 +60,4 @@ $app-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
 
 .mat-dialog-container {
   padding: 0!important;
-}
-
-.mat-icon {
-  color: white;
 }
