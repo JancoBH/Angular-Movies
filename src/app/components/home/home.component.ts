@@ -26,8 +26,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   public config: SwiperConfigInterface = {};
 
-  @ViewChild(SwiperComponent) componentRef: SwiperComponent;
-  @ViewChild(SwiperDirective) directiveRef: SwiperDirective;
+  @ViewChild(SwiperComponent, { static: false }) componentRef: SwiperComponent;
+  @ViewChild(SwiperDirective, { static: true }) directiveRef: SwiperDirective;
 
   constructor(
     private moviesService: MoviesService,

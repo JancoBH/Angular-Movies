@@ -22,8 +22,8 @@ export class MovieComponent implements OnInit {
   video: MovieVideo;
   isLoading = true;
 
-  @ViewChild('closeModal') public  closeModal: ElementRef;
-  @ViewChild('openModal') public  openModal: ElementRef;
+  @ViewChild('closeModal', { static: false }) public  closeModal: ElementRef;
+  @ViewChild('openModal', { static: false }) public  openModal: ElementRef;
 
   constructor(
     private _moviesService: MoviesService,
