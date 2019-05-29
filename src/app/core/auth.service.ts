@@ -5,9 +5,8 @@ import * as firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
-import { Observable } from 'rxjs';
-
 import {NotifyService} from './notify.service';
+import {Observable} from 'rxjs';
 
 interface User {
   uid: string;
@@ -28,14 +27,6 @@ export class AuthService {
               private router: Router,
               private notify: NotifyService) {
 
-    this.user = this.afAuth.authState
-      .switchMap((user) => {
-        if (user) {
-          return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
-        } else {
-          return Observable.of(null);
-        }
-      });
   }
 
   ////// OAuth Methods /////
