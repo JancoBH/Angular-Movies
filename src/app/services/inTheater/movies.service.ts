@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import 'rxjs/Rx';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
 
 @Injectable()
 export class MoviesService {
@@ -13,9 +14,13 @@ export class MoviesService {
 
   constructor(private http: HttpClient) {
     this.baseUrl = 'https://api.themoviedb.org/3/';
-    this.apiKey = 'YOUR-API-KEY';
+    this.apiKey = environment.theMovieDBApi;
     this.language = 'en-US';
     this.region = 'US'
+  }
+
+  getMovies(type: string, page: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}movie/${type}?api_key=${this.apiKey}&page=${page}&language=${this.language}&region=${this.region}`)
   }
 
   getNowPlaying(page: number): Observable<any> {
@@ -24,18 +29,6 @@ export class MoviesService {
 
   searchMovies(searchStr: string, page: number): Observable<any> {
     return this.http.get(`${this.baseUrl}search/movie?api_key=${this.apiKey}&query=${searchStr}&page=${page}&language=${this.language}&region=${this.region}`)
-  }
-
-  getPopular(page: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}movie/popular?api_key=${this.apiKey}&page=${page}&language=${this.language}&region=${this.region}`)
-  }
-
-  getUpComingMovies(page: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}movie/upcoming?api_key=${this.apiKey}&page=${page}&language=${this.language}&region=${this.region}`)
-  }
-
-  getTopRatedMovies(): Observable<any> {
-    return this.http.get(`${this.baseUrl}movie/top_rated?api_key=${this.apiKey}`)
   }
 
   getGenres(): Observable<any> {

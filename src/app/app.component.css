@@ -1,49 +1,29 @@
-.transparent-bar {
-  position: absolute;
-  z-index: 999;
-  background: transparent;
+.main-container {
+  display: flex;
+  flex-direction: column;
 }
 
-.img-header {
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  background-size: cover;
-  margin-left: 10px;
+.main-sidenav-container {
+  flex: 1;
 }
 
-mat-sidenav {
-  width: 250px;
+.is-mobile .main-sidenav-container {
+  flex: 1 0 auto;
 }
 
-.mat-nav-list{
-  padding-top: 0!important;
-}
+.hidden {display: none;}
 
-mat-nav-list a{
-  border-bottom: 1px solid;
-}
-
-.center-flex{
-  flex: 1 1 auto;
-}
-
-.home-name-padding {
-  padding-left: 70px;
-}
-
-.hidden {
-  display: none;
-}
-
-@media (max-width: 767px) {
+/*xs*/
+@media (max-width: 599px) {
   .janco-ocult{  display: none;  }
-  .home-name-padding {padding-left: 0;}
 }
 
-/* Portrait phones and smaller */
-@media (max-width: 480px) {
+/*sm*/
+@media (min-width: 600px) and (max-width: 959px) {
   .janco-ocult{  display: none;  }
-  .home-name-padding {padding-left: 0;}
+}
+
+/*md*/
+@media (min-width: 960px) and (max-width: 1279px) {
+
 }

@@ -1,14 +1,16 @@
+@use '~@angular/material' as mat;
 @import '~@angular/material/theming';
-@import '~swiper/dist/css/swiper.min.css';
-@include mat-core();
+@import "~swiper/scss";
+@import "~swiper/scss/pagination";
+@include mat.core();
 
 // Customizations go here, for instance:
-$app-primary: mat-palette($mat-red);
-$app-accent: mat-palette($mat-amber, A200, A100, A400);
-$app-warn: mat-palette($mat-red);
+$app-primary: mat.define-palette(mat.$red-palette);
+$app-accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
+$app-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$app-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
+$app-theme: mat.define-dark-theme($app-primary, $app-accent, $app-warn);
 
 @include angular-material-theme($app-theme);
 
@@ -17,13 +19,14 @@ $app-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
 .moviesHome-header a { color: #F44336; }
 .swiper-pagination-bullet {background: #F44336;}
 .icon-colored { color: #F44336; }
+.activated-route {border-color: #F44336 !important;}
 
 .blue-theme {
   // Dark theme
-  $app-primary: mat-palette($mat-blue);
-  $app-accent: mat-palette($mat-amber, A200, A100, A400);
-  $app-warn: mat-palette($mat-red);
-  $app-dark-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
+  $app-primary: mat.define-palette(mat.$blue-palette);
+  $app-accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
+  $app-warn: mat.define-palette(mat.$red-palette);
+  $app-dark-theme: mat.define-dark-theme($app-primary, $app-accent, $app-warn);
 
   @include angular-material-theme($app-dark-theme);
 
@@ -34,14 +37,15 @@ $app-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
   .moviesHome-header a { color: #2196f3; }
   .swiper-pagination-bullet {background: #2196f3;}
   .icon-colored { color: #2196f3; }
+  .activated-route {border-color: #2196f3 !important;}
 }
 
 .green-theme {
   // Dark theme
-  $app-primary: mat-palette($mat-green);
-  $app-accent: mat-palette($mat-amber, A200, A100, A400);
-  $app-warn: mat-palette($mat-red);
-  $app-dark-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
+  $app-primary: mat.define-palette(mat.$green-palette);
+  $app-accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
+  $app-warn: mat.define-palette(mat.$red-palette);
+  $app-dark-theme: mat.define-dark-theme($app-primary, $app-accent, $app-warn);
 
   @include angular-material-theme($app-dark-theme);
 
@@ -52,6 +56,7 @@ $app-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
   .moviesHome-header a { color: #4caf50 }
   .swiper-pagination-bullet {background: #4caf50;}
   .icon-colored { color: #4caf50; }
+  .activated-route {border-color: #4caf50 !important;}
 }
 
 .mat-tab-body.mat-tab-body-active {

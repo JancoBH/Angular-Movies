@@ -5,12 +5,5 @@
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: 'YOUR-FIREBASE-DATA',
-    authDomain: 'YOUR-FIREBASE-DATA',
-    databaseURL: 'YOUR-FIREBASE-DATA',
-    projectId: 'YOUR-FIREBASE-DATA',
-    storageBucket: 'YOUR-FIREBASE-DATA',
-    messagingSenderId: 'YOUR-FIREBASE-DATA'
-  }
+  theMovieDBApi: '73b2fc9fab947354d61cb3faa1a40405'
 };

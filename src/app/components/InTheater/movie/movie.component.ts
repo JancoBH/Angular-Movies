@@ -5,7 +5,7 @@ import { MoviesService } from '../../../services/inTheater/movies.service';
 import {MovieModel} from '../../../models/movie.model';
 import {MovieCast} from '../../../models/movie-cast';
 import {MovieVideo} from '../../../models/movie-video';
-import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import {PaginatorModel} from '../../../models/paginator.model';
 import {SeoService} from '../../../services/seo.service';
 
@@ -22,8 +22,8 @@ export class MovieComponent implements OnInit {
   video: MovieVideo;
   isLoading = true;
 
-  @ViewChild('closeModal', { static: false }) public  closeModal: ElementRef;
-  @ViewChild('openModal', { static: false }) public  openModal: ElementRef;
+  @ViewChild('closeModal') public  closeModal: ElementRef;
+  @ViewChild('openModal') public  openModal: ElementRef;
 
   constructor(
     private _moviesService: MoviesService,
