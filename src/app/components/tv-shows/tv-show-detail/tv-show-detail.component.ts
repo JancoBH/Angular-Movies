@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {TvShowModel} from '../../../models/onTV/tvShow.model';
+import {OnTVService} from '../../../services/onTV/onTV.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-tv-show-detail',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TvShowDetailComponent implements OnInit {
 
-  constructor() { }
+  tvShow: TvShowModel;
+  isLoading = true;
 
-  ngOnInit(): void {
+  constructor(
+    private onTvService: OnTVService,
+    private router: ActivatedRoute
+  ) { }
+
+  ngOnInit() {
+    this.router.params.subscribe( (params) => {
+      const id = params['url'];
+
+      this.onTvService.getTVShow(id).subscribe( tvShow => {
+        this.tvShow = tvShow;
+
+        if (!this.tvShow) {
+          alert('Server Error')
+        } else {
+          this.isLoading = false;
+        }
+      });
+
+    });
   }
 
 }

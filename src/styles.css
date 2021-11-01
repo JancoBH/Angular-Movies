@@ -25,6 +25,12 @@ app-home hr {  border-color: transparent;  }
   padding-top: 60px;
 }
 
+.space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
@@ -98,16 +104,4 @@ app-home hr {  border-color: transparent;  }
 
 .error {
   margin: 10px auto auto;
-}
-
-.docs-footer {
-  background: #212121;
-  color: white;
-  margin-top: auto;
-  padding: 12px;
-  font-size: 12px;
-}
-
-.docs-footer-list {
-  padding: 8px;
 }

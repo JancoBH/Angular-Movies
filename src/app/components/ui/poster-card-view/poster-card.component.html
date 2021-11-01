@@ -1,4 +1,4 @@
-<a [routerLink]="model.isMovie ? '/movie/' + model.id : '/tv-show/' + model.id">
+<a [routerLink]="isMovie ? '/movies/detail/' + model.id : '/tv-shows/detail/' + model.id">
   <mat-card class="movie-card">
       <img *ngIf="model.poster_path" src="https://image.tmdb.org/t/p/w300/{{model.poster_path}}" [alt]="model.title ? model.title : model.name">
       <img *ngIf="!model.poster_path" src="http://www.catedrauamfujitsu.es/wp-content/themes/invicta/styles/images/defaults/no_photo.jpg" class="movie-header-card" [alt]="model.title ? model.title : model.name">

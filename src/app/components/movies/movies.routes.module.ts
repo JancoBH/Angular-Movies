@@ -7,7 +7,7 @@ const moviesRoutes: Routes = [
   {path: '',
     children: [
       { path: '', component: MoviesComponent},
-      { path: ':url', component: MovieDetailComponent}
+      { path: 'detail/:url', component: MovieDetailComponent}
     ]},
 ];
 

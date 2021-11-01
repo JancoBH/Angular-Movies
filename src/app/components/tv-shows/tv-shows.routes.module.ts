@@ -7,7 +7,7 @@ const tvShowsRoutes: Routes = [
   {path: '',
     children: [
       { path: '', component: TvShowsComponent},
-      { path: ':url', component: TvShowDetailComponent}
+      { path: 'detail/:url', component: TvShowDetailComponent}
     ]},
 ];
 

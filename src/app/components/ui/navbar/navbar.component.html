@@ -4,12 +4,14 @@
   <mat-toolbar-row>
     <div fxFlex="15%" fxFlex.md="5%" fxHide.sm fxHide.xs></div>
 
-    <div class="nav-container" fxFlex="70%" fxFlex.md="90%" fxFlex.sm="100%" fxHide.xs>
-      <div style="flex: 1; display: flex; align-items: center;">
-        <span>Movies + TV Shows by JancoBH</span>
-        <a mat-button routerLink="" [routerLinkActive]="['activated-route']" [routerLinkActiveOptions]="{exact: true}" aria-label="Home">Home</a>
-        <a mat-button routerLink="movies" [routerLinkActive]="['activated-route']" [routerLinkActiveOptions]="{exact: true}" aria-label="Movies">Movies</a>
-        <a mat-button routerLink="tv-shows" [routerLinkActive]="['activated-route']" aria-label="TV Shows">TV Shows</a>
+    <div fxFlex="70%" fxFlex.md="90%" fxFlex.sm="100%" fxHide.xs>
+      <div class="space-between">
+        <div>Movies + TV Shows by JancoBH</div>
+        <div>
+          <a mat-button routerLink="" [routerLinkActive]="['activated-route']" [routerLinkActiveOptions]="{exact: true}" aria-label="Home">Home</a>
+          <a mat-button routerLink="movies" [routerLinkActive]="['activated-route']" aria-label="Movies">Movies</a>
+          <a mat-button routerLink="tv-shows" [routerLinkActive]="['activated-route']" aria-label="TV Shows">TV Shows</a>
+        </div>
       </div>
 
     </div>

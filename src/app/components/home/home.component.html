@@ -7,7 +7,7 @@
   <section>
     <header class="moviesHome-header">
       <div class="moviesHome-title">Movies</div>
-      <a routerLink="/all-movies" style="color: white; text-decoration: underline;">All</a>
+      <a routerLink="/movies" style="color: white; text-decoration: underline;">All</a>
     </header>
 
     <mat-tab-group (selectedTabChange)="tabChange($event)" [selectedIndex]="selectedMovieTab">
@@ -20,7 +20,7 @@
           style="display: flex; flex-direction: column-reverse;"
         >
           <ng-template swiperSlide *ngFor="let movie of moviesList | slice:0:10">
-            <app-poster-card [model]="movie"></app-poster-card>
+            <app-poster-card [model]="movie" [isMovie]="true"></app-poster-card>
           </ng-template>
         </swiper>
       </mat-tab>
@@ -33,7 +33,7 @@
   <section>
     <header class="moviesHome-header">
       <div class="moviesHome-title">TV Shows</div>
-      <a routerLink="/all-tv-shows" style="color: white; text-decoration: underline;">All</a>
+      <a routerLink="/tv-shows" style="color: white; text-decoration: underline;">All</a>
     </header>
 
     <mat-tab-group (selectedTabChange)="tabTVChange($event)" [selectedIndex]="selectedTVTab">

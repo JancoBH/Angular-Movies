@@ -5,6 +5,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {RouterModule} from '@angular/router';
 import {CustomMaterialModule} from './custom-material.module';
 import {SwiperModule} from 'swiper/angular';
+import {MovieCardComponent} from '../components/ui/poster-card-view/poster-card.component';
 
 @NgModule({
   imports: [
@@ -23,8 +24,10 @@ import {SwiperModule} from 'swiper/angular';
     ReactiveFormsModule,
     FlexLayoutModule,
     SwiperModule,
+    MovieCardComponent
   ],
   declarations: [
+    MovieCardComponent
   ]
 })
 export class SharedModule { }

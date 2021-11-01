@@ -1,4 +1,4 @@
-# Angular Movies | Movies
+# Angular Movies | Movies (working in the new update)
 
 Angular Movies & TV Shows was generated with:
 - Angular CLI version 12.2.12
