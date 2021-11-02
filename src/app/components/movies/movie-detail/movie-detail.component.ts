@@ -18,7 +18,7 @@ export class MovieDetailComponent implements OnInit {
 
   movie: MovieModel;
   similarMovies: Array<PaginatorModel> = [];
-  cast: MovieCast = new MovieCast();
+  cast = [];
   video: MovieVideo;
   isLoading = true;
 

@@ -6,14 +6,6 @@
   z-index: 0;
 }
 
-.parallax-left-content .parallax-position {
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: nowrap;
-}
-
-a button {margin: 2px 2px;}
-
 .parallax-img-container img {
   width: 250px;
   height: 350px;
@@ -21,11 +13,7 @@ a button {margin: 2px 2px;}
   border-radius: 4px;
 }
 
-.parallax-right-content {
-  width: 100%; margin-bottom: 20px; text-align: left;  padding-left: 40px;
-}
-
-.parallax-right-content h2 {  font-size: 3.5em; font-weight: 700;  }
+.movie-main-title { font-size: 3.5em; font-weight: 700; }
 
 .parallax-btn-container {  margin-bottom: 20px  }
 
@@ -87,10 +75,6 @@ a button {margin: 2px 2px;}
   height: 300px;
 }
 
-.top-billed-cast {}
-.top-billed-cast .title-billed {
-  text-align: left; margin-left: 45px;
-}
 .top-billed-cast img {
   height: 50px;
   width: 50px;
