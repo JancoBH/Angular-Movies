@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -6,6 +6,16 @@ import {Component, HostListener, OnInit} from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+
+  @Output() changeColorTheme: EventEmitter<string> = new EventEmitter();
+
+  colorThemeList = [
+    {color: '#f44336', name: 'Red'},
+    {color: '#2196f3', name: 'Blue'},
+    {color: '#4caf50', name: 'Green'},
+  ]
+
+  selectedColor = '#f44336';
 
   isScrolled = false;
 
@@ -17,6 +27,11 @@ export class NavbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  setColorTheme(color: string) {
+    this.selectedColor = color;
+    this.changeColorTheme.emit(color);
   }
 
 }

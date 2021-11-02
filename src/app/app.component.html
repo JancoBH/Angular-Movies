@@ -41,7 +41,7 @@
         </mat-menu>
       </mat-toolbar>
 
-      <app-navbar fxShow fxHide.sm="true" fxHide.xs="true"></app-navbar>
+      <app-navbar fxShow fxHide.sm="true" fxHide.xs="true" (changeColorTheme)="changeColorTheme($event)"></app-navbar>
 
       <!--Routing-->
       <main role="main" style="min-height: 88vh">

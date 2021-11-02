@@ -7,7 +7,7 @@
   <section>
     <header class="moviesHome-header">
       <div class="moviesHome-title">Movies</div>
-      <a routerLink="/movies" style="color: white; text-decoration: underline;">All</a>
+      <a routerLink="/movies">See all</a>
     </header>
 
     <mat-tab-group (selectedTabChange)="tabChange($event)" [selectedIndex]="selectedMovieTab">
@@ -33,7 +33,7 @@
   <section>
     <header class="moviesHome-header">
       <div class="moviesHome-title">TV Shows</div>
-      <a routerLink="/tv-shows" style="color: white; text-decoration: underline;">All</a>
+      <a routerLink="/tv-shows">See all</a>
     </header>
 
     <mat-tab-group (selectedTabChange)="tabTVChange($event)" [selectedIndex]="selectedTVTab">

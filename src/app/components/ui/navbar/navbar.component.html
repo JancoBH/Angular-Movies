@@ -2,21 +2,32 @@
 
   <!--Contenido del usuario-->
   <mat-toolbar-row>
-    <div fxFlex="15%" fxFlex.md="5%" fxHide.sm fxHide.xs></div>
+    <div fxFlex="10%" fxFlex.md="5%" fxHide.sm fxHide.xs></div>
 
-    <div fxFlex="70%" fxFlex.md="90%" fxFlex.sm="100%" fxHide.xs>
+    <div fxFlex="80%" fxFlex.md="90%" fxFlex.sm="100%" fxHide.xs>
       <div class="space-between">
         <div>Movies + TV Shows by JancoBH</div>
         <div>
           <a mat-button routerLink="" [routerLinkActive]="['activated-route']" [routerLinkActiveOptions]="{exact: true}" aria-label="Home">Home</a>
           <a mat-button routerLink="movies" [routerLinkActive]="['activated-route']" aria-label="Movies">Movies</a>
           <a mat-button routerLink="tv-shows" [routerLinkActive]="['activated-route']" aria-label="TV Shows">TV Shows</a>
+
+          <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Change Color" style="margin-left: 15px" aria-label="Change Color">
+            <mat-icon>format_color_fill</mat-icon>
+          </button>
+
+          <mat-menu #menu="matMenu">
+            <button *ngFor="let list of colorThemeList" mat-menu-item (click)="setColorTheme(list.color)" [class.hidden]="selectedColor == list.color" [attr.aria-label]="'Color ' + list.name">
+              <mat-icon [style.color]="list.color" style="color: #F44336">lens</mat-icon>
+              <span>{{list.name}}</span>
+            </button>
+          </mat-menu>
         </div>
       </div>
 
     </div>
 
-    <div fxFlex="15%" fxFlex.md="5%" fxHide.sm fxHide.xs></div>
+    <div fxFlex="10%" fxFlex.md="5%" fxHide.sm fxHide.xs></div>
   </mat-toolbar-row>
 
 </mat-toolbar>
