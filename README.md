@@ -6,7 +6,9 @@ Angular Movies & TV Shows was generated with:
 - Angular Material 12.2.12
 - The Movie DB get Your own api key -> https://www.themoviedb.org
 
-Live Demo https://angular-movies-c91ba.firebaseapp.com/ (is not updated)
+✔ Live Demo: https://jancobh.github.io/Angular-Movies/ (new with Angular 13 + improvements + still working on it)
+
+❌ Live Demo: https://angular-movies-c91ba.firebaseapp.com/ (old with Angular 8 and a lot of unnecessary code with bugs)
 
 ## Installation
 
