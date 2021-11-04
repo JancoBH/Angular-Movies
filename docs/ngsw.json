@@ -1,0 +1,83 @@
+{
+  "configVersion": 1,
+  "timestamp": 1636044993273,
+  "index": "/Angular-Movies/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/Angular-Movies/favicon.ico",
+        "/Angular-Movies/index.html"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/Angular-Movies/assets/img/background-main.jpg",
+        "/Angular-Movies/assets/img/icon144.png",
+        "/Angular-Movies/assets/img/icon192.png",
+        "/Angular-Movies/assets/img/icon48.png",
+        "/Angular-Movies/assets/img/icon72.png",
+        "/Angular-Movies/assets/img/icon96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "from-api",
+      "patterns": [
+        "\\/dashboard",
+        "\\/settings"
+      ],
+      "strategy": "freshness",
+      "maxSize": 15,
+      "maxAge": 3600000,
+      "timeoutMs": 5000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/Angular-Movies/assets/img/background-main.jpg": "878d7ddb25d9ca1dc13ac2520021240d3207f3d1",
+    "/Angular-Movies/assets/img/icon144.png": "f99354481a16e26f0ba44aa2a79b3bc9572e436c",
+    "/Angular-Movies/assets/img/icon192.png": "33b539dffeb3daf3f4d20eeeb6f0b16d9101015e",
+    "/Angular-Movies/assets/img/icon48.png": "de9740515cd196038467b7a1ff48a7499d16de89",
+    "/Angular-Movies/assets/img/icon72.png": "7cd74777652c46f9198f2b088bfd853021faf9ae",
+    "/Angular-Movies/assets/img/icon96.png": "57dde49ed6917f18be2dac084b8a2a696be30a69",
+    "/Angular-Movies/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "/Angular-Movies/index.html": "76fc7d1e45f9aeb5b871a6c553edd37ebd0d70c6"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
