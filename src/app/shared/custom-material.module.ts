@@ -14,6 +14,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {NgModule} from '@angular/core';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
   imports: [
@@ -32,6 +33,7 @@ import {NgModule} from '@angular/core';
     MatDialogModule,
     MatSliderModule,
     MatExpansionModule,
+    DragDropModule,
   ],
   exports: [
     MatSidenavModule,
@@ -48,7 +50,8 @@ import {NgModule} from '@angular/core';
     MatMenuModule,
     MatDialogModule,
     MatSliderModule,
-    MatExpansionModule
+    MatExpansionModule,
+    DragDropModule,
   ],
 })
 export class CustomMaterialModule { }

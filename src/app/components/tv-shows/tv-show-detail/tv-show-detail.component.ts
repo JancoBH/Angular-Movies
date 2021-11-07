@@ -1,37 +1,51 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {TvShowModel} from '../../../models/onTV/tvShow.model';
 import {OnTVService} from '../../../services/onTV/onTV.service';
 import {ActivatedRoute} from '@angular/router';
+import {take} from 'rxjs/operators';
+import {MediaMatcher} from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-tv-show-detail',
   templateUrl: './tv-show-detail.component.html',
-  styleUrls: ['./tv-show-detail.component.css']
+  styleUrls: ['./tv-show-detail.component.scss']
 })
-export class TvShowDetailComponent implements OnInit {
+export class TvShowDetailComponent implements OnInit, OnDestroy {
 
-  tvShow: TvShowModel;
+  tvShow: TvShowModel = new TvShowModel();
   isLoading = true;
+
+  mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
 
   constructor(
     private onTvService: OnTVService,
-    private router: ActivatedRoute
-  ) { }
+    private router: ActivatedRoute,
+    changeDetectorRef: ChangeDetectorRef,
+    media: MediaMatcher
+  ) {
+    this.mobileQuery = media.matchMedia('(max-width: 599px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+  }
 
   ngOnInit() {
     this.router.params.subscribe( (params) => {
       const id = params['url'];
+      this.getTVShowData(id);
+    });
+  }
 
-      this.onTvService.getTVShow(id).subscribe( tvShow => {
-        this.tvShow = tvShow;
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
 
-        if (!this.tvShow) {
-          alert('Server Error')
-        } else {
-          this.isLoading = false;
-        }
-      });
+  getTVShowData(id: string): void {
+    this.isLoading = true;
 
+    this.onTvService.getTVShow(id).pipe(take(1)).subscribe( tvShow => {
+      this.tvShow = tvShow;
+      this.isLoading = false;
     });
   }
 

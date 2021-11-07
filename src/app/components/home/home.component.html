@@ -5,10 +5,10 @@
 <div class="container">
 
   <section>
-    <header class="moviesHome-header">
+    <div class="moviesHome-header">
       <div class="moviesHome-title">Movies</div>
-      <a routerLink="/movies">See all</a>
-    </header>
+      <a [routerLink]="'/movies'">See all</a>
+    </div>
 
     <mat-tab-group (selectedTabChange)="tabChange($event)" [selectedIndex]="selectedMovieTab">
 
@@ -31,12 +31,12 @@
   <!--TV-->
 
   <section>
-    <header class="moviesHome-header">
+    <div class="moviesHome-header">
       <div class="moviesHome-title">TV Shows</div>
-      <a routerLink="/tv-shows">See all</a>
-    </header>
+      <a [routerLink]="'/tv-shows'">See all</a>
+    </div>
 
-    <mat-tab-group (selectedTabChange)="tabTVChange($event)" [selectedIndex]="selectedTVTab">
+    <mat-tab-group (selectedTabChange)="tabTVChange($event)" [selectedIndex]="selectedTVTab" style="margin-bottom: 15px;">
 
       <mat-tab *ngFor="let tab of tvShowsTabList" [label]="tab">
         <swiper

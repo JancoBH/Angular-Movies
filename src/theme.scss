@@ -63,6 +63,23 @@ $app-theme: mat.define-dark-theme($app-primary, $app-accent, $app-warn);
   overflow-y: hidden !important;
 }
 
+// Dialogo
+
+.dialog-title-container {
+  cursor: move;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  a {float: right; color: white}
+  h2 {margin: 0; font-size: 1.1rem}
+}
+
 .mat-dialog-container {
   padding: 0!important;
+}
+
+.mat-dialog-content {
+  padding: 0!important;
+  margin: 0!important;
 }

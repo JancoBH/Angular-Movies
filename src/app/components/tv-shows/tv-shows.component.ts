@@ -1,40 +1,49 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {PaginatorModel} from '../../models/paginator.model';
 import {GenresListModel} from '../../models/genres-list';
 import {OnTVService} from '../../services/onTV/onTV.service';
+import {MediaMatcher} from '@angular/cdk/layout';
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-tv-shows',
   templateUrl: './tv-shows.component.html',
-  styleUrls: ['./tv-shows.component.css']
+  styleUrls: ['./tv-shows.component.scss']
 })
-export class TvShowsComponent implements OnInit {
+export class TvShowsComponent implements OnInit, OnDestroy {
 
   onTheAir: Array<PaginatorModel> = [];
   genres: GenresListModel;
-  max = 10;
-  min = 0;
-  step = 1;
-  value = 0;
-  thumbLabel = true;
-  tickInterval = 10;
   totalResults: any;
 
-  constructor(private onTvService: OnTVService) { }
+  mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
+
+  constructor(
+    private onTvService: OnTVService,
+    changeDetectorRef: ChangeDetectorRef,
+    media: MediaMatcher
+  ) {
+    this.mobileQuery = media.matchMedia('(max-width: 599px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+  }
 
   ngOnInit() {
     this.getTvOnTheAir(1);
     this.onTvService.getGenres().subscribe( res => this.genres = res.genres);
   }
 
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
+
   getTvOnTheAir(page: number) {
-    const getTVonTheAirSubs = this.onTvService.getTvOnTheAir(page).subscribe(
+    this.onTvService.getTvOnTheAir(page).pipe(take(1)).subscribe(
       res => {
         this.totalResults = res.total_results;
         this.onTheAir = res.results;
-        this.onTheAir.forEach(np => np['isMovie'] = false);
-      }, error => console.log(error),
-      () => { if (getTVonTheAirSubs) { getTVonTheAirSubs.unsubscribe(); }}
+      }, error => console.log(error)
     );
   }
 

@@ -1,27 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {PaginatorModel} from '../../models/paginator.model';
 import {GenresListModel} from '../../models/genres-list';
 import {MoviesService} from '../../services/inTheater/movies.service';
+import {MediaMatcher} from '@angular/cdk/layout';
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
-  styleUrls: ['./movies.component.css']
+  styleUrls: ['./movies.component.scss']
 })
-export class MoviesComponent implements OnInit {
+export class MoviesComponent implements OnInit, OnDestroy {
 
   nowPlaying: Array<PaginatorModel> = [];
   genres: GenresListModel;
-  max = 10;
-  min = 0;
-  step = 1;
-  value = 0;
-  thumbLabel = true;
-  tickInterval = 10;
 
   totalResults: any;
 
-  constructor(private moviesService: MoviesService) { }
+  mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
+
+  constructor(
+    private moviesService: MoviesService,
+    changeDetectorRef: ChangeDetectorRef,
+    media: MediaMatcher
+  ) {
+    this.mobileQuery = media.matchMedia('(max-width: 599px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+  }
 
   ngOnInit() {
     this.getNowPlayinMovies(1);
@@ -31,13 +38,16 @@ export class MoviesComponent implements OnInit {
     );
   }
 
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
+
   getNowPlayinMovies(page: number) {
-    const nowPlayingSubs = this.moviesService.getNowPlaying(page).subscribe(
+    this.moviesService.getNowPlaying(page).pipe(take(1)).subscribe(
       res => {
         this.totalResults = res.total_results;
         this.nowPlaying = res.results;
-      }, () => {},
-      () => { if (nowPlayingSubs) { nowPlayingSubs.unsubscribe() }}
+      }, () => {}
     );
   }
 

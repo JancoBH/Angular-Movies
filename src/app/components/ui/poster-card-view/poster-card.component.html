@@ -1,15 +1,15 @@
 <a [routerLink]="isMovie ? '/movies/detail/' + model.id : '/tv-shows/detail/' + model.id">
   <mat-card class="movie-card">
-      <img *ngIf="model.poster_path" src="https://image.tmdb.org/t/p/w300/{{model.poster_path}}" [alt]="model.title ? model.title : model.name">
-      <img *ngIf="!model.poster_path" src="http://www.catedrauamfujitsu.es/wp-content/themes/invicta/styles/images/defaults/no_photo.jpg" class="movie-header-card" [alt]="model.title ? model.title : model.name">
-    <mat-card-content>
-      <mat-card-title *ngIf="model.title">{{model.title}}</mat-card-title>
-      <mat-card-title *ngIf="model.name">{{model.name}}</mat-card-title>
+    <img *ngIf="model.poster_path" loading="lazy" src="https://image.tmdb.org/t/p/w220_and_h330_face/{{model.poster_path}}" [alt]="model.title ? model.title : model.name">
+    <img *ngIf="!model.poster_path" loading="lazy" src="https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg" class="movie-header-card" [alt]="model.title ? model.title : model.name">
+    <mat-card-content class="poster-card-text-container">
+      <mat-card-title *ngIf="model.title" [title]="model.title">{{model.title}}</mat-card-title>
+      <mat-card-title *ngIf="model.name" [title]="model.name">{{model.name}}</mat-card-title>
       <p *ngIf="model.release_date">
-        <strong style="color: #F44336;">Release Date: </strong>{{model.release_date | date}}
+        {{model.release_date | date}}
       </p>
       <p *ngIf="model.first_air_date">
-        <strong style="color: #F44336;">First Air Date: </strong>{{model.first_air_date | date}}
+        {{model.first_air_date | date}}
       </p>
     </mat-card-content>
   </mat-card>

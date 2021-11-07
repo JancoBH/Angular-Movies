@@ -1,0 +1,75 @@
+.tv-show-main-container {
+  background-size: cover;
+  background-position: center top;
+}
+
+.tv-show-main-data-container {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 80px;
+  padding-bottom: 40px;
+  z-index: 0;
+}
+
+.tv-show-main-img img {
+  width: 250px; height: 350px; box-shadow: 0 0 4px rgba(0, 0, 0, 0.2); border-radius: 4px;
+}
+
+.tv-show-main-title { font-size: 2.2em; font-weight: 700; }
+
+.tv-show-main-data-actions {  margin-bottom: 20px  }
+
+.tv-show-main-data-actions button {
+  background: rgba(0, 0, 0, 0.5); border: 2px solid white; margin-right: 10px
+}
+
+.tv-show-main-data-actions button mat-icon {
+  color: white; font-size: medium;
+}
+
+// xs
+@media screen and (max-width: 599px) {
+
+  .tv-show-main-container {
+    height: 240px;
+  }
+
+  .tv-show-main-img {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: calc(((100vw / 2) - 40px) / 1.5);
+      min-width: calc(((100vw / 2.2) - 40px) / 1.5);
+      height: calc((100vw / 2) - 40px);
+      min-height: calc((100vw / 2) - 40px);
+    }
+  }
+
+  .tv-show-main-data-container {
+    width: 100%;
+    padding-bottom: 0;
+    padding-top: 0;
+    height: 100%;
+  }
+
+  .tv-show-main-title { font-size: 1.5rem; }
+}
+
+// sm
+@media screen and (min-width: 600px) and (max-width: 959px) {
+}
+
+// md
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+}
+
+// lg
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+}
+
+// xl
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+}

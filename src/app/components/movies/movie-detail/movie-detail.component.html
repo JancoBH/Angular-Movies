@@ -1,12 +1,15 @@
-<div *ngIf="movie">
+<div *ngIf="!isLoading" class="parrallax-content" [ngClass]="{'padding-top-60': !mobileQuery.matches}" [style.background-image]="('linear-gradient(rgba(52,41,49,0.80), rgba(0,0,0,0.85)), url('+'https://image.tmdb.org/t/p/w1280'+movie.backdrop_path+')')">
 
-  <div class="parrallax-content" [ngStyle]="{'background-image': 'linear-gradient(rgba(52,41,49,0.80), rgba(0,0,0,0.85)), url('+'https://image.tmdb.org/t/p/w1280'+movie.backdrop_path+')'}">
+  <div class="parallax-left-content">
+    <div fxLayout='row wrap'>
 
-    <div class="parallax-left-content" >
-      <div fxLayout='row wrap'>
+      <div class="parallax-img-container" fxFlex="25">
+        <img src="https://image.tmdb.org/t/p/w500/{{movie?.poster_path}}" alt="">
+      </div>
 
-        <div fxFlex="75"> <!--Title-->
-          <h2 class="movie-main-title">{{movie.title}}</h2>
+      <div fxFlex="75"> <!--Title-->
+        <h2 class="movie-main-title">{{movie.title}}</h2>
+        <div fxShow fxHide.sm="true" fxHide.xs="true">
           <p>Overview</p>
           <p style="padding-right: 8px">{{movie.overview}}</p>
           <div>
@@ -17,52 +20,67 @@
             <button *ngFor="let genre of movie.genres" mat-raised-button color="primary" aria-label="Genres" disabled style="margin-right: 5px">{{genre.name}}</button>
           </div>
         </div>
-
-        <div class="parallax-img-container" fxFlex="25">
-          <img src="https://image.tmdb.org/t/p/w500/{{movie?.poster_path}}" alt="">
-        </div>
       </div>
-
-      <section class="top-billed-cast" fxLayout='column'>
-        <p class="title-billed">Top Billed Cast</p>
-        <div style="display: flex">
-          <div *ngFor="let actor of cast; let last = last" [ngStyle]="{'border-right': last !== true ? '1px solid #ffffff75' : ''}" style="width: 20%;">
-
-            <a routerLink="/people/person/{{actor?.id}}">
-              <div style="display: inline-flex; align-items: center; padding: 0 5px;">
-                <img mat-card-image src="https://image.tmdb.org/t/p/w500/{{actor['profile_path']}}" [alt]="actor.name">
-
-                <div>
-                  <small style="color: #F44336; font-weight: 500">{{actor['character']}}</small>
-                  <p style="margin: 0; font-size: 14px;">{{actor.name}}</p>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
 
     </div>
 
-  </div>
+    <section class="top-billed-cast" fxLayout='column' fxShow fxHide.sm="true" fxHide.xs="true">
+      <p class="title-billed">Top Billed Cast</p>
+      <div style="display: flex">
+        <div *ngFor="let actor of cast; let last = last" [ngStyle]="{'border-right': last !== true ? '1px solid #ffffff75' : ''}" style="width: 20%;">
 
-  <div class="container">
+          <a routerLink="/people/person/{{actor?.id}}">
+            <div style="display: inline-flex; align-items: center; padding: 0 5px;">
+              <img mat-card-image src="https://image.tmdb.org/t/p/w240_and_h266_face/{{actor['profile_path']}}" [alt]="actor.name">
 
-    <div *ngIf="similarMovies" class="similar-movies">
-      <h1>Recommended Movies</h1>
-      <div fxLayout='row wrap'>
-        <div fxFlex="20%" fxFlex.md="25%" fxFlex.xs="50%" style="padding: 5px 5px;" *ngFor="let movie of similarMovies;">
-          <app-poster-card [model]="movie" [isMovie]="true" (click)="upOnRouting()"></app-poster-card>
+              <div>
+                <small style="color: #F44336; font-weight: 500">{{actor['character']}}</small>
+                <p style="margin: 0; font-size: 14px;">{{actor.name}}</p>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
-    </div> <!--End Similar Movies-->
+    </section>
 
   </div>
 
+</div>
+
+<div class="container">
+
+  <div *ngIf="similarMovies" class="similar-movies">
+    <h1>Recommended Movies</h1>
+    <div fxLayout='row wrap'>
+      <div fxFlex="20%" fxFlex.md="25%" fxFlex.xs="50%" style="padding: 5px 5px;" *ngFor="let movie of similarMovies;">
+        <app-poster-card [model]="movie" [isMovie]="true" (click)="upOnRouting()"></app-poster-card>
+      </div>
+    </div>
+  </div> <!--End Similar Movies-->
 
 </div>
+
 <div *ngIf="isLoading" style="margin-top: 30%">
   <div class="loading">
     <h4>Loading</h4>
   </div>
 </div>
+
+<!--Dialogo cambiar header-->
+<ng-template #matTrailerDialog>
+  <div cdkDragBoundary=".cdk-overlay-container" cdkDrag cdkDragRootElement=".cdk-overlay-pane" style="background: black;">
+    <div class="dialog-title-container" cdkDragHandle>
+      <a href="javascript:void(0);" (click)="trailerDialog.closeAll()"><mat-icon aria-label="cerrar dialogo cambiar imagen Cabecera">close</mat-icon></a>
+      <h2 matDialogTitle>{{video?.name}}</h2>
+    </div>
+
+    <mat-dialog-content class="header-content-dialog">
+
+      <div *ngIf="video" class="video-movie-main">
+        <iframe [src]="video['url']" allowfullscreen style="background-color: #000; border: 0;"></iframe>
+      </div>
+
+    </mat-dialog-content>
+
+  </div>
+</ng-template>

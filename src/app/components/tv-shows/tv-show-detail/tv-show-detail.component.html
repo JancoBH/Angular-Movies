@@ -1,18 +1,18 @@
-<div *ngIf="tvShow">
-  <div class="tv-show-main-container" [ngStyle]="{'background-image': 'linear-gradient(rgba(52,41,49,0.8), rgba(68,34,102,0.8)), url('+'https://image.tmdb.org/t/p/w1280'+tvShow.backdrop_path+')'}">
+<div *ngIf="!isLoading" class="tv-show-main-container" [ngClass]="{'padding-top-60': !mobileQuery.matches}" [style.background-image]="('linear-gradient(rgba(52,41,49,0.8), rgba(68,34,102,0.8))' + ', url('+'https://image.tmdb.org/t/p/w1000_and_h450_multi_faces'+tvShow?.backdrop_path+')')">
 
-    <div class="tv-show-main-data-container" fxLayout='row wrap'>
-      <div class="tv-show-main-img" fxFlex="25">
-        <img src="https://image.tmdb.org/t/p/w500/{{tvShow?.poster_path}}" [alt]="tvShow?.name">
+  <div class="tv-show-main-data-container" fxLayout='row wrap'>
+    <div class="tv-show-main-img" fxFlex="25" fxFlex.xs="40">
+      <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{tvShow?.poster_path}}" [alt]="tvShow?.name" loading="lazy">
+    </div>
+    <div fxFlex="75" fxFlex.xs="60"> <!--Title-->
+      <h2 class="tv-show-main-title">{{tvShow.name}}</h2>
+      <div class="tv-show-main-data-actions" fxShow fxHide.sm="true" fxHide.xs="true">
+        <button mat-mini-fab matTooltip="Soon" aria-label="Add Favorite Movie"><mat-icon>favorite</mat-icon></button>
+        <button mat-mini-fab matTooltip="Soon" aria-label="Add Star Movie"><mat-icon>star</mat-icon></button>
+        <button mat-mini-fab matTooltip="Soon" aria-label="Add Bookmark Movie"><mat-icon>bookmark</mat-icon></button>
+        <!--            <a href="javascript:void(0)" (click)="openDialog()" *ngIf="video"><mat-icon>play_arrow</mat-icon> Play Trailer</a>-->
       </div>
-      <div fxFlex="75"> <!--Title-->
-        <h2 class="tv-show-main-title">{{tvShow.name}}</h2>
-        <div class="tv-show-main-data-actions">
-          <button mat-mini-fab matTooltip="Soon" aria-label="Add Favorite Movie" disabled><mat-icon>favorite</mat-icon></button>
-          <button mat-mini-fab matTooltip="Soon" aria-label="Add Star Movie" disabled><mat-icon>star</mat-icon></button>
-          <button mat-mini-fab matTooltip="Soon" aria-label="Add Bookmark Movie" disabled><mat-icon>bookmark</mat-icon></button>
-          <!--            <a href="javascript:void(0)" (click)="openDialog()" *ngIf="video"><mat-icon>play_arrow</mat-icon> Play Trailer</a>-->
-        </div>
+      <div fxShow fxHide.sm="true" fxHide.xs="true">
         <h3>Overview</h3>
         <p>{{tvShow.overview}}</p>
         <h3>Categories</h3>
@@ -21,6 +21,6 @@
         </div>
       </div>
     </div>
-
   </div>
+
 </div>

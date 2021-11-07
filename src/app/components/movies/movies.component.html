@@ -1,11 +1,11 @@
-<div class="container padding-top-60">
+<div class="container" [ngClass]="{'padding-top-60': !mobileQuery.matches}">
 
-  <h2 style="text-align: left; padding-left: 20px;">All Movies #NowPlaying</h2>
+  <h2>All Movies #NowPlaying</h2>
 
   <div fxLayout='row'>
-    <mat-card fxFlex="25%" class="filter-movies-card">
+    <mat-card fxFlex="25%" fxShow fxHide.sm="true" fxHide.xs="true" class="filter-movies-card">
       <div style="margin-bottom: 24px">Filter by</div>
-      <button mat-raised-button color="primary" aria-label="Set Now Playing filter">Now Playing</button>
+      <button mat-raised-button color="primary" aria-label="Set Now Playing filter" disabled>Now Playing</button>
       <button mat-raised-button color="primary" aria-label="Set Upcoming filter" disabled>Upcoming</button>
       <button mat-raised-button color="primary" aria-label="Set Popular filter" disabled>Popular</button>
       <mat-expansion-panel>
@@ -22,23 +22,13 @@
         </div>
 
       </mat-expansion-panel>
-      <div style="margin-top: 10px">Avg. User Review</div>
-      <mat-slider
-        [max]="max"
-        [min]="min"
-        [step]="step"
-        [thumbLabel]="thumbLabel"
-        [tickInterval]="tickInterval"
-        [value]="value"
-        disabled
-      ></mat-slider>
     </mat-card>
 
-    <div fxFlex="75%">
-      <div style="text-align: center" fxLayout='row wrap'>
-      <span fxFlex="25%" fxFlex.md="25%" fxFlex.xs="50%" style="padding: 5px 5px;" *ngFor="let movie of nowPlaying">
-        <app-poster-card [model]="movie" [isMovie]="true"></app-poster-card>
-      </span>
+    <div fxFlex="75%" fxFlex.sm="100" fxFlex.xs="100">
+      <div fxLayout='row wrap'>
+        <span fxFlex="25%" fxFlex.md="25%" fxFlex.xs="50%" style="padding: 5px 5px;" *ngFor="let movie of nowPlaying">
+          <app-poster-card [model]="movie" [isMovie]="true"></app-poster-card>
+        </span>
       </div>
 
       <mat-paginator [length]="totalResults"

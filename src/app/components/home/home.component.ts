@@ -18,31 +18,31 @@ SwiperCore.use([Pagination]);
 export class HomeComponent implements OnInit, AfterViewInit {
 
   config: SwiperOptions = {
-    slidesPerView: 5,
+    slidesPerView: 'auto',
     spaceBetween: 20,
     navigation: true,
     pagination: { clickable: true },
     scrollbar: { draggable: true },
     breakpoints: {
-      1199: {
-        slidesPerView: 5,
+      1279: {
+        slidesPerView: 5.5,
         spaceBetween: 20,
       },
-      991: {
-        slidesPerView: 4,
+      959: {
+        slidesPerView: 4.5,
         spaceBetween: 20,
       },
-      767: {
-        slidesPerView: 3,
+      599: {
+        slidesPerView: 3.5,
         spaceBetween: 20,
       },
       480: {
-        slidesPerView: 2,
+        slidesPerView: 2.5,
         spaceBetween: 20,
       },
       320: {
-        slidesPerView: 2,
-        spaceBetween: 5
+        slidesPerView: 1.5,
+        spaceBetween: 10
       },
     }
   };

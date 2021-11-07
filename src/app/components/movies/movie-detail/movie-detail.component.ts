@@ -1,4 +1,4 @@
-import {Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, Inject, OnDestroy, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {MovieModel} from '../../../models/movie.model';
 import {PaginatorModel} from '../../../models/paginator.model';
 import {MovieCast} from '../../../models/movie-cast';
@@ -8,13 +8,15 @@ import {ActivatedRoute} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {SeoService} from '../../../services/seo.service';
+import {MediaMatcher} from '@angular/cdk/layout';
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-movie-detail',
   templateUrl: './movie-detail.component.html',
-  styleUrls: ['./movie-detail.component.css']
+  styleUrls: ['./movie-detail.component.scss']
 })
-export class MovieDetailComponent implements OnInit {
+export class MovieDetailComponent implements OnInit, OnDestroy {
 
   movie: MovieModel;
   similarMovies: Array<PaginatorModel> = [];
@@ -22,16 +24,28 @@ export class MovieDetailComponent implements OnInit {
   video: MovieVideo;
   isLoading = true;
 
+  mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
+
   @ViewChild('closeModal') public  closeModal: ElementRef;
   @ViewChild('openModal') public  openModal: ElementRef;
+
+  @ViewChild('matTrailerDialog') matTrailerDialog: TemplateRef<any>;
 
   constructor(
     private _moviesService: MoviesService,
     private route: ActivatedRoute,
     private sanitizer: DomSanitizer,
     public dialog: MatDialog,
-    private seo: SeoService
-  ) {}
+    private seo: SeoService,
+    public trailerDialog: MatDialog,
+    changeDetectorRef: ChangeDetectorRef,
+    media: MediaMatcher
+  ) {
+    this.mobileQuery = media.matchMedia('(max-width: 599px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+  }
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -45,50 +59,50 @@ export class MovieDetailComponent implements OnInit {
     );
   }
 
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
+
   getMovie(id) {
-    const movieSubs = this._moviesService.getMovie(id).subscribe(
+    this.isLoading = true;
+
+    this._moviesService.getMovie(id).pipe(take(1)).subscribe(
       movie => {
         this.movie = movie;
         this.generateSeo();
 
-        if (!this.movie) {
-          alert('Server Error')
-        } else {
-          this.isLoading = false;
-        }
-      }, () => {},
-      () => { if (movieSubs) { movieSubs.unsubscribe() } }
+        this.isLoading = false;
+      }, () => {}
     );
   }
 
   getMovieCredits(id) {
-    const movieCreditsSubs = this._moviesService.getMovieCredits(id).subscribe(
+    this._moviesService.getMovieCredits(id).pipe(take(1)).subscribe(
       res => {
         res.cast = res.cast.filter( item => { return item.profile_path });
         this.cast = res.cast.slice(0, 5);
-      }, () => {},
-      () => { if (movieCreditsSubs) { movieCreditsSubs.unsubscribe() } }
+      }, () => {}
     );
   }
 
   getMovieVideo(id) {
-    const movieVideosSubs = this._moviesService.getMovieVideos(id).subscribe(
+    this._moviesService.getMovieVideos(id).pipe(take(1)).subscribe(
       res => {
         if (res.results && res.results.length) {
           this.video = res.results[0];
           this.video['url'] = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + this.video['key']);
+
+          console.log(this.video);
         }
-      }, () => {},
-      () => { if (movieVideosSubs) { movieVideosSubs.unsubscribe() } }
+      }, () => {}
     );
   }
 
   getRecomendedMovie(id) {
-    const recomendedMoviesSubs = this._moviesService.getRecomendMovies(id).subscribe(
+    this._moviesService.getRecomendMovies(id).pipe(take(1)).subscribe(
       res => {
         this.similarMovies = res.results.slice(0, 10);
-      }, () => {},
-      () => { if (recomendedMoviesSubs) { recomendedMoviesSubs.unsubscribe() } }
+      }, () => {}
     );
   }
 
@@ -108,11 +122,8 @@ export class MovieDetailComponent implements OnInit {
   }
 
   openDialog(): void {
-    this.dialog.open(AppMovieDialogComponent, {
-      height: '500px',
-      width: '800px',
-      data: { video: this.video}
-    });
+    const dialogRef = this.trailerDialog.open(this.matTrailerDialog, {});
+    dialogRef.disableClose = true;
   }
 
 }

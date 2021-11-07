@@ -16,7 +16,7 @@
 }
 
 ::ng-deep .swiper-pagination {
-  bottom: 0; position: initial;
+  bottom: 0; position: initial; margin-top: 15px;
 }
 
 .moviesHome-header {
@@ -24,8 +24,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 12px;
-  margin-top: 45px;
-  margin-bottom: 0;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
 
   a:hover {
     text-decoration: underline;
@@ -35,4 +35,30 @@
 .moviesHome-title {
   font-size: 24px;
   font-weight: bold;
+}
+
+// xs
+@media screen and (max-width: 599px) {
+  .__home-main-content {
+    min-height: 50vh;
+  }
+}
+
+// sm
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .__home-main-content {
+    min-height: 50vh;
+  }
+}
+
+// md
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+}
+
+// lg
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+}
+
+// xl
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
 }
