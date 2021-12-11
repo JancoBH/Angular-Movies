@@ -2,6 +2,7 @@ export class TvShowModel {
   public original_name: string;
   public genre_ids: Array<number>;
   public name: string;
+  public tagline: string;
   public popularity: number;
   public origin_country: Array<string>;
   public vote_count: number;

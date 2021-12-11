@@ -6,6 +6,7 @@ import {RouterModule} from '@angular/router';
 import {CustomMaterialModule} from './custom-material.module';
 import {SwiperModule} from 'swiper/angular';
 import {MovieCardComponent} from '../components/ui/poster-card-view/poster-card.component';
+import {ImgMissingDirective} from '../directives/img-missing.directive';
 
 @NgModule({
   imports: [
@@ -24,10 +25,12 @@ import {MovieCardComponent} from '../components/ui/poster-card-view/poster-card.
     ReactiveFormsModule,
     FlexLayoutModule,
     SwiperModule,
-    MovieCardComponent
+    MovieCardComponent,
+    ImgMissingDirective
   ],
   declarations: [
-    MovieCardComponent
+    MovieCardComponent,
+    ImgMissingDirective
   ]
 })
 export class SharedModule { }

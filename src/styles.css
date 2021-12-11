@@ -1,4 +1,6 @@
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+/* General */
 
 html, body{
   padding: 0;
@@ -31,39 +33,10 @@ app-home hr {  border-color: transparent;  }
   align-items: center;
 }
 
-@media (min-width: 576px) {
-  .container {
-    max-width: 540px;
-    padding-right: 0;
-    padding-left: 0;
-  }
-}
+.default-margin-bottom {margin-bottom: 0.8rem;}
+.default-padding-bottom {padding-bottom: 0.8rem;}
 
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-}
-
-@media (min-width: 992px) {
-  .container {
-    max-width: 960px;
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-}
-
-
+/* Loading */
 .loading {
   width: 30px;
   height: 30px;
@@ -104,4 +77,42 @@ app-home hr {  border-color: transparent;  }
 
 .error {
   margin: 10px auto auto;
+}
+
+/* media query */
+
+/*xs*/
+@media (min-width: 599px) {
+  .container {
+    max-width: 540px;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+/*sm*/
+@media (min-width: 600px) and (max-width: 959px) {
+  .container {
+    max-width: 720px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+/*md*/
+@media (min-width: 960px) and (max-width: 1279px) {
+  .container {
+    max-width: 960px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+/*lg*/
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .container {
+    max-width: 1140px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
 }

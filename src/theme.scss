@@ -1,5 +1,5 @@
-@use '~@angular/material' as mat;
-@import '~@angular/material/theming';
+@use '@angular/material' as mat;
+@import '@angular/material/theming';
 @import "~swiper/scss";
 @import "~swiper/scss/pagination";
 @include mat.core();
@@ -71,6 +71,7 @@ $app-theme: mat.define-dark-theme($app-primary, $app-accent, $app-warn);
   flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
+  padding: 5px 10px;
   a {float: right; color: white}
   h2 {margin: 0; font-size: 1.1rem}
 }

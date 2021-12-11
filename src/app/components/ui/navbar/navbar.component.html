@@ -6,7 +6,7 @@
 
     <div fxFlex="80%" fxFlex.md="90%" fxFlex.sm="100%" fxHide.xs>
       <div class="space-between">
-        <div>Movies + TV Shows by JancoBH</div>
+        <a routerLink="/">Movies + TV Shows by JancoBH</a>
         <div>
           <a mat-button routerLink="" [routerLinkActive]="['activated-route']" [routerLinkActiveOptions]="{exact: true}" aria-label="Home">Home</a>
           <a mat-button routerLink="movies" [routerLinkActive]="['activated-route']" aria-label="Movies">Movies</a>
@@ -22,6 +22,15 @@
               <span>{{list.name}}</span>
             </button>
           </mat-menu>
+
+          <button mat-icon-button [matMenuTriggerFor]="menuLanguage" matTooltip="Change Language" style="margin-left: 15px" aria-label="Change Language">
+            <mat-icon>translate</mat-icon>
+          </button>
+
+          <mat-menu #menuLanguage="matMenu">
+            <div style="color: white; text-align: center">Soon</div>
+          </mat-menu>
+
         </div>
       </div>
 

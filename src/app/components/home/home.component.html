@@ -19,7 +19,7 @@
           (slideChange)="onSlideChange()"
           style="display: flex; flex-direction: column-reverse;"
         >
-          <ng-template swiperSlide *ngFor="let movie of moviesList | slice:0:10">
+          <ng-template swiperSlide *ngFor="let movie of moviesList | slice:0:15">
             <app-poster-card [model]="movie" [isMovie]="true"></app-poster-card>
           </ng-template>
         </swiper>
@@ -45,7 +45,7 @@
           (slideChange)="onSlideChange()"
           style="display: flex; flex-direction: column-reverse;"
         >
-          <ng-template swiperSlide *ngFor="let tvShow of tvShowsList | slice:0:10">
+          <ng-template swiperSlide *ngFor="let tvShow of tvShowsList | slice:0:15">
             <app-poster-card [model]="tvShow"></app-poster-card>
           </ng-template>
         </swiper>

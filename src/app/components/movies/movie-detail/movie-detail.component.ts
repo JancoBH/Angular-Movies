@@ -1,12 +1,11 @@
-import {ChangeDetectorRef, Component, ElementRef, Inject, OnDestroy, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {MovieModel} from '../../../models/movie.model';
 import {PaginatorModel} from '../../../models/paginator.model';
-import {MovieCast} from '../../../models/movie-cast';
 import {MovieVideo} from '../../../models/movie-video';
 import {MoviesService} from '../../../services/inTheater/movies.service';
 import {ActivatedRoute} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
-import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import {SeoService} from '../../../services/seo.service';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {take} from 'rxjs/operators';
@@ -124,23 +123,6 @@ export class MovieDetailComponent implements OnInit, OnDestroy {
   openDialog(): void {
     const dialogRef = this.trailerDialog.open(this.matTrailerDialog, {});
     dialogRef.disableClose = true;
-  }
-
-}
-
-@Component({
-  selector: 'app-movie-dialog',
-  templateUrl: '../../movies/movie-detail/app-movie-dialog.html'
-})
-export class AppMovieDialogComponent {
-
-  constructor(
-    public dialogRef: MatDialogRef<AppMovieDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
-
-  closeDialog() {
-    this.dialogRef.close('Pizza!');
   }
 
 }

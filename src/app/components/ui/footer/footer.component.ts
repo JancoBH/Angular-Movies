@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
 
   socialData = [
-    {url: 'https://twitter.com/JancoBH', name: 'Twitter', img: 'https://raw.githubusercontent.com/edent/SuperTinyIcons/8a805e39049f04d22efe1eed8139d61c5e9a24cc/images/svg/twitter.svg'},
-    {url: 'https://github.com/JancoBH', name: 'Github', img: 'https://raw.githubusercontent.com/edent/SuperTinyIcons/8a805e39049f04d22efe1eed8139d61c5e9a24cc/images/svg/github.svg'}
+    {url: 'https://twitter.com/JancoBH', name: 'Twitter', img: '/assets/svg/twitter.svg'},
+    {url: 'https://github.com/JancoBH', name: 'Github', img: '/assets/svg/github.svg'}
   ];
 
   constructor() { }

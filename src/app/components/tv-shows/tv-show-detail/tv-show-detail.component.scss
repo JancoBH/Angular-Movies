@@ -4,27 +4,27 @@
 }
 
 .tv-show-main-data-container {
-  width: 80%;
-  margin: 0 auto;
-  padding-top: 80px;
-  padding-bottom: 40px;
-  z-index: 0;
-}
+  padding: 30px 40px;
 
-.tv-show-main-img img {
-  width: 250px; height: 350px; box-shadow: 0 0 4px rgba(0, 0, 0, 0.2); border-radius: 4px;
-}
+  .tv-show-main-img img {
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2); border-radius: 4px;
+  }
 
-.tv-show-main-title { font-size: 2.2em; font-weight: 700; }
+  .tv-show-main-info {
+    padding-left: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
 
-.tv-show-main-data-actions {  margin-bottom: 20px  }
+    .title-subtitle-container {
 
-.tv-show-main-data-actions button {
-  background: rgba(0, 0, 0, 0.5); border: 2px solid white; margin-right: 10px
-}
+      h2 {font-size: 2.2em; font-weight: 700; margin: 0 0 20px;}
+      h3 {font-weight: 500; color: #fff; font-size: 1.1em; font-style: italic; opacity: 0.8; margin: 0;}
 
-.tv-show-main-data-actions button mat-icon {
-  color: white; font-size: medium;
+    }
+
+  }
+
 }
 
 // xs

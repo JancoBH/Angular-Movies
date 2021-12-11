@@ -17,6 +17,15 @@ export class NavbarComponent implements OnInit {
 
   selectedColor = '#f44336';
 
+
+  languageList = [
+    {id: '#f44336', name: 'English'},
+    {id: '#2196f3', name: 'Blue'},
+    {id: '#4caf50', name: 'Green'},
+  ]
+
+  selectedLanguage = '#f44336';
+
   isScrolled = false;
 
   @HostListener('window:scroll')

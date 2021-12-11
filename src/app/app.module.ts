@@ -17,41 +17,36 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {SharedModule} from './shared/shared.module';
 import {NavbarComponent} from './components/ui/navbar/navbar.component';
-import {AppMovieDialogComponent} from './components/movies/movie-detail/movie-detail.component';
 import {NotFoundComponent} from './components/ui/not-found/not-found.component';
 import {FooterComponent} from './components/ui/footer/footer.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    NavbarComponent,
-    FooterComponent,
-    GenresComponent,
-    GenresTvComponent,
-    GenresListComponent,
-    AppMovieDialogComponent,
-    NotFoundComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production,
-      registrationStrategy: 'registerWhenStable:30000'
-    }),
-    BrowserAnimationsModule,
-    HttpClientModule,
-    SharedModule
-  ],
-  providers: [
-    MoviesService,
-    OnTVService,
-    SeoService
-  ],
-  entryComponents: [
-    AppMovieDialogComponent
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        NavbarComponent,
+        FooterComponent,
+        GenresComponent,
+        GenresTvComponent,
+        GenresListComponent,
+        NotFoundComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ServiceWorkerModule.register('ngsw-worker.js', {
+            enabled: environment.production,
+            registrationStrategy: 'registerWhenStable:30000'
+        }),
+        BrowserAnimationsModule,
+        HttpClientModule,
+        SharedModule
+    ],
+    providers: [
+        MoviesService,
+        OnTVService,
+        SeoService
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

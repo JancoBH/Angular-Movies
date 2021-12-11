@@ -18,32 +18,29 @@ SwiperCore.use([Pagination]);
 export class HomeComponent implements OnInit, AfterViewInit {
 
   config: SwiperOptions = {
-    slidesPerView: 'auto',
+    slidesPerView: 2.3,
     spaceBetween: 20,
     navigation: true,
+    watchSlidesProgress: true,
     pagination: { clickable: true },
     scrollbar: { draggable: true },
     breakpoints: {
       1279: {
-        slidesPerView: 5.5,
+        slidesPerView: 6.3,
         spaceBetween: 20,
       },
       959: {
-        slidesPerView: 4.5,
+        slidesPerView: 5.3,
         spaceBetween: 20,
       },
-      599: {
-        slidesPerView: 3.5,
+      600: {
+        slidesPerView: 4.3,
         spaceBetween: 20,
       },
       480: {
-        slidesPerView: 2.5,
-        spaceBetween: 20,
-      },
-      320: {
-        slidesPerView: 1.5,
-        spaceBetween: 10
-      },
+        slidesPerView: 2.3,
+        spaceBetween: 10,
+      }
     }
   };
 
@@ -104,6 +101,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   getMovies(type: string, page: number): void {
     this.moviesList = [];
     this.moviesService.getMovies(type, page).pipe(take(1)).subscribe(res => {
+      console.log(res);
       this.moviesList = res.results;
     });
   }

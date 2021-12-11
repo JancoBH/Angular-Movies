@@ -1,32 +1,42 @@
-<div *ngIf="!isLoading" class="parrallax-content" [ngClass]="{'padding-top-60': !mobileQuery.matches}" [style.background-image]="('linear-gradient(rgba(52,41,49,0.80), rgba(0,0,0,0.85)), url('+'https://image.tmdb.org/t/p/w1280'+movie.backdrop_path+')')">
+<div *ngIf="!isLoading" class="movie-main-container" [ngClass]="{'padding-top-60': !mobileQuery.matches}" [style.background-image]="('linear-gradient(rgba(52,41,49,0.80), rgba(0,0,0,0.85)), url('+'https://image.tmdb.org/t/p/w1280'+movie.backdrop_path+')')">
 
-  <div class="parallax-left-content">
-    <div fxLayout='row wrap'>
+  <div class="movie-main-data-container">
 
-      <div class="parallax-img-container" fxFlex="25">
-        <img src="https://image.tmdb.org/t/p/w500/{{movie?.poster_path}}" alt="">
+    <section class="movie-top-section" fxLayout='row'>
+
+      <div class="movie-main-img">
+        <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{movie?.poster_path}}" data-src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{movie?.poster_path}}"
+             data-srcset="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{movie?.poster_path}} 1x, https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{movie?.poster_path}} 2x"
+             srcset="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{movie?.poster_path}} 1x, https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{movie?.poster_path}} 2x"
+             data-loaded="true" [alt]="movie?.title">
       </div>
 
-      <div fxFlex="75"> <!--Title-->
-        <h2 class="movie-main-title">{{movie.title}}</h2>
+      <div class="movie-main-info">
+
+        <div class="title-subtitle-container">
+          <h2 class="movie-main-title">{{movie?.title}}</h2>
+          <h3 fxHide.xs="true">{{movie.tagline}}</h3>
+        </div>
+
         <div fxShow fxHide.sm="true" fxHide.xs="true">
-          <p>Overview</p>
+          <h3>Overview</h3>
           <p style="padding-right: 8px">{{movie.overview}}</p>
           <div>
             <button mat-raised-button color="primary" aria-label="Trailer" (click)="openDialog()"><mat-icon class="icon-colored" style="background: white; border-radius: 50%;">play_arrow</mat-icon> Watch Trailer</button>
           </div>
-          <p>Categories</p>
+          <h3>Categories</h3>
           <div>
             <button *ngFor="let genre of movie.genres" mat-raised-button color="primary" aria-label="Genres" disabled style="margin-right: 5px">{{genre.name}}</button>
           </div>
         </div>
+
       </div>
 
-    </div>
+    </section>
 
     <section class="top-billed-cast" fxLayout='column' fxShow fxHide.sm="true" fxHide.xs="true">
-      <p class="title-billed">Top Billed Cast</p>
-      <div style="display: flex">
+      <h3 class="title-billed">Top Billed Cast</h3>
+      <div style="display: flex; text-align: center;">
         <div *ngFor="let actor of cast; let last = last" [ngStyle]="{'border-right': last !== true ? '1px solid #ffffff75' : ''}" style="width: 20%;">
 
           <a routerLink="/people/person/{{actor?.id}}">
@@ -49,8 +59,8 @@
 
 <div class="container">
 
-  <div *ngIf="similarMovies" class="similar-movies">
-    <h1>Recommended Movies</h1>
+  <div *ngIf="similarMovies" class="similar-movies default-margin-bottom">
+    <h2>Recommended Movies</h2>
     <div fxLayout='row wrap'>
       <div fxFlex="20%" fxFlex.md="25%" fxFlex.xs="50%" style="padding: 5px 5px;" *ngFor="let movie of similarMovies;">
         <app-poster-card [model]="movie" [isMovie]="true" (click)="upOnRouting()"></app-poster-card>
@@ -66,7 +76,7 @@
   </div>
 </div>
 
-<!--Dialogo cambiar header-->
+<!--Dialogo video trailer-->
 <ng-template #matTrailerDialog>
   <div cdkDragBoundary=".cdk-overlay-container" cdkDrag cdkDragRootElement=".cdk-overlay-pane" style="background: black;">
     <div class="dialog-title-container" cdkDragHandle>

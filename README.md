@@ -1,21 +1,45 @@
-# Angular Movies | Movies (working in the new update)
+# Angular Movies | TV Shows (beta)
 
-Angular Movies & TV Shows was generated with:
-- Angular CLI version 13.0.0
-- Angular 13.0.0
-- Angular Material 12.2.12
-- The Movie DB get Your own api key -> https://www.themoviedb.org
+## 🚀 Getting Started
 
-✔ Live Demo: https://jancobh.github.io/Angular-Movies/ (new with Angular 13 + improvements + still working on it)
+Angular Movies | TV Shows is a simple web app that consumes The Movie DB API, it can show you interesting data about popular movies and series - **still working on it**.
 
-❌ Live Demo: https://angular-movies-c91ba.firebaseapp.com/ (old with Angular 8 and a lot of unnecessary code with bugs)
+See **Installing** for steps to make it work in your local environment.
+## 💻 Live Demo
 
-## Installation
+✔ Github Pages: https://jancobh.github.io/Angular-Movies/ (new with Angular 13 + improvements + still working on it)
+
+❌ Firebase hosting: https://angular-movies-c91ba.firebaseapp.com/ (old with Angular 8 and a lot of unnecessary code with bugs)
+
+
+## 📋 Prerequisites
+
+* <a href="https://nodejs.org/es/" target="_blank">Node JS</a> - You need it to use npm
+* <a href="https://angular.io/cli" target="_blank">Angular CLI</a> - Command-line interface tool needed to manage Angular applications
+* <a href="https://developers.themoviedb.org/3" target="_blank">The Movie DB API</a> - Click the link to get your own API
+
+## 🔧 Installing
 
 ```bash
-git clone --depth 1 https://github.com/JancoBH/Angular-Movies.git
+git clone https://github.com/JancoBH/Angular-Movies.git
 cd Angular-Movies
 npm install
-ng serve and go to http://localhost:4200/
+ng serve and enjoy it
 ```
-Go to Angular-Movies\src\environments and change ```environments.ts``` and ```environments.prod.ts``` theMovieDBApi with your own The Movie DB ApiKey
+Go to Angular-Movies\src\environments and change ```environments.ts``` and ```environments.prod.ts``` theMovieDBApi object prop with your own The Movie DB API Key
+
+## 🛠️ Built With
+
+* <a href="https://angular.io/" target="_blank">Angular</a> 13.1.0 - The Web Framework used
+* <a href="https://material.angular.io/" target="_blank">Angular Material</a> 13.1.0 - The UI Component Library
+
+## 📦 Deployment
+
+You can check <a href="https://angular.io/cli" target="_blank">Angular Deployment guide</a> to learn how to deploy this project.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+---
+🧑‍💻 Made by [JancoBH](https://github.com/JancoBH)
