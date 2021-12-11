@@ -7,9 +7,9 @@ Angular Movies | TV Shows is a simple web app that consumes The Movie DB API, it
 See **Installing** for steps to make it work in your local environment.
 ## 💻 Live Demo
 
-✔ Github Pages: https://jancobh.github.io/Angular-Movies/ (new with Angular 13 + improvements + still working on it)
+✔ Github Pages: https://jancobh.github.io/Angular-Movies/ (new with Angular 13 + improvements + still working on it).
 
-❌ Firebase hosting: https://angular-movies-c91ba.firebaseapp.com/ (old with Angular 8 and a lot of unnecessary code with bugs)
+❌ Firebase hosting: https://angular-movies-c91ba.firebaseapp.com/ (old with Angular 8 and a lot of unnecessary code with bugs).
 
 
 ## 📋 Prerequisites
@@ -26,7 +26,7 @@ cd Angular-Movies
 npm install
 ng serve and enjoy it
 ```
-Go to Angular-Movies\src\environments and change ```environments.ts``` and ```environments.prod.ts``` theMovieDBApi object prop with your own The Movie DB API Key
+Go to Angular-Movies\src\environments and change ```environments.ts``` and ```environments.prod.ts``` theMovieDBApi object prop with your own The Movie DB API Key.
 
 ## 🛠️ Built With
 
@@ -35,11 +35,11 @@ Go to Angular-Movies\src\environments and change ```environments.ts``` and ```en
 
 ## 📦 Deployment
 
-You can check <a href="https://angular.io/cli" target="_blank">Angular Deployment guide</a> to learn how to deploy this project.
+You can check <a href="https://angular.io/guide/deployment" target="_blank">Angular Deployment guide</a> to learn how to deploy this project.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 🧑‍💻 Made by [JancoBH](https://github.com/JancoBH)
