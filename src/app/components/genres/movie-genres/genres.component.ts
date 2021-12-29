@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { MoviesService } from '../../../services/inTheater/movies.service'
-import {PaginatorModel} from '../../../models/paginator.model';
+import {PaginationModel} from '../../../models/pagination.model';
 
 @Component({
   selector: 'app-genres',
@@ -12,7 +12,7 @@ import {PaginatorModel} from '../../../models/paginator.model';
 export class GenresComponent implements OnInit {
 
   title: string;
-  movies: Array<PaginatorModel> = [];
+  movies: Array<PaginationModel> = [];
 
   constructor(
     private _moviesService: MoviesService,

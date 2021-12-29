@@ -22,6 +22,16 @@
 
     }
 
+    .play-trailer {
+
+      ::ng-deep .mat-button-wrapper {
+        display: flex;
+        align-items: center;
+
+        mat-icon {padding-right: 2px}
+      }
+    }
+
 
   }
 
@@ -77,6 +87,9 @@
 
     .movie-main-info {
       padding-left: 20px;
+
+      .play-trailer {margin-top: 4px;}
+
     }
 
   }
@@ -87,14 +100,35 @@
     h2 {text-align: center;}
   }
 
+  .video-movie-main iframe{
+    width: 80vw;
+    height: 45vh;
+  }
+
 }
 
 // sm
 @media screen and (min-width: 600px) and (max-width: 959px) {
+
+  .movie-main-info {
+
+    .play-trailer {margin-top: 4px;}
+
+  }
+
+  .video-movie-main iframe{
+    width: 80vw;
+    height: 40vh;
+  }
+
 }
 
 // md
 @media screen and (min-width: 960px) and (max-width: 1279px) {
+  .video-movie-main iframe{
+    width: 80vw;
+    height: 40vh;
+  }
 }
 
 // lg

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PaginatorModel} from '../../../models/paginator.model';
+import {PaginationModel} from '../../../models/pagination.model';
 import {ActivatedRoute} from '@angular/router';
 import {OnTVService} from '../../../services/onTV/onTV.service';
 
@@ -11,7 +11,7 @@ import {OnTVService} from '../../../services/onTV/onTV.service';
 export class GenresTvComponent implements OnInit {
 
   title: string;
-  tvShow: Array<PaginatorModel> = [];
+  tvShow: Array<PaginationModel> = [];
 
   constructor(
     private onTVService: OnTVService,

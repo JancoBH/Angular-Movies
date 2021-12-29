@@ -1,7 +1,7 @@
 import {ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, TemplateRef, ViewChild} from '@angular/core';
-import {MovieModel} from '../../../models/movie.model';
-import {PaginatorModel} from '../../../models/paginator.model';
-import {MovieVideo} from '../../../models/movie-video';
+import {MovieModel} from '../../../models/movie/movie.model';
+import {PaginationModel} from '../../../models/pagination.model';
+import {MovieVideo} from '../../../models/movie/movie-video';
 import {MoviesService} from '../../../services/inTheater/movies.service';
 import {ActivatedRoute} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
@@ -17,8 +17,8 @@ import {take} from 'rxjs/operators';
 })
 export class MovieDetailComponent implements OnInit, OnDestroy {
 
-  movie: MovieModel;
-  similarMovies: Array<PaginatorModel> = [];
+  movie: MovieModel = new MovieModel();
+  similarMovies: Array<PaginationModel> = [];
   cast = [];
   video: MovieVideo;
   isLoading = true;
@@ -70,8 +70,8 @@ export class MovieDetailComponent implements OnInit, OnDestroy {
         this.movie = movie;
         this.generateSeo();
 
-        this.isLoading = false;
-      }, () => {}
+      }, () => {},
+      () => this.isLoading = false
     );
   }
 
@@ -87,11 +87,11 @@ export class MovieDetailComponent implements OnInit, OnDestroy {
   getMovieVideo(id) {
     this._moviesService.getMovieVideos(id).pipe(take(1)).subscribe(
       res => {
-        if (res.results && res.results.length) {
+        if (res?.results?.length > 0) {
           this.video = res.results[0];
           this.video['url'] = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + this.video['key']);
-
-          console.log(this.video);
+        } else {
+          this.video = null;
         }
       }, () => {}
     );

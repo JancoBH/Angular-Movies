@@ -1,11 +1,12 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import { MoviesService } from '../../services/inTheater/movies.service'
-import {PaginatorModel} from '../../models/paginator.model';
 import {OnTVService} from '../../services/onTV/onTV.service';
 import {SeoService} from '../../services/seo.service';
 import SwiperCore, { Pagination, SwiperOptions } from 'swiper';
 import {take} from 'rxjs/operators';
+import {MovieModel} from '../../models/movie/movie.model';
+import {TvModel} from '../../models/tv/tv.model';
 
 SwiperCore.use([Pagination]);
 
@@ -15,7 +16,7 @@ SwiperCore.use([Pagination]);
   styleUrls: ['./home.component.scss']
 })
 
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit {
 
   config: SwiperOptions = {
     slidesPerView: 2.3,
@@ -45,11 +46,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
   };
 
   movieTabList = ['Now playing', 'Upcoming', 'Popular'];
-  moviesList: Array<PaginatorModel> = [];
+  moviesList: Array<MovieModel> = [
+    new MovieModel(), new MovieModel(), new MovieModel(), new MovieModel(), new MovieModel(), new MovieModel()
+  ];
   selectedMovieTab = 0;
 
   tvShowsTabList = ['Airing Today', 'Currently Airing', 'Popular'];
-  tvShowsList: Array<PaginatorModel> = [];
+  tvShowsList: Array<TvModel> = [
+    new TvModel(), new TvModel(), new TvModel(), new TvModel(), new TvModel(), new TvModel()
+  ];
   selectedTVTab = 0;
 
   constructor(
@@ -63,17 +68,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.seo.generateTags({
       title: 'Angular Movies and Series',
       description: 'Movie and Series Home Page',
-      image: 'https://angular-movies-c91ba.firebaseapp.com/assets/background-main.jpg'
+      image: 'https://jancobh.github.io/Angular-Movies/background-main.jpg'
     });
 
-
+    this.getMovies('now_playing', 1);
     this.getTVShows('airing_today', 1);
-  }
-
-  ngAfterViewInit() {
-    setTimeout( () => {
-      this.getMovies('now_playing', 1);
-    }, 500);
   }
 
   tabChange(event) {
@@ -99,15 +98,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   getMovies(type: string, page: number): void {
-    this.moviesList = [];
     this.moviesService.getMovies(type, page).pipe(take(1)).subscribe(res => {
-      console.log(res);
       this.moviesList = res.results;
     });
   }
 
   getTVShows(type: string, page: number): void {
-    this.tvShowsList = [];
     this.onTvService.getTVShows(type, page).subscribe(res => {
       this.tvShowsList = res.results;
     });
@@ -115,9 +111,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   onSwiper(swiper) {
     swiper.update();
-  }
-  onSlideChange() {
-    // console.log('slide change');
   }
 
 }

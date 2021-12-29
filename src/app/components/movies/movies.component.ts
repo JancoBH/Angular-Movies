@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
-import {PaginatorModel} from '../../models/paginator.model';
+import {PaginationModel} from '../../models/pagination.model';
 import {GenresListModel} from '../../models/genres-list';
 import {MoviesService} from '../../services/inTheater/movies.service';
 import {MediaMatcher} from '@angular/cdk/layout';
@@ -12,7 +12,7 @@ import {take} from 'rxjs/operators';
 })
 export class MoviesComponent implements OnInit, OnDestroy {
 
-  nowPlaying: Array<PaginatorModel> = [];
+  nowPlaying: Array<PaginationModel> = [];
   genres: GenresListModel;
 
   totalResults: any;

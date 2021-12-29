@@ -7,25 +7,27 @@
       <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{tvShow?.poster_path}}" data-src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{tvShow?.poster_path}}"
            data-srcset="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{tvShow?.poster_path}} 1x, https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{tvShow?.poster_path}} 2x"
            srcset="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{tvShow?.poster_path}} 1x, https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{tvShow?.poster_path}} 2x"
-           data-loaded="true" [alt]="tvShow?.name">
+           data-loaded="true" [alt]="tvShow?.name" appImgMissingDirective>
 
     </div>
 
     <div class="tv-show-main-info">
 
-      <div class="title-subtitle-container">
+      <div class="title-subtitle-container" fxFlex="100">
         <h2 class="tv-show-main-title">{{tvShow.name}}</h2>
         <h3>{{tvShow.tagline}}</h3>
       </div>
 
-      <div fxShow fxHide.sm="true" fxHide.xs="true">
-        <h3>Overview</h3>
-        <p>{{tvShow.overview}}</p>
-        <h3>Categories</h3>
+      <section fxShow fxHide.sm="true" fxHide.xs="true">
+        <div *ngIf="tvShow.overview">
+          <h3>Overview</h3>
+          <p>{{tvShow.overview}}</p>
+        </div>
         <div>
+          <h3>Categories</h3>
           <button *ngFor="let genre of tvShow.genres" mat-raised-button color="primary" disabled style="margin-right: 5px">{{genre.name}}</button>
         </div>
-      </div>
+      </section>
 
     </div>
   </div>

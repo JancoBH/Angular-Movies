@@ -27,6 +27,11 @@ app-home hr {  border-color: transparent;  }
   padding-top: 60px;
 }
 
+.flex-start {
+  display: flex;
+  justify-content: flex-start;
+}
+
 .space-between {
   display: flex;
   justify-content: space-between;

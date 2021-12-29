@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
-import {TvShowModel} from '../../../models/onTV/tvShow.model';
+import {TvModel} from '../../../models/tv/tv.model';
 import {OnTVService} from '../../../services/onTV/onTV.service';
 import {ActivatedRoute} from '@angular/router';
 import {take} from 'rxjs/operators';
@@ -12,7 +12,7 @@ import {MediaMatcher} from '@angular/cdk/layout';
 })
 export class TvShowDetailComponent implements OnInit, OnDestroy {
 
-  tvShow: TvShowModel = new TvShowModel();
+  tvShow: TvModel = new TvModel();
   isLoading = true;
 
   mobileQuery: MediaQueryList;

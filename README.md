@@ -30,8 +30,8 @@ Go to Angular-Movies\src\environments and change ```environments.ts``` and ```en
 
 ## 🛠️ Built With
 
-* <a href="https://angular.io/" target="_blank">Angular</a> 13.1.0 - The Web Framework used
-* <a href="https://material.angular.io/" target="_blank">Angular Material</a> 13.1.0 - The UI Component Library
+* <a href="https://angular.io/" target="_blank">Angular</a> 13.1.1 - The Web Framework used
+* <a href="https://material.angular.io/" target="_blank">Angular Material</a> 13.1.1 - The UI Component Library
 
 ## 📦 Deployment
 

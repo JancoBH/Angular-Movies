@@ -6,7 +6,9 @@
 
     <div fxFlex="80%" fxFlex.md="90%" fxFlex.sm="100%" fxHide.xs>
       <div class="space-between">
-        <a routerLink="/">Movies + TV Shows by JancoBH</a>
+        <a routerLink="/" class="flex-start">
+          <img src="/assets/img/Movie-TVShow-logo_white.png" alt="Movies + TV Shows by JancoBH" style="width: 9rem;">
+        </a>
         <div>
           <a mat-button routerLink="" [routerLinkActive]="['activated-route']" [routerLinkActiveOptions]="{exact: true}" aria-label="Home">Home</a>
           <a mat-button routerLink="movies" [routerLinkActive]="['activated-route']" aria-label="Movies">Movies</a>

@@ -16,7 +16,6 @@
         <swiper
           [config]="config"
           (swiper)="onSwiper($event)"
-          (slideChange)="onSlideChange()"
           style="display: flex; flex-direction: column-reverse;"
         >
           <ng-template swiperSlide *ngFor="let movie of moviesList | slice:0:15">

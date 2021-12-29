@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
-import {PaginatorModel} from '../../models/paginator.model';
+import {PaginationModel} from '../../models/pagination.model';
 import {GenresListModel} from '../../models/genres-list';
 import {OnTVService} from '../../services/onTV/onTV.service';
 import {MediaMatcher} from '@angular/cdk/layout';
@@ -12,7 +12,7 @@ import {take} from 'rxjs/operators';
 })
 export class TvShowsComponent implements OnInit, OnDestroy {
 
-  onTheAir: Array<PaginatorModel> = [];
+  onTheAir: Array<PaginationModel> = [];
   genres: GenresListModel;
   totalResults: any;
 

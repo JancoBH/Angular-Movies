@@ -1,4 +1,4 @@
-export class TvShowModel {
+export class TvModel {
   public original_name: string;
   public genre_ids: Array<number>;
   public name: string;

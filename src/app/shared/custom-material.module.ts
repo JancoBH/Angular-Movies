@@ -15,6 +15,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {NgModule} from '@angular/core';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     MatSliderModule,
     MatExpansionModule,
     DragDropModule,
+    MatProgressBarModule
   ],
   exports: [
     MatSidenavModule,
@@ -52,6 +54,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     MatSliderModule,
     MatExpansionModule,
     DragDropModule,
+    MatProgressBarModule
   ],
 })
 export class CustomMaterialModule { }
