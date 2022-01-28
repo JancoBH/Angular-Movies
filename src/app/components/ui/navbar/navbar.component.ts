@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit {
 
   @HostListener('window:scroll')
   scrollEvent() {
-    this.isScrolled = window.pageYOffset >= 50;
+    this.isScrolled = window.pageYOffset >= 40;
   }
 
   constructor() { }
