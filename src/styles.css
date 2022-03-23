@@ -42,38 +42,56 @@ app-home hr {  border-color: transparent;  }
 .default-padding-bottom {padding-bottom: 0.8rem;}
 
 /* Loading */
-.loading {
-  width: 30px;
-  height: 30px;
-  border: 5px solid #F44336;
-  position: fixed;
-  left: 50%;
-  margin-left: -20px;
-  top: 50%;
-  margin-top: -20px;
-  border-radius: 50%;
+
+.cssloader {
+  padding-top: calc(45vh - 25px);
 }
 
-.loading h4 {
-  color: white;
-  margin-left: 40px;
+.sh1 {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 50px 50px 0 0;
+  border-color: #354952 transparent transparent transparent;
+  margin: 0 auto;
+  animation: shk1 1s ease-in-out infinite normal;
 }
 
-.loading:after {
-  content: '';
-  position: absolute;
-  width: 40px;
-  height: 10px;
-  background: #E2E4E6;
-  top: 10px;
-  left: -5px;
-  animation: spin 1.2s infinite;
+.sh2 {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 50px 50px;
+  border-color: transparent  transparent #df1a54 transparent ;
+  margin: -50px auto 0;
+  animation: shk2 1s ease-in-out infinite alternate;
 }
 
-@keyframes spin {
+/** animation starts here **/
+@keyframes shk1 {
+  0% {
+    transform: rotate(-360deg);
+  }
+
   100% {
+  }
+}
+
+@keyframes shk2 {
+  0% {
     transform: rotate(360deg);
   }
+  100% {
+  }
+}
+
+.lt {
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  margin: 30px auto;
+  text-align: center;
+  font-weight: 100;
+  letter-spacing: 10px;
 }
 
 .center{
