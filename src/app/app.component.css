@@ -10,20 +10,3 @@
 .is-mobile .main-sidenav-container {
   flex: 1 0 auto;
 }
-
-.hidden {display: none;}
-
-/*xs*/
-@media (max-width: 599px) {
-  .janco-ocult{  display: none;  }
-}
-
-/*sm*/
-@media (min-width: 600px) and (max-width: 959px) {
-  .janco-ocult{  display: none;  }
-}
-
-/*md*/
-@media (min-width: 960px) and (max-width: 1279px) {
-
-}

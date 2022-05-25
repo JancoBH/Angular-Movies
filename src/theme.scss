@@ -14,7 +14,9 @@ $app-theme: mat.define-dark-theme($app-primary, $app-accent, $app-warn);
 
 @include angular-material-theme($app-theme);
 
-.cast-actor-card{ background-color:  #F44336}
+.colored-background {background-color: #F44336;}
+.colored-background-before::before {background-color: #F44336;}
+.cast-actor-card{ background-color: #F44336}
 ::-webkit-scrollbar-thumb {  background-color: #F44336;  }
 .moviesHome-header a { color: #F44336; }
 .swiper-pagination-bullet {background: #F44336;}
@@ -30,6 +32,8 @@ $app-theme: mat.define-dark-theme($app-primary, $app-accent, $app-warn);
 
   @include angular-material-theme($app-dark-theme);
 
+  .colored-background {background-color: #2196f3;}
+  .colored-background-before::before {background-color: #2196f3;}
   p strong {  color: #2196f3 !important;  }
   .cast-actor-card{ background-color:  #2196f3}
   .mat-raised-button.mat-primary {  color: white;  }
@@ -49,6 +53,8 @@ $app-theme: mat.define-dark-theme($app-primary, $app-accent, $app-warn);
 
   @include angular-material-theme($app-dark-theme);
 
+  .colored-background {background-color: #4caf50;}
+  .colored-background-before::before {background-color: #4caf50;}
   p strong {  color: #4caf50 !important;  }
   .cast-actor-card{ background-color:  #4caf50}
   .mat-raised-button.mat-primary {  color: white !important;  }

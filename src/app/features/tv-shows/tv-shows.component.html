@@ -1,0 +1,41 @@
+<div class="container" style="margin-top: 7rem">
+
+  <h2>All TV Shows #CurrentlyAiring</h2>
+
+  <div fxLayout='row'>
+    <mat-card fxFlex="25%" fxShow fxHide.sm="true" fxHide.xs="true" class="filter-tv-card">
+      <div style="margin-bottom: 24px">Filter by</div>
+      <button mat-raised-button color="primary" aria-label="Set Airing filter" disabled>Currently Airing</button>
+      <button mat-raised-button color="primary" aria-label="Set Airing Today filter" disabled>Airing Today</button>
+      <button mat-raised-button color="primary" aria-label="Set Popular filter" disabled>Popular</button>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Genres
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div *ngFor="let genre of genres">
+          <button mat-raised-button color="primary" aria-label="Set Genres filter" disabled>
+            {{genre.name}}
+          </button>
+        </div>
+
+      </mat-expansion-panel>
+    </mat-card>
+
+    <div fxFlex="75%" fxFlex.sm="100" fxFlex.xs="100">
+      <div fxLayout='row wrap'>
+      <span fxFlex="25%" fxFlex.md="25%" fxFlex.xs="50%" style="padding: 5px 5px;" *ngFor="let tvshow of onTheAir">
+        <app-poster-card [model]="tvshow"></app-poster-card>
+      </span>
+      </div>
+
+      <mat-paginator [length]="totalResults"
+                     [pageSize]="20"
+                     (page)="changePage($event)">
+      </mat-paginator>
+    </div>
+  </div>
+
+</div>

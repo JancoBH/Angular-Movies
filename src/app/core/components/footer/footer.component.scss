@@ -1,0 +1,32 @@
+.footer {
+  background: #212121;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  padding: 25px 0;
+  font-size: 0.9rem;
+
+  &__janco {
+    font-weight: bold;
+    transition: color 0.4s cubic-bezier(0.6, -0.05, 0.01, 0.99);
+  }
+
+  &__social {
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: ease-in-out 150ms;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    img {
+      width: 1.5rem;
+      border-radius: 5px;
+    }
+
+  }
+
+}

@@ -1,0 +1,31 @@
+.movies-list {
+  margin-top: 6rem;
+}
+
+.filter-movies-card {
+  height: 100%;
+  margin-right: 8px;
+}
+
+.filter-movies-card button {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+// xs
+@media screen and (max-width: 599px) {
+  .movies-list {
+    margin-top: 2rem;
+
+    h2 { text-align: center; }
+  }
+}
+
+// sm
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .movies-list {
+    margin-top: 2rem;
+
+    h2 { text-align: center; }
+  }
+}

@@ -4,7 +4,7 @@
   "name": "Angular Movies",
   "scope": "/",
   "display": "fullscreen",
-  "start_url": "https://angular-movies-c91ba.firebaseapp.com/",
+  "start_url": "./",
   "short_name": "Angular Movies",
   "theme_color": "#f44336",
   "description": "Sample PWA App",

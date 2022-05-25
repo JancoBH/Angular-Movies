@@ -1,0 +1,27 @@
+<header class="navbar__container" [class.colored__scrolled]="isScrolled">
+
+  <nav class="space-between navbar__nav container">
+    <a routerLink="/" class="flex-start navbar__logo">
+      <img src="../../../../assets/img/Movie-TVShow-logo_white.png" alt="Movies + TV Shows by JancoBH">
+    </a>
+    <div class="navbar__list">
+      <a mat-button routerLink="" [routerLinkActive]="['activated-route']" [routerLinkActiveOptions]="{exact: true}" aria-label="Home">Home</a>
+      <a mat-button routerLink="movies" [routerLinkActive]="['activated-route']" aria-label="Movies">Movies</a>
+      <a mat-button routerLink="tv-shows" [routerLinkActive]="['activated-route']" aria-label="TV Shows">TV Shows</a>
+
+      <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Change Color" aria-label="Change Color">
+        <mat-icon>format_color_fill</mat-icon>
+      </button>
+
+      <mat-menu #menu="matMenu">
+        <div *ngFor="let theme of themeColorList" [class.hidden]="themeColorInit === theme.color" [attr.aria-label]="'Color ' + theme.name">
+          <button mat-menu-item (click)="setColorTheme(theme.color)">
+            <mat-icon [style.color]="theme.color">lens</mat-icon>
+            <span>{{theme.name}}</span>
+          </button>
+        </div>
+      </mat-menu>
+    </div>
+  </nav>
+
+</header>

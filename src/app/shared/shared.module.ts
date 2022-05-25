@@ -4,9 +4,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {RouterModule} from '@angular/router';
 import {CustomMaterialModule} from './custom-material.module';
-import {SwiperModule} from 'swiper/angular';
-import {MovieCardComponent} from '../components/ui/poster-card-view/poster-card.component';
-import {ImgMissingDirective} from '../directives/img-missing.directive';
+import {MovieCardComponent} from './components/poster-card-view/poster-card.component';
+import {ImgMissingDirective} from './directives/img-missing.directive';
 
 @NgModule({
   imports: [
@@ -15,7 +14,6 @@ import {ImgMissingDirective} from '../directives/img-missing.directive';
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    SwiperModule,
     RouterModule
   ],
   exports: [
@@ -24,7 +22,6 @@ import {ImgMissingDirective} from '../directives/img-missing.directive';
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    SwiperModule,
     MovieCardComponent,
     ImgMissingDirective
   ],

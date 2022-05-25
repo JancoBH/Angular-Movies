@@ -1,0 +1,11 @@
+<footer class="footer">
+  <div>Developed by <span class="footer__janco">JancoBH</span></div>
+  <a *ngFor="let social of socialData" [href]="social.url"
+     target="_blank" rel="noopener noreferrer"
+     [attr.aria-label]="'Janco Boscan ' + social.name"
+     [title]="social.name"
+     class="footer__social"
+  >
+    <img [src]="social.img" [alt]="'Angular Movies '  + social.name" loading="lazy">
+  </a>
+</footer>

@@ -1,0 +1,160 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "src/app/styles/variables.scss";
+
+/* General */
+
+*,::after,::before {
+  box-sizing: border-box;
+  //padding: 0;
+  //margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body{
+  min-height: 100vh;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background: #333333;
+  margin: 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.padding-top-60 {
+  padding-top: 60px;
+}
+
+.flex-start {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.default-margin-bottom {margin-bottom: 0.8rem;}
+.default-padding-bottom {padding-bottom: 0.8rem;}
+
+.hidden {display: none;}
+
+/* Loading */
+
+.cssloader {
+  padding-top: calc(45vh - 25px);
+}
+
+.sh1 {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 50px 50px 0 0;
+  border-color: #354952 transparent transparent transparent;
+  margin: 0 auto;
+  animation: shk1 1s ease-in-out infinite normal;
+}
+
+.sh2 {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 50px 50px;
+  border-color: transparent  transparent #df1a54 transparent ;
+  margin: -50px auto 0;
+  animation: shk2 1s ease-in-out infinite alternate;
+}
+
+/** animation starts here **/
+@keyframes shk1 {
+  0% {
+    transform: rotate(-360deg);
+  }
+
+  100% {
+  }
+}
+
+@keyframes shk2 {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+  }
+}
+
+.lt {
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  margin: 30px auto;
+  text-align: center;
+  font-weight: 100;
+  letter-spacing: 10px;
+}
+
+.center{
+  text-align: center;
+}
+
+.error {
+  margin: 10px auto auto;
+}
+
+/* media query */
+
+/*xs*/
+@media (min-width: 599px) {
+  .container {
+    max-width: 540px;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+/*sm*/
+@media (min-width: 600px) and (max-width: 959px) {
+  .container {
+    max-width: 720px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+/*md*/
+@media (min-width: 960px) and (max-width: 1279px) {
+  .container {
+    max-width: 960px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+/*lg*/
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .container {
+    max-width: 1140px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+// xl
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+}

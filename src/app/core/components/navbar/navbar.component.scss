@@ -1,0 +1,54 @@
+@import "./../../../styles/variables.scss";
+
+.navbar__container {
+  width: 100%;
+  background-color: rgba(0,0,0,0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: .4s;
+  z-index: 100;
+}
+
+.colored__scrolled {
+  background-color: #212121;
+  transition: .4s;
+}
+
+.navbar__nav {
+  height: $header-height;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  img {
+    width: 9rem;
+  }
+}
+
+.navbar__logo {
+  text-transform: uppercase;
+  font-weight: var(--font-bold);
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  column-gap: .25rem;
+}
+
+.navbar__list {
+  flex-direction: row;
+  column-gap: 2.5rem;
+
+  a {
+    transition: .3s;
+  }
+}
+
+.activated-route {
+  border-bottom: 2px solid;
+  border-radius: 0;
+
+  &:last-child {
+    margin-right: 15px;
+  }
+}
