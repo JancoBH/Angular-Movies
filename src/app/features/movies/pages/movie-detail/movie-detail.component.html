@@ -1,7 +1,8 @@
 <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+
 <div class="movie-main-container" [ngClass]="{'padding-top-60': !mobileQuery.matches}" [style.background-image]="('linear-gradient(rgba(52,41,49,0.80), rgba(0,0,0,0.85)), url('+'https://image.tmdb.org/t/p/w1280'+movie.backdrop_path+')')">
 
-  <div class="movie-main-data-container">
+  <div class="movie-main-data-container container">
 
     <section class="movie-top-section" fxLayout='row'>
 
@@ -37,38 +38,26 @@
 
     </section>
 
-    <section class="top-billed-cast" fxLayout='column' fxShow fxHide.sm="true" fxHide.xs="true">
-      <h3 class="title-billed">Top Billed Cast</h3>
-      <div style="display: flex; text-align: center;">
-        <div *ngFor="let actor of cast; let last = last" [ngStyle]="{'border-right': last !== true ? '1px solid #ffffff75' : ''}" style="width: 20%;">
-
-          <a routerLink="/people/person/{{actor?.id}}">
-            <div style="display: inline-flex; align-items: center; padding: 0 5px;">
-              <img mat-card-image src="https://image.tmdb.org/t/p/w240_and_h266_face/{{actor['profile_path']}}" [alt]="actor.name">
-
-              <div>
-                <small style="color: #F44336; font-weight: 500">{{actor['character']}}</small>
-                <p style="margin: 0; font-size: 14px;">{{actor.name}}</p>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
   </div>
 
 </div>
 
 <div class="container">
 
-  <div *ngIf="similarMovies" class="similar-movies default-margin-bottom">
+  <div class="similar-movies default-margin-bottom">
     <h2>Recommended Movies</h2>
-    <div fxLayout='row wrap'>
-      <div fxFlex="20%" fxFlex.md="25%" fxFlex.xs="50%" style="padding: 5px 5px;" *ngFor="let movie of similarMovies;">
-        <app-poster-card [model]="movie" [isMovie]="true" (click)="upOnRouting()"></app-poster-card>
+    <div fxLayout='row wrap' *ngIf="recomendedMovieList.length > 0; else noRecomendedMovies">
+      <div fxFlex="16.6%" fxFlex.sm="25" fxFlex.md="25%" fxFlex.xs="50%" style="padding: 5px 5px;" *ngFor="let movie of recomendedMovieList;">
+        <app-poster-card [model]="movie" [isMovie]="true"></app-poster-card>
       </div>
     </div>
+
+    <ng-template #noRecomendedMovies>
+      <div fxLayout="row wrap" fxLayoutAlign="center center" style="padding: 5rem 0">
+        <mat-icon style="font-size: 5rem" [inline]="true">sentiment_dissatisfied</mat-icon>
+        <span>No recommended movies</span>
+      </div>
+    </ng-template>
   </div> <!--End Similar Movies-->
 
 </div>

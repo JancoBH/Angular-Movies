@@ -11,5 +11,4 @@ export class MovieCardComponent {
   @Input() public isMovie: boolean;
 
   constructor () {}
-
 }

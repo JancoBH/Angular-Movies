@@ -1,25 +1,35 @@
-.movie-card {
-  cursor: pointer;
+.poster {
   width: 100%;
   padding: 0;
+  overflow: hidden;
 
-  img {
+
+
+  &__image {
     width: 100%;
     height: auto;
     object-fit: cover;
     border-radius: 4px 4px 0 0;
+    user-select: none;
+    transition: 0.4s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
-  .poster-card-text-container {
-    padding: 10px;
+  &__content {
+    padding: 10px 0;
 
-    mat-card-title {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      font-size: 1rem;
-      font-weight: 700;
-    }
+    p {font-size: 14px;}
+  }
+
+  &__title {
+    display: inherit;
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
 }
@@ -30,7 +40,7 @@
 
 // sm
 @media screen and (min-width: 600px) and (max-width: 959px) {
-  .movie-card > img {
+  .poster > img {
     height: auto;
   }
 }

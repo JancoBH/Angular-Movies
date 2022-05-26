@@ -23,11 +23,7 @@ body{
 a {
   color: white;
   text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
+  transition: all 0.3s ease-out 0s;
 }
 
 .container {

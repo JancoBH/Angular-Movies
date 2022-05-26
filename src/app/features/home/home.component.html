@@ -45,7 +45,6 @@
       <mat-tab *ngFor="let tab of tvShowsTabList" [label]="tab">
         <swiper
           [config]="config"
-          (swiper)="onSwiper($event)"
           style="display: flex; flex-direction: column-reverse;"
         >
           <ng-template swiperSlide *ngFor="let tvShow of tvShowsList | slice:0:15">

@@ -18,7 +18,7 @@ import {take} from 'rxjs/operators';
 export class MovieDetailComponent implements OnInit, OnDestroy {
 
   movie: MovieModel = new MovieModel();
-  similarMovies: Array<PaginationModel> = [];
+  recomendedMovieList: Array<PaginationModel> = [];
   cast = [];
   video: MovieVideo;
   isLoading = true;
@@ -69,7 +69,6 @@ export class MovieDetailComponent implements OnInit, OnDestroy {
       movie => {
         this.movie = movie;
         this.generateSeo();
-
       }, () => {},
       () => this.isLoading = false
     );
@@ -100,17 +99,12 @@ export class MovieDetailComponent implements OnInit, OnDestroy {
   getRecomendedMovie(id) {
     this._moviesService.getRecomendMovies(id).pipe(take(1)).subscribe(
       res => {
-        this.similarMovies = res.results.slice(0, 10);
+        this.recomendedMovieList = res.results.slice(0, 12);
       }, () => {}
     );
   }
 
-  upOnRouting() {
-    console.log(1);
-  }
-
   // Seo tags
-
   generateSeo() {
     this.seo.generateTags({
       title: `${this.movie.title}`,
@@ -122,7 +116,7 @@ export class MovieDetailComponent implements OnInit, OnDestroy {
 
   openDialog(): void {
     const dialogRef = this.trailerDialog.open(this.matTrailerDialog, {});
-    dialogRef.disableClose = true;
+    dialogRef.disableClose = false;
   }
 
 }
