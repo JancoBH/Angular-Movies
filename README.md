@@ -7,7 +7,7 @@ Angular Movies | TV Shows is a simple web app that consumes The Movie DB API, it
 See **Installing** for steps to make it work in your local environment.
 ## 💻 Live Demo
 
-✔ Github Pages: https://jancobh.github.io/Angular-Movies/ (new with Angular 13 + improvements + still working on it).
+✔ Github Pages: https://jancobh.github.io/Angular-Movies/ (new with Angular 14 + improvements + still working on it).
 
 ❌ Firebase hosting: https://angular-movies-c91ba.firebaseapp.com/ (old with Angular 8 and a lot of unnecessary code with bugs).
 
@@ -30,8 +30,8 @@ Go to Angular-Movies\src\environments and change ```environments.ts``` and ```en
 
 ## 🛠️ Built With
 
-* <a href="https://angular.io/" target="_blank">Angular</a> 13.3.9 - The Web Framework used
-* <a href="https://material.angular.io/" target="_blank">Angular Material</a> 13.3.7 - The UI Component Library
+* <a href="https://angular.io/" target="_blank">Angular</a> 14.0.3 - The Web Framework used
+* <a href="https://material.angular.io/" target="_blank">Angular Material</a> 14.0.3 - The UI Component Library
 
 ## 📦 Deployment
 
