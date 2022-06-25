@@ -31,7 +31,7 @@
     "rxjs": "^7.5.5",
     "rxjs-compat": "^6.6.7",
     "rxjs-tslint": "^0.1.8",
-    "swiper": "^8.1.4",
+    "swiper": "^8.2.4",
     "tslib": "^2.4.0",
     "zone.js": "~0.11.4"
   },
@@ -42,7 +42,7 @@
     "@types/google.analytics": "0.0.40",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.20.39",
-    "codelyzer": "^6.0.0",
+    "codelyzer": "^0.0.28",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "^6.3.19",
