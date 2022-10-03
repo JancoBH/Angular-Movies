@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">angular-movies</string>
+    <string name="title_activity_main">angular-movies</string>
+    <string name="package_name">com.janco.app</string>
+    <string name="custom_url_scheme">com.janco.app</string>
+</resources>

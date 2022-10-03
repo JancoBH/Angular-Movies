@@ -17,6 +17,7 @@ import {NavbarComponent} from './core/components/navbar/navbar.component';
 import {NotFoundComponent} from './core/components/not-found/not-found.component';
 import {FooterComponent} from './core/components/footer/footer.component';
 import {SwiperModule} from 'swiper/angular';
+import {NgOptimizedImage} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {SwiperModule} from 'swiper/angular';
     BrowserAnimationsModule,
     HttpClientModule,
     SharedModule,
-    SwiperModule
+    SwiperModule,
+    NgOptimizedImage
   ],
   providers: [
     MoviesService,
