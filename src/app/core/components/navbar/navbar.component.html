@@ -1,8 +1,8 @@
 <header class="navbar__container" [class.colored__scrolled]="isScrolled">
 
-  <nav class="space-between navbar__nav container">
+  <nav class="navbar__nav container">
     <a routerLink="/" class="flex-start navbar__logo">
-      <img ngSrc="assets/img/Movie-TVShow-logo_white.png" alt="Movies + TV Shows by JancoBH" width="144" height="36" loading="lazy">
+      <img [ngSrc]="'assets/img/Movie-TVShow-logo_white.png'" alt="Movies + TV Shows by JancoBH" width="144" height="36">
     </a>
     <div class="navbar__list">
       <a mat-button routerLink="" [routerLinkActive]="['activated-route']" [routerLinkActiveOptions]="{exact: true}" aria-label="Home">Home</a>

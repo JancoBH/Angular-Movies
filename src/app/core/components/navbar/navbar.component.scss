@@ -8,6 +8,11 @@
   left: 0;
   transition: .4s;
   z-index: 100;
+
+  @media (max-width: $breakpoint-xs) {
+    position: static;
+    background: #212121;
+  }
 }
 
 .colored__scrolled {
@@ -20,9 +25,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 10px;
 
   img {
     width: 9rem;
+    height: 100%;
+
+    @media (max-width: $breakpoint-xs) {
+      width: 7rem;
+    }
   }
 }
 
@@ -36,11 +47,27 @@
 }
 
 .navbar__list {
-  flex-direction: row;
-  column-gap: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  @media (max-width: $breakpoint-xs) {
+    gap: 4px;
+  }
+
+  mat-icon {
+    color: #fff;
+  }
 
   a {
     transition: .3s;
+
+    // first child hidden on mobile
+    &:first-child {
+      @media (max-width: $breakpoint-xs) {
+        display: none;
+      }
+    }
   }
 }
 

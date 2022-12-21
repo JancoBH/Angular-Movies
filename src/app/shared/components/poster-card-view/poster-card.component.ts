@@ -7,8 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class MovieCardComponent {
 
-  @Input() public model: any;
-  @Input() public isMovie: boolean;
+  @Input() model: any;
+  @Input() isMovie: boolean;
 
   constructor () {}
 }

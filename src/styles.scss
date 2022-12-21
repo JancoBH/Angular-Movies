@@ -1,19 +1,18 @@
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import 'swiper/scss';
+@import 'swiper/scss/pagination';
 @import "src/app/styles/variables.scss";
 
 /* General */
 
 *,::after,::before {
   box-sizing: border-box;
-  //padding: 0;
-  //margin: 0;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-body{
+body {
   min-height: 100vh;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
   background: #333333;
@@ -40,15 +39,6 @@ a {
   display: flex;
   justify-content: flex-start;
 }
-
-.space-between {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.default-margin-bottom {margin-bottom: 0.8rem;}
-.default-padding-bottom {padding-bottom: 0.8rem;}
 
 .hidden {display: none;}
 
@@ -105,27 +95,19 @@ a {
   letter-spacing: 10px;
 }
 
-.center{
-  text-align: center;
-}
-
-.error {
-  margin: 10px auto auto;
-}
-
 /* media query */
 
 /*xs*/
-@media (min-width: 599px) {
+@media (max-width: $breakpoint-xs) {
   .container {
-    max-width: 540px;
+    max-width: $breakpoint-xs;
     padding-right: 0;
     padding-left: 0;
   }
 }
 
 /*sm*/
-@media (min-width: 600px) and (max-width: 959px) {
+@media (min-width: $breakpoint-xs) and (max-width: $breakpoint-sm) {
   .container {
     max-width: 720px;
     padding-right: 15px;
@@ -134,7 +116,7 @@ a {
 }
 
 /*md*/
-@media (min-width: 960px) and (max-width: 1279px) {
+@media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
   .container {
     max-width: 960px;
     padding-right: 15px;
@@ -142,8 +124,8 @@ a {
   }
 }
 
-/*lg*/
-@media screen and (min-width: 1280px) and (max-width: 1919px) {
+// lg media query with variables
+@media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
   .container {
     max-width: 1140px;
     padding-right: 15px;
@@ -151,6 +133,11 @@ a {
   }
 }
 
-// xl
-@media screen and (min-width: 1920px) and (max-width: 5000px) {
+// xl media query
+@media (min-width: $breakpoint-lg) {
+  .container {
+    max-width: 1140px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
 }

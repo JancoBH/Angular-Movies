@@ -3,8 +3,6 @@
   padding: 0;
   overflow: hidden;
 
-
-
   &__image {
     width: 100%;
     height: auto;
@@ -12,6 +10,7 @@
     border-radius: 4px 4px 0 0;
     user-select: none;
     transition: 0.4s;
+    min-height: 155px;
 
     &:hover {
       transform: scale(1.1);
@@ -21,7 +20,10 @@
   &__content {
     padding: 10px 0;
 
-    p {font-size: 14px;}
+    p {
+      font-size: 14px;
+      color: #fff;
+    }
   }
 
   &__title {

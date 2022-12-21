@@ -30,6 +30,14 @@ export class OnTVService {
     return this.http.get(`${this.baseUrl}tv/${id}?api_key=${this.apiKey}&language=${this.language}`)
   }
 
+  getTVShowVideos(id: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}tv/${id}/videos?api_key=${this.apiKey}`)
+  }
+
+  getRecomendTVShows(id: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}tv/${id}/recommendations?api_key=${this.apiKey}`)
+  }
+
   getGenres(): Observable<any> {
     return this.http.get(`${this.baseUrl}genre/tv/list?api_key=${this.apiKey}&language=${this.language}`)
   }

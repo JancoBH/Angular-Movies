@@ -1,78 +1,46 @@
 @use '@angular/material' as mat;
-@import '@angular/material/theming';
-@import "~swiper/scss";
-@import "~swiper/scss/pagination";
 @include mat.core();
 
-// Customizations go here, for instance:
-$app-primary: mat.define-palette(mat.$red-palette);
-$app-accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
-$app-warn: mat.define-palette(mat.$red-palette);
+$theme-primary: mat.define-palette(mat.$red-palette);
+$theme-accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
 
-// Create the theme object (a Sass map containing all of the palettes).
-$app-theme: mat.define-dark-theme($app-primary, $app-accent, $app-warn);
+@mixin palette($theme) {
+  $primary-color: mat.get-color-from-palette($theme, 500);
+  ::selection { background-color: $primary-color; }
+  .colored-hover:hover {color: $primary-color;}
+  .swiper-pagination-bullet {background: $primary-color;}
+  .activated-route {border-color: $primary-color !important;}
+  .mat-mdc-tab:not(.mat-mdc-tab-disabled) .mdc-tab-indicator__content--underline {border-color: $primary-color;}
+}
 
-@include angular-material-theme($app-theme);
+@include palette($theme-primary);
 
-::selection { background: #F44336;}
-.colored-hover:hover {color: #F44336;}
-.colored-background {background-color: #F44336;}
-.colored-background-before::before {background-color: #F44336;}
-.cast-actor-card{ background-color: #F44336}
-::-webkit-scrollbar-thumb {  background-color: #F44336;  }
-.moviesHome-header a { color: #F44336; }
-.swiper-pagination-bullet {background: #F44336;}
-.icon-colored { color: #F44336; }
-.activated-route {border-color: #F44336 !important;}
+$theme: mat.define-dark-theme((
+  color: (primary: $theme-primary, accent: $theme-accent),
+  typography: mat.define-typography-config()
+));
+@include mat.all-component-themes($theme);
 
 .blue-theme {
-  // Dark theme
-  $app-primary: mat.define-palette(mat.$blue-palette);
-  $app-accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
-  $app-warn: mat.define-palette(mat.$red-palette);
-  $app-dark-theme: mat.define-dark-theme($app-primary, $app-accent, $app-warn);
+  $theme-primary: mat.define-palette(mat.$blue-palette);
+  @include palette($theme-primary);
 
-  @include angular-material-theme($app-dark-theme);
-
-  ::selection { background: #2196f3;}
-  .colored-hover:hover {color: #2196f3;}
-  .colored-background {background-color: #2196f3;}
-  .colored-background-before::before {background-color: #2196f3;}
-  p strong {  color: #2196f3 !important;  }
-  .cast-actor-card{ background-color:  #2196f3}
-  .mat-raised-button.mat-primary {  color: white;  }
-  ::-webkit-scrollbar-thumb {  background-color: #2196f3;  }
-  .moviesHome-header a { color: #2196f3; }
-  .swiper-pagination-bullet {background: #2196f3;}
-  .icon-colored { color: #2196f3; }
-  .activated-route {border-color: #2196f3 !important;}
+  $theme: mat.define-dark-theme((
+    color: (primary: $theme-primary, accent: $theme-accent),
+    typography: mat.define-typography-config()
+  ));
+  @include mat.all-component-colors($theme);
 }
 
 .green-theme {
-  // Dark theme
-  $app-primary: mat.define-palette(mat.$green-palette);
-  $app-accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
-  $app-warn: mat.define-palette(mat.$red-palette);
-  $app-dark-theme: mat.define-dark-theme($app-primary, $app-accent, $app-warn);
+  $theme-primary: mat.define-palette(mat.$green-palette);
+  @include palette($theme-primary);
 
-  @include angular-material-theme($app-dark-theme);
-
-  ::selection { background: #4caf50;}
-  .colored-hover:hover {color: #4caf50;}
-  .colored-background {background-color: #4caf50;}
-  .colored-background-before::before {background-color: #4caf50;}
-  p strong {  color: #4caf50 !important;  }
-  .cast-actor-card{ background-color:  #4caf50}
-  .mat-raised-button.mat-primary {  color: white !important;  }
-  ::-webkit-scrollbar-thumb {  background-color: #4caf50;  }
-  .moviesHome-header a { color: #4caf50 }
-  .swiper-pagination-bullet {background: #4caf50;}
-  .icon-colored { color: #4caf50; }
-  .activated-route {border-color: #4caf50 !important;}
-}
-
-.mat-tab-body.mat-tab-body-active {
-  overflow-y: hidden !important;
+  $theme: mat.define-dark-theme((
+    color: (primary: $theme-primary, accent: $theme-accent),
+    typography: mat.define-typography-config()
+  ));
+  @include mat.all-component-colors($theme);
 }
 
 // Dialogo
@@ -85,14 +53,14 @@ $app-theme: mat.define-dark-theme($app-primary, $app-accent, $app-warn);
   align-items: center;
   padding: 5px 10px;
   a {float: right; color: white}
-  h2 {margin: 0; font-size: 1.1rem}
+  h2 {margin: 0; padding: 0; font-size: 1.1rem; color: #fff; display: flex; align-items: center;}
 }
 
-.mat-dialog-container {
-  padding: 0!important;
+.mdc-dialog-container {
+  padding: 0 !important;
 }
 
-.mat-dialog-content {
-  padding: 0!important;
-  margin: 0!important;
+.mdc-dialog__content {
+  padding: 0 !important;
+  margin: 0 !important;
 }

@@ -1,5 +1,5 @@
-import {TvModel} from '../../features/tv-shows/models/tv.model';
-import {MovieModel} from '../../features/movies/models/movie.model';
+import {TvModel} from '../../features/content/models/tv.model';
+import {MovieModel} from '../../features/content/models/movie.model';
 
 export class PaginationModel {
 

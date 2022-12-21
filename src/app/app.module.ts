@@ -5,9 +5,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './features/home/home.component';
-import { MoviesService } from './features/movies/services/movies.service';
+import { MoviesService } from './features/content/services/movies.service';
 import { environment } from '../environments/environment';
-import {OnTVService} from './features/tv-shows/services/onTV.service';
+import {OnTVService} from './features/content/services/onTV.service';
 import {SeoService} from './core/services/seo.service';
 
 import {BrowserModule} from '@angular/platform-browser';

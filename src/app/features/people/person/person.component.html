@@ -6,8 +6,8 @@
         <h2>Personal Info</h2>
         <p>
           <strong>Gender: </strong>
-          <span *ngIf="person.gender == 2">Male</span>
-          <span *ngIf="person.gender == 1">Female</span>
+          <span *ngIf="person.gender === 2">Male</span>
+          <span *ngIf="person.gender === 1">Female</span>
         </p>
         <p><strong>Birthday: </strong>
           {{person.birthday}}</p>

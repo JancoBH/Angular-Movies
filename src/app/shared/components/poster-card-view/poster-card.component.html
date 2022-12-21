@@ -1,22 +1,22 @@
 <div class="poster">
 
-  <a [routerLink]="isMovie ? '/movies/detail/' + model.id : '/tv-shows/detail/' + model.id"
+  <a [routerLink]="isMovie ? '/movies/' + model.id : '/tv-shows/' + model.id"
      [title]="'Go to ' + model.title ?? model.name">
-    <img class="poster__image" loading="lazy" [src]="'https://image.tmdb.org/t/p/w220_and_h330_face/' + model?.poster_path"
-         srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{model?.poster_path}} 1x,
-         https://image.tmdb.org/t/p/w440_and_h660_face/{{model?.poster_path}} 2x"
+    <img class="poster__image" loading="lazy" [src]="'https://image.tmdb.org/t/p/w220_and_h330_face/' + model['poster_path']"
+         srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{model['poster_path']}} 1x,
+         https://image.tmdb.org/t/p/w440_and_h660_face/{{model['poster_path']}} 2x"
          [alt]="model.title ?? model.name" appImgMissingDirective>
   </a>
 
   <div class="poster__content">
     <a *ngIf="model.title ?? model.name"
-       [routerLink]="isMovie ? '/movies/detail/' + model.id : '/tv-shows/detail/' + model.id"
+       [routerLink]="isMovie ? '/movies/' + model.id : '/tv-shows/' + model.id"
        [title]="model.title ?? model.name"
        class="poster__title colored-hover">
       {{model.title ?? model.name}}
     </a>
-    <p *ngIf="model.release_date ?? model.first_air_date">
-      {{(model.release_date ?? model.first_air_date) | date}}
+    <p *ngIf="model['release_date'] ?? model['first_air_date']">
+      {{(model['release_date'] ?? model['first_air_date']) | date}}
     </p>
   </div>
 

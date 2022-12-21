@@ -1,5 +1,8 @@
+@import "src/app/styles/variables.scss";
+
 // Home Main Content
 .home-main-content {
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,10 +15,6 @@
 .movies__container, .shows__container {
   margin: 2rem 0;
   position: relative;
-
-  ::ng-deep .mat-tab-header {
-    border-bottom: none;
-  }
 }
 
 .movies__title, .shows__title {
@@ -69,19 +68,36 @@
   bottom: 0; position: initial; margin-top: 15px;
 }
 
-// xs
-@media screen and (max-width: 599px) {
-  .home-main-content {
-    height: 350px;
-    font-size: 2rem;
+// tabs
+::ng-deep mat-tab-header {
+
+  .mat-mdc-tab:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label {
+    color: #fff;
   }
 
-  .movies__container, .shows__container {
-    padding-left: 5px;
+  .mat-mdc-tab-list {
+    flex-grow: initial;
 
-    ::ng-deep mat-tab-header {
-      align-self: center;
+    @media (max-width: $breakpoint-xs) {
+      flex-grow: 1;
     }
+  }
+
+  .mat-mdc-tab-label-container {
+    justify-content: flex-end;
+
+    @media (max-width: $breakpoint-xs) {
+      justify-content: flex-start;
+    }
+  }
+
+}
+
+// xs
+@media (max-width: $breakpoint-xs) {
+  .home-main-content {
+    height: 250px;
+    font-size: 2rem;
   }
 
   .movies__title, .shows__title {
@@ -94,33 +110,25 @@
 }
 
 // sm
-@media screen and (min-width: 600px) and (max-width: 959px) {
+@media (min-width: $breakpoint-xs) and (max-width: $breakpoint-sm) {
   .home-main-content {
     height: 400px;
   }
 
-  .movies__container, .shows__container {
-    ::ng-deep mat-tab-header {
-      align-self: center;
-    }
-  }
-
-  .movies__title, .shows__title {
-    position: initial;
-    padding-bottom: 10px;
-
-    a {justify-content: center;}
-  }
-
-  :host ::ng-deep .swiper-slide-next + .swiper-slide + .swiper-slide + .swiper-slide {opacity: .35;}
+  :host ::ng-deep .swiper-slide-next + .swiper-slide + .swiper-slide {opacity: .35;}
 }
 
 // md
-@media screen and (min-width: 960px) and (max-width: 1279px) {
-  :host ::ng-deep .swiper-slide-next + .swiper-slide + .swiper-slide + .swiper-slide + .swiper-slide {opacity: .35;}
+@media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
+  :host ::ng-deep .swiper-slide-next + .swiper-slide + .swiper-slide + .swiper-slide {opacity: .35;}
 }
 
 // lg
-@media screen and (min-width: 1280px) and (max-width: 1919px) {
+@media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+  :host ::ng-deep .swiper-slide-next + .swiper-slide + .swiper-slide + .swiper-slide + .swiper-slide + .swiper-slide {opacity: .35;}
+}
+
+// xl media query
+@media (min-width: $breakpoint-lg) {
   :host ::ng-deep .swiper-slide-next + .swiper-slide + .swiper-slide + .swiper-slide + .swiper-slide + .swiper-slide {opacity: .35;}
 }

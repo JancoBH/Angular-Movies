@@ -1,0 +1,63 @@
+@import "../../styles/variables";
+
+.contents {
+  color: #fff;
+  padding-top: 60px;
+
+  // xs media query
+  @media (max-width: $breakpoint-xs) {
+    padding: 0 16px 16px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+
+    // xs media query
+    @media (max-width: $breakpoint-xs) {
+      flex-direction: column;
+    }
+
+  }
+
+  &__filter {
+    display: flex;
+    gap: 8px;
+    padding: 16px;
+    width: 25%;
+
+    // xs media query
+    @media (max-width: $breakpoint-xs) {
+      width: 100%;
+    }
+  }
+
+  &__right-side {
+    width: 75%;
+
+    // xs media query
+    @media (max-width: $breakpoint-xs) {
+      width: 100%;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+
+    // xs media query
+    @media (max-width: $breakpoint-xs) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    // sm media query with variables
+    @media (min-width: $breakpoint-xs) and (max-width: $breakpoint-sm) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+  }
+
+}

@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 
-import { MoviesService } from '../movies/services/movies.service'
-import {OnTVService} from '../tv-shows/services/onTV.service';
+import { MoviesService } from '../content/services/movies.service'
+import {OnTVService} from '../content/services/onTV.service';
 import {SeoService} from '../../core/services/seo.service';
 import SwiperCore, { Pagination, SwiperOptions } from 'swiper';
 import {take} from 'rxjs/operators';
-import {MovieModel} from '../movies/models/movie.model';
-import {TvModel} from '../tv-shows/models/tv.model';
+import {MovieModel} from '../content/models/movie.model';
+import {TvModel} from '../content/models/tv.model';
 
 SwiperCore.use([Pagination]);
 
@@ -23,13 +23,14 @@ export class HomeComponent implements OnInit {
     spaceBetween: 20,
     navigation: true,
     watchSlidesProgress: true,
+    grabCursor: true,
     pagination: { clickable: true },
     scrollbar: { draggable: true },
     breakpoints: {
-      1279: {slidesPerView: 6.3, spaceBetween: 20},
-      959: {slidesPerView: 5.3, spaceBetween: 20},
-      600: {slidesPerView: 4.3, spaceBetween: 20},
-      480: {slidesPerView: 2.3, spaceBetween: 10},
+      992: {slidesPerView: 6.3, spaceBetween: 20, slidesOffsetBefore: 0, slidesOffsetAfter: 0},
+      768: {slidesPerView: 4.3, spaceBetween: 15, slidesOffsetBefore: 0, slidesOffsetAfter: 0},
+      576: {slidesPerView: 3.3, spaceBetween: 15, slidesOffsetBefore: 0, slidesOffsetAfter: 0},
+      320: {slidesPerView: 2.3, spaceBetween: 10, slidesOffsetBefore: 10, slidesOffsetAfter: 10},
     }
   };
 
