@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class SeoService {
   constructor(private meta: Meta) { }
   generateTags(config) {

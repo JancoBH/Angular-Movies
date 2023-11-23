@@ -4,11 +4,25 @@ import {MoviesService} from './services/movies.service';
 import {take} from 'rxjs/operators';
 import {Router} from "@angular/router";
 import {OnTVService} from "./services/onTV.service";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MovieCardComponent} from "../../shared/components/poster-card-view/poster-card.component";
+import {MatButtonModule} from "@angular/material/button";
+import {MatCardModule} from "@angular/material/card";
+import {NgForOf, TitleCasePipe} from "@angular/common";
 
 @Component({
   selector: 'app-movies',
   templateUrl: './content.component.html',
-  styleUrls: ['./content.component.scss']
+  styleUrls: ['./content.component.scss'],
+  imports: [
+    MatPaginatorModule,
+    MovieCardComponent,
+    MatButtonModule,
+    MatCardModule,
+    TitleCasePipe,
+    NgForOf
+  ],
+  standalone: true
 })
 export class ContentComponent implements OnInit {
 

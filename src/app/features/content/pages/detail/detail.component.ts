@@ -12,9 +12,11 @@ import {ITV} from "../../interfaces/tv.interface";
 import {IContent} from "../../interfaces/content.interface";
 import {MatButtonModule} from "@angular/material/button";
 import {DatePipe, NgForOf, NgIf} from "@angular/common";
-import {SharedModule} from "../../../../shared/shared.module";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {CdkDrag, CdkDragHandle} from "@angular/cdk/drag-drop";
+import {MovieCardComponent} from "../../../../shared/components/poster-card-view/poster-card.component";
+import {MatIconModule} from "@angular/material/icon";
+import {ImgMissingDirective} from "../../../../shared/directives/img-missing.directive";
 
 @Component({
   selector: 'app-detail',
@@ -25,11 +27,13 @@ import {CdkDrag, CdkDragHandle} from "@angular/cdk/drag-drop";
     NgForOf,
     NgIf,
     DatePipe,
-    SharedModule,
     MatProgressBarModule,
     CdkDrag,
     MatDialogModule,
-    CdkDragHandle
+    CdkDragHandle,
+    MovieCardComponent,
+    MatIconModule,
+    ImgMissingDirective
   ],
   standalone: true
 })

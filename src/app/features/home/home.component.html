@@ -8,7 +8,7 @@
   <section class="movies__container">
 
     <h2 class="movies__title" title="Go to Movies">
-      <a routerLink="/movies" class="colored-background-before">
+      <a [routerLink]="'/movies'" class="colored-background-before">
         <mat-icon>movie</mat-icon>
         Movies
       </a>
@@ -16,16 +16,17 @@
 
     <mat-tab-group (selectedTabChange)="tabChange($event)" [selectedIndex]="selectedMovieTab" mat-align-tabs="end">
 
-      <mat-tab *ngFor="let tab of movieTabList" [label]="tab">
-        <swiper
-          [config]="config"
-          style="display: flex; flex-direction: column-reverse;"
-        >
-          <ng-template swiperSlide *ngFor="let movie of moviesList | slice:0:15">
-            <app-poster-card [model]="movie" [isMovie]="true"></app-poster-card>
-          </ng-template>
-        </swiper>
-      </mat-tab>
+      @for (tab of movieTabList; track tab) {
+        <mat-tab [label]="tab">
+          <swiper-container appSwiper #swiper [config]="config" pagination="true" scrollbar="false">
+            <swiper-slide *ngFor="let movie of moviesList | slice:0:15">
+              <app-poster-card [model]="movie" [isMovie]="true"></app-poster-card>
+            </swiper-slide>
+          </swiper-container>
+        </mat-tab>
+      } @empty {
+        Empty list
+      }
 
     </mat-tab-group>
   </section>
@@ -34,7 +35,7 @@
   <section class="shows__container">
 
     <h2 class="shows__title" title="Go to TV Shows">
-      <a routerLink="/tv-shows" class="colored-background-before">
+      <a [routerLink]="'/tv-shows'" class="colored-background-before">
         <mat-icon>tv_gen</mat-icon>
         TV Shows
       </a>
@@ -42,16 +43,17 @@
 
     <mat-tab-group (selectedTabChange)="tabTVChange($event)" [selectedIndex]="selectedTVTab" mat-align-tabs="end">
 
-      <mat-tab *ngFor="let tab of tvShowsTabList" [label]="tab">
-        <swiper
-          [config]="config"
-          style="display: flex; flex-direction: column-reverse;"
-        >
-          <ng-template swiperSlide *ngFor="let tvShow of tvShowsList | slice:0:15">
+      @for (tab of tvShowsTabList; track tab) {
+      <mat-tab [label]="tab">
+        <swiper-container appSwiper #swiper [config]="config" pagination="true" scrollbar="false">
+          <swiper-slide *ngFor="let tvShow of tvShowsList | slice:0:15">
             <app-poster-card [model]="tvShow"></app-poster-card>
-          </ng-template>
-        </swiper>
+          </swiper-slide>
+        </swiper-container>
       </mat-tab>
+      } @empty {
+        Empty list
+      }
 
     </mat-tab-group>
   </section>

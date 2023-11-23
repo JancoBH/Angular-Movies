@@ -1,4 +1,4 @@
-@import "src/app/styles/variables.scss";
+@import "./../../styles/variables";
 
 // Home Main Content
 .home-main-content {
@@ -56,18 +56,6 @@
   }
 }
 
-:host ::ng-deep .swiper-slide {
-  margin-top: 30px;
-}
-
-:host ::ng-deep .swiper-pagination-bullets {
-  bottom: 0;
-}
-
-:host ::ng-deep .swiper-pagination {
-  bottom: 0; position: initial; margin-top: 15px;
-}
-
 // tabs
 ::ng-deep mat-tab-header {
 
@@ -93,6 +81,18 @@
 
 }
 
+swiper-container {
+  margin-top: 30px;
+}
+
+::ng-deep .swiper-slide-visible:not(.swiper-slide-fully-visible) {
+  opacity: .35;
+}
+
+swiper-slide {
+  padding-bottom: 2rem;
+}
+
 // xs
 @media (max-width: $breakpoint-xs) {
   .home-main-content {
@@ -106,7 +106,6 @@
     a {justify-content: center;}
   }
 
-  :host ::ng-deep .swiper-slide-next + .swiper-slide {opacity: .35;}
 }
 
 // sm
@@ -114,21 +113,13 @@
   .home-main-content {
     height: 400px;
   }
-
-  :host ::ng-deep .swiper-slide-next + .swiper-slide + .swiper-slide {opacity: .35;}
 }
 
 // md
-@media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
-  :host ::ng-deep .swiper-slide-next + .swiper-slide + .swiper-slide + .swiper-slide {opacity: .35;}
-}
+@media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {}
 
 // lg
-@media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
-  :host ::ng-deep .swiper-slide-next + .swiper-slide + .swiper-slide + .swiper-slide + .swiper-slide + .swiper-slide {opacity: .35;}
-}
+@media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {}
 
 // xl media query
-@media (min-width: $breakpoint-lg) {
-  :host ::ng-deep .swiper-slide-next + .swiper-slide + .swiper-slide + .swiper-slide + .swiper-slide + .swiper-slide {opacity: .35;}
-}
+@media (min-width: $breakpoint-lg) {}

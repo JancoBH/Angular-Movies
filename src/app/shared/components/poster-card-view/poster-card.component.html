@@ -2,10 +2,10 @@
 
   <a [routerLink]="isMovie ? '/movies/' + model.id : '/tv-shows/' + model.id"
      [title]="'Go to ' + model.title ?? model.name">
-    <img class="poster__image" loading="lazy" [src]="'https://image.tmdb.org/t/p/w220_and_h330_face/' + model['poster_path']"
+    <img class="poster__image" loading="lazy" [ngSrc]="'https://image.tmdb.org/t/p/w220_and_h330_face/' + model['poster_path']"
          srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{model['poster_path']}} 1x,
          https://image.tmdb.org/t/p/w440_and_h660_face/{{model['poster_path']}} 2x"
-         [alt]="model.title ?? model.name" appImgMissingDirective>
+         [alt]="model.title ?? model.name" appImgMissingDirective [height]="159" [width]="239">
   </a>
 
   <div class="poster__content">

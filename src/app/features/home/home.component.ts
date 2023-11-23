@@ -1,31 +1,38 @@
 import {Component, OnInit} from '@angular/core';
-
 import { MoviesService } from '../content/services/movies.service'
 import {OnTVService} from '../content/services/onTV.service';
 import {SeoService} from '../../core/services/seo.service';
-import SwiperCore, { Pagination, SwiperOptions } from 'swiper';
 import {take} from 'rxjs/operators';
 import {MovieModel} from '../content/models/movie.model';
 import {TvModel} from '../content/models/tv.model';
-
-SwiperCore.use([Pagination]);
+import {MatTabsModule} from "@angular/material/tabs";
+import {MovieCardComponent} from "../../shared/components/poster-card-view/poster-card.component";
+import {MatIconModule} from "@angular/material/icon";
+import {RouterLink} from "@angular/router";
+import {NgForOf, SlicePipe} from "@angular/common";
+import {SwiperOptions} from "swiper/types";
+import {SwiperDirective} from "../../shared/directives/swiper.directive";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  imports: [
+    MatTabsModule,
+    MovieCardComponent,
+    MatIconModule,
+    RouterLink,
+    NgForOf,
+    SwiperDirective,
+    SlicePipe
+  ],
+  standalone: true
 })
 
 export class HomeComponent implements OnInit {
 
   config: SwiperOptions = {
-    slidesPerView: 2.3,
-    spaceBetween: 20,
-    navigation: true,
     watchSlidesProgress: true,
-    grabCursor: true,
-    pagination: { clickable: true },
-    scrollbar: { draggable: true },
     breakpoints: {
       992: {slidesPerView: 6.3, spaceBetween: 20, slidesOffsetBefore: 0, slidesOffsetAfter: 0},
       768: {slidesPerView: 4.3, spaceBetween: 15, slidesOffsetBefore: 0, slidesOffsetAfter: 0},

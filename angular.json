@@ -11,13 +11,16 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/angular-movies",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "browser": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "src/tsconfig.app.json",
-            "polyfills": "src/polyfills.ts",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/assets",
               "src/favicon.ico",
@@ -49,8 +52,7 @@
               "extractLicenses": true,
               "vendorChunk": true,
               "buildOptimizer": true,
-              "serviceWorker": true,
-              "ngswConfigPath": "src/ngsw-config.json",
+              "serviceWorker": "src/ngsw-config.json",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -63,18 +65,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-movies:build"
+            "buildTarget": "angular-movies:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-movies:build:production"
+              "buildTarget": "angular-movies:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-movies:build"
+            "buildTarget": "angular-movies:build"
           }
         },
         "test": {

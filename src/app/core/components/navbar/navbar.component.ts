@@ -1,11 +1,26 @@
 import {Component, EventEmitter, HostListener, Output} from '@angular/core';
 import {themeColors} from '../../constants/theme-colors';
 import {Color} from '../../enums/colors.enum';
+import {MatMenuModule} from "@angular/material/menu";
+import {MatButtonModule} from "@angular/material/button";
+import {RouterLink, RouterLinkActive} from "@angular/router";
+import {NgForOf, NgOptimizedImage} from "@angular/common";
+import {MatIconModule} from "@angular/material/icon";
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
+  imports: [
+    MatMenuModule,
+    MatButtonModule,
+    RouterLinkActive,
+    NgOptimizedImage,
+    RouterLink,
+    MatIconModule,
+    NgForOf
+  ],
+  standalone: true
 })
 export class NavbarComponent {
 

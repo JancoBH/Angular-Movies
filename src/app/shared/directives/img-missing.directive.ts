@@ -2,6 +2,7 @@ import {Directive, ElementRef, HostListener, Renderer2} from '@angular/core';
 
 @Directive({
   selector: 'img[appImgMissingDirective]',
+  standalone: true
 })
 export class ImgMissingDirective {
   constructor(private el: ElementRef, private renderer: Renderer2) {}

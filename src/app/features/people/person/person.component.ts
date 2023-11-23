@@ -7,7 +7,8 @@ import {ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'app-person',
   templateUrl: './person.component.html',
-  styleUrls: ['./person.component.scss']
+  styleUrls: ['./person.component.scss'],
+  standalone: true
 })
 export class PersonComponent implements OnInit {
 

@@ -8,7 +8,7 @@ $theme-accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
   $primary-color: mat.get-color-from-palette($theme, 500);
   ::selection { background-color: $primary-color; }
   .colored-hover:hover {color: $primary-color;}
-  .swiper-pagination-bullet {background: $primary-color;}
+  swiper-container::part(bullet-active) {background-color: $primary-color}
   .activated-route {border-color: $primary-color !important;}
   .mat-mdc-tab:not(.mat-mdc-tab-disabled) .mdc-tab-indicator__content--underline {border-color: $primary-color;}
 }
