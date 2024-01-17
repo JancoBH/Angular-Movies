@@ -93,8 +93,7 @@ swiper-slide {
   padding-bottom: 2rem;
 }
 
-// xs
-@media (max-width: $breakpoint-xs) {
+@include media-query($breakpoint-xs) {
   .home-main-content {
     height: 250px;
     font-size: 2rem;
@@ -108,18 +107,8 @@ swiper-slide {
 
 }
 
-// sm
-@media (min-width: $breakpoint-xs) and (max-width: $breakpoint-sm) {
+@include media-query($breakpoint-xs, $breakpoint-sm) {
   .home-main-content {
     height: 400px;
   }
 }
-
-// md
-@media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {}
-
-// lg
-@media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {}
-
-// xl media query
-@media (min-width: $breakpoint-lg) {}

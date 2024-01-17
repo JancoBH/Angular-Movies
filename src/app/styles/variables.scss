@@ -1,5 +1,4 @@
 $header-height: 3.5rem;
-
 $h1-font-size: 1.5rem;
 $h2-font-size: 1.25rem;
 $h3-font-size: 1rem;
@@ -19,7 +18,6 @@ $mb-1: 1rem;
 $mb-1-5: 1.5rem;
 $mb-2: 2rem;
 $mb-2-5: 2.5rem;
-
 $z-fixed: 10;
 
 // media queries
@@ -27,3 +25,16 @@ $breakpoint-xs: 576px;
 $breakpoint-sm: 768px;
 $breakpoint-md: 992px;
 $breakpoint-lg: 1200px;
+
+// Mixin for media-query
+@mixin media-query($min, $max: null) {
+  @if $max == null {
+    @media (max-width: $min) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  }
+}

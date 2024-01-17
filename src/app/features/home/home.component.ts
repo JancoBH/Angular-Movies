@@ -56,7 +56,6 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-
     this.seo.generateTags({
       title: 'Angular Movies and Series',
       description: 'Movie and Series Home Page',
@@ -67,38 +66,34 @@ export class HomeComponent implements OnInit {
     this.getTVShows('airing_today', 1);
   }
 
-  tabChange(event) {
-    this.selectedMovieTab = event.index;
-    if (event.index === 0) {
-      this.getMovies('now_playing', 1);
-    } else if (event.index === 1) {
-      this.getMovies('upcoming', 1);
-    } else if (event.index === 2) {
-      this.getMovies('popular', 1);
-    }
-  }
-
-  tabTVChange(event) {
-    this.selectedTVTab = event.index;
-    if (event.index === 0) {
-      this.getTVShows('airing_today', 1);
-    } else if (event.index === 1) {
-      this.getTVShows('on_the_air', 1);
-    } else if (event.index === 2) {
-      this.getTVShows('popular', 1);
-    }
-  }
-
   getMovies(type: string, page: number): void {
     this.moviesService.getMovies(type, page).pipe(take(1)).subscribe(res => {
       this.moviesList = res.results;
     });
   }
 
+  tabMovieChange({ index }: { index: number; }) {
+    this.selectedMovieTab = index;
+    const movieTypes = ['now_playing', 'upcoming', 'popular'];
+    const selectedType = movieTypes[index];
+    if (selectedType) {
+      this.getMovies(selectedType, 1);
+    }
+  }
+
   getTVShows(type: string, page: number): void {
     this.onTvService.getTVShows(type, page).subscribe(res => {
       this.tvShowsList = res.results;
     });
+  }
+
+  tabTVChange({ index }: { index: number; }) {
+    this.selectedTVTab = index;
+    const tvShowTypes = ['airing_today', 'on_the_air', 'popular'];
+    const selectedType = tvShowTypes[index];
+    if (selectedType) {
+      this.getTVShows(selectedType, 1);
+    }
   }
 
 }

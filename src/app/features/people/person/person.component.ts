@@ -3,11 +3,21 @@ import {Actors} from '../models/actors';
 import {MovieModel} from '../../content/models/movie.model';
 import {MoviesService} from '../../content/services/movies.service';
 import {ActivatedRoute} from '@angular/router';
+import {MatCardModule} from "@angular/material/card";
+import {NgIf} from "@angular/common";
+import {MatIconModule} from "@angular/material/icon";
+import {MatTabsModule} from "@angular/material/tabs";
 
 @Component({
   selector: 'app-person',
   templateUrl: './person.component.html',
   styleUrls: ['./person.component.scss'],
+  imports: [
+    MatCardModule,
+    NgIf,
+    MatIconModule,
+    MatTabsModule
+  ],
   standalone: true
 })
 export class PersonComponent implements OnInit {

@@ -14,7 +14,7 @@
       </a>
     </h2>
 
-    <mat-tab-group (selectedTabChange)="tabChange($event)" [selectedIndex]="selectedMovieTab" mat-align-tabs="end">
+    <mat-tab-group (selectedTabChange)="tabMovieChange($event)" [selectedIndex]="selectedMovieTab" mat-align-tabs="end">
 
       @for (tab of movieTabList; track tab) {
         <mat-tab [label]="tab">
