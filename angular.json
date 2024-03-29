@@ -106,6 +106,12 @@
               "src/**/*.html"
             ]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "buildTarget": "test:build:production"
+          }
         }
       }
     },
