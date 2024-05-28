@@ -6,6 +6,7 @@
   &__main {
     background-position: right;
     background-repeat: no-repeat;
+    mask-image: linear-gradient(black 95%, transparent);
 
     // xs media query
     @media (max-width: $breakpoint-xs) {
@@ -151,17 +152,17 @@
 
 }
 
-.video-movie-main iframe{
+.video-movie-main iframe {
   background-color: #000;
   border: 0;
 
-  width: 55vw;
-  height: 60vh;
+  width: 550px;
+  height: 315px;
 
   // xs media query
   @media (max-width: $breakpoint-xs) {
-    width: 80vw;
-    height: 35vh;
+    width: 92vw;
+    height: 25vh;
   }
 
   // sm media query

@@ -5,35 +5,36 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
 import {SeoService} from '../../../../core/services/seo.service';
 import {take} from 'rxjs/operators';
-import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {OnTVService} from "../../services/onTV.service";
 import {IMovie} from "../../interfaces/movie.interface";
 import {ITV} from "../../interfaces/tv.interface";
 import {IContent} from "../../interfaces/content.interface";
-import {MatButtonModule} from "@angular/material/button";
 import {DatePipe, NgForOf, NgIf} from "@angular/common";
-import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatProgressBar} from "@angular/material/progress-bar";
 import {CdkDrag, CdkDragHandle} from "@angular/cdk/drag-drop";
 import {MovieCardComponent} from "../../../../shared/components/poster-card-view/poster-card.component";
-import {MatIconModule} from "@angular/material/icon";
 import {ImgMissingDirective} from "../../../../shared/directives/img-missing.directive";
+import {MatIcon} from "@angular/material/icon";
+import {MatButton} from "@angular/material/button";
+import {MatDialog, MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss'],
   imports: [
-    MatButtonModule,
     NgForOf,
     NgIf,
     DatePipe,
-    MatProgressBarModule,
     CdkDrag,
-    MatDialogModule,
     CdkDragHandle,
     MovieCardComponent,
-    MatIconModule,
-    ImgMissingDirective
+    ImgMissingDirective,
+    MatProgressBar,
+    MatIcon,
+    MatButton,
+    MatDialogContent,
+    MatDialogTitle
   ],
   standalone: true
 })
@@ -78,7 +79,7 @@ export class DetailComponent implements OnInit {
     );
   }
 
-  getMovie(id) {
+  getMovie(id: string) {
     this.isLoading = true;
 
     this.moviesService.getMovie(id).pipe(take(1)).subscribe(
@@ -90,30 +91,28 @@ export class DetailComponent implements OnInit {
     );
   }
 
-  getMovieVideo(id) {
+  getMovieVideo(id: string) {
     this.moviesService.getMovieVideos(id).pipe(take(1)).subscribe(
       res => {
         if (res?.results?.length > 0) {
-          const trailerList = res.results.filter(video => video.type === 'Trailer');
+          const trailerList = res.results.filter((video: { type: string; }) => video.type === 'Trailer');
           this.video = trailerList[0];
           this.video['url'] = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + this.video['key']);
         } else {
           this.video = null;
         }
-      }, () => {}
+      }
     );
   }
 
-  getRecomendedMovie(id) {
+  getRecomendedMovie(id: string) {
     this.moviesService.getRecomendMovies(id).pipe(take(1)).subscribe(
-      res => {
-        this.recomendedContentList = res.results.slice(0, 12);
-      }, () => {}
+      res => this.recomendedContentList = res.results.slice(0, 12)
     );
   }
 
   // TV
-  getTVShow(id) {
+  getTVShow(id: string) {
     this.isLoading = true;
 
     this.tvShowsService.getTVShow(id).pipe(take(1)).subscribe(
@@ -125,24 +124,22 @@ export class DetailComponent implements OnInit {
     );
   }
 
-  getTVShowVideo(id) {
+  getTVShowVideo(id: string) {
     this.tvShowsService.getTVShowVideos(id).pipe(take(1)).subscribe(
       res => {
         if (res?.results?.length > 0) {
-          this.video = res.results.filter(video => video.type === 'Trailer')[0];
+          this.video = res.results.filter((video: { type: string; }) => video.type === 'Trailer')[0];
           this.video['url'] = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + this.video['key']);
         } else {
           this.video = null;
         }
-      }, () => {}
+      }
     );
   }
 
-  getRecomendedTVShow(id) {
+  getRecomendedTVShow(id: string) {
     this.tvShowsService.getRecomendTVShows(id).pipe(take(1)).subscribe(
-      res => {
-        this.recomendedContentList = res.results.slice(0, 12);
-      }, () => {}
+      res => this.recomendedContentList = res.results.slice(0, 12)
     );
   }
 

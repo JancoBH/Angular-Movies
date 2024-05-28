@@ -5,26 +5,27 @@ import {SeoService} from '../../core/services/seo.service';
 import {take} from 'rxjs/operators';
 import {MovieModel} from '../content/models/movie.model';
 import {TvModel} from '../content/models/tv.model';
-import {MatTabsModule} from "@angular/material/tabs";
+import {MatTab, MatTabGroup} from "@angular/material/tabs";
 import {MovieCardComponent} from "../../shared/components/poster-card-view/poster-card.component";
-import {MatIconModule} from "@angular/material/icon";
 import {RouterLink} from "@angular/router";
 import {NgForOf, SlicePipe} from "@angular/common";
 import {SwiperOptions} from "swiper/types";
 import {SwiperDirective} from "../../shared/directives/swiper.directive";
+import {MatIcon} from "@angular/material/icon";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   imports: [
-    MatTabsModule,
     MovieCardComponent,
-    MatIconModule,
     RouterLink,
     NgForOf,
     SwiperDirective,
-    SlicePipe
+    SlicePipe,
+    MatTabGroup,
+    MatTab,
+    MatIcon
   ],
   standalone: true
 })

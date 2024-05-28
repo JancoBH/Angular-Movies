@@ -69,6 +69,15 @@
       }
     }
   }
+
+  .mat-mdc-button {
+    border-radius: 0;
+  }
+}
+
+
+::ng-deep .mdc-button__label {
+  color: white;
 }
 
 .activated-route {

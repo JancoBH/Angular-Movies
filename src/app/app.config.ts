@@ -3,7 +3,7 @@ import {provideRouter, withViewTransitions} from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideServiceWorker } from '@angular/service-worker';
-import {provideHttpClient, withFetch} from "@angular/common/http";
+import { provideHttpClient, withFetch } from "@angular/common/http";
 import { register } from 'swiper/element/bundle';
 import {provideAnimations} from "@angular/platform-browser/animations";
 

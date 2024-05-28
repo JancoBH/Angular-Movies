@@ -89,6 +89,14 @@ swiper-container {
   opacity: .35;
 }
 
+::ng-deep .swiper-slide-active {
+  opacity: 1 !important;
+}
+
+::ng-deep .mat-mdc-tab-label-container {
+  border-bottom-color: transparent !important;
+}
+
 swiper-slide {
   padding-bottom: 2rem;
 }

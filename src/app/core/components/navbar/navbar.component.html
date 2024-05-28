@@ -16,7 +16,7 @@
       <mat-menu #menu="matMenu">
         <div *ngFor="let theme of themeColorList" [class.hidden]="themeColorInit === theme.color" [attr.aria-label]="'Color ' + theme.name">
           <button mat-menu-item (click)="setColorTheme(theme.color)">
-            <mat-icon [style.color]="theme.color">lens</mat-icon>
+            <mat-icon [style.color]="theme.color" aria-hidden="false" aria-label="Color Selector Icon" fontIcon="lens"></mat-icon>
             <span>{{theme.name}}</span>
           </button>
         </div>

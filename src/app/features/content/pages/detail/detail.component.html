@@ -23,8 +23,8 @@
           <h4>Overview</h4>
           <p>{{content?.overview}}</p>
 
-          <button *ngIf="video" mat-raised-button color="primary" aria-label="Trailer" (click)="openDialog()" class="play-trailer">
-            <mat-icon>play_arrow</mat-icon> Play Trailer
+          <button *ngIf="video" mat-flat-button color="primary" aria-label="Trailer" (click)="openDialog()" class="play-trailer">
+            <mat-icon aria-hidden="false" fontIcon="play_arrow"></mat-icon> Play Trailer
           </button>
 
           <h4>Categories</h4>
@@ -49,8 +49,8 @@
     <h4>Overview</h4>
     <p>{{content?.overview}}</p>
 
-    <button *ngIf="video" mat-raised-button color="primary" aria-label="Trailer" (click)="openDialog()" class="play-trailer">
-      <mat-icon>play_arrow</mat-icon> Play Trailer
+    <button *ngIf="video" mat-flat-button color="primary" aria-label="Trailer" (click)="openDialog()" class="play-trailer">
+      <mat-icon aria-hidden="false" fontIcon="play_arrow"></mat-icon> Play Trailer
     </button>
   </section>
 

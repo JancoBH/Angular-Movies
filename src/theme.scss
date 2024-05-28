@@ -1,45 +1,53 @@
 @use '@angular/material' as mat;
 @include mat.core();
 
-$theme-primary: mat.define-palette(mat.$red-palette);
-$theme-accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
-
 @mixin palette($theme) {
-  $primary-color: mat.get-color-from-palette($theme, 500);
+  $primary-color: mat.get-theme-color($theme, primary, 50);
   ::selection { background-color: $primary-color; }
   .colored-hover:hover {color: $primary-color;}
   swiper-container::part(bullet-active) {background-color: $primary-color}
+  .mat-mdc-tab:not(.mat-mdc-tab-disabled) .mdc-tab-indicator__content--underline,
+  .mat-mdc-tab.mdc-tab--active:hover .mdc-tab-indicator__content--underline
+  {border-color: $primary-color !important;}
+  .mat-mdc-unelevated-button:not(:disabled) {
+    background-color: $primary-color !important;
+  }
   .activated-route {border-color: $primary-color !important;}
-  .mat-mdc-tab:not(.mat-mdc-tab-disabled) .mdc-tab-indicator__content--underline {border-color: $primary-color;}
 }
 
-@include palette($theme-primary);
+$theme-primary: mat.$red-palette;
 
-$theme: mat.define-dark-theme((
-  color: (primary: $theme-primary, accent: $theme-accent),
-  typography: mat.define-typography-config()
+$theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: $theme-primary,
+  ),
 ));
-@include mat.all-component-themes($theme);
+
+@include palette($theme);
+:root {
+  @include mat.all-component-themes($theme);
+}
 
 .blue-theme {
-  $theme-primary: mat.define-palette(mat.$blue-palette);
-  @include palette($theme-primary);
-
-  $theme: mat.define-dark-theme((
-    color: (primary: $theme-primary, accent: $theme-accent),
-    typography: mat.define-typography-config()
+  $theme: mat.define-theme((
+    color: (
+      theme-type: dark,
+      primary: mat.$blue-palette,
+    ),
   ));
+  @include palette($theme);
   @include mat.all-component-colors($theme);
 }
 
 .green-theme {
-  $theme-primary: mat.define-palette(mat.$green-palette);
-  @include palette($theme-primary);
-
-  $theme: mat.define-dark-theme((
-    color: (primary: $theme-primary, accent: $theme-accent),
-    typography: mat.define-typography-config()
+  $theme: mat.define-theme((
+    color: (
+      theme-type: dark,
+      primary: mat.$green-palette,
+    ),
   ));
+  @include palette($theme);
   @include mat.all-component-colors($theme);
 }
 
