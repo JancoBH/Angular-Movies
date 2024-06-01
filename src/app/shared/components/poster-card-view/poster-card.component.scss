@@ -2,10 +2,12 @@
   width: 100%;
   padding: 0;
   overflow: hidden;
+  min-height: 325px;
+  max-height: 350px;
 
   &__image {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
     border-radius: 4px 4px 0 0;
     user-select: none;

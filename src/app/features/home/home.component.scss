@@ -7,13 +7,14 @@
   justify-content: center;
   align-items: center;
   height: 500px;
-  background: linear-gradient(rgba(52,41,49,0.8), rgba(26, 33, 74, 0.8)), url('../../../assets/img/background-main.jpg') no-repeat bottom;
+  background: linear-gradient(rgba(52,41,49,0.8), rgba(26, 33, 74, 0.8)), url('../../../assets/img/background-main.webp') no-repeat bottom;
   background-size: cover;
   font-size: 4rem;
 }
 
 .movies__container, .shows__container {
   margin: 2rem 0;
+  min-height: 465px;
   position: relative;
 }
 
@@ -86,7 +87,7 @@ swiper-container {
 }
 
 ::ng-deep .swiper-slide-visible:not(.swiper-slide-fully-visible) {
-  opacity: .35;
+  opacity: .60;
 }
 
 ::ng-deep .swiper-slide-active {
@@ -95,6 +96,10 @@ swiper-container {
 
 ::ng-deep .mat-mdc-tab-label-container {
   border-bottom-color: transparent !important;
+}
+
+::ng-deep .mat-mdc-tab-body-wrapper {
+  min-height: 415px;
 }
 
 swiper-slide {

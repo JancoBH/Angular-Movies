@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit {
     this.seo.generateTags({
       title: 'Angular Movies and Series',
       description: 'Movie and Series Home Page',
-      image: 'https://jancobh.github.io/Angular-Movies/background-main.jpg'
+      image: 'https://jancobh.github.io/Angular-Movies/background-main.webp'
     });
 
     this.getMovies('now_playing', 1);

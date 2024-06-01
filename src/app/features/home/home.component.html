@@ -14,21 +14,24 @@
       </a>
     </h2>
 
-    <mat-tab-group (selectedTabChange)="tabMovieChange($event)" [selectedIndex]="selectedMovieTab" mat-align-tabs="end">
+    @defer {
+      <mat-tab-group (selectedTabChange)="tabMovieChange($event)" [selectedIndex]="selectedMovieTab" mat-align-tabs="end">
 
-      @for (tab of movieTabList; track tab) {
-        <mat-tab [label]="tab">
-          <swiper-container appSwiper #swiper [config]="config" pagination="true" scrollbar="false">
-            <swiper-slide *ngFor="let movie of moviesList | slice:0:15">
-              <app-poster-card [model]="movie" [isMovie]="true"></app-poster-card>
-            </swiper-slide>
-          </swiper-container>
-        </mat-tab>
-      } @empty {
-        Empty list
-      }
+        @for (tab of movieTabList; track tab) {
+          <mat-tab [label]="tab">
+            <swiper-container appSwiper [config]="config" pagination="true" scrollbar="false">
+              <swiper-slide *ngFor="let movie of moviesList | slice:0:15">
+                <app-poster-card [model]="movie" [isMovie]="true"></app-poster-card>
+              </swiper-slide>
+            </swiper-container>
+          </mat-tab>
+        } @empty {
+          Empty list
+        }
 
-    </mat-tab-group>
+      </mat-tab-group>
+    }
+
   </section>
 
   <!--TV-->
@@ -41,21 +44,24 @@
       </a>
     </h2>
 
-    <mat-tab-group (selectedTabChange)="tabTVChange($event)" [selectedIndex]="selectedTVTab" mat-align-tabs="end">
+    @defer {
+      <mat-tab-group (selectedTabChange)="tabTVChange($event)" [selectedIndex]="selectedTVTab" mat-align-tabs="end">
 
-      @for (tab of tvShowsTabList; track tab) {
-      <mat-tab [label]="tab">
-        <swiper-container appSwiper #swiper [config]="config" pagination="true" scrollbar="false">
-          <swiper-slide *ngFor="let tvShow of tvShowsList | slice:0:15">
-            <app-poster-card [model]="tvShow"></app-poster-card>
-          </swiper-slide>
-        </swiper-container>
-      </mat-tab>
-      } @empty {
-        Empty list
-      }
+        @for (tab of tvShowsTabList; track tab) {
+          <mat-tab [label]="tab">
+            <swiper-container appSwiper [config]="config" pagination="true" scrollbar="false">
+              <swiper-slide *ngFor="let tvShow of tvShowsList | slice:0:15">
+                <app-poster-card [model]="tvShow"></app-poster-card>
+              </swiper-slide>
+            </swiper-container>
+          </mat-tab>
+        } @empty {
+          Empty list
+        }
 
-    </mat-tab-group>
+      </mat-tab-group>
+    }
+
   </section>
 
 </div>

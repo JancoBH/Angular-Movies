@@ -10,6 +10,6 @@ export class ImgMissingDirective {
   @HostListener('error')
   private onError() {
     this.renderer.removeAttribute(this.el.nativeElement, 'srcset');
-    this.renderer.setAttribute(this.el.nativeElement, 'src', './assets/img/fallback.jpg');
+    this.renderer.setAttribute(this.el.nativeElement, 'src', './assets/img/fallback.webp');
   }
 }
