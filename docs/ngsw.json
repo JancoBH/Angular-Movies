@@ -1,7 +1,7 @@
 {
   "configVersion": 1,
-  "timestamp": 1717261568348,
-  "index": "/index.html",
+  "timestamp": 1717261823704,
+  "index": "/Angular-Movies/index.html",
   "assetGroups": [
     {
       "name": "app",
@@ -11,9 +11,9 @@
         "ignoreVary": true
       },
       "urls": [
-        "/favicon.ico",
-        "/index.html",
-        "/manifest.webmanifest"
+        "/Angular-Movies/favicon.ico",
+        "/Angular-Movies/index.html",
+        "/Angular-Movies/manifest.webmanifest"
       ],
       "patterns": []
     },
@@ -25,19 +25,19 @@
         "ignoreVary": true
       },
       "urls": [
-        "/assets/img/background-main.webp",
-        "/assets/img/fallback.webp",
-        "/assets/img/icon-128x128.png",
-        "/assets/img/icon-144x144.png",
-        "/assets/img/icon-152x152.png",
-        "/assets/img/icon-192x192.png",
-        "/assets/img/icon-384x384.png",
-        "/assets/img/icon-512x512.png",
-        "/assets/img/icon-72x72.png",
-        "/assets/img/icon-96x96.png",
-        "/assets/img/logo.webp",
-        "/assets/svg/github.svg",
-        "/assets/svg/twitter.svg"
+        "/Angular-Movies/assets/img/background-main.webp",
+        "/Angular-Movies/assets/img/fallback.webp",
+        "/Angular-Movies/assets/img/icon-128x128.png",
+        "/Angular-Movies/assets/img/icon-144x144.png",
+        "/Angular-Movies/assets/img/icon-152x152.png",
+        "/Angular-Movies/assets/img/icon-192x192.png",
+        "/Angular-Movies/assets/img/icon-384x384.png",
+        "/Angular-Movies/assets/img/icon-512x512.png",
+        "/Angular-Movies/assets/img/icon-72x72.png",
+        "/Angular-Movies/assets/img/icon-96x96.png",
+        "/Angular-Movies/assets/img/logo.webp",
+        "/Angular-Movies/assets/svg/github.svg",
+        "/Angular-Movies/assets/svg/twitter.svg"
       ],
       "patterns": []
     }
@@ -60,22 +60,22 @@
     }
   ],
   "hashTable": {
-    "/assets/img/background-main.webp": "fbcd0b23ba612d9713d6de68ae06c1d3b41149c4",
-    "/assets/img/fallback.webp": "d73ff2699692bd06db618f6aa02b27f657ae8167",
-    "/assets/img/icon-128x128.png": "f912963bdc6d5a38d8f1dd0afbaab2ce8d657acb",
-    "/assets/img/icon-144x144.png": "b155fd5f2fd5d2ea7760721063003c4cd95fd783",
-    "/assets/img/icon-152x152.png": "eae6e0f0c8afb8aaae339e2a569b43e9238e5e6c",
-    "/assets/img/icon-192x192.png": "15c4180454633880d98674aa7394656196c91584",
-    "/assets/img/icon-384x384.png": "94a915751ef6c9282df9aea405ad679230631814",
-    "/assets/img/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
-    "/assets/img/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
-    "/assets/img/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
-    "/assets/img/logo.webp": "eb545965e2ddacdae374bf765beaca908d57f2e3",
-    "/assets/svg/github.svg": "29af3297f4216d42d7f6225cafaf77867c016862",
-    "/assets/svg/twitter.svg": "4995eac2eb0287f20ac519596fbb8cd528619918",
-    "/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
-    "/index.html": "77ca12e9bbc7f2c685c3eb0278240f26d575a61f",
-    "/manifest.webmanifest": "3a70177f59ce81a84a7476fd1010133abdaefa00"
+    "/Angular-Movies/assets/img/background-main.webp": "fbcd0b23ba612d9713d6de68ae06c1d3b41149c4",
+    "/Angular-Movies/assets/img/fallback.webp": "d73ff2699692bd06db618f6aa02b27f657ae8167",
+    "/Angular-Movies/assets/img/icon-128x128.png": "f912963bdc6d5a38d8f1dd0afbaab2ce8d657acb",
+    "/Angular-Movies/assets/img/icon-144x144.png": "b155fd5f2fd5d2ea7760721063003c4cd95fd783",
+    "/Angular-Movies/assets/img/icon-152x152.png": "eae6e0f0c8afb8aaae339e2a569b43e9238e5e6c",
+    "/Angular-Movies/assets/img/icon-192x192.png": "15c4180454633880d98674aa7394656196c91584",
+    "/Angular-Movies/assets/img/icon-384x384.png": "94a915751ef6c9282df9aea405ad679230631814",
+    "/Angular-Movies/assets/img/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
+    "/Angular-Movies/assets/img/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
+    "/Angular-Movies/assets/img/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
+    "/Angular-Movies/assets/img/logo.webp": "eb545965e2ddacdae374bf765beaca908d57f2e3",
+    "/Angular-Movies/assets/svg/github.svg": "29af3297f4216d42d7f6225cafaf77867c016862",
+    "/Angular-Movies/assets/svg/twitter.svg": "4995eac2eb0287f20ac519596fbb8cd528619918",
+    "/Angular-Movies/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
+    "/Angular-Movies/index.html": "65072f013f8d96d1c1c12c49c815371c2a6d883d",
+    "/Angular-Movies/manifest.webmanifest": "3a70177f59ce81a84a7476fd1010133abdaefa00"
   },
   "navigationUrls": [
     {
