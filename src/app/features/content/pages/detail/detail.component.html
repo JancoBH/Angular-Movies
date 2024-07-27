@@ -1,4 +1,6 @@
-<mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+@if (isLoading) {
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+}
 
 <main class="content">
 
@@ -10,10 +12,7 @@
 
       <div class="content__info container">
 
-        <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{content?.poster_path}}" data-src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{content?.poster_path}}"
-             data-srcset="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{content?.poster_path}} 1x, https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{content?.poster_path}} 2x"
-             srcset="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{content?.poster_path}} 1x, https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{content?.poster_path}} 2x"
-             data-loaded="true" [alt]="content?.title" appImgMissingDirective>
+        <img [ngSrc]="'https://image.tmdb.org/t/p/w300_and_h450_bestv2/' + content?.poster_path" [width]="300" [height]="450" [alt]="content?.title">
 
         <div class="content__data">
 
@@ -23,14 +22,18 @@
           <h4>Overview</h4>
           <p>{{content?.overview}}</p>
 
-          <button *ngIf="video" mat-flat-button color="primary" aria-label="Trailer" (click)="openDialog()" class="play-trailer">
-            <mat-icon aria-hidden="false" fontIcon="play_arrow"></mat-icon> Play Trailer
-          </button>
+          @if (video) {
+            <button mat-flat-button color="primary" aria-label="Trailer" (click)="openDialog()" class="play-trailer">
+              <mat-icon aria-hidden="false" fontIcon="play_arrow"></mat-icon> Play Trailer
+            </button>
+          }
 
           <h4>Categories</h4>
 
           <div class="content__data--categories">
-            <button *ngFor="let genre of content?.genres" mat-raised-button color="primary" aria-label="Genres" disabled>{{genre.name}}</button>
+            @for (genre of content?.genres; track genre.name) {
+              <button mat-raised-button color="primary" aria-label="Genres" disabled>{{genre.name}}</button>
+            }
           </div>
 
         </div>
@@ -49,27 +52,29 @@
     <h4>Overview</h4>
     <p>{{content?.overview}}</p>
 
-    <button *ngIf="video" mat-flat-button color="primary" aria-label="Trailer" (click)="openDialog()" class="play-trailer">
-      <mat-icon aria-hidden="false" fontIcon="play_arrow"></mat-icon> Play Trailer
-    </button>
+    @if (video) {
+      <button mat-flat-button color="primary" aria-label="Trailer" (click)="openDialog()" class="play-trailer">
+        <mat-icon aria-hidden="false" fontIcon="play_arrow"></mat-icon> Play Trailer
+      </button>
+    }
   </section>
 
   <section class="content__recommendations container">
 
     <h2>Recommended Movies</h2>
 
-    <div class="content__recommendations--cards" *ngIf="recomendedContentList.length > 0; else noRecomendedMovies">
-      <div *ngFor="let content of recomendedContentList;">
-        <app-poster-card [model]="content" [isMovie]="contentType === 'movies'"></app-poster-card>
+    @if (recomendedContentList.length > 0) {
+      <div class="content__recommendations--cards">
+        @for (content of recomendedContentList; track content) {
+          <app-poster-card [model]="content" [isMovie]="contentType === 'movies'"></app-poster-card>
+        }
       </div>
-    </div>
-
-    <ng-template #noRecomendedMovies>
+    } @else {
       <div class="content__no-recomended">
         <mat-icon [inline]="true">sentiment_dissatisfied</mat-icon>
         <span>No recommended movies</span>
       </div>
-    </ng-template>
+    }
 
   </section>
 </main>
@@ -86,9 +91,11 @@
 
     <mat-dialog-content class="header-content-dialog">
 
-      <div *ngIf="video" class="video-movie-main">
-        <iframe [src]="video['url']" allowfullscreen></iframe>
-      </div>
+      @if (video) {
+        <div class="video-movie-main">
+          <iframe [src]="video['url']" allowfullscreen></iframe>
+        </div>
+      }
 
     </mat-dialog-content>
 

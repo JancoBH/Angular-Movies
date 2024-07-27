@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {PaginationModel} from '../../core/models/pagination.model';
 import {MoviesService} from './services/movies.service';
 import {take} from 'rxjs/operators';
@@ -8,7 +8,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MovieCardComponent} from "../../shared/components/poster-card-view/poster-card.component";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
-import {NgForOf, TitleCasePipe} from "@angular/common";
+import {TitleCasePipe} from "@angular/common";
 
 @Component({
   selector: 'app-movies',
@@ -19,8 +19,7 @@ import {NgForOf, TitleCasePipe} from "@angular/common";
     MovieCardComponent,
     MatButtonModule,
     MatCardModule,
-    TitleCasePipe,
-    NgForOf
+    TitleCasePipe
   ],
   standalone: true
 })
@@ -34,7 +33,8 @@ export class ContentComponent implements OnInit {
   constructor(
     private moviesService: MoviesService,
     private tvShowsService: OnTVService,
-    private router: Router
+    private router: Router,
+    private cdr: ChangeDetectorRef,
   ) {
     this.contentType = this.router.url.split('/')[1];
   }
@@ -54,6 +54,7 @@ export class ContentComponent implements OnInit {
       res => {
         this.totalResults = res.total_results;
         this.nowPlaying = res.results;
+        this.cdr.detectChanges();
       }, () => {}
     );
   }
@@ -63,6 +64,7 @@ export class ContentComponent implements OnInit {
       res => {
         this.totalResults = res.total_results;
         this.nowPlaying = res.results;
+        this.cdr.detectChanges();
       }, () => {}
     );
   }

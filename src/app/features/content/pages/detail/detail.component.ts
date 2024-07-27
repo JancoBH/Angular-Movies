@@ -1,4 +1,4 @@
-import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {PaginationModel} from '../../../../core/models/pagination.model';
 import {MoviesService} from '../../services/movies.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -9,7 +9,7 @@ import {OnTVService} from "../../services/onTV.service";
 import {IMovie} from "../../interfaces/movie.interface";
 import {ITV} from "../../interfaces/tv.interface";
 import {IContent} from "../../interfaces/content.interface";
-import {DatePipe, NgForOf, NgIf} from "@angular/common";
+import {DatePipe, NgOptimizedImage} from "@angular/common";
 import {MatProgressBar} from "@angular/material/progress-bar";
 import {CdkDrag, CdkDragHandle} from "@angular/cdk/drag-drop";
 import {MovieCardComponent} from "../../../../shared/components/poster-card-view/poster-card.component";
@@ -23,8 +23,6 @@ import {MatDialog, MatDialogContent, MatDialogTitle} from "@angular/material/dia
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss'],
   imports: [
-    NgForOf,
-    NgIf,
     DatePipe,
     CdkDrag,
     CdkDragHandle,
@@ -34,7 +32,8 @@ import {MatDialog, MatDialogContent, MatDialogTitle} from "@angular/material/dia
     MatIcon,
     MatButton,
     MatDialogContent,
-    MatDialogTitle
+    MatDialogTitle,
+    NgOptimizedImage
   ],
   standalone: true
 })
@@ -55,7 +54,8 @@ export class DetailComponent implements OnInit {
     private router: Router,
     private sanitizer: DomSanitizer,
     private seo: SeoService,
-    public trailerDialog: MatDialog
+    public trailerDialog: MatDialog,
+    private cdr: ChangeDetectorRef,
   ) {
     this.contentType = this.router.url.split('/')[1];
   }
@@ -86,7 +86,8 @@ export class DetailComponent implements OnInit {
       movie => {
         this.content = movie;
         this.generateSeo();
-        this.isLoading = false
+        this.isLoading = false;
+        this.cdr.detectChanges();
       }
     );
   }
@@ -101,13 +102,17 @@ export class DetailComponent implements OnInit {
         } else {
           this.video = null;
         }
+        this.cdr.detectChanges();
       }
     );
   }
 
   getRecomendedMovie(id: string) {
     this.moviesService.getRecomendMovies(id).pipe(take(1)).subscribe(
-      res => this.recomendedContentList = res.results.slice(0, 12)
+      res => {
+        this.recomendedContentList = res.results.slice(0, 12);
+        this.cdr.detectChanges();
+      }
     );
   }
 
@@ -119,7 +124,8 @@ export class DetailComponent implements OnInit {
       tvShow => {
         this.content = tvShow;
         this.generateSeo();
-        this.isLoading = false
+        this.isLoading = false;
+        this.cdr.detectChanges();
       }
     );
   }
@@ -133,13 +139,17 @@ export class DetailComponent implements OnInit {
         } else {
           this.video = null;
         }
+        this.cdr.detectChanges();
       }
     );
   }
 
   getRecomendedTVShow(id: string) {
     this.tvShowsService.getRecomendTVShows(id).pipe(take(1)).subscribe(
-      res => this.recomendedContentList = res.results.slice(0, 12)
+      res => {
+        this.recomendedContentList = res.results.slice(0, 12);
+        this.cdr.detectChanges();
+      }
     );
   }
 

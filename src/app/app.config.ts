@@ -1,4 +1,4 @@
-import { ApplicationConfig, isDevMode } from '@angular/core';
+import {ApplicationConfig, isDevMode, provideExperimentalZonelessChangeDetection} from '@angular/core';
 import {provideRouter, withViewTransitions} from '@angular/router';
 
 import { routes } from './app.routes';
@@ -10,7 +10,8 @@ import {provideAnimations} from "@angular/platform-browser/animations";
 register();
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes, withViewTransitions()), provideHttpClient(withFetch()), provideAnimations(), provideServiceWorker('ngsw-worker.js', {
+  providers: [provideExperimentalZonelessChangeDetection(),
+    provideRouter(routes, withViewTransitions()), provideHttpClient(withFetch()), provideAnimations(), provideServiceWorker('ngsw-worker.js', {
         enabled: !isDevMode(),
         registrationStrategy: 'registerWhenStable:30000'
     })]

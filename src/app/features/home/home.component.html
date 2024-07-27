@@ -20,9 +20,11 @@
         @for (tab of movieTabList; track tab) {
           <mat-tab [label]="tab">
             <swiper-container appSwiper [config]="config" pagination="true" scrollbar="false">
-              <swiper-slide *ngFor="let movie of moviesList | slice:0:15">
-                <app-poster-card [model]="movie" [isMovie]="true"></app-poster-card>
-              </swiper-slide>
+              @for (movie of moviesList | slice:0:15; track movie) {
+                <swiper-slide>
+                  <app-poster-card [model]="movie" [isMovie]="true"></app-poster-card>
+                </swiper-slide>
+              }
             </swiper-container>
           </mat-tab>
         } @empty {
@@ -50,9 +52,11 @@
         @for (tab of tvShowsTabList; track tab) {
           <mat-tab [label]="tab">
             <swiper-container appSwiper [config]="config" pagination="true" scrollbar="false">
-              <swiper-slide *ngFor="let tvShow of tvShowsList | slice:0:15">
-                <app-poster-card [model]="tvShow"></app-poster-card>
-              </swiper-slide>
+              @for (tvShow of tvShowsList | slice:0:15; track tvShow) {
+                <swiper-slide>
+                  <app-poster-card [model]="tvShow"></app-poster-card>
+                </swiper-slide>
+              }
             </swiper-container>
           </mat-tab>
         } @empty {

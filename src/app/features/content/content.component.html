@@ -14,7 +14,9 @@
     <div class="contents__right-side">
 
       <div class="contents__list">
-        <app-poster-card *ngFor="let content of nowPlaying" [model]="content" [isMovie]="contentType === 'movies'"></app-poster-card>
+        @for (content of nowPlaying; track content) {
+          <app-poster-card [model]="content" [isMovie]="contentType === 'movies'"></app-poster-card>
+        }
       </div>
 
       <mat-paginator [length]="totalResults"
