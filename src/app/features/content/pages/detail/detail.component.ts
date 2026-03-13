@@ -19,23 +19,22 @@ import {MatButton} from "@angular/material/button";
 import {MatDialog, MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
 
 @Component({
-  selector: 'app-detail',
-  templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.scss'],
-  imports: [
-    DatePipe,
-    CdkDrag,
-    CdkDragHandle,
-    MovieCardComponent,
-    ImgMissingDirective,
-    MatProgressBar,
-    MatIcon,
-    MatButton,
-    MatDialogContent,
-    MatDialogTitle,
-    NgOptimizedImage
-  ],
-  standalone: true
+    selector: 'app-detail',
+    templateUrl: './detail.component.html',
+    styleUrls: ['./detail.component.scss'],
+    imports: [
+        DatePipe,
+        CdkDrag,
+        CdkDragHandle,
+        MovieCardComponent,
+        ImgMissingDirective,
+        MatProgressBar,
+        MatIcon,
+        MatButton,
+        MatDialogContent,
+        MatDialogTitle,
+        NgOptimizedImage
+    ]
 })
 export class DetailComponent implements OnInit {
 

@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1722112395527,
+  "timestamp": 1773419829529,
   "index": "/Angular-Movies/index.html",
   "assetGroups": [
     {
@@ -74,7 +74,7 @@
     "/Angular-Movies/assets/svg/github.svg": "29af3297f4216d42d7f6225cafaf77867c016862",
     "/Angular-Movies/assets/svg/twitter.svg": "4995eac2eb0287f20ac519596fbb8cd528619918",
     "/Angular-Movies/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
-    "/Angular-Movies/index.html": "60cefde0e0b94a818b23df20e6cf04ba4a346a35",
+    "/Angular-Movies/index.html": "1713bdaa5b7141f90a990ab1c6dd536cc301be4f",
     "/Angular-Movies/manifest.webmanifest": "3a70177f59ce81a84a7476fd1010133abdaefa00"
   },
   "navigationUrls": [

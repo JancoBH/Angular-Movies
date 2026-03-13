@@ -3,25 +3,23 @@ import {themeColors} from '../../constants/theme-colors';
 import {Color} from '../../enums/colors.enum';
 import {MatMenuModule} from "@angular/material/menu";
 import {RouterLink, RouterLinkActive} from "@angular/router";
-import {NgForOf, NgOptimizedImage} from "@angular/common";
+import { NgOptimizedImage } from "@angular/common";
 import {MatIconModule} from "@angular/material/icon";
 import {MatAnchor, MatIconButton} from "@angular/material/button";
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
-  imports: [
+    selector: 'app-navbar',
+    templateUrl: './navbar.component.html',
+    styleUrls: ['./navbar.component.scss'],
+    imports: [
     MatMenuModule,
     RouterLinkActive,
     NgOptimizedImage,
     RouterLink,
     MatIconModule,
-    NgForOf,
     MatAnchor,
     MatIconButton
-  ],
-  standalone: true
+]
 })
 export class NavbarComponent {
 

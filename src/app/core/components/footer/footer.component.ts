@@ -1,15 +1,13 @@
 import { Component } from '@angular/core';
-import {NgForOf, NgOptimizedImage} from "@angular/common";
+import { NgOptimizedImage } from "@angular/common";
 
 @Component({
-  selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss'],
-  imports: [
-    NgForOf,
+    selector: 'app-footer',
+    templateUrl: './footer.component.html',
+    styleUrls: ['./footer.component.scss'],
+    imports: [
     NgOptimizedImage
-  ],
-  standalone: true
+]
 })
 export class FooterComponent {
 

@@ -7,11 +7,10 @@ import {NavbarComponent} from "./core/components/navbar/navbar.component";
 import {FooterComponent} from "./core/components/footer/footer.component";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  standalone: true,
-  imports: [RouterOutlet, NavbarComponent, FooterComponent, NgClass],
+    selector: 'app-home',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
+    imports: [RouterOutlet, NavbarComponent, FooterComponent, NgClass]
 })
 export class AppComponent implements OnInit {
 

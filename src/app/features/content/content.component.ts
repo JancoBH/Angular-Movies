@@ -11,17 +11,16 @@ import {MatCardModule} from "@angular/material/card";
 import {TitleCasePipe} from "@angular/common";
 
 @Component({
-  selector: 'app-movies',
-  templateUrl: './content.component.html',
-  styleUrls: ['./content.component.scss'],
-  imports: [
-    MatPaginatorModule,
-    MovieCardComponent,
-    MatButtonModule,
-    MatCardModule,
-    TitleCasePipe
-  ],
-  standalone: true
+    selector: 'app-movies',
+    templateUrl: './content.component.html',
+    styleUrls: ['./content.component.scss'],
+    imports: [
+        MatPaginatorModule,
+        MovieCardComponent,
+        MatButtonModule,
+        MatCardModule,
+        TitleCasePipe
+    ]
 })
 export class ContentComponent implements OnInit {
 

@@ -14,19 +14,18 @@ import {SwiperDirective} from "../../shared/directives/swiper.directive";
 import {MatIcon} from "@angular/material/icon";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
-  imports: [
-    MovieCardComponent,
-    RouterLink,
-    SwiperDirective,
-    SlicePipe,
-    MatTabGroup,
-    MatTab,
-    MatIcon
-  ],
-  standalone: true
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
+    imports: [
+        MovieCardComponent,
+        RouterLink,
+        SwiperDirective,
+        SlicePipe,
+        MatTabGroup,
+        MatTab,
+        MatIcon
+    ]
 })
 
 export class HomeComponent implements OnInit {

@@ -4,19 +4,16 @@
     "importHelpers": true,
     "module": "es2020",
     "outDir": "./dist/out-tsc",
+    "esModuleInterop": true,
     "baseUrl": "src",
     "sourceMap": true,
     "declaration": false,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "ES2022",
     "typeRoots": [
       "node_modules/@types"
-    ],
-    "lib": [
-      "es2016",
-      "dom"
     ],
     "useDefineForClassFields": false
   }
