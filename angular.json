@@ -51,6 +51,14 @@
               "outputHashing": "all",
               "serviceWorker": "ngsw-config.json"
             },
+            "github-pages": {
+              "baseHref": "/Angular-Movies/",
+              "outputMode": "static",
+              "outputPath": {
+                "base": "docs",
+                "browser": ""
+              }
+            },
             "development": {
               "optimization": false,
               "extractLicenses": false,

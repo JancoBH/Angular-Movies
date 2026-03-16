@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "github": "ng build --output-path docs --base-href /Angular-Movies/",
+    "github": "ng build --configuration github-pages",
+    "postgithub": "node scripts/create-github-pages-404.mjs",
     "explore": "ng build --named-chunks --source-map && source-map-explorer dist/angular-movies/**/*.js"
   },
   "private": true,
