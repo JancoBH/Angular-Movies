@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject, signal } from '@angular/core';
 import { MoviesService } from '../content/services/movies.service'
 import {OnTVService} from '../content/services/onTV.service';
 import {SeoService} from '../../core/services/seo.service';
@@ -17,6 +17,7 @@ import {MatIcon} from "@angular/material/icon";
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
         MovieCardComponent,
         RouterLink,
@@ -29,6 +30,10 @@ import {MatIcon} from "@angular/material/icon";
 })
 
 export class HomeComponent implements OnInit {
+  private moviesService = inject(MoviesService);
+  private onTvService = inject(OnTVService);
+  private seo = inject(SeoService);
+
 
   config: SwiperOptions = {
     watchSlidesProgress: true,
@@ -41,18 +46,12 @@ export class HomeComponent implements OnInit {
   };
 
   movieTabList = ['Now playing', 'Upcoming', 'Popular'];
-  moviesList: Array<MovieModel> = [];
-  selectedMovieTab = 0;
+  moviesList = signal<Array<MovieModel>>([]);
+  selectedMovieTab = signal(0);
 
   tvShowsTabList = ['Airing Today', 'Currently Airing', 'Popular'];
-  tvShowsList: Array<TvModel> = [];
-  selectedTVTab = 0;
-
-  constructor(
-    private moviesService: MoviesService,
-    private onTvService: OnTVService,
-    private seo: SeoService
-  ) {}
+  tvShowsList = signal<Array<TvModel>>([]);
+  selectedTVTab = signal(0);
 
   ngOnInit() {
     this.seo.generateTags({
@@ -67,12 +66,12 @@ export class HomeComponent implements OnInit {
 
   getMovies(type: string, page: number): void {
     this.moviesService.getMovies(type, page).pipe(take(1)).subscribe(res => {
-      this.moviesList = res.results;
+      this.moviesList.set(res.results);
     });
   }
 
   tabMovieChange({ index }: { index: number; }) {
-    this.selectedMovieTab = index;
+    this.selectedMovieTab.set(index);
     const movieTypes = ['now_playing', 'upcoming', 'popular'];
     const selectedType = movieTypes[index];
     if (selectedType) {
@@ -81,13 +80,13 @@ export class HomeComponent implements OnInit {
   }
 
   getTVShows(type: string, page: number): void {
-    this.onTvService.getTVShows(type, page).subscribe(res => {
-      this.tvShowsList = res.results;
+    this.onTvService.getTVShows(type, page).pipe(take(1)).subscribe(res => {
+      this.tvShowsList.set(res.results);
     });
   }
 
   tabTVChange({ index }: { index: number; }) {
-    this.selectedTVTab = index;
+    this.selectedTVTab.set(index);
     const tvShowTypes = ['airing_today', 'on_the_air', 'popular'];
     const selectedType = tvShowTypes[index];
     if (selectedType) {

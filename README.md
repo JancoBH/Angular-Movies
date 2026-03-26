@@ -1,42 +1,59 @@
 # Angular Movies | TV Shows
 
-## 🚀 Getting Started
+## Getting Started
 
-Angular Movies | TV Shows is a simple web app that consumes The Movie DB API, it can show you interesting data about popular movies and series.
+Angular Movies | TV Shows is a web app that consumes The Movie DB API and shows popular movies and TV series.
 
-See **Installing** for steps to make it work in your local environment.
-## 💻 Live Demo
+See **Installing** for the steps needed to run it locally.
 
-✔ Github Pages: https://jancobh.github.io/Angular-Movies/
+## Live Demo
 
-## 📋 Prerequisites
+Github Pages: https://jancobh.github.io/Angular-Movies/
 
-* <a href="https://nodejs.org/es/" target="_blank">Node JS</a> - You need it to use npm
-* <a href="https://angular.io/cli" target="_blank">Angular CLI</a> - Command-line interface tool needed to manage Angular applications
-* <a href="https://developers.themoviedb.org/3" target="_blank">The Movie DB API</a> - Click the link to get your own API
+## Prerequisites
 
-## 🔧 Installing
+- [Node.js](https://nodejs.org/)
+- [The Movie DB API](https://developers.themoviedb.org/3) key
+
+## Installing
 
 ```bash
 git clone https://github.com/JancoBH/Angular-Movies.git
 cd Angular-Movies
 npm install
-ng serve and enjoy it
+npm start
 ```
-Go to Angular-Movies\src\environments and change ```environments.ts``` and ```environments.prod.ts``` theMovieDBApi object prop with your own The Movie DB API Key.
 
-## 🛠️ Built With
+Update [src/environments/environment.ts](/C:/Users/Janco/WebstormProjects/Angular-Movies/src/environments/environment.ts) and [src/environments/environment.prod.ts](/C:/Users/Janco/WebstormProjects/Angular-Movies/src/environments/environment.prod.ts) with your own `theMovieDBApi` value.
 
-* <a href="https://angular.io/" target="_blank">Angular</a> 21.2.2 - The Web Framework used
-* <a href="https://material.angular.io/" target="_blank">Angular Material</a> 21.2.2 - The UI Component Library
+## Available Scripts
 
-## 📦 Deployment
+```bash
+npm start
+npm run build
+npm run lint
+npm run github
+npm run explore
+```
 
-You can check <a href="https://angular.dev/tools/cli/deployment#automatic-deployment-with-the-cli" target="_blank">Angular Deployment guide</a> to learn how to deploy this project.
+## Built With
 
-## 📄 License
+- [Angular](https://angular.dev/) 21.2.4
+- [Angular Material](https://material.angular.io/) 21.2.2
+- Zoneless change detection
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## Notes
+
+- The app is configured to run without `zone.js`.
+- The legacy Karma/Protractor test setup was removed from this project.
+
+## Deployment
+
+You can check the [Angular deployment guide](https://angular.dev/tools/cli/deployment#automatic-deployment-with-the-cli) to learn how to deploy this project.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
-🧑‍💻 Developed by [JancoBH](https://github.com/JancoBH)
+Developed by [JancoBH](https://github.com/JancoBH)

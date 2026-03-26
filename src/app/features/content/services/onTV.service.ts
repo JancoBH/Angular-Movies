@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../../../environments/environment';
@@ -7,13 +7,15 @@ import {environment} from '../../../../environments/environment';
   providedIn: 'root'
 })
 export class OnTVService {
+  private http = inject(HttpClient);
+
 
   baseUrl: string;
   apiKey: string;
   language: string;
   region: string;
 
-  constructor(private http: HttpClient) {
+  constructor() {
     this.baseUrl = 'https://api.themoviedb.org/3/';
     this.apiKey = environment.theMovieDBApi;
     this.language = 'en-US';

@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject, signal } from '@angular/core';
 import {PaginationModel} from '../../core/models/pagination.model';
 import {MoviesService} from './services/movies.service';
 import {take} from 'rxjs/operators';
@@ -14,6 +14,7 @@ import {TitleCasePipe} from "@angular/common";
     selector: 'app-movies',
     templateUrl: './content.component.html',
     styleUrls: ['./content.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
         MatPaginatorModule,
         MovieCardComponent,
@@ -23,18 +24,17 @@ import {TitleCasePipe} from "@angular/common";
     ]
 })
 export class ContentComponent implements OnInit {
+  private moviesService = inject(MoviesService);
+  private tvShowsService = inject(OnTVService);
+  private router = inject(Router);
+
 
   contentType = '';
-  nowPlaying: Array<PaginationModel> = [];
+  nowPlaying = signal<Array<PaginationModel>>([]);
 
-  totalResults: any;
+  totalResults = signal(0);
 
-  constructor(
-    private moviesService: MoviesService,
-    private tvShowsService: OnTVService,
-    private router: Router,
-    private cdr: ChangeDetectorRef,
-  ) {
+  constructor() {
     this.contentType = this.router.url.split('/')[1];
   }
 
@@ -51,9 +51,8 @@ export class ContentComponent implements OnInit {
   getNowPlayinMovies(page: number) {
     this.moviesService.getNowPlaying(page).pipe(take(1)).subscribe(
       res => {
-        this.totalResults = res.total_results;
-        this.nowPlaying = res.results;
-        this.cdr.detectChanges();
+        this.totalResults.set(res.total_results);
+        this.nowPlaying.set(res.results);
       }, () => {}
     );
   }
@@ -61,9 +60,8 @@ export class ContentComponent implements OnInit {
   getNowPlayinTVShows(page: number) {
     this.tvShowsService.getTvOnTheAir(page).pipe(take(1)).subscribe(
       res => {
-        this.totalResults = res.total_results;
-        this.nowPlaying = res.results;
-        this.cdr.detectChanges();
+        this.totalResults.set(res.total_results);
+        this.nowPlaying.set(res.results);
       }, () => {}
     );
   }

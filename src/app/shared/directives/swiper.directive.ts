@@ -1,4 +1,4 @@
-import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, Input, inject } from '@angular/core';
 import { SwiperContainer } from 'swiper/element';
 import { SwiperOptions } from 'swiper/types';
 
@@ -7,9 +7,9 @@ import { SwiperOptions } from 'swiper/types';
   standalone: true
 })
 export class SwiperDirective implements AfterViewInit {
-  @Input() config?: SwiperOptions;
+  private el = inject<ElementRef<SwiperContainer>>(ElementRef);
 
-  constructor(private el: ElementRef<SwiperContainer>) { }
+  @Input() config?: SwiperOptions;
 
   ngAfterViewInit(): void {
     Object.assign(this.el?.nativeElement, this.config);

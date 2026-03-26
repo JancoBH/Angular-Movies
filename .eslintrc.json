@@ -34,7 +34,10 @@
             "prefix": "app",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "@angular-eslint/no-async-lifecycle-method": "error",
+        "@angular-eslint/prefer-output-readonly": "error",
+        "@angular-eslint/use-lifecycle-interface": "error"
       }
     },
     {

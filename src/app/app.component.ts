@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, inject } from '@angular/core';
 import {isPlatformBrowser, NgClass} from '@angular/common';
 import {NavigationEnd, Router, RouterOutlet} from '@angular/router';
 import {themeColors} from './core/constants/theme-colors';
@@ -13,17 +13,15 @@ import {FooterComponent} from "./core/components/footer/footer.component";
     imports: [RouterOutlet, NavbarComponent, FooterComponent, NgClass]
 })
 export class AppComponent implements OnInit {
+  private router = inject(Router);
+  private platformId = inject(PLATFORM_ID);
+
 
   themeColorList = themeColors;
   themeColorEnum = Color;
   themeColorInit: string = Color.RED;
 
   private isBrowser: boolean = isPlatformBrowser(this.platformId);
-
-  constructor(
-    private router: Router,
-    @Inject(PLATFORM_ID) private platformId: any
-  ) {}
 
   ngOnInit() {
     this.router.events.subscribe((evt) => {

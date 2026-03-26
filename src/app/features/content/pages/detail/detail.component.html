@@ -1,28 +1,28 @@
-@if (isLoading) {
+@if (isLoading()) {
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 }
 
 <main class="content">
 
   <section class="content__main"
-           [style]="'background-image: url(' + 'https://image.tmdb.org/t/p/w1280' + content?.backdrop_path + ');'"
+           [style]="'background-image: url(' + 'https://image.tmdb.org/t/p/w1280' + content().backdrop_path + ');'"
   >
 
     <div class="content__container">
 
       <div class="content__info container">
 
-        <img [ngSrc]="'https://image.tmdb.org/t/p/w300_and_h450_bestv2/' + content?.poster_path" [width]="300" [height]="450" [alt]="content?.title">
+        <img [ngSrc]="'https://image.tmdb.org/t/p/w300_and_h450_bestv2/' + content().poster_path" [width]="300" [height]="450" [alt]="content().title">
 
         <div class="content__data">
 
-          <h2>{{content?.title ?? content?.name}} ({{content?.release_date ?? content?.first_air_date | date:'YYYY' }})</h2>
-          <h3>{{content?.tagline}}</h3>
+          <h2>{{content().title ?? content().name}} ({{content().release_date ?? content().first_air_date | date:'YYYY' }})</h2>
+          <h3>{{content().tagline}}</h3>
 
           <h4>Overview</h4>
-          <p>{{content?.overview}}</p>
+          <p>{{content().overview}}</p>
 
-          @if (video) {
+          @if (video()) {
             <button mat-flat-button color="primary" aria-label="Trailer" (click)="openDialog()" class="play-trailer">
               <mat-icon aria-hidden="false" fontIcon="play_arrow"></mat-icon> Play Trailer
             </button>
@@ -31,7 +31,7 @@
           <h4>Categories</h4>
 
           <div class="content__data--categories">
-            @for (genre of content?.genres; track genre.name) {
+            @for (genre of content().genres ?? []; track genre.name) {
               <button mat-raised-button color="primary" aria-label="Genres" disabled>{{genre.name}}</button>
             }
           </div>
@@ -46,13 +46,13 @@
 
   <!-- Mobile data  -->
   <section class="content__data-mobile">
-    <h2>{{content?.title ?? content?.name}} ({{content?.release_date ?? content?.first_air_date | date:'YYYY' }})</h2>
-    <h3>{{content?.tagline}}</h3>
+    <h2>{{content().title ?? content().name}} ({{content().release_date ?? content().first_air_date | date:'YYYY' }})</h2>
+    <h3>{{content().tagline}}</h3>
 
     <h4>Overview</h4>
-    <p>{{content?.overview}}</p>
+    <p>{{content().overview}}</p>
 
-    @if (video) {
+    @if (video()) {
       <button mat-flat-button color="primary" aria-label="Trailer" (click)="openDialog()" class="play-trailer">
         <mat-icon aria-hidden="false" fontIcon="play_arrow"></mat-icon> Play Trailer
       </button>
@@ -63,9 +63,9 @@
 
     <h2>Recommended Movies</h2>
 
-    @if (recomendedContentList.length > 0) {
+    @if (recomendedContentList().length > 0) {
       <div class="content__recommendations--cards">
-        @for (content of recomendedContentList; track content) {
+        @for (content of recomendedContentList(); track content) {
           <app-poster-card [model]="content" [isMovie]="contentType === 'movies'"></app-poster-card>
         }
       </div>
@@ -91,9 +91,9 @@
 
     <mat-dialog-content class="header-content-dialog">
 
-      @if (video) {
+      @if (video()) {
         <div class="video-movie-main">
-          <iframe [src]="video['url']" allowfullscreen></iframe>
+          <iframe [src]="video()?.['url']" allowfullscreen></iframe>
         </div>
       }
 

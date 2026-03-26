@@ -23,7 +23,7 @@ import {MatAnchor, MatIconButton} from "@angular/material/button";
 })
 export class NavbarComponent {
 
-  @Output() changeColorTheme: EventEmitter<string> = new EventEmitter();
+  @Output() readonly changeColorTheme: EventEmitter<string> = new EventEmitter();
 
   themeColorList = themeColors;
   themeColorInit: string = Color.RED;

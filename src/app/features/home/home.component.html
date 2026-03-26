@@ -15,12 +15,12 @@
     </h2>
 
     @defer {
-      <mat-tab-group (selectedTabChange)="tabMovieChange($event)" [selectedIndex]="selectedMovieTab" mat-align-tabs="end">
+      <mat-tab-group (selectedTabChange)="tabMovieChange($event)" [selectedIndex]="selectedMovieTab()" mat-align-tabs="end">
 
         @for (tab of movieTabList; track tab) {
           <mat-tab [label]="tab">
             <swiper-container appSwiper [config]="config" pagination="true" scrollbar="false">
-              @for (movie of moviesList | slice:0:15; track movie) {
+              @for (movie of moviesList() | slice:0:15; track movie) {
                 <swiper-slide>
                   <app-poster-card [model]="movie" [isMovie]="true"></app-poster-card>
                 </swiper-slide>
@@ -47,12 +47,12 @@
     </h2>
 
     @defer {
-      <mat-tab-group (selectedTabChange)="tabTVChange($event)" [selectedIndex]="selectedTVTab" mat-align-tabs="end">
+      <mat-tab-group (selectedTabChange)="tabTVChange($event)" [selectedIndex]="selectedTVTab()" mat-align-tabs="end">
 
         @for (tab of tvShowsTabList; track tab) {
           <mat-tab [label]="tab">
             <swiper-container appSwiper [config]="config" pagination="true" scrollbar="false">
-              @for (tvShow of tvShowsList | slice:0:15; track tvShow) {
+              @for (tvShow of tvShowsList() | slice:0:15; track tvShow) {
                 <swiper-slide>
                   <app-poster-card [model]="tvShow"></app-poster-card>
                 </swiper-slide>
