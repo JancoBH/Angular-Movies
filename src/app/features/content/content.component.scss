@@ -102,14 +102,14 @@
     }
 
     .active-genre {
-      color: var(--primary-color, #ff1a54) !important;
-      border-color: var(--primary-color, #ff1a54) !important;
-      background: rgba(223, 26, 84, 0.08) !important;
+      color: var(--primary-color) !important;
+      border-color: var(--primary-color) !important;
+      background: var(--primary-color-alpha) !important;
     }
 
     .active-filter {
       color: #fff !important;
-      background: var(--primary-color, #df1a54) !important;
+      background: #df1a54 !important;
       box-shadow: 0 4px 12px rgba(223, 26, 84, 0.25) !important;
     }
   }
@@ -203,14 +203,18 @@
   padding: 40px 0;
 }
 
-@keyframes skeleton-pulse {
-  0% {
-    opacity: 0.6;
-  }
-  50% {
-    opacity: 0.3;
-  }
-  100% {
-    opacity: 0.6;
+:host-context(.blue-theme) {
+  .active-filter {
+    background: #5a64ff !important;
+    box-shadow: 0 4px 12px rgba(90, 100, 255, 0.25) !important;
   }
 }
+
+:host-context(.green-theme) {
+  .active-filter {
+    background: #008942 !important;
+    box-shadow: 0 4px 12px rgba(0, 137, 66, 0.25) !important;
+  }
+}
+
+

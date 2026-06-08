@@ -10,6 +10,8 @@
         Airing Today {{contentType | titlecase}}
       } @else if (currentFilter() === 'on_the_air') {
         Currently Airing {{contentType | titlecase}}
+      } @else if (currentFilter() === 'top_rated') {
+        Top Rated {{contentType | titlecase}}
       } @else {
         {{currentFilter() | titlecase}} {{contentType | titlecase}}
       }

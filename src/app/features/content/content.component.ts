@@ -44,7 +44,7 @@ export class ContentComponent implements OnInit {
   currentFilter = signal<string>('now_playing');
   selectedGenreId = signal<string | null>(null);
   selectedGenreName = signal<string | null>(null);
-  genresList = signal<Array<any>>([]);
+  genresList = signal<Array<{ id: number; name: string }>>([]);
 
   constructor() {
     this.contentType = this.router.url.split('?')[0].split('/')[1];

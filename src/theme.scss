@@ -4,6 +4,11 @@
 
 @mixin palette($theme) {
   $primary-color: mat.get-theme-color($theme, primary, 50);
+  --primary-color: #{$primary-color};
+  --primary-color-alpha: #{rgba($primary-color, 0.08)};
+  --primary-color-shadow: #{rgba($primary-color, 0.25)};
+  --primary-color-shadow-hover: #{rgba($primary-color, 0.45)};
+
   ::selection { background-color: $primary-color; }
   .colored-hover:hover {color: $primary-color;}
   swiper-container::part(bullet-active) {background-color: $primary-color}
@@ -25,8 +30,8 @@ $theme: mat.define-theme((
   ),
 ));
 
-@include palette($theme);
 :root {
+  @include palette($theme);
   @include mat.all-component-themes($theme);
 }
 

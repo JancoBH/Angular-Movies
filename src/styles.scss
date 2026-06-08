@@ -90,7 +90,7 @@ a {
   height: 0;
   border-style: solid;
   border-width: 0 0 50px 50px;
-  border-color: transparent  transparent #df1a54 transparent ;
+  border-color: transparent transparent var(--primary-color) transparent;
   margin: -50px auto 0;
   animation: shk2 1s ease-in-out infinite alternate;
 }
@@ -167,4 +167,137 @@ a {
     padding-right: 15px;
     padding-left: 15px;
   }
+}
+
+/* Global Skeletons & Keyframes */
+@keyframes skeleton-pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+/* Category Chips */
+.category-chip {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Detail Page Skeleton */
+.content-skeleton {
+  .skeleton-main {
+    min-height: 570px;
+    background: #1a1a1a;
+  }
+
+  .skeleton-img {
+    width: 300px;
+    height: 450px;
+    min-width: 300px;
+    background: #2a2a2a;
+    border-radius: 6px;
+    animation: skeleton-pulse 1.5s infinite ease-in-out;
+
+    @media (max-width: $breakpoint-xs) {
+      width: calc(((100vw / 2) - 40px) / 1.5);
+      min-width: calc(((100vw / 2.2) - 40px) / 1.5);
+      height: calc((100vw / 2) - 40px);
+      min-height: calc((100vw / 2) - 40px);
+    }
+  }
+
+  .skeleton-title {
+    width: 350px;
+    max-width: 80%;
+    height: 32px;
+    background: #2a2a2a;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    animation: skeleton-pulse 1.5s infinite ease-in-out;
+  }
+
+  .skeleton-meta {
+    width: 140px;
+    height: 24px;
+    background: #2a2a2a;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    animation: skeleton-pulse 1.5s infinite ease-in-out;
+  }
+
+  .skeleton-tagline {
+    width: 200px;
+    height: 18px;
+    background: #2a2a2a;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    animation: skeleton-pulse 1.5s infinite ease-in-out;
+  }
+
+  .skeleton-overview-title {
+    width: 80px;
+    height: 18px;
+    background: #2a2a2a;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    animation: skeleton-pulse 1.5s infinite ease-in-out;
+  }
+
+  .skeleton-overview-text {
+    width: 100%;
+    height: 14px;
+    background: #2a2a2a;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    animation: skeleton-pulse 1.5s infinite ease-in-out;
+
+    &.short {
+      width: 60%;
+    }
+  }
+
+  .skeleton-categories {
+    display: flex;
+    gap: 8px;
+    margin-top: 25px;
+  }
+
+  .skeleton-category-btn {
+    width: 80px;
+    height: 36px;
+    background: #2a2a2a;
+    border-radius: 4px;
+    animation: skeleton-pulse 1.5s infinite ease-in-out;
+  }
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+app-footer {
+  display: block;
+  width: 100%;
 }

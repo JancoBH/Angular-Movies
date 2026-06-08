@@ -55,6 +55,7 @@ export class HomeComponent implements OnInit {
   });
 
   slidesOffsetBefore = computed(() => this.slidesOffsetAfter());
+  isMobile = computed(() => this.windowWidth() < 576);
 
 
   config: SwiperOptions = {

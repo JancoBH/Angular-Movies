@@ -1,4 +1,4 @@
-<div
+<div class="app-wrapper"
   [ngClass]="{
     'blue-theme': checkSelectedTheme(themeColorEnum.BLUE),
     'green-theme': checkSelectedTheme(themeColorEnum.GREEN)
@@ -8,7 +8,7 @@
   <app-navbar (changeColorTheme)="changeColorTheme($event)"></app-navbar>
 
   <!--Main Routing-->
-  <main role="main" style="min-height: 92vh">
+  <main role="main" style="flex: 1 0 auto;">
     <router-outlet></router-outlet>
   </main>
 
