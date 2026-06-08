@@ -17,11 +17,19 @@
           {{model.title ?? model.name}}
         </a>
       }
-      @if (model['release_date'] ?? model['first_air_date']) {
-        <p>
-          {{(model['release_date'] ?? model['first_air_date']) | date}}
-        </p>
-      }
+      <div class="poster__meta">
+        @if (model.vote_average) {
+          <span class="poster__rating">
+            <span class="poster__star">★</span>
+            {{model.vote_average | number:'1.1-1'}}
+          </span>
+        }
+        @if (model['release_date'] ?? model['first_air_date']) {
+          <span class="poster__date">
+            {{(model['release_date'] ?? model['first_air_date']) | date:'yyyy'}}
+          </span>
+        }
+      </div>
     </div>
 
   </div>

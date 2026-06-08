@@ -28,4 +28,4 @@ npm run build
 
 ## Deployment Notes
 
-GitHub Pages deploys through `.github/workflows/deploy-pages.yml`. The workflow requires a repository secret named `TMDB_API_KEY` and publishes the generated artifact with a `404.html` fallback for Angular routes.
+GitHub Pages deploys through `.github/workflows/deploy-pages.yml`. The clearest setup is to create `TMDB_API_KEY` inside `Settings > Environments > github-pages` as a Secret or Variable, because the build and deploy jobs run in that environment. Repository-level Actions secrets or variables also work.

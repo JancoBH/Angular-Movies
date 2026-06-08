@@ -73,11 +73,14 @@ The workflow in `.github/workflows/deploy-pages.yml` builds and deploys the app 
 
 Repository setup:
 
-1. Go to `Settings > Secrets and variables > Actions`.
-2. Add a repository secret named `TMDB_API_KEY` with a valid TMDB API key.
-3. Go to `Settings > Pages`.
-4. Set `Source` to `GitHub Actions`.
-5. Push to `main` or run the workflow manually.
+1. Go to `Settings > Pages`.
+2. Set `Source` to `GitHub Actions`.
+3. Go to `Settings > Environments > github-pages`.
+4. Open the `github-pages` environment.
+5. Add `TMDB_API_KEY` there as a Secret or Variable with a valid TMDB API key.
+6. Push to `master` or `main`, or run the workflow manually.
+
+You can also define `TMDB_API_KEY` at `Settings > Secrets and variables > Actions` at repository level, but using the `github-pages` environment is the clearest option because the deploy workflow runs inside that environment.
 
 The app is built with `baseHref: /Angular-Movies/` for this repository URL. If you fork or rename the repository, update the `github-pages.baseHref` value in `angular.json`.
 
@@ -91,7 +94,8 @@ That fallback makes direct visits such as `/Angular-Movies/movies/123-title` loa
 
 - `.env.local` is for local development and is ignored by Git.
 - `src/environments/environment.ts` is generated from `.env.local` before `npm start`.
-- `src/environments/environment.prod.ts` is generated from `TMDB_API_KEY` before production builds and GitHub Pages deploys.
+- `src/environments/environment.local.ts` is generated from `.env.local` for local Angular builds.
+- `src/environments/environment.prod.generated.ts` is generated from `TMDB_API_KEY` before production builds and GitHub Pages deploys.
 - TMDB API keys used in browser apps are public by nature. Restrict the key in TMDB settings when possible.
 - `core-js` and legacy Angular reflection polyfills are not required for Angular 22 and were removed.
 

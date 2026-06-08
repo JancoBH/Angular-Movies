@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, DestroyRef, OnInit, TemplateRef, ViewChild, inject, signal } from '@angular/core';
 import {PaginationModel} from '../../../../core/models/pagination.model';
 import {MoviesService} from '../../services/movies.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
 import {SeoService} from '../../../../core/services/seo.service';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
@@ -10,8 +10,7 @@ import {OnTVService} from "../../services/onTV.service";
 import {IMovie} from "../../interfaces/movie.interface";
 import {ITV} from "../../interfaces/tv.interface";
 import {IContent} from "../../interfaces/content.interface";
-import {DatePipe, NgOptimizedImage} from "@angular/common";
-import {MatProgressBar} from "@angular/material/progress-bar";
+import {DatePipe, DecimalPipe, NgOptimizedImage} from "@angular/common";
 import {CdkDrag, CdkDragHandle} from "@angular/cdk/drag-drop";
 import {MovieCardComponent} from "../../../../shared/components/poster-card-view/poster-card.component";
 import {MatIcon} from "@angular/material/icon";
@@ -25,15 +24,16 @@ import {MatDialog, MatDialogContent, MatDialogTitle} from "@angular/material/dia
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
         DatePipe,
+        DecimalPipe,
         CdkDrag,
         CdkDragHandle,
         MovieCardComponent,
-        MatProgressBar,
         MatIcon,
         MatButton,
         MatDialogContent,
         MatDialogTitle,
-        NgOptimizedImage
+        NgOptimizedImage,
+        RouterLink
     ]
 })
 export class DetailComponent implements OnInit {
@@ -56,7 +56,7 @@ export class DetailComponent implements OnInit {
   @ViewChild('matTrailerDialog') matTrailerDialog!: TemplateRef<any>;
 
   constructor() {
-    this.contentType = this.router.url.split('/')[1];
+    this.contentType = this.router.url.split('?')[0].split('/')[1];
   }
 
   ngOnInit() {

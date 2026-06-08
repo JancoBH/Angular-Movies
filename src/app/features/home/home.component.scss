@@ -13,8 +13,8 @@
 }
 
 .movies__container, .shows__container {
-  margin: 2rem 0;
-  min-height: 465px;
+  margin: 1rem 0;
+  min-height: 330px;
   position: relative;
 }
 
@@ -83,7 +83,21 @@
 }
 
 swiper-container {
-  margin-top: 30px;
+  margin-top: 15px;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+
+  // Pagination styling
+  --swiper-pagination-bullet-inactive-color: #999;
+  --swiper-pagination-bullet-inactive-opacity: 0.4;
+  --swiper-pagination-bullet-size: 8px;
+  --swiper-pagination-bullet-horizontal-gap: 4px;
 }
 
 ::ng-deep .swiper-slide-visible:not(.swiper-slide-fully-visible) {
@@ -98,12 +112,34 @@ swiper-container {
   border-bottom-color: transparent !important;
 }
 
-::ng-deep .mat-mdc-tab-body-wrapper {
-  min-height: 415px;
+::ng-deep {
+  .mat-mdc-tab-body-wrapper,
+  .mat-mdc-tab-body,
+  .mat-mdc-tab-body-content {
+    overflow: visible !important;
+  }
+  .mat-mdc-tab-body-wrapper {
+    min-height: 330px;
+  }
 }
 
 swiper-slide {
   padding-bottom: 2rem;
+  flex-shrink: 0;
+  width: calc((100vw - 2 * var(--content-left-margin) - 20px * 5) / 6.3);
+
+  @media (max-width: 1200px) {
+    width: calc((100vw - 2 * var(--content-left-margin) - 20px * 5.3) / 5.3);
+  }
+  @media (max-width: 992px) {
+    width: calc((100vw - 2 * var(--content-left-margin) - 15px * 4.3) / 4.3);
+  }
+  @media (max-width: 768px) {
+    width: calc((100vw - 2 * var(--content-left-margin) - 15px * 3.3) / 3.3);
+  }
+  @media (max-width: 576px) {
+    width: calc((100vw - 2 * var(--content-left-margin) - 10px * 2.3) / 2.3);
+  }
 }
 
 @include media-query($breakpoint-xs) {

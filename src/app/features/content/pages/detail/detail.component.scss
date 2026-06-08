@@ -6,6 +6,7 @@
   &__main {
     background-position: right;
     background-repeat: no-repeat;
+    background-size: cover;
     mask-image: linear-gradient(black 95%, transparent);
 
     // xs media query
@@ -40,7 +41,7 @@
 
     // xs media query
     @media (max-width: $breakpoint-xs) {
-      background-image: linear-gradient(to right, rgba(31.5, 31.5, 31.5, 1) 20%, rgba(31.5, 31.5, 31.5, 0) 50%);
+      background-image: linear-gradient(to right, #212121 20%, rgba(33, 33, 33, 0) 50%);
 
       img {
         margin-left: 20px;
@@ -68,6 +69,7 @@
     &--categories {
       display: flex;
       gap: 6px;
+      flex-wrap: wrap;
     }
 
     // xs media query
@@ -96,6 +98,7 @@
   }
 
   &__recommendations {
+    margin-bottom: 4rem;
 
     @media (min-width: $breakpoint-xs) and (max-width: $breakpoint-sm) {
       padding: 16px;
@@ -104,21 +107,24 @@
     &--cards {
       display: grid;
       grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: 8px;
+      gap: 24px;
 
-      // xs media query
-      @media (max-width: $breakpoint-xs) {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      // md media query with variables
+      @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
       }
 
       // sm media query with variables
       @media (min-width: $breakpoint-xs) and (max-width: $breakpoint-sm) {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
       }
 
-      // md media query with variables
-      @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+      // xs media query
+      @media (max-width: $breakpoint-xs) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
       }
 
     }
@@ -177,4 +183,221 @@
     height: 40vh;
   }
 
+}
+
+// Rating & Metadata styling
+.content__main {
+  background-color: #1a1a1a;
+}
+
+.content__meta-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 10px 0 18px 0;
+
+  @media (max-width: $breakpoint-xs) {
+    margin: 8px 0 12px 0;
+  }
+}
+
+.content__rating-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 184, 0, 0.1);
+  color: #ffb800;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 13px;
+  border: 1px solid rgba(255, 184, 0, 0.25);
+  letter-spacing: 0.3px;
+  line-height: 1;
+}
+
+.content__star {
+  margin-right: 4px;
+  font-size: 15px;
+  line-height: 1;
+  display: inline-block;
+  transform: translateY(-0.5px);
+}
+
+.content__rating-value {
+  line-height: 1;
+}
+
+.content__rating-source {
+  margin-left: 6px;
+  font-size: 9px;
+  font-weight: 800;
+  color: #1a1a1a;
+  background: #ffb800;
+  padding: 2px 4px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+.content__year-badge {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  line-height: 1;
+}
+
+// Play Trailer Button Styling
+.play-trailer {
+  border-radius: 24px !important;
+  padding: 10px 24px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 4px 12px rgba(223, 26, 84, 0.3) !important;
+
+  &:hover {
+    transform: translateY(-2px) scale(1.03) !important;
+    box-shadow: 0 8px 16px rgba(223, 26, 84, 0.5) !important;
+  }
+
+  &:active {
+    transform: translateY(0) scale(1) !important;
+  }
+
+  mat-icon {
+    font-size: 20px !important;
+    width: 20px !important;
+    height: 20px !important;
+    margin: 0 !important;
+  }
+}
+
+// Custom Category Chips
+.category-chip {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+// Skeleton Loader Styles
+.content-skeleton {
+  .skeleton-main {
+    min-height: 570px;
+    background: #1a1a1a;
+  }
+
+  .skeleton-img {
+    width: 300px;
+    height: 450px;
+    min-width: 300px;
+    background: #2a2a2a;
+    border-radius: 6px;
+    animation: skeleton-pulse 1.5s infinite ease-in-out;
+
+    @media (max-width: $breakpoint-xs) {
+      width: calc(((100vw / 2) - 40px) / 1.5);
+      min-width: calc(((100vw / 2.2) - 40px) / 1.5);
+      height: calc((100vw / 2) - 40px);
+      min-height: calc((100vw / 2) - 40px);
+    }
+  }
+
+  .skeleton-title {
+    width: 350px;
+    max-width: 80%;
+    height: 32px;
+    background: #2a2a2a;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    animation: skeleton-pulse 1.5s infinite ease-in-out;
+  }
+
+  .skeleton-meta {
+    width: 140px;
+    height: 24px;
+    background: #2a2a2a;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    animation: skeleton-pulse 1.5s infinite ease-in-out;
+  }
+
+  .skeleton-tagline {
+    width: 200px;
+    height: 18px;
+    background: #2a2a2a;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    animation: skeleton-pulse 1.5s infinite ease-in-out;
+  }
+
+  .skeleton-overview-title {
+    width: 80px;
+    height: 18px;
+    background: #2a2a2a;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    animation: skeleton-pulse 1.5s infinite ease-in-out;
+  }
+
+  .skeleton-overview-text {
+    width: 100%;
+    height: 14px;
+    background: #2a2a2a;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    animation: skeleton-pulse 1.5s infinite ease-in-out;
+
+    &.short {
+      width: 60%;
+    }
+  }
+
+  .skeleton-categories {
+    display: flex;
+    gap: 8px;
+    margin-top: 25px;
+  }
+
+  .skeleton-category-btn {
+    width: 80px;
+    height: 36px;
+    background: #2a2a2a;
+    border-radius: 4px;
+    animation: skeleton-pulse 1.5s infinite ease-in-out;
+  }
+}
+
+@keyframes skeleton-pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.6;
+  }
 }

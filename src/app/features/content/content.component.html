@@ -1,28 +1,86 @@
 <main class="contents container">
 
-  <h2>All {{contentType | titlecase}} #NowPlaying</h2>
+  <h2>
+    @if (currentFilter() === 'genre') {
+      {{selectedGenreName()}} {{contentType | titlecase}}
+    } @else {
+      @if (currentFilter() === 'now_playing') {
+        Now Playing {{contentType | titlecase}}
+      } @else if (currentFilter() === 'airing_today') {
+        Airing Today {{contentType | titlecase}}
+      } @else if (currentFilter() === 'on_the_air') {
+        Currently Airing {{contentType | titlecase}}
+      } @else {
+        {{currentFilter() | titlecase}} {{contentType | titlecase}}
+      }
+    }
+  </h2>
 
   <div class="contents__container">
 
     <mat-card class="contents__filter">
-      <div>Filter by</div>
-      <button mat-raised-button color="primary" aria-label="Set Now Playing filter" disabled>Now Playing</button>
-      <button mat-raised-button color="primary" aria-label="Set Upcoming filter" disabled>Upcoming</button>
-      <button mat-raised-button color="primary" aria-label="Set Popular filter" disabled>Popular</button>
+      <div class="filter-section">
+        <div class="filter-title">Filter by</div>
+        <div class="filter-buttons">
+          @if (contentType === 'movies') {
+            <button mat-flat-button [color]="currentFilter() === 'now_playing' ? 'primary' : ''" class="filter-btn" [class.active-filter]="currentFilter() === 'now_playing'" (click)="setFilter('now_playing')">Now Playing</button>
+            <button mat-flat-button [color]="currentFilter() === 'upcoming' ? 'primary' : ''" class="filter-btn" [class.active-filter]="currentFilter() === 'upcoming'" (click)="setFilter('upcoming')">Upcoming</button>
+            <button mat-flat-button [color]="currentFilter() === 'popular' ? 'primary' : ''" class="filter-btn" [class.active-filter]="currentFilter() === 'popular'" (click)="setFilter('popular')">Popular</button>
+            <button mat-flat-button [color]="currentFilter() === 'top_rated' ? 'primary' : ''" class="filter-btn" [class.active-filter]="currentFilter() === 'top_rated'" (click)="setFilter('top_rated')">Top Rated</button>
+          } @else {
+            <button mat-flat-button [color]="currentFilter() === 'airing_today' ? 'primary' : ''" class="filter-btn" [class.active-filter]="currentFilter() === 'airing_today'" (click)="setFilter('airing_today')">Airing Today</button>
+            <button mat-flat-button [color]="currentFilter() === 'on_the_air' ? 'primary' : ''" class="filter-btn" [class.active-filter]="currentFilter() === 'on_the_air'" (click)="setFilter('on_the_air')">On The Air</button>
+            <button mat-flat-button [color]="currentFilter() === 'popular' ? 'primary' : ''" class="filter-btn" [class.active-filter]="currentFilter() === 'popular'" (click)="setFilter('popular')">Popular</button>
+            <button mat-flat-button [color]="currentFilter() === 'top_rated' ? 'primary' : ''" class="filter-btn" [class.active-filter]="currentFilter() === 'top_rated'" (click)="setFilter('top_rated')">Top Rated</button>
+          }
+        </div>
+      </div>
+
+      <div class="filter-section mt-4">
+        <div class="filter-title">Genres</div>
+        <mat-form-field appearance="fill" class="genre-select-field">
+          <mat-label>Select Genre</mat-label>
+          <mat-select [value]="currentFilter() === 'genre' ? selectedGenreId() : null" 
+                      (selectionChange)="onGenreSelectChange($event.value)">
+            <mat-option [value]="null">All Genres</mat-option>
+            @for (genre of genresList(); track genre.id) {
+              <mat-option [value]="'' + genre.id">{{genre.name}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
     </mat-card>
 
     <div class="contents__right-side">
 
-      <div class="contents__list">
-        @for (content of nowPlaying(); track content) {
-          <app-poster-card [model]="content" [isMovie]="contentType === 'movies'"></app-poster-card>
-        }
-      </div>
+      @if (isLoading()) {
+        <!-- Skeleton Grid to prevent CLS -->
+        <div class="contents__list">
+          @for (i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]; track i) {
+            <div class="poster-skeleton-card">
+              <div class="skeleton-card-img"></div>
+              <div class="skeleton-card-title"></div>
+              <div class="skeleton-card-meta"></div>
+            </div>
+          }
+        </div>
+      } @else {
+        <div class="contents__list">
+          @for (content of nowPlaying(); track content) {
+            <app-poster-card [model]="content" [isMovie]="contentType === 'movies'"></app-poster-card>
+          } @empty {
+            <div class="no-results">No results found.</div>
+          }
+        </div>
+      }
 
-      <mat-paginator [length]="totalResults()"
-                     [pageSize]="20"
-                     (page)="changePage($event)">
-      </mat-paginator>
+      <div class="contents__paginator-wrapper">
+        <mat-paginator [length]="totalResults()"
+                       [pageSize]="20"
+                       [pageIndex]="currentPage()"
+                       (page)="changePage($event)">
+        </mat-paginator>
+      </div>
     </div>
 
   </div>

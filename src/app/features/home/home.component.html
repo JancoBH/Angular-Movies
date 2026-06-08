@@ -17,10 +17,12 @@
     @defer {
       <mat-tab-group (selectedTabChange)="tabMovieChange($event)" [selectedIndex]="selectedMovieTab()" mat-align-tabs="end">
 
-        @for (tab of movieTabList; track tab) {
+        @for (tab of movieTabList; track tab; let idx = $index) {
           <mat-tab [label]="tab">
-            <swiper-container appSwiper [config]="config" pagination="true" scrollbar="false">
-              @for (movie of moviesList() | slice:0:15; track movie) {
+            <swiper-container appSwiper [config]="config" pagination="true" scrollbar="false"
+                              [attr.slides-offset-before]="slidesOffsetBefore()"
+                              [attr.slides-offset-after]="slidesOffsetAfter()">
+              @for (movie of moviesData()[idx === 0 ? 'now_playing' : idx === 1 ? 'upcoming' : 'popular'] | slice:0:15; track movie.id) {
                 <swiper-slide>
                   <app-poster-card [model]="movie" [isMovie]="true"></app-poster-card>
                 </swiper-slide>
@@ -49,10 +51,12 @@
     @defer {
       <mat-tab-group (selectedTabChange)="tabTVChange($event)" [selectedIndex]="selectedTVTab()" mat-align-tabs="end">
 
-        @for (tab of tvShowsTabList; track tab) {
+        @for (tab of tvShowsTabList; track tab; let idx = $index) {
           <mat-tab [label]="tab">
-            <swiper-container appSwiper [config]="config" pagination="true" scrollbar="false">
-              @for (tvShow of tvShowsList() | slice:0:15; track tvShow) {
+            <swiper-container appSwiper [config]="config" pagination="true" scrollbar="false"
+                              [attr.slides-offset-before]="slidesOffsetBefore()"
+                              [attr.slides-offset-after]="slidesOffsetAfter()">
+              @for (tvShow of tvShowsData()[idx === 0 ? 'airing_today' : idx === 1 ? 'on_the_air' : 'popular'] | slice:0:15; track tvShow.id) {
                 <swiper-slide>
                   <app-poster-card [model]="tvShow"></app-poster-card>
                 </swiper-slide>

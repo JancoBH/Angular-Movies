@@ -3,10 +3,12 @@
 .contents {
   color: #fff;
   padding-top: 60px;
+  margin-bottom: 5rem;
 
   // xs media query
   @media (max-width: $breakpoint-xs) {
     padding: 0 16px 16px;
+    margin-bottom: 3rem;
   }
 
   &__container {
@@ -19,18 +21,96 @@
     @media (max-width: $breakpoint-xs) {
       flex-direction: column;
     }
-
   }
 
   &__filter {
     display: flex;
-    gap: 8px;
+    flex-direction: column;
+    gap: 16px;
     padding: 16px;
     width: 25%;
+    background: #1e1e1e !important;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 
     // xs media query
     @media (max-width: $breakpoint-xs) {
       width: 100%;
+    }
+
+    .filter-section {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mt-4 {
+      margin-top: 16px;
+    }
+
+    .filter-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .filter-buttons, .filter-genres {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .genre-select-field {
+      width: 100%;
+      margin-top: 4px;
+
+      ::ng-deep {
+        .mat-mdc-text-field-wrapper {
+          background-color: rgba(255, 255, 255, 0.04) !important;
+        }
+        .mat-mdc-form-field-flex {
+          border-radius: 6px;
+        }
+        .mat-mdc-select-value {
+          color: #fff !important;
+        }
+        .mat-mdc-select-arrow {
+          color: rgba(255, 255, 255, 0.5) !important;
+        }
+        .mat-mdc-form-field-label {
+          color: rgba(255, 255, 255, 0.5) !important;
+        }
+      }
+    }
+
+    .filter-btn, .genre-btn {
+      width: 100%;
+      text-align: left !important;
+      justify-content: flex-start !important;
+      font-size: 13px !important;
+      border-radius: 4px !important;
+      color: rgba(255, 255, 255, 0.7) !important;
+      transition: all 0.2s ease !important;
+
+      &:hover {
+        color: #fff !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+      }
+    }
+
+    .active-genre {
+      color: var(--primary-color, #ff1a54) !important;
+      border-color: var(--primary-color, #ff1a54) !important;
+      background: rgba(223, 26, 84, 0.08) !important;
+    }
+
+    .active-filter {
+      color: #fff !important;
+      background: var(--primary-color, #df1a54) !important;
+      box-shadow: 0 4px 12px rgba(223, 26, 84, 0.25) !important;
     }
   }
 
@@ -41,23 +121,96 @@
     @media (max-width: $breakpoint-xs) {
       width: 100%;
     }
+
+    mat-paginator {
+      background: transparent !important;
+      color: #fff !important;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  &__paginator-wrapper {
+    margin-top: 24px;
+    min-height: 56px;
+    margin-bottom: 2.5rem;
+
+    // xs media query
+    @media (max-width: $breakpoint-xs) {
+      margin-bottom: 1.5rem;
+    }
   }
 
   &__list {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 8px;
+    gap: 24px;
+
+    // md media query
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
 
     // xs media query
     @media (max-width: $breakpoint-xs) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
     }
-
-    // sm media query with variables
-    @media (min-width: $breakpoint-xs) and (max-width: $breakpoint-sm) {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
   }
+}
 
+// Skeleton List Cards
+.poster-skeleton-card {
+  width: 100%;
+  border-radius: 6px;
+  background: #1a1a1a;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: skeleton-pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton-card-img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  background: #2a2a2a;
+}
+
+.skeleton-card-title {
+  height: 14px;
+  background: #2a2a2a;
+  margin: 12px 12px 6px 12px;
+  border-radius: 3px;
+  width: 70%;
+}
+
+.skeleton-card-meta {
+  height: 12px;
+  background: #2a2a2a;
+  margin: 0 12px 12px 12px;
+  border-radius: 3px;
+  width: 40%;
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 40px 0;
+}
+
+@keyframes skeleton-pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.6;
+  }
 }

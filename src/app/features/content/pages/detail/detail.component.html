@@ -1,83 +1,147 @@
 @if (isLoading()) {
-  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-}
+  <!-- Skeleton Loader for Detail Page to prevent CLS -->
+  <main class="content content-skeleton">
+    <section class="content__main skeleton-main">
+      <div class="content__container">
+        <div class="content__info container">
+          <div class="skeleton-img"></div>
+          <div class="content__data">
+            <div class="skeleton-title"></div>
+            <div class="skeleton-meta"></div>
+            <div class="skeleton-tagline"></div>
+            <div class="skeleton-overview-title"></div>
+            <div class="skeleton-overview-text"></div>
+            <div class="skeleton-overview-text short"></div>
+            <div class="skeleton-categories">
+              <div class="skeleton-category-btn"></div>
+              <div class="skeleton-category-btn"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+} @else {
+  <main class="content">
 
-<main class="content">
+    <section class="content__main"
+             [style.background-image]="content().backdrop_path ? 'linear-gradient(to right, #333333 15%, rgba(51, 51, 51, 0.2) 60%, #333333 100%), linear-gradient(to top, #333333 0%, rgba(51, 51, 51, 0) 25%), url(https://image.tmdb.org/t/p/w1280' + content().backdrop_path + ')' : null"
+    >
 
-  <section class="content__main"
-           [style]="'background-image: url(' + 'https://image.tmdb.org/t/p/w1280' + content().backdrop_path + ');'"
-  >
+      <div class="content__container">
 
-    <div class="content__container">
+        <div class="content__info container">
 
-      <div class="content__info container">
+          <img [ngSrc]="'https://image.tmdb.org/t/p/w300_and_h450_bestv2/' + content().poster_path" [width]="300" [height]="450" [alt]="content().title">
 
-        <img [ngSrc]="'https://image.tmdb.org/t/p/w300_and_h450_bestv2/' + content().poster_path" [width]="300" [height]="450" [alt]="content().title">
+          <div class="content__data">
 
-        <div class="content__data">
+            <h2>{{content().title ?? content().name}}</h2>
 
-          <h2>{{content().title ?? content().name}} ({{content().release_date ?? content().first_air_date | date:'YYYY' }})</h2>
-          <h3>{{content().tagline}}</h3>
+            <div class="content__meta-row">
+              @if (content().vote_average) {
+                <span class="content__rating-badge">
+                  <span class="content__star">★</span>
+                  <span class="content__rating-value">{{content().vote_average | number:'1.1-1'}}</span>
+                  <span class="content__rating-source">TMDB</span>
+                </span>
+              }
+              @if (content().release_date ?? content().first_air_date) {
+                <span class="content__year-badge">
+                  {{content().release_date ?? content().first_air_date | date:'yyyy'}}
+                </span>
+              }
+            </div>
 
-          <h4>Overview</h4>
-          <p>{{content().overview}}</p>
-
-          @if (video()) {
-            <button mat-flat-button color="primary" aria-label="Trailer" (click)="openDialog()" class="play-trailer">
-              <mat-icon aria-hidden="false" fontIcon="play_arrow"></mat-icon> Play Trailer
-            </button>
-          }
-
-          <h4>Categories</h4>
-
-          <div class="content__data--categories">
-            @for (genre of content().genres ?? []; track genre.name) {
-              <button mat-raised-button color="primary" aria-label="Genres" disabled>{{genre.name}}</button>
+            @if (content().tagline) {
+              <h3>{{content().tagline}}</h3>
             }
+
+            <h4>Overview</h4>
+            <p>{{content().overview}}</p>
+
+            @if (video()) {
+              <button mat-flat-button color="primary" aria-label="Trailer" (click)="openDialog()" class="play-trailer">
+                <mat-icon aria-hidden="false" fontIcon="play_arrow"></mat-icon> Play Trailer
+              </button>
+            }
+
+            <h4>Categories</h4>
+
+            <div class="content__data--categories">
+              @for (genre of content().genres ?? []; track genre.id) {
+                <a [routerLink]="['/' + contentType]" [queryParams]="{ genre: genre.id, genreName: genre.name }" class="category-chip">{{genre.name}}</a>
+              }
+            </div>
+
           </div>
 
         </div>
 
       </div>
 
-    </div>
+    </section>
 
-  </section>
+    <!-- Mobile data  -->
+    <section class="content__data-mobile">
+      <h2>{{content().title ?? content().name}}</h2>
 
-  <!-- Mobile data  -->
-  <section class="content__data-mobile">
-    <h2>{{content().title ?? content().name}} ({{content().release_date ?? content().first_air_date | date:'YYYY' }})</h2>
-    <h3>{{content().tagline}}</h3>
-
-    <h4>Overview</h4>
-    <p>{{content().overview}}</p>
-
-    @if (video()) {
-      <button mat-flat-button color="primary" aria-label="Trailer" (click)="openDialog()" class="play-trailer">
-        <mat-icon aria-hidden="false" fontIcon="play_arrow"></mat-icon> Play Trailer
-      </button>
-    }
-  </section>
-
-  <section class="content__recommendations container">
-
-    <h2>Recommended Movies</h2>
-
-    @if (recomendedContentList().length > 0) {
-      <div class="content__recommendations--cards">
-        @for (content of recomendedContentList(); track content) {
-          <app-poster-card [model]="content" [isMovie]="contentType === 'movies'"></app-poster-card>
+      <div class="content__meta-row">
+        @if (content().vote_average) {
+          <span class="content__rating-badge">
+            <span class="content__star">★</span>
+            <span class="content__rating-value">{{content().vote_average | number:'1.1-1'}}</span>
+            <span class="content__rating-source">TMDB</span>
+          </span>
+        }
+        @if (content().release_date ?? content().first_air_date) {
+          <span class="content__year-badge">
+            {{content().release_date ?? content().first_air_date | date:'yyyy'}}
+          </span>
         }
       </div>
-    } @else {
-      <div class="content__no-recomended">
-        <mat-icon [inline]="true">sentiment_dissatisfied</mat-icon>
-        <span>No recommended movies</span>
-      </div>
-    }
 
-  </section>
-</main>
+      @if (content().tagline) {
+        <h3>{{content().tagline}}</h3>
+      }
+
+      <h4>Overview</h4>
+      <p>{{content().overview}}</p>
+
+      @if (video()) {
+        <button mat-flat-button color="primary" aria-label="Trailer" (click)="openDialog()" class="play-trailer">
+          <mat-icon aria-hidden="false" fontIcon="play_arrow"></mat-icon> Play Trailer
+        </button>
+      }
+
+      <h4>Categories</h4>
+      <div class="content__data--categories">
+        @for (genre of content().genres ?? []; track genre.id) {
+          <a [routerLink]="['/' + contentType]" [queryParams]="{ genre: genre.id, genreName: genre.name }" class="category-chip">{{genre.name}}</a>
+        }
+      </div>
+    </section>
+
+    <section class="content__recommendations container">
+
+      <h2>Recommended {{ contentType === 'movies' ? 'Movies' : 'TV Shows' }}</h2>
+
+      @if (recomendedContentList().length > 0) {
+        <div class="content__recommendations--cards">
+          @for (recomended of recomendedContentList(); track recomended) {
+            <app-poster-card [model]="recomended" [isMovie]="contentType === 'movies'"></app-poster-card>
+          }
+        </div>
+      } @else {
+        <div class="content__no-recomended">
+          <mat-icon [inline]="true">sentiment_dissatisfied</mat-icon>
+          <span>No recommended {{ contentType === 'movies' ? 'movies' : 'shows' }}</span>
+        </div>
+      }
+
+    </section>
+  </main>
+}
 
 <!--Dialogo video trailer-->
 <ng-template #matTrailerDialog>
