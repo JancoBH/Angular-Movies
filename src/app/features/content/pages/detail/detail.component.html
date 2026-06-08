@@ -93,7 +93,7 @@
 
       @if (video()) {
         <div class="video-movie-main">
-          <iframe [src]="video()?.['url']" allowfullscreen></iframe>
+          <iframe [src]="$safeNavigationMigration(video()?.['url'])" allowfullscreen></iframe>
         </div>
       }
 

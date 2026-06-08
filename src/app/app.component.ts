@@ -1,4 +1,4 @@
-import { Component, OnInit, PLATFORM_ID, inject } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, inject, ChangeDetectionStrategy } from '@angular/core';
 import {isPlatformBrowser, NgClass} from '@angular/common';
 import {NavigationEnd, Router, RouterOutlet} from '@angular/router';
 import {themeColors} from './core/constants/theme-colors';
@@ -10,6 +10,7 @@ import {FooterComponent} from "./core/components/footer/footer.component";
     selector: 'app-home',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [RouterOutlet, NavbarComponent, FooterComponent, NgClass]
 })
 export class AppComponent implements OnInit {
@@ -43,3 +44,4 @@ export class AppComponent implements OnInit {
   }
 
 }
+

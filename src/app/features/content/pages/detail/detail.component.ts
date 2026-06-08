@@ -53,7 +53,7 @@ export class DetailComponent implements OnInit {
   video = signal<IContent | null>(null);
   isLoading = signal(true);
 
-  @ViewChild('matTrailerDialog') matTrailerDialog: TemplateRef<any>;
+  @ViewChild('matTrailerDialog') matTrailerDialog!: TemplateRef<any>;
 
   constructor() {
     this.contentType = this.router.url.split('/')[1];
@@ -164,3 +164,4 @@ export class DetailComponent implements OnInit {
   }
 
 }
+

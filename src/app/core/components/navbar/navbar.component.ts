@@ -1,4 +1,4 @@
-import {Component, EventEmitter, HostListener, Output} from '@angular/core';
+import {Component, EventEmitter, HostListener, Output, ChangeDetectionStrategy} from '@angular/core';
 import {themeColors} from '../../constants/theme-colors';
 import {Color} from '../../enums/colors.enum';
 import {MatMenuModule} from "@angular/material/menu";
@@ -11,6 +11,7 @@ import {MatAnchor, MatIconButton} from "@angular/material/button";
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
     MatMenuModule,
     RouterLinkActive,
@@ -43,3 +44,4 @@ export class NavbarComponent {
   }
 
 }
+

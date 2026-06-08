@@ -4,7 +4,7 @@ import {MoviesService} from './services/movies.service';
 import {take} from 'rxjs/operators';
 import {Router} from "@angular/router";
 import {OnTVService} from "./services/onTV.service";
-import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatPaginatorModule, PageEvent} from "@angular/material/paginator";
 import {MovieCardComponent} from "../../shared/components/poster-card-view/poster-card.component";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
@@ -66,7 +66,7 @@ export class ContentComponent implements OnInit {
     );
   }
 
-  changePage(event) {
+  changePage(event: PageEvent) {
     if (this.contentType === 'movies') {
       this.getNowPlayinMovies(event.pageIndex + 1);
     } else {
@@ -75,3 +75,4 @@ export class ContentComponent implements OnInit {
   }
 
 }
+

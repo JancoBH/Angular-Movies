@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { NgOptimizedImage } from "@angular/common";
 
 @Component({
     selector: 'app-footer',
     templateUrl: './footer.component.html',
     styleUrls: ['./footer.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
     NgOptimizedImage
 ]
@@ -18,3 +19,4 @@ export class FooterComponent {
 
   constructor() { }
 }
+

@@ -41,3 +41,14 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# local environment
+.env.local
+.env*.local
+!.env.example
+src/environments/environment.local.ts
+src/environments/environment.prod.generated.ts
+
+# local agent skills
+/.agents/skills/
+

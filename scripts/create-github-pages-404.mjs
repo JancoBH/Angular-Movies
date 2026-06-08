@@ -1,6 +1,9 @@
-import { copyFile } from 'node:fs/promises';
+import { copyFile, mkdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
-const docsDir = resolve('docs');
+const outputDir = resolve(process.argv[2] ?? 'docs');
 
-await copyFile(resolve(docsDir, 'index.html'), resolve(docsDir, '404.html'));
+await mkdir(outputDir, { recursive: true });
+await copyFile(resolve(outputDir, 'index.html'), resolve(outputDir, '404.html'));
+
+console.log(`Created GitHub Pages fallback: ${resolve(outputDir, '404.html')}`);

@@ -5,6 +5,12 @@
       "source": "boise-state-development/agentcore-public-stack",
       "sourceType": "github",
       "computedHash": "96dfa8e20a1059a26b4a154d1fe93a520fba08f5d3b1ff5e135738b92a1dbc14"
+    },
+    "angular-developer": {
+      "source": "angular/skills",
+      "sourceType": "github",
+      "skillPath": "angular-developer/SKILL.md",
+      "computedHash": "bda1b480a934095b6000dd9e5648bc8760fe2684fc69cea2d20ae967b69e50b9"
     }
   }
 }

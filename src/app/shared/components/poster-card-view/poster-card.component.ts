@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {ImgMissingDirective} from "../../directives/img-missing.directive";
 import { DatePipe, NgOptimizedImage } from "@angular/common";
@@ -7,6 +7,7 @@ import { DatePipe, NgOptimizedImage } from "@angular/common";
     selector: 'app-poster-card',
     templateUrl: './poster-card.component.html',
     styleUrls: ['./poster-card.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
     RouterLink,
     ImgMissingDirective,
@@ -17,7 +18,9 @@ import { DatePipe, NgOptimizedImage } from "@angular/common";
 export class MovieCardComponent {
 
   @Input() model: any;
-  @Input() isMovie: boolean;
+  @Input() isMovie = false;
 
   constructor () {}
 }
+
+
